@@ -1,5 +1,18 @@
 # Feedback sobre o MCP do iFood
 
+## Sugestões, em ordem de impacto
+
+Cada sugestão vem de um comportamento medido no sandbox, detalhado nas seções abaixo. Descrevemos o comportamento que esperávamos, não a tecnologia: o motor de busca é de vocês.
+
+1. **Busca tolerante a sinônimos e a palavras a mais.** Hoje o `searchOffers` exige todas as palavras e não conhece sinônimos: "granola sem açúcar" (6 resultados) e "granola zero açúcar" (18) não têm nenhum produto em comum. Para não perder produtos, fazemos até 3 buscas por item e usamos um LLM para inventar variações de rótulo.
+2. **Campos estruturados em cada resultado:** categoria (`itemTaxonomy`), marca e peso ou volume da embalagem. Hoje isso só existe no nome do produto. Precisamos de um LLM para extrair, e a categoria só aparece como contagem agregada nos facets, então não dá para conferir um filtro antes de usá-lo (o `LEITE_CONDENSADO` escondeu todo o leite comum sem aviso).
+3. **Preço por quilo ou litro, e ordenação por preço só entre os relevantes.** Com `sort: PRICE`, "feijão" e "arroz branco" trazem tempero e lámen antes do produto. O preço por unidade permitiria comparar embalagens de tamanhos diferentes sem adivinhar o peso pelo nome.
+4. **Termos de exclusão** (algo como `excludeTerms: ["cappuccino", "tempero"]`). "café" devolve cappuccinos, sachês e até sabonete "café e amêndoas"; quem pede "café solúvel, não cappuccino" não tem como dizer isso à busca.
+5. **Busca em lote ou por cesta.** Uma lista de 5 itens vira umas 15 buscas, e uma sessão processa uma chamada por vez (5 chamadas em paralelo terminaram em 6,2 s, o mesmo que em sequência). Uma chamada com várias buscas, ou "melhor mercado para esta cesta", reduziria o tempo de 70 a 105 s por carrinho e a carga no servidor.
+6. **Limite de chamadas explícito.** Depois de ~60 chamadas em 1 a 2 minutos, o token recebe `INTERNAL` em todas as tools. Um 429 com `Retry-After` (ou o limite na documentação) deixaria o agente esperar o tempo certo, em vez de tratar como falha do servidor.
+
+## Achados
+
 Pontos encontrados na documentação, a confirmar na prática:
 
 - `getItem` devolve `optionGroups[].options[].optionId`, mas `createCart`/`addItemToCart` pedem `options[].customizations[].customizationId`, sem explicar o mapeamento.

@@ -374,6 +374,8 @@ Nunca coloque "barato", "perto", "rápido" ou preço nas buscas."""
 
 def _heuristic_plan(text: str, category: str, brand: str | None) -> dict:
     """Plano B sem LLM: limpeza de palavras que não vão em rótulo e a tabela fixa de sinônimos."""
+    # "café solúvel tradicional; não cappuccino" -> busca só o produto; as exclusões ficam para o juiz
+    text = re.split(r";|,|\b(?:não|nada de|sem ser)\b", text, maxsplit=1)[0].strip() or text
     parsed = heuristics.parse_item(text)
     specific = heuristics.clean_query(parsed["query"] or text)
     return {"specific": specific, "broad": heuristics.core_query(category, specific, brand),
@@ -506,10 +508,12 @@ decisão sobre um item do carrinho (ou fala do carrinho em geral). Transforme a 
 ação no carrinho e (2) uma regra de preferência para as próximas compras, quando a mensagem
 expressar uma preferência durável.
 Se o usuário disser que o produto escolhido não é o que ele quer e descrever o que quer de verdade
-("na verdade quero café em pó pra filtro"), proponha a regra product com a descrição do produto
-como ela aparece no rótulo de mercado, em 2 a 4 palavras ("café torrado e moído", "feijão carioca"),
-sem quantidade, tamanho ou palavras que não vão no nome do produto ("cru", "em grão", "pra filtro"),
-e com a categoria do item. Use a ação none.
+("na verdade quero café em pó pra filtro"), proponha a regra product com a categoria do item. A
+descrição começa pelo produto como aparece no rótulo de mercado, em 2 a 4 palavras ("café torrado e
+moído", "feijão carioca"), sem quantidade nem tamanho. Depois, separado por "; ", vem o que o usuário
+excluiu e o que ele liberou, nas palavras dele: "café solúvel tradicional; não cappuccino; qualquer
+marca ou intensidade". Não perca nenhuma exclusão ou liberação que ele disse. Sem cartão, use a
+ação none; com cartão, a ação pode trocar por uma alternativa que atenda.
 Tipos de regra e payload:
 - dietary {"tags": [LAC_FREE|SUGAR_FREE|VEGAN|VEGETARIAN|ORGANIC|GLUTEN_FREE]}
 - variety {"terms": ["integral"]}
@@ -517,7 +521,8 @@ Tipos de regra e payload:
 - brand_block {"brands": ["X"]}
 - merchant {"prefer": [merchantId], "block": [merchantId]}
 - delivery {"max_fee": número, "max_minutes": inteiro}
-- product {"description": "café em pó para filtro"} quando o usuário diz que tipo de produto quer para a categoria
+- product {"description": "café solúvel tradicional; não cappuccino; qualquer marca ou intensidade"} quando o
+  usuário diz que tipo de produto quer para a categoria
 - quantity {"exact": true, "max_overbuy": 1.1} quando o usuário quer a quantidade pedida e não uma embalagem maior
   ("peso exato", "não quero 1 kg se pedi 500 g"); max_overbuy é o quanto pode passar (1.1 = 10%)
 - note {"text": "..."} para o que não encaixa em nenhum tipo

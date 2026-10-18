@@ -105,3 +105,11 @@ async def test_judge_fallback_without_llm():
     out = await llm.judge_products("2 leite italac integral", "leite", ["integral"],
                                    ["Leite Integral Italac 1l", "Leite em Pó Integral Italac 400g", "Leite Desnatado Italac 1l"])
     assert [v["verdict"] for v in out] == ["exato", "nao_serve", "substituto"]
+
+
+def test_product_rule_exclusions_stay_out_of_the_search():
+    """A busca do iFood exige todas as palavras: "não cappuccino" na query não acharia nada. Fica para o juiz."""
+    plan = llm._heuristic_plan("café solúvel tradicional; não cappuccino; qualquer marca ou intensidade",
+                               "cafe soluvel", None)
+    assert plan["specific"] == "café solúvel tradicional" and plan["broad"] == "café solúvel"
+    assert llm._heuristic_plan("granola sem açúcar", "granola", None)["specific"] == "granola sem açúcar"
