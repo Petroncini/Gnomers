@@ -25,3 +25,6 @@ handoff/
 
 # Bancos locais do back-end (o token do iFood fica no banco)
 *.db
+
+# Artefatos de build do TypeScript
+*.tsbuildinfo

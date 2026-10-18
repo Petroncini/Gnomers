@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { api, brl, ListItem, planTarget, ShoppingList } from "../api";
+import { ParsedItem, ShoppingList, api, brl, planTarget } from "../api";
 import ItemRow, { Chips, ItemPatch } from "../components/ItemRow";
 
-type Parsed = Omit<ListItem, "id" | "list_id" | "raw_text" | "next_due">;
+type Parsed = ParsedItem & { recurrence_days?: number | null };
 
 export default function ListPage() {
   const { id } = useParams();

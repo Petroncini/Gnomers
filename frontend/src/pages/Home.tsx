@@ -1,22 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { api, brl, getPosition, savedAddressId, saveAddressId, ShoppingList, Suggestion } from "../api";
+import { AddressView, api, brl, getPosition, LocationResult, NearbyAddress, savedAddressId, saveAddressId, ShoppingList, Suggestion } from "../api";
 import SuggestionCard from "../components/SuggestionCard";
 import AddressPicker from "../components/AddressPicker";
 
-interface SavedAddress {
-  id: number;
-  alias: string | null;
-  formatted: string;
-  distance_m?: number;
-}
-
-interface LocationResult {
-  address: SavedAddress | null;
-  nearby: SavedAddress[];
-  needs_choice: boolean;
-  needs_address: boolean;
-}
+type SavedAddress = AddressView | NearbyAddress;
 
 const label = (a: SavedAddress) => a.alias ?? a.formatted;
 
@@ -56,7 +44,7 @@ export default function Home() {
   useEffect(() => {
     load();
     (async () => {
-      const saved = await api.get<SavedAddress[]>("/addresses").catch(() => [] as SavedAddress[]);
+      const saved = await api.get<AddressView[]>("/addresses").catch(() => [] as AddressView[]);
       setAddresses(saved);
       const stored = saved.find((a) => a.id === savedAddressId());
       if (stored) return choose(stored);
@@ -72,7 +60,7 @@ export default function Home() {
   }, []);
 
   const created = async (id: number | null) => {
-    const saved = await api.get<SavedAddress[]>("/addresses");
+    const saved = await api.get<AddressView[]>("/addresses");
     setAddresses(saved);
     const a = saved.find((x) => x.id === id);
     if (a) choose(a);

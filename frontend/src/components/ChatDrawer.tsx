@@ -1,17 +1,11 @@
 import { useEffect, useRef, useState } from "react";
-import { api, Decision, Plan, ProposedRule } from "../api";
+import { ChatResponse, Decision, Plan, ProposedRule, api } from "../api";
 import { RuleProposal } from "./RuleCard";
 
 interface Message {
   from: "user" | "agent";
   text: string;
   proposal?: ProposedRule;
-}
-
-interface ChatResponse {
-  reply: string;
-  proposed_rule: ProposedRule | null;
-  plan: Plan;
 }
 
 // Chat ancorado num cartão: a resposta vira ação no carrinho e, se fizer sentido, regra.

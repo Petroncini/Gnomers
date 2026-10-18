@@ -1,176 +1,41 @@
-// Cliente da API do back-end (rotas da seção 12 do plano), servido pelo proxy /api do Vite.
+// Cliente da API do back-end, servido pelo proxy /api do Vite.
+//
+// Os tipos vêm do contrato (contract/openapi.json), gerados em src/api-types.ts por
+// `npm run gen:api`. Não escreva interfaces de resposta à mão aqui: se faltar um campo,
+// ele precisa entrar em backend/app/schemas.py primeiro.
 
-export type Unit = "g" | "ml" | "un";
+import type { components } from "./api-types";
 
-export interface ListItem {
-  id: number;
-  list_id: number;
-  raw_text: string;
-  quantity: number;
-  category: string;
-  brand: string | null;
-  variety_terms: string[];
-  pack_size: number | null;
-  pack_unit: Unit | null;
-  query: string;
-  intention: "product" | "product_exact";
-  recurrence_days: number | null;
-  next_due: string | null;
-}
+type Schemas = components["schemas"];
 
-export interface ShoppingList {
-  id: number;
-  name: string;
-  recurrence_days: number | null;
-  next_due: string | null;
-  last_total: number | null;
-  item_count: number;
-  last_plan_id: number | null;
-  quality_profile: number | null;
-  max_merchants: number | null;
-  split_min_savings: number | null;
-  items?: ListItem[];
-}
-
-export interface Rule {
-  id: number;
-  scope: string;
-  category: string | null;
-  kind: string;
-  payload: Record<string, unknown>;
-  hardness: "hard" | "soft";
-  source: "user" | "chat" | "learned";
-  confidence: number;
-  active: boolean;
-  text: string;
-}
-
-export interface ProposedRule {
-  kind: string;
-  category: string | null;
-  hardness: "hard" | "soft";
-  payload: Record<string, unknown>;
-  text: string;
-  scope_options: string[];
-}
-
-export interface CartLine {
-  item_id: number;
-  sku_id: string;
-  cart_item_id: string | null;
-  name: string;
-  brand: string | null;
-  quantity: number;
-  unit_price: number;
-  image: string | null;
-}
-
-export interface Cart {
-  merchant_id: string;
-  merchant_name: string;
-  cart_id: string;
-  lines: CartLine[];
-  summary: { subtotal: number; delivery: number; fees: number; benefits: number; voucher: number; total: number };
-  voucher: { code: string; description: string | null; discount: number } | null;
-  delivery: { id: string; name: string; fee: number; eta: { min: number; max: number } | null;
-              slot: { from: string; to: string } | null } | null;
-  delivery_problem: string | null;
-  payment: { kind: string } | null;
-  warning: { userFriendlyMessage?: string; message?: string } | null;
-  blocking: boolean;
-}
-
-export interface Solution {
-  index: number;
-  carts: Cart[];
-  total: number;
-  estimated_total: number;
-  ok: boolean;
-  missing: number[];
-  errors: { merchant_name: string; error: { userMessage?: string } | string }[];
-}
-
-export interface Alternative {
-  sku_id: string;
-  merchant_id: string;
-  name: string;
-  brand: string | null;
-  price: number;
-  packs: number;
-  reasons: string[];
-}
-
-export interface Decision {
-  id: number;
-  type: string;
-  item_id: number | null;
-  category: string | null;
-  title: string;
-  text: string;
-  question: boolean;
-  status: "open" | "info" | "resolved";
-  resolution?: string;
-  chosen?: { sku_id: string; name: string; brand: string | null; price: number; packs: number; merchant_name: string };
-  alternatives: Alternative[];
-  saving?: number | null;
-}
-
-export interface PlanResult {
-  deliver_at?: string | null;
-  address?: { alias: string | null; formatted: string };
-  chosen?: Solution;
-  alternatives?: Solution[];
-  single_total?: number | null;
-  savings_vs_single?: number | null;
-  missing?: { item_id: number; raw_text: string }[];
-  decisions?: Decision[];
-  items?: { id: number; raw_text: string; category: string }[];
-  merchants?: Record<string, { name: string; delivery_fee: number; minimum_order: number; coverage: number }>;
-  error?: { code: string; message: string };
-  needs_address?: boolean;
-}
-
-export interface Order {
-  id: number;
-  merchant_name: string;
-  ifood_order_id: string | null;
-  total: number;
-  status: string;
-  pix: { code: string } | null;
-}
-
-export interface Plan {
-  id: number;
-  list_id: number;
-  status: "pending" | "running" | "ready" | "failed" | "ordered" | "needs_address";
-  error: string | null;
-  result: PlanResult;
-  orders?: Order[];
-}
-
-export interface ProgressEvent {
-  stage: string;
-  message?: string;
-  t: number;
-  code?: string;
-  needs_address?: boolean;
-}
-
-export interface Suggestion {
-  id: number;
-  kind: "promo" | "list_due";
-  text: string;
-  list_id: number | null;
-  data: Record<string, unknown>;
-}
-
-export interface Tracking {
-  status: { code: string; description: string } | null;
-  history: { code: string; description: string }[];
-  stopped: boolean;
-  retry_after_s: number | null;
-  stop_message: string | null;
-}
+export type Unit = NonNullable<Schemas["ListItemView"]["pack_unit"]>;
+export type ListItem = Schemas["ListItemView"];
+export type ParsedItem = Schemas["ParsedItem"];
+export type ShoppingList = Schemas["ShoppingListView"];
+export type Rule = Schemas["RuleView"];
+export type ProposedRule = Schemas["ProposedRule"];
+export type CartLine = Schemas["CartLine"];
+export type Cart = Schemas["Cart"];
+export type Solution = Schemas["Solution"];
+export type Alternative = Schemas["Alternative"];
+export type Decision = Schemas["Decision"];
+export type PlanResult = Schemas["PlanResult"];
+export type Order = Schemas["OrderView"];
+export type Plan = Schemas["PlanView"];
+export type ProgressEvent = Schemas["ProgressEvent"];
+export type Suggestion = Schemas["SuggestionView"];
+export type Tracking = Schemas["TrackingView"];
+export type AuthStatus = Schemas["AuthStatus"];
+export type UserView = Schemas["UserView"];
+export type AddressView = Schemas["AddressView"];
+export type NearbyAddress = Schemas["NearbyAddress"];
+export type LocationResult = Schemas["LocationResult"];
+export type CreateAddressResult = Schemas["CreateAddressResult"];
+export type AddressCandidate = Schemas["AddressCandidate"];
+export type ChatResponse = Schemas["ChatResponse"];
+export type DecisionResponse = Schemas["DecisionResponse"];
+export type CheckoutResponse = Schemas["CheckoutResponse"];
+export type PlanCreated = Schemas["PlanCreated"];
 
 export class ApiError extends Error {
   constructor(public status: number, message: string, public body?: unknown) {

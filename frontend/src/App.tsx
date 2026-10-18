@@ -1,18 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link, Route, Routes, useLocation } from "react-router-dom";
-import { api } from "./api";
+import { api, AuthStatus } from "./api";
 import Home from "./pages/Home";
 import ListPage from "./pages/ListPage";
 import Preferences from "./pages/Preferences";
 import CartPage from "./pages/CartPage";
 import OrderPage from "./pages/OrderPage";
-
-interface AuthStatus {
-  mode: string;
-  connected: boolean;
-  has_token: boolean;
-  llm: boolean;
-}
 
 export default function App() {
   const [auth, setAuth] = useState<AuthStatus | null>(null);

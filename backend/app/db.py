@@ -51,7 +51,8 @@ def init_db() -> None:
 
 
 def get_session() -> Iterator[Session]:
-    with Session(engine) as s:
+    # as rotas devolvem os objetos depois do commit; sem isso eles voltariam vazios
+    with Session(engine, expire_on_commit=False) as s:
         yield s
 
 

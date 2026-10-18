@@ -17,6 +17,7 @@ from sqlmodel import Session, select
 from sse_starlette.sse import EventSourceResponse
 
 from app import actions, llm, onboarding, scheduler
+from app import schemas as S
 from app.config import settings
 from app.db import advance_days, current_user, get_session, init_db, today
 from app.mcp.client import McpToolError, NotAuthenticated
@@ -67,7 +68,7 @@ async def _value_error(_: Request, exc: ValueError):
 
 # ---------------------------------------------------------------------- auth
 
-@app.get("/auth/status")
+@app.get("/auth/status", response_model=S.AuthStatus)
 async def auth_status(s: Session = Depends(get_session)):
     api = ifood()
     user = current_user(s)
@@ -105,7 +106,7 @@ async def auth_callback(code: str | None = None, state: str | None = None, iss: 
                         status_code=200 if ok else 400)
 
 
-@app.post("/auth/logout")
+@app.post("/auth/logout", response_model=S.Ok)
 async def auth_logout():
     api = ifood()
     if api.connection:
@@ -123,23 +124,23 @@ class ProfileIn(BaseModel):
     name: Optional[str] = None
 
 
-@app.get("/me")
+@app.get("/me", response_model=S.UserView)
 async def me(s: Session = Depends(get_session)):
     u = current_user(s)
     return u.model_dump(exclude={"ifood_token"}) | {"today": today().isoformat()}
 
 
-@app.patch("/me")
+@app.patch("/me", response_model=S.UserView)
 async def patch_me(body: ProfileIn, s: Session = Depends(get_session)):
     u = current_user(s)
     for k, v in body.model_dump(exclude_unset=True).items():
         setattr(u, k, v)
     s.add(u)
     s.commit()
-    return u.model_dump(exclude={"ifood_token"})
+    return u.model_dump(exclude={"ifood_token"}) | {"today": today().isoformat()}
 
 
-@app.post("/onboarding/import")
+@app.post("/onboarding/import", response_model=S.ImportResult)
 async def import_history(s: Session = Depends(get_session)):
     user = current_user(s)
     addrs = await address_mod.sync_addresses(s, ifood(), user.id)
@@ -172,14 +173,14 @@ def _list_view(s: Session, lst: ShoppingList, with_items: bool = False) -> dict:
     return data
 
 
-@app.get("/lists")
+@app.get("/lists", response_model=list[S.ShoppingListView])
 async def get_lists(s: Session = Depends(get_session)):
     user = current_user(s)
     lists = s.exec(select(ShoppingList).where(ShoppingList.owner_id == user.id).order_by(ShoppingList.id)).all()
     return [_list_view(s, lst) for lst in lists]
 
 
-@app.post("/lists")
+@app.post("/lists", response_model=S.ShoppingListView)
 async def create_list(body: ListIn, s: Session = Depends(get_session)):
     user = current_user(s)
     lst = ShoppingList(owner_id=user.id, name=body.name or "Nova lista", recurrence_days=body.recurrence_days,
@@ -197,12 +198,12 @@ def _get_list(s: Session, list_id: int) -> ShoppingList:
     return lst
 
 
-@app.get("/lists/{list_id}")
+@app.get("/lists/{list_id}", response_model=S.ShoppingListView)
 async def get_list(list_id: int, s: Session = Depends(get_session)):
     return _list_view(s, _get_list(s, list_id), True)
 
 
-@app.patch("/lists/{list_id}")
+@app.patch("/lists/{list_id}", response_model=S.ShoppingListView)
 async def patch_list(list_id: int, body: ListIn, s: Session = Depends(get_session)):
     lst = _get_list(s, list_id)
     for k, v in body.model_dump(exclude_unset=True).items():
@@ -214,7 +215,7 @@ async def patch_list(list_id: int, body: ListIn, s: Session = Depends(get_sessio
     return _list_view(s, lst, True)
 
 
-@app.delete("/lists/{list_id}")
+@app.delete("/lists/{list_id}", response_model=S.Ok)
 async def delete_list(list_id: int, s: Session = Depends(get_session)):
     lst = _get_list(s, list_id)
     for it in s.exec(select(ListItem).where(ListItem.list_id == list_id)).all():
@@ -243,13 +244,13 @@ class ParseIn(BaseModel):
     text: str
 
 
-@app.post("/items/parse")
+@app.post("/items/parse", response_model=S.ParsedItem)
 async def parse_preview(body: ParseIn):
     """Interpretação do texto enquanto o usuário digita (chips da tela da lista)."""
     return await llm.parse_item(body.text)
 
 
-@app.post("/lists/{list_id}/items")
+@app.post("/lists/{list_id}/items", response_model=S.ListItemView)
 async def add_item(list_id: int, body: ItemIn, s: Session = Depends(get_session)):
     _get_list(s, list_id)
     if not body.raw_text:
@@ -266,7 +267,7 @@ async def add_item(list_id: int, body: ItemIn, s: Session = Depends(get_session)
     return item
 
 
-@app.patch("/lists/{list_id}/items/{item_id}")
+@app.patch("/lists/{list_id}/items/{item_id}", response_model=S.ListItemView)
 async def patch_item(list_id: int, item_id: int, body: ItemIn, s: Session = Depends(get_session)):
     item = s.get(ListItem, item_id)
     if not item or item.list_id != list_id:
@@ -287,7 +288,7 @@ async def patch_item(list_id: int, item_id: int, body: ItemIn, s: Session = Depe
     return item
 
 
-@app.delete("/lists/{list_id}/items/{item_id}")
+@app.delete("/lists/{list_id}/items/{item_id}", response_model=S.Ok)
 async def delete_item(list_id: int, item_id: int, s: Session = Depends(get_session)):
     item = s.get(ListItem, item_id)
     if not item or item.list_id != list_id:
@@ -309,7 +310,7 @@ class RuleIn(BaseModel):
     source: Optional[Literal["user", "chat"]] = None
 
 
-@app.get("/rules")
+@app.get("/rules", response_model=list[S.RuleView])
 async def get_rules(scope: str | None = None, s: Session = Depends(get_session)):
     user = current_user(s)
     q = select(Rule).where(Rule.user_id == user.id)
@@ -318,7 +319,7 @@ async def get_rules(scope: str | None = None, s: Session = Depends(get_session))
     return [actions.rule_view(r) for r in s.exec(q.order_by(Rule.id)).all()]
 
 
-@app.post("/rules")
+@app.post("/rules", response_model=S.RuleView)
 async def post_rule(body: RuleIn, s: Session = Depends(get_session)):
     user = current_user(s)
     if not body.kind:
@@ -327,7 +328,7 @@ async def post_rule(body: RuleIn, s: Session = Depends(get_session)):
     return actions.rule_view(rule)
 
 
-@app.patch("/rules/{rule_id}")
+@app.patch("/rules/{rule_id}", response_model=S.RuleView)
 async def patch_rule(rule_id: int, body: RuleIn, s: Session = Depends(get_session)):
     rule = s.get(Rule, rule_id)
     if not rule:
@@ -342,7 +343,7 @@ async def patch_rule(rule_id: int, body: RuleIn, s: Session = Depends(get_sessio
     return actions.rule_view(rule)
 
 
-@app.delete("/rules/{rule_id}")
+@app.delete("/rules/{rule_id}", response_model=S.Ok)
 async def delete_rule(rule_id: int, s: Session = Depends(get_session)):
     rule = s.get(Rule, rule_id)
     if rule:
@@ -357,7 +358,7 @@ class CompileIn(BaseModel):
     list_id: Optional[int] = None
 
 
-@app.post("/rules/compile")
+@app.post("/rules/compile", response_model=S.ProposedRule)
 async def compile_rule(body: CompileIn):
     """Texto livre para uma regra proposta; a tela confirma antes de salvar."""
     out = await llm.extract_rule(body.text, {"type": "preference", "category": body.category, "alternatives": []})
@@ -378,7 +379,7 @@ class LocationIn(BaseModel):
     accuracy: Optional[float] = None
 
 
-@app.post("/location")
+@app.post("/location", response_model=S.LocationResult)
 async def location(body: LocationIn, s: Session = Depends(get_session)):
     user = current_user(s)
     addrs = await address_mod.sync_addresses(s, ifood(), user.id)
@@ -388,7 +389,7 @@ async def location(body: LocationIn, s: Session = Depends(get_session)):
             "needs_choice": chosen is None and bool(addrs), "needs_address": not addrs}
 
 
-@app.get("/addresses")
+@app.get("/addresses", response_model=list[S.AddressView])
 async def addresses(s: Session = Depends(get_session)):
     user = current_user(s)
     return [a.model_dump(mode="json") for a in await address_mod.sync_addresses(s, ifood(), user.id)]
@@ -404,7 +405,7 @@ class AddressIn(BaseModel):
     lng: Optional[float] = None
 
 
-@app.post("/addresses")
+@app.post("/addresses", response_model=S.CreateAddressResult)
 async def create_address(body: AddressIn, s: Session = Depends(get_session)):
     user = current_user(s)
     return await address_mod.create_address(s, ifood(), user.id, body.address, candidate_id=body.candidate_id,
@@ -422,7 +423,7 @@ class PlanIn(BaseModel):
     deliver_at: Optional[str] = None  # horário local, ex.: "2026-10-19T10:00"
 
 
-@app.post("/lists/{list_id}/plan")
+@app.post("/lists/{list_id}/plan", response_model=S.PlanCreated)
 async def create_plan(list_id: int, body: PlanIn, background: BackgroundTasks, s: Session = Depends(get_session)):
     user = current_user(s)
     _get_list(s, list_id)
@@ -451,7 +452,7 @@ def _get_plan(s: Session, plan_id: int) -> Plan:
     return plan
 
 
-@app.get("/plans/{plan_id}")
+@app.get("/plans/{plan_id}", response_model=S.PlanView)
 async def get_plan(plan_id: int, s: Session = Depends(get_session)):
     plan = _get_plan(s, plan_id)
     data = actions.plan_view(plan)
@@ -459,7 +460,9 @@ async def get_plan(plan_id: int, s: Session = Depends(get_session)):
     return data
 
 
-@app.get("/plans/{plan_id}/events")
+@app.get("/plans/{plan_id}/events", response_class=EventSourceResponse, responses={200: {
+    "model": S.ProgressEvent,
+    "description": "text/event-stream: eventos `progress` com este JSON, `ping` a cada 15 s e `end` no fim"}})
 async def plan_events(plan_id: int, request: Request):
     pe = events_for(plan_id)
 
@@ -495,7 +498,7 @@ class DecisionIn(BaseModel):
     rule: Optional[dict] = None
 
 
-@app.post("/plans/{plan_id}/decisions/{card_id}")
+@app.post("/plans/{plan_id}/decisions/{card_id}", response_model=S.DecisionResponse)
 async def decide(plan_id: int, card_id: int, body: DecisionIn, s: Session = Depends(get_session)):
     plan = _get_plan(s, plan_id)
     return await actions.answer_decision(s, ifood(), plan, card_id, body.action, sku_id=body.sku_id,
@@ -507,7 +510,7 @@ class ChatIn(BaseModel):
     card_id: Optional[int] = None
 
 
-@app.post("/plans/{plan_id}/chat")
+@app.post("/plans/{plan_id}/chat", response_model=S.ChatResponse)
 async def plan_chat(plan_id: int, body: ChatIn, s: Session = Depends(get_session)):
     plan = _get_plan(s, plan_id)
     return await actions.chat(s, ifood(), plan, body.card_id, body.message)
@@ -517,13 +520,13 @@ class CheckoutIn(BaseModel):
     accept_changes: bool = False
 
 
-@app.post("/plans/{plan_id}/checkout")
+@app.post("/plans/{plan_id}/checkout", response_model=S.CheckoutResponse)
 async def plan_checkout(plan_id: int, body: CheckoutIn, s: Session = Depends(get_session)):
     plan = _get_plan(s, plan_id)
     return await actions.checkout(s, ifood(), plan, accept_changes=body.accept_changes)
 
 
-@app.get("/orders/{order_id}/track")
+@app.get("/orders/{order_id}/track", response_model=S.TrackingView)
 async def track(order_id: int, s: Session = Depends(get_session)):
     order = s.get(Order, order_id)
     if not order:
@@ -533,13 +536,13 @@ async def track(order_id: int, s: Session = Depends(get_session)):
 
 # ------------------------------------------------------------ proatividade
 
-@app.get("/suggestions")
+@app.get("/suggestions", response_model=list[S.SuggestionView])
 async def suggestions(s: Session = Depends(get_session)):
     rows = s.exec(select(Suggestion).where(Suggestion.dismissed == False).order_by(Suggestion.id.desc())).all()  # noqa: E712
     return [r.model_dump(mode="json") for r in rows]
 
 
-@app.post("/suggestions/{sid}/dismiss")
+@app.post("/suggestions/{sid}/dismiss", response_model=S.Ok)
 async def dismiss(sid: int, s: Session = Depends(get_session)):
     sg = s.get(Suggestion, sid)
     if sg:
@@ -553,19 +556,19 @@ class SimulateIn(BaseModel):
     days: int = 7
 
 
-@app.post("/admin/simulate-days")
+@app.post("/admin/simulate-days", response_model=S.SimulateResult)
 async def simulate_days(body: SimulateIn):
     new_today = advance_days(body.days)
     created = await scheduler.run_daily()
     return {"today": new_today.isoformat(), "created": [c.model_dump(mode="json") for c in created]}
 
 
-@app.get("/debug/calls")
+@app.get("/debug/calls", response_model=list[dict[str, Any]])
 async def debug_calls(limit: int = 100):
     """Últimas chamadas ao MCP, para o painel técnico e para o feedback."""
     return ifood().recorder.log[-limit:]
 
 
-@app.get("/health")
-async def health() -> dict[str, Any]:
+@app.get("/health", response_model=S.Health)
+async def health():
     return {"ok": True, "mode": settings.mcp_mode}

@@ -1,20 +1,7 @@
 import { useState } from "react";
-import { api } from "../api";
-
-interface Candidate {
-  candidateId: string;
-  formattedAddress: string;
-  needsNeighborhood: boolean;
-  distance_km: number | null;
-}
+import { AddressCandidate as Candidate, api, CreateAddressResult as CreateResult } from "../api";
 
 const position = () => JSON.parse(sessionStorage.getItem("gnomers.pos") ?? "null") ?? {};
-
-interface CreateResult {
-  status: "created" | "confirm";
-  address_id?: number | null;
-  candidates?: Candidate[];
-}
 
 // Pede o endereço uma única vez e salva no iFood pelo createAddress em duas etapas.
 export default function AddressPicker({ onDone, onCancel }: { onDone: (addressId: number | null) => void; onCancel?: () => void }) {

@@ -1,13 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { api, ProposedRule, Rule, ShoppingList } from "../api";
+import { ProposedRule, Rule, ShoppingList, UserView, api } from "../api";
 import RuleCard, { RuleProposal } from "../components/RuleCard";
 
-interface Profile {
-  quality_profile: number;
-  max_merchants: number;
-  split_min_savings: number | null;
-}
+type Profile = Pick<UserView, "quality_profile" | "max_merchants" | "split_min_savings">;
 
 export default function Preferences() {
   const { id } = useParams();

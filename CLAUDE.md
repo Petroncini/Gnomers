@@ -23,6 +23,14 @@ O servidor `ifood` é configurado por pessoa com `python3 scripts/setup_ifood_mc
 - Testes: `cd backend && uv run pytest`. O solver é PuLP 2.9 com CBC; o PuLP 4 não traz solver e mudou a API.
 - Sem `ANTHROPIC_API_KEY`, as tarefas do LLM caem nas heurísticas de `app/heuristics.py`.
 
+## Trabalho em paralelo
+
+Back-end e front-end são desenvolvidos por pessoas diferentes. Cada pasta tem o próprio `CLAUDE.md` com os detalhes.
+
+- O contrato entre os dois é `contract/openapi.json`, gerado de `backend/app/schemas.py` (`uv run python -m app.contract`). O front gera os tipos dele com `npm run gen:api`.
+- Mexa só na sua pasta. Mudança de contrato vai no mesmo commit que o `openapi.json` regenerado e é combinada com a outra pessoa antes, se renomear ou remover campo.
+- `uv run pytest` (back) e `npm run build` (front) falham quando o contrato está fora de sincronia.
+
 ## Feedback do MCP (entregável 6)
 
 Contexto completo das decisões até aqui em `HANDOFF.md` (local, fora do git).
