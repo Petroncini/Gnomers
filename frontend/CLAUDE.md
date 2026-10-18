@@ -30,14 +30,16 @@ Back-end em outra porta: `GNOMERS_API=http://localhost:8090 npm run dev`. O `/do
 
 ## Mapa
 
-- `src/pages/`: `Home` (endereço, sugestões, listas), `ListPage` (itens com chips, horário de entrega, "Criar carrinho"), `Preferences` (regras e perfil, global ou por lista), `CartPage` (progresso, carrinhos por mercado, cartões de decisão, checkout), `OrderPage` (Pix e rastreio).
-- `src/components/`: `ItemRow`/`Chips`, `RuleCard`/`RuleProposal`, `DecisionCard`, `ChatDrawer`, `SuggestionCard`, `AddressPicker`.
-- `src/styles.css`: um arquivo só, com tokens de cor em `:root` e tema escuro por `prefers-color-scheme`. Sem biblioteca de UI.
+- Identidade visual e regras mobile first: `specs/spec-frontend-cesta.md` (na raiz). Marca na interface: **Cesta**.
+- `src/pages/`: `Home` (endereço, sugestões, próxima compra, listas), `ListPage` (itens, entrega, "Montar carrinho"; folhas de adicionar item, opções e horário), `ItemPage` (descrição, quantidade e "Como o agente entendeu"), `Preferences` (Perfil global com a barra inferior, ou preferências da lista), `AssistantPage` (`/carrinho/:id`: progresso, um conflito por vez e chat), `CartPage` (`/carrinho/:id/confirmar`: lojas, valores e checkout), `OrderPage` (Pix e rastreio).
+- `src/components/`: `ItemRow` (linha da lista e selos do item), `RuleCard`/`RuleProposal`, `DecisionCard` (`DecisionBubble` no chat, `ChoiceNote` no carrinho), `SuggestionCard`, `AddressPicker`.
+- `src/ui.tsx`: peças compartilhadas (`Header`, `PrimaryButton`, `Fab`, `Sheet`, `useToast`, `Thumb`, `Selo`, `BottomNav`, `ErrorStrip`, esqueletos).
+- `src/styles.css`: um arquivo só, com os tokens da spec em `:root`. Só tema claro (o escuro está fora do escopo da spec). Ícones do `lucide-react`; sem outra biblioteca de UI.
 
 ## Convenções
 
 - Texto da interface em português do Brasil. Valores em reais com `brl()` de `api.ts`.
-- Layout pensado para celular primeiro (largura de 360 px sem rolagem horizontal).
+- Layout pensado para celular primeiro (alvo 390 px; de 320 a 430 px sem rolagem horizontal; a partir de 600 px só centraliza a coluna de 480 px). Alvos de toque de 44 px, campos com 16 px de fonte, sem emoji.
 - Estado durável fica no back-end. `localStorage` só para conveniências do navegador (endereço escolhido, horário de entrega), sempre dentro de `try/catch`.
 - O total mostrado é sempre o `total` real do carrinho vindo da API; o front não recalcula preço.
 - Erros da API chegam como `ApiError` com `message` em português pronto para mostrar.

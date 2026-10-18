@@ -1,5 +1,5 @@
 // Service worker mínimo: guarda o shell do app para abrir offline. A API nunca é cacheada.
-const CACHE = "gnomers-v1";
+const CACHE = "gnomers-v2";
 self.addEventListener("install", (e) => e.waitUntil(caches.open(CACHE).then((c) => c.addAll(["/", "/icon.svg"]))));
 self.addEventListener("fetch", (e) => {
   const url = new URL(e.request.url);

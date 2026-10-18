@@ -1,9 +1,9 @@
 {
-  "name": "Gnomers: compras de mercado",
-  "short_name": "Gnomers",
+  "name": "Cesta: compras de mercado",
+  "short_name": "Cesta",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#f6f5f0",
-  "theme_color": "#1f6f4a",
+  "background_color": "#F7F7F7",
+  "theme_color": "#FFFFFF",
   "icons": [{ "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }]
 }

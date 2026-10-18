@@ -1,6 +1,8 @@
+import { Trash2 } from "lucide-react";
 import { api, ProposedRule, Rule } from "../api";
+import { IconButton, Selo, ruleBody, ruleSelos } from "../ui";
 
-const SOURCE_LABEL: Record<Rule["source"], string> = { user: "você", chat: "chat", learned: "aprendido" };
+const SOURCE_LABEL: Record<string, string> = { user: "Você", chat: "Pelo chat", learned: "Aprendido" };
 
 export default function RuleCard({ rule, onChange }: { rule: Rule; onChange: () => void }) {
   const toggle = async () => {
@@ -11,21 +13,24 @@ export default function RuleCard({ rule, onChange }: { rule: Rule; onChange: () 
     await api.del(`/rules/${rule.id}`);
     onChange();
   };
+  const switchId = `rule-${rule.id}`;
   return (
-    <div className={`rule-card ${rule.active ? "" : "off"}`}>
-      <div>
-        <p>{rule.text}</p>
-        <span className={`badge ${rule.source}`}>{SOURCE_LABEL[rule.source]}</span>
-        <span className="badge plain">{rule.hardness === "hard" ? "obrigatória" : "preferência"}</span>
+    <li className="info-row" style={{ alignItems: "flex-start", opacity: rule.active ? 1 : 0.6 }}>
+      <div className="grow" style={{ gap: 6, paddingTop: 4 }}>
+        <span className="row wrap" style={{ gap: 6 }}>
+          {ruleSelos(rule).slice(0, 1).map((u, i) => <Selo key={i} kind={u.kind} />)}
+          {rule.category && <span className="t-small muted">{rule.category}</span>}
+        </span>
+        <label htmlFor={switchId} className="t-body-strong">{ruleBody(rule)}</label>
+        <span className="t-caption">{SOURCE_LABEL[rule.source] ?? rule.source}</span>
       </div>
-      <div className="rule-actions">
-        <label className="switch" aria-label={rule.active ? "Desligar regra" : "Ligar regra"}>
-          <input type="checkbox" checked={rule.active} onChange={toggle} />
-          <span />
-        </label>
-        <button className="icon-btn" aria-label="Apagar regra" onClick={remove}>×</button>
-      </div>
-    </div>
+      <label className="switch">
+        <input id={switchId} type="checkbox" role="switch" checked={rule.active} onChange={toggle}
+               aria-label={rule.active ? "Regra ligada" : "Regra desligada"} />
+        <span />
+      </label>
+      <IconButton label="Apagar regra" ghost onClick={remove}><Trash2 size={18} aria-hidden="true" /></IconButton>
+    </li>
   );
 }
 
@@ -42,11 +47,15 @@ export function RuleProposal({ proposal, listId, onSaved, onDiscard }: {
   };
   return (
     <div className="rule-proposal">
-      <p>Salvar como regra? <strong>{proposal.text}</strong></p>
-      <div className="actions">
-        <button onClick={() => save("global")}>Todas as listas</button>
-        {listId && <button onClick={() => save(String(listId))}>Só esta lista</button>}
-        <button className="ghost" onClick={onDiscard}>Não salvar</button>
+      <span className="t-small" style={{ color: "var(--color-primary-strong)" }}>Salvar como regra?</span>
+      <span className="row" style={{ gap: 8, alignItems: "flex-start" }}>
+        {ruleSelos(proposal).slice(0, 1).map((u, i) => <Selo key={i} kind={u.kind} />)}
+        <strong className="t-body-strong">{proposal.text}</strong>
+      </span>
+      <div className="row wrap">
+        <button type="button" className="btn-secondary" onClick={() => save("global")}>Todas as listas</button>
+        {listId && <button type="button" className="btn-secondary" onClick={() => save(String(listId))}>Só esta lista</button>}
+        <button type="button" className="btn-text" onClick={onDiscard}>Não salvar</button>
       </div>
     </div>
   );

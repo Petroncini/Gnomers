@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { Copy } from "lucide-react";
 import { api, brl, Order, Plan, Tracking } from "../api";
+import { ErrorStrip, Header, ListSkeleton, PrimaryButton, initials, useToast } from "../ui";
 
 const STATUS_PT: Record<string, string> = {
   ORDER_CREATED: "Pedido criado", PAYMENT_DECLINED: "Pagamento recusado", CONFIRMED: "Confirmado pelo mercado",
@@ -10,7 +12,7 @@ const STATUS_PT: Record<string, string> = {
 
 function OrderCard({ order }: { order: Order }) {
   const [tracking, setTracking] = useState<Tracking | null>(null);
-  const [copied, setCopied] = useState(false);
+  const toast = useToast();
 
   // o intervalo de polling vem do retryMessage do trackOrder; para no pollingStop
   useEffect(() => {
@@ -32,33 +34,50 @@ function OrderCard({ order }: { order: Order }) {
 
   const copy = async () => {
     if (!order.pix) return;
-    await navigator.clipboard.writeText(order.pix.code);
-    setCopied(true);
+    try {
+      await navigator.clipboard.writeText(order.pix.code);
+      toast("Código Pix copiado");
+    } catch {
+      toast("Não deu para copiar; segure o código para selecionar");
+    }
   };
 
+  const history = tracking?.history ?? [];
   return (
-    <section className="order-card">
-      <header>
-        <h2>{order.merchant_name}</h2>
-        <strong>{brl(order.total)}</strong>
-      </header>
+    <section className="card store-card" aria-label={`Pedido em ${order.merchant_name}`}>
+      <div className="top">
+        <span className="store-logo" aria-hidden="true">{initials(order.merchant_name)}</span>
+        <div className="grow">
+          <span className="t-title-md">{order.merchant_name}</span>
+          <span className="t-caption">{STATUS_PT[history[history.length - 1]?.code] ?? "Pedido enviado"}</span>
+        </div>
+        <span className="price" style={{ fontSize: "1rem" }}>{brl(order.total)}</span>
+      </div>
+
       {order.pix ? (
-        <div className="pix">
-          <span className="muted small">Pix copia e cola</span>
-          <code>{order.pix.code}</code>
-          <button onClick={copy}>{copied ? "Copiado" : "Copiar código"}</button>
+        <div className="stack">
+          <span className="t-small" style={{ color: "var(--color-ink-2)" }}>Pix copia e cola</span>
+          <code className="pix-code">{order.pix.code}</code>
+          <PrimaryButton onClick={copy}><Copy size={18} aria-hidden="true" />Copiar código Pix</PrimaryButton>
         </div>
       ) : (
-        <p className="muted small">O iFood não devolveu o código Pix deste pedido; pague pelo app do iFood.</p>
+        <div className="notice plain"><span className="grow">O iFood não devolveu o código Pix deste pedido; pague pelo app do iFood.</span></div>
       )}
-      <ol className="tracking">
-        {(tracking?.history ?? []).slice().reverse().map((h, i) => (
-          <li key={i} className={i === (tracking?.history.length ?? 0) - 1 ? "current" : ""}>
-            {STATUS_PT[h.code] ?? h.code}
-          </li>
-        ))}
-      </ol>
-      {tracking?.stopped && <p className="muted small">Acompanhamento encerrado.</p>}
+
+      {history.length > 0 && (
+        <div className="stack">
+          <span className="t-small" style={{ color: "var(--color-ink-2)" }}>Acompanhamento</span>
+          <ol className="timeline">
+            {history.map((h, i) => (
+              <li key={i} className={i === history.length - 1 ? "current" : "done"}>
+                <span className="dot" aria-hidden="true" />
+                <span>{STATUS_PT[h.code] ?? h.code}</span>
+              </li>
+            ))}
+          </ol>
+        </div>
+      )}
+      {tracking?.stopped && <p className="t-caption">Acompanhamento encerrado.</p>}
     </section>
   );
 }
@@ -66,15 +85,24 @@ function OrderCard({ order }: { order: Order }) {
 export default function OrderPage() {
   const { planId } = useParams();
   const [plan, setPlan] = useState<Plan | null>(null);
-  useEffect(() => { api.get<Plan>(`/plans/${planId}`).then(setPlan); }, [planId]);
-  if (!plan) return <div className="page muted">Carregando…</div>;
-  const orders = plan.orders ?? [];
+  const [failed, setFailed] = useState(false);
+  const load = () => {
+    setFailed(false);
+    api.get<Plan>(`/plans/${planId}`).then(setPlan).catch(() => setFailed(true));
+  };
+  useEffect(load, [planId]);
+
+  const orders = plan?.orders ?? [];
   return (
-    <div className="page">
-      <Link to="/" className="muted small">← início</Link>
-      <h1>{orders.length > 1 ? `${orders.length} pedidos enviados` : "Pedido enviado"}</h1>
-      {orders.length > 1 && <p className="muted">Cada mercado é um pedido e um pagamento separado no iFood.</p>}
-      {orders.map((o) => <OrderCard key={o.id} order={o} />)}
+    <div className="screen">
+      {failed && <ErrorStrip onRetry={load} />}
+      <Header back="/" title={orders.length > 1 ? `${orders.length} pedidos enviados` : "Pedido enviado"} titleClass="t-title-lg"
+              subtitle={orders.length > 1 ? "Cada mercado é um pedido e um pagamento separado no iFood." : undefined} />
+      <main className="content">
+        {!plan && !failed && <ListSkeleton rows={2} height={200} />}
+        {orders.map((o) => <OrderCard key={o.id} order={o} />)}
+        {plan && <Link to="/" className="btn-text" style={{ alignSelf: "center" }}>Voltar ao início</Link>}
+      </main>
     </div>
   );
 }

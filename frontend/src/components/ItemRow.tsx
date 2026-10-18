@@ -1,7 +1,11 @@
-import { useState } from "react";
-import { ListItem, Unit } from "../api";
+import { Link } from "react-router-dom";
+import { ChevronRight } from "lucide-react";
+import { ListItem, Rule, Unit } from "../api";
+import { RestrictionTag, Thumb, Understanding, ruleSelos } from "../ui";
 
 export type ItemPatch = Partial<Pick<ListItem, "quantity" | "brand" | "variety_terms" | "pack_size" | "pack_unit" | "recurrence_days" | "raw_text">>;
+
+type ItemFacts = Pick<ListItem, "brand" | "variety_terms" | "pack_size" | "pack_unit" | "recurrence_days" | "category">;
 
 export function packLabel(size: number | null, unit: Unit | null): string | null {
   if (!size || !unit) return null;
@@ -10,66 +14,60 @@ export function packLabel(size: number | null, unit: Unit | null): string | null
   return `${size} un`;
 }
 
-// Interpretação do item em chips editáveis: quantidade, marca, variedade, embalagem e recorrência.
-export function Chips({ item, onPatch }: { item: Pick<ListItem, "quantity" | "brand" | "variety_terms" | "pack_size" | "pack_unit" | "recurrence_days">; onPatch?: (p: ItemPatch) => void }) {
-  const [editing, setEditing] = useState<string | null>(null);
-  const [value, setValue] = useState("");
+export const qtyLabel = (q: number) => `${q.toLocaleString("pt-BR")}×`;
 
-  const start = (field: string, current: string) => {
-    if (!onPatch) return;
-    setEditing(field);
-    setValue(current);
-  };
-
-  const commit = () => {
-    if (!onPatch || !editing) return;
-    const v = value.trim();
-    if (editing === "quantity") onPatch({ quantity: Math.max(1, Number(v.replace(",", ".")) || 1) });
-    if (editing === "brand") onPatch({ brand: v || null });
-    if (editing === "variety") onPatch({ variety_terms: v ? v.split(",").map((x) => x.trim()).filter(Boolean) : [] });
-    if (editing === "recurrence") onPatch({ recurrence_days: v ? Number(v) || null : null });
-    setEditing(null);
-  };
-
-  const chip = (field: string, label: string, current: string, kind = "") =>
-    editing === field ? (
-      <input key={field} className="chip-input" autoFocus value={value} onChange={(e) => setValue(e.target.value)}
-             onBlur={commit} onKeyDown={(e) => e.key === "Enter" && commit()} />
-    ) : (
-      <button key={field} type="button" className={`chip ${kind}`} onClick={() => start(field, current)}>{label}</button>
-    );
-
-  const pack = packLabel(item.pack_size, item.pack_unit);
-  return (
-    <span className="chips">
-      {chip("quantity", `${item.quantity}×`, String(item.quantity))}
-      {chip("brand", item.brand ?? "qualquer marca", item.brand ?? "", item.brand ? "brand" : "empty")}
-      {item.variety_terms.length > 0
-        ? chip("variety", item.variety_terms.join(", "), item.variety_terms.join(", "), "variety")
-        : onPatch && chip("variety", "+ variedade", "", "empty")}
-      {pack && <span className="chip pack">{pack}</span>}
-      {item.recurrence_days
-        ? chip("recurrence", `a cada ${item.recurrence_days} d`, String(item.recurrence_days), "rec")
-        : onPatch && chip("recurrence", "+ recorrência", "", "empty")}
-    </span>
-  );
+// A quantidade já aparece à direita: tira o "2 " ou "2x " do começo do texto digitado.
+export function displayName(rawText: string): string {
+  const unit = /^(?:kg|g|mg|ml|l|lt|litros?|gramas?|quilos?)$/i;
+  const m = rawText.match(/^\s*\d+(?:[.,]\d+)?\s*(?:x|×|un|unid(?:ades?)?)?\s+(?=\S)/i);
+  const rest = m ? rawText.slice(m[0].length) : rawText;
+  const name = (m && !unit.test(rest.split(/\s/)[0]) ? rest : rawText).trim();
+  return name.charAt(0).toUpperCase() + name.slice(1);
 }
 
-export default function ItemRow({ item, onPatch, onDelete }: { item: ListItem; onPatch: (p: ItemPatch) => void; onDelete: () => void }) {
-  const [editing, setEditing] = useState(false);
-  const [text, setText] = useState(item.raw_text);
+// Regras ligadas que valem para a categoria do item nesta lista (globais ou só dela).
+export function rulesFor(rules: Rule[], category: string, listId: number): Rule[] {
+  return rules.filter((r) => r.active && r.category === category && (r.scope === "global" || r.scope === String(listId)));
+}
 
+export function hasRestriction(item: ItemFacts, rules: Rule[]): boolean {
+  return !!item.brand || item.variety_terms.length > 0 || rules.length > 0;
+}
+
+// "Como o agente entendeu": a marca e a variedade do próprio item, depois as regras da categoria.
+export function understanding(item: ItemFacts, rules: Rule[]): Understanding[] {
+  const out: Understanding[] = [];
+  if (item.brand) out.push({ kind: "prefere", text: `marca ${item.brand}` });
+  if (item.variety_terms.length) out.push({ kind: "prefere", text: item.variety_terms.join(", ") });
+  for (const r of rules) out.push(...ruleSelos(r));
+  // a marca do item e uma regra aprendida costumam dizer a mesma coisa: mostra uma vez só
+  const seen = new Set<string>();
+  return out.filter((u) => {
+    const key = `${u.kind}|${u.text.toLocaleLowerCase("pt-BR")}`;
+    return !seen.has(key) && !!seen.add(key);
+  });
+}
+
+export function factsLine(item: ItemFacts): string | null {
+  const parts = [];
+  const pack = packLabel(item.pack_size, item.pack_unit);
+  if (pack) parts.push(`embalagem de ${pack}`);
+  if (item.recurrence_days) parts.push(`repete a cada ${item.recurrence_days} dias`);
+  return parts.length ? parts.join(" · ").replace(/^./, (c) => c.toUpperCase()) : null;
+}
+
+export default function ItemRow({ item, to, restricted }: { item: ListItem; to: string; restricted: boolean }) {
   return (
-    <li className="item-row">
-      {editing ? (
-        <input className="item-text" autoFocus value={text} onChange={(e) => setText(e.target.value)}
-               onBlur={() => { setEditing(false); if (text !== item.raw_text) onPatch({ raw_text: text }); }}
-               onKeyDown={(e) => e.key === "Enter" && (e.target as HTMLInputElement).blur()} />
-      ) : (
-        <button type="button" className="item-text" onClick={() => setEditing(true)}>{item.raw_text}</button>
-      )}
-      <Chips item={item} onPatch={onPatch} />
-      <button type="button" className="icon-btn" aria-label="Remover item" onClick={onDelete}>×</button>
+    <li>
+      <Link to={to} className="item-row">
+        <Thumb category={item.category} />
+        <span className="grow">
+          <span className="t-body-strong">{displayName(item.raw_text)}</span>
+          {restricted && <RestrictionTag />}
+        </span>
+        <span className="qty" aria-label={`quantidade ${item.quantity}`}>{qtyLabel(item.quantity)}</span>
+        <ChevronRight size={16} className="chev" aria-hidden="true" />
+      </Link>
     </li>
   );
 }
