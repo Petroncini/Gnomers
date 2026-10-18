@@ -26,6 +26,9 @@ log = logging.getLogger(__name__)
 
 MAX_IFOOD_CALLS = 6
 MAX_TURNS = 8
+MAX_TURNS_HISTORY = 10   # falas anteriores que vão junto com a mensagem nova
+MAX_SEEN = 40            # produtos vistos guardados no plano
+MAX_SEEN_SHOWN = 15      # e mostrados ao modelo
 
 SYSTEM = """Você é o assistente do Cesta, um app que monta carrinhos de mercado no iFood. O carrinho
 do cliente já está montado; você responde perguntas sobre ele e faz ajustes pedidos.
@@ -35,7 +38,7 @@ Como trabalhar:
 - Para achar produtos, use searchOffers. A query tem só o produto e a variedade ("café extraforte",
   "leite sem lactose"); nunca "barato", "perto", "rápido" nem preço. Para promoções use
   onlyWithPromotion. Para olhar um mercado do carrinho, passe o merchantId dele.
-- A busca exige todas as palavras e não conhece sinônimos. Se vier pouco ou nada do que o cliente
+- A busca só usa sinônimos quando nada casa literalmente. Se vier pouco ou nada do que o cliente
   quer, tente a outra forma de rótulo antes de concluir que não tem ("zero lactose" para "sem
   lactose", "zero açúcar" para "sem açúcar", "torrado e moído" para "moído").
 - Use só IDs que vieram de uma tool nesta conversa. Nunca invente IDs.
@@ -47,6 +50,10 @@ Como trabalhar:
 - Você tem no máximo 6 chamadas ao iFood (searchOffers e getItem) por mensagem.
 - Você não fecha o pedido nem paga.
 
+A conversa anterior e os produtos já vistos vêm antes da mensagem do cliente. Respostas curtas
+("sim", "pode", "o primeiro") se referem à sua última pergunta: faça o que você ofereceu. Para trocar
+por um produto já visto, use o itemId dele direto, sem buscar de novo.
+
 Responda em português, em até 3 frases curtas, com valores em R$. Escreva nomes de produtos e marcas
 entre ** (negrito), como **Leite Integral Italac 1l**. Não use outra formatação. Diga o que fez e o novo total
 quando mexer no carrinho. Não fale em "plano", "otimizador" ou IDs."""
@@ -57,8 +64,8 @@ TOOLS = [
                     "totais, itens em falta e o total que daria comprando tudo num mercado só.",
      "parameters": {"type": "object", "properties": {}, "additionalProperties": False}},
     {"name": "searchOffers",
-     "description": "Tool do MCP do iFood: busca produtos de mercado perto do cliente. Exige todas as "
-                    "palavras da query e não conhece sinônimos; prefira queries curtas.",
+     "description": "Tool do MCP do iFood: busca produtos de mercado perto do cliente. Casa as palavras "
+                    "literalmente e só usa sinônimos quando nada casa; prefira queries curtas.",
      "parameters": {"type": "object", "properties": {
          "query": {"type": "string", "description": "produto e variedade, sem qualificadores"},
          "merchantId": {"type": "string", "description": "opcional: restringe a um mercado (ID vindo de verCarrinho)"},
@@ -106,7 +113,8 @@ class _Session:
     def __init__(self, s: Session, api: Ifood, plan: Plan):
         self.s, self.api, self.plan = s, api, plan
         self.ifood_calls = 0
-        self.seen: dict[str, dict] = {}  # itemId -> oferta vista em searchOffers
+        # itemId -> oferta vista em searchOffers, nesta mensagem ou nas anteriores do mesmo carrinho
+        self.seen: dict[str, dict] = dict((plan.result or {}).get("chat_seen") or {})
         self.steps: list[str] = []
         self.proposal: dict | None = None
         self.lat, self.lng = plan.lat, plan.lng
@@ -281,10 +289,32 @@ class _Session:
 async def run(s: Session, api: Ifood, plan: Plan, message: str, card: dict | None = None) -> dict:
     """Responde uma mensagem do chat com tools. Levanta llm.LLMError se não houver LLM ou ele falhar."""
     sess = _Session(s, api, plan)
-    context = ""
+    context = _history(plan)
     if card:
-        context = (f"O cliente está olhando este aviso sobre o item {card.get('item_id')}: "
+        context += (f"O cliente está olhando este aviso sobre o item {card.get('item_id')}: "
                    f"{card.get('title')}. {card.get('text')}\n")
     reply = await llm.tool_loop(SYSTEM, f"{context}Cliente: {message}", TOOLS, sess.execute, max_turns=MAX_TURNS,
                                  strong=False)
+    # os produtos vistos ficam no plano: a próxima mensagem ("sim") pode trocar por eles sem nova busca
+    result = dict(plan.result or {})
+    result["chat_seen"] = dict(list(sess.seen.items())[-MAX_SEEN:])
+    plan.result = result
+    s.add(plan)
+    s.commit()
     return {"reply": reply.strip(), "proposed_rule": sess.proposal, "steps": sess.steps}
+
+
+def _history(plan: Plan) -> str:
+    """A conversa até aqui e os produtos já vistos, para o modelo entender respostas como "sim"."""
+    result = plan.result or {}
+    turns = (result.get("chat") or [])[-MAX_TURNS_HISTORY:]
+    seen = list((result.get("chat_seen") or {}).values())[-MAX_SEEN_SHOWN:]
+    parts = []
+    if turns:
+        lines = [f"{'Cliente' if t['role'] == 'user' else 'Você'}: {t['text']}" for t in turns]
+        parts.append("Conversa até agora:\n" + "\n".join(lines))
+    if seen:
+        lines = [f"- {o['nome']} | itemId {o['itemId']} | {o['merchant']} | R$ {o['preco']:.2f}"
+                 f"{' | mercado do carrinho' if o.get('mercado_no_carrinho') else ''}" for o in seen]
+        parts.append("Produtos já vistos nesta conversa:\n" + "\n".join(lines))
+    return "\n\n".join(parts) + "\n\n" if parts else ""

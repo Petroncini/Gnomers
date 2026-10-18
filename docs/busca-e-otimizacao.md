@@ -81,7 +81,7 @@ No `User` (e, se definido, sobrescrito na `ShoppingList`):
 
 ## 3. Busca, fase 1
 
-**Como a busca do iFood se comporta** (testado no sandbox em 18/10): é por palavras, não semântica, e **exige todas as palavras** da busca. Tolera plural e acento ("Açúcares" casa com "açúcar", "Grãos" com "grão"), parece olhar também a descrição do produto e não conhece sinônimos: "granola sem açúcar" não traz as granolas "Zero Açúcar". Cada palavra a mais na busca elimina resultados.
+**Como a busca do iFood se comporta** (testado no sandbox em 18/10): é híbrida. Primeiro tenta casar as palavras literalmente, tolerando plural, acento e erro de digitação ("granloa" traz granolas), e parece olhar também a descrição do produto. **Se algum produto casa, devolve só esses.** Só quando nada casa entra um modo semântico, que entende sinônimos ("bolacha recheada" traz "Biscoito Recheado"). Por isso "granola sem açúcar" devolve 6 resultados (3 deles leite de aveia) e nenhuma granola "Zero Açúcar", enquanto "granola sem açúcar crocante", que não casa literalmente, traz só as Zero Açúcar.
 
 Por isso cada item gera até três buscas, em paralelo. Quem decide as buscas é o LLM (tarefa
 `plan_searches`, uma vez por item, guardada em `ListItem.search_plan` e refeita quando o texto ou a marca

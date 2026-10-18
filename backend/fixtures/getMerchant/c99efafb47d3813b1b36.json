@@ -7,7 +7,7 @@
       "longitude": -47.89623
     }
   },
-  "recordedAt": "2026-10-18T09:10:59",
+  "recordedAt": "2026-10-18T11:45:37",
   "response": {
     "address": "Rua São Sebastião,, 1746, Centro, SAO CARLOS - SP, 13560230, BR",
     "agentHints": {
@@ -17,7 +17,7 @@
     "appDeeplink": "ifood://catalog-hub/6af300f4-e672-43ca-8ae8-9ee96a501894/GROCERIES",
     "catalogSummary": {
       "navigationHint": "Call `browseOffers` with `resultKind=ITEM`, the matching `merchantType`, and `refinements.merchantId=6af300f4-e672-43ca-8ae8-9ee96a501894` to browse items. Use `searchOffers` with `refinements.merchantId=6af300f4-e672-43ca-8ae8-9ee96a501894` for keyword search within this merchant.",
-      "totalItems": 6724
+      "totalItems": 6717
     },
     "deliveryMethods": [
       {

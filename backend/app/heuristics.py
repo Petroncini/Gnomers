@@ -227,8 +227,8 @@ def normalize_product(category: str, name: str, item_query: str = "") -> dict:
     }
 
 
-# Sinônimos de rótulo: a busca do iFood exige todas as palavras e não conhece sinônimo
-# ("granola sem açúcar" não acha "Granola Zero Açúcar"; sandbox, 18/10).
+# Sinônimos de rótulo: a busca do iFood só usa sinônimos quando nada casa literalmente
+# ("granola sem açúcar" casa com 6 produtos e não traz "Granola Zero Açúcar"; sandbox, 18/10).
 LABEL_SYNONYMS = [
     ["sem açúcar", "zero açúcar", "zero açúcares", "0% açúcar"],
     ["sem lactose", "zero lactose"],

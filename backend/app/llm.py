@@ -361,8 +361,9 @@ class SearchPlan(BaseModel):
 
 
 PLAN_SEARCHES_SYSTEM = """Você monta as buscas de um item de lista de compras no catálogo de mercados do iFood.
-A busca do iFood é por palavras: exige TODAS as palavras da busca no nome do produto, tolera plural e
-acento, e não conhece sinônimos ("granola sem açúcar" não acha "Granola Zero Açúcar").
+A busca do iFood casa as palavras literalmente (tolera plural, acento e erro de digitação) e só usa
+sinônimos quando nada casa: "granola sem açúcar" casa com poucos produtos e por isso não traz "Granola
+Zero Açúcar". Por isso cada forma de rótulo da variedade precisa da sua própria busca.
 Devolva:
 - specific: 2 a 4 palavras como estariam no rótulo (produto + variedade/marca pedida). Tire quantidade,
   tamanho, e palavras que não vão em rótulo ("cru", "em grão", "pra filtro", "do bom").

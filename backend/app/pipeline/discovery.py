@@ -168,8 +168,8 @@ async def discover(api: Ifood, queries: list[ItemQuery], lat: float, lng: float,
     merchants: dict[str, MerchantInfo] = {}
 
     # ---------------------------------------------------------- fase 1
-    # A busca do iFood é por palavras e exige todas: o texto do item sozinho perde produtos
-    # ("sem açúcar" não acha "Zero Açúcar"). Por item: a busca específica, a curta e um sinônimo.
+    # A busca do iFood só usa sinônimos quando nada casa literalmente: o texto do item sozinho perde
+    # produtos ("sem açúcar" não acha "Zero Açúcar"). Por item: a busca específica, a curta e um sinônimo.
     async def search(q: ItemQuery, text: str, intention: str):
         try:
             body = await api.search_items(text, lat, lng, intention=intention,

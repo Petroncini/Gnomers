@@ -1,0 +1,118 @@
+{
+  "tool": "createCart",
+  "args": {
+    "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
+    "addressId": "0b512c09-789f-41f5-8db8-d4c82954cf23",
+    "items": [
+      {
+        "itemId": "d9ff373a-44f6-4927-b942-4b64f3fe87cb",
+        "quantity": 1,
+        "options": []
+      },
+      {
+        "itemId": "bbf35701-96c1-4a78-8f24-c47d004baca7",
+        "quantity": 2,
+        "options": []
+      },
+      {
+        "itemId": "843edd40-47aa-4885-b2ea-34571f557e32",
+        "quantity": 1,
+        "options": []
+      },
+      {
+        "itemId": "105b0599-7e27-48a5-ba12-04585e3bde3b",
+        "quantity": 2,
+        "options": []
+      },
+      {
+        "itemId": "8c2a17da-64c8-4f7e-86a7-83200dc2c08f",
+        "quantity": 1,
+        "options": []
+      }
+    ]
+  },
+  "recordedAt": "2026-10-18T11:46:04",
+  "response": {
+    "cartId": "4c0caaa3-edbd-40d1-8bdb-9420ea89882c",
+    "merchant": {
+      "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
+      "merchantName": "Savegnago - Shopping Passeio - LJ 33",
+      "orderMinimumPrice": 60.0,
+      "formattedAddress": "Avenida Francisco Pereira Lopes, 1701 — Parque Santa Mônica, SAO CARLOS, SP"
+    },
+    "items": [
+      {
+        "itemId": "d9ff373a-44f6-4927-b942-4b64f3fe87cb",
+        "cartItemId": "8947d3b4-e8ba-446d-9024-eba33f9e9a00",
+        "quantity": 1,
+        "unitPrice": 3.99,
+        "name": "Arroz Longo Fino Tipo 1 Camil 1kg"
+      },
+      {
+        "itemId": "bbf35701-96c1-4a78-8f24-c47d004baca7",
+        "cartItemId": "ce32276d-5517-421b-b3c7-475d6438107a",
+        "quantity": 2,
+        "unitPrice": 5.79,
+        "name": "Leite Uht Integral com Tampa Italac 1l"
+      },
+      {
+        "itemId": "843edd40-47aa-4885-b2ea-34571f557e32",
+        "cartItemId": "064b0aeb-aa66-4457-a2de-8b079160434d",
+        "quantity": 1,
+        "unitPrice": 7.95,
+        "name": "Feijão Carioca Serra Azul Pacote 1kg"
+      },
+      {
+        "itemId": "105b0599-7e27-48a5-ba12-04585e3bde3b",
+        "cartItemId": "5641990e-f593-4175-b802-7d035967c05e",
+        "quantity": 2,
+        "unitPrice": 9.9,
+        "name": "Granola Kobber 250g Tradicional"
+      },
+      {
+        "itemId": "8c2a17da-64c8-4f7e-86a7-83200dc2c08f",
+        "cartItemId": "eb39674e-39f2-46e4-9abb-7b1cb7987e53",
+        "quantity": 1,
+        "unitPrice": 18.95,
+        "name": "Café Torrado e Moído a Vácuo Tradicional Brasileiro 500g"
+      }
+    ],
+    "deliveryAddress": {
+      "streetName": "Rua São Sebastião",
+      "streetNumber": "1455",
+      "neighborhood": "Centro"
+    },
+    "deliveryMethod": {
+      "deliveryMethodId": "DEFAULT",
+      "deliveryMethodMode": "DELIVERY",
+      "deliveryMethodName": "Padrão",
+      "fee": 9.99,
+      "estimatedMinutes": {
+        "min": 100,
+        "max": 110
+      }
+    },
+    "fees": [
+      {
+        "name": "Taxa de serviço",
+        "description": "Cobramos uma taxa que nos ajuda a cobrir custos operacionais, inclusive de segurança, e a manter os investimentos contínuos na plataforma.",
+        "amount": 1.99
+      }
+    ],
+    "summary": {
+      "totalName": "Valor total",
+      "totalAmount": 74.25,
+      "subtotalName": "Valor dos itens",
+      "subtotalAmount": 62.27,
+      "deliveryFeeName": "Valor da taxa de entrega",
+      "deliveryFeeAmount": 9.99,
+      "feeTotalName": "Valor das taxas e serviços",
+      "feeTotalAmount": 1.99,
+      "benefitsTotalName": "Valor dos benefícios",
+      "benefitsTotalAmount": 0.0,
+      "voucherTotalName": "Valor dos cupons",
+      "voucherTotalAmount": 0.0
+    },
+    "appDeeplink": "ifood://cart?cartId=4c0caaa3-edbd-40d1-8bdb-9420ea89882c"
+  }
+}

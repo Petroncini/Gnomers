@@ -14,7 +14,7 @@
     },
     "pageSize": 25
   },
-  "recordedAt": "2026-10-18T09:10:30",
+  "recordedAt": "2026-10-18T11:45:08",
   "response": {
     "agentHints": {
       "nextStepWhenUserPicksItem": "Retrieve full item details — option groups and applicable promotions — before presenting it to the user."
@@ -92,8 +92,8 @@
             "deliveryMethodId": "FAST_DELIVERY",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 57,
-              "min": 47
+              "max": 49,
+              "min": 39
             },
             "fee": 12.99,
             "promotionalFee": 12.99
@@ -198,11 +198,10 @@
         "unitPrice": 27.99
       },
       {
-        "itemEan": "7896038321032",
-        "itemId": "19145c33-1df0-48e5-adfa-b90841a541cb",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510031818_yi6ys3jii5.jpeg",
-        "itemName": "Arroz Branco Tio Urbano Pacote 5kg",
-        "itemSkuId": "SKU-LVJP76602",
+        "itemEan": "7896290300011",
+        "itemId": "84d23fb7-c2ea-4435-80dd-0c7663dc9816",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510031433_ls39feod7t.jpeg",
+        "itemName": "Arroz Branco Tipo 1 Prato Fino 5kg",
         "merchant": {
           "deliveryMethod": {
             "deliveryMethodId": "FAST_DELIVERY",
@@ -223,8 +222,8 @@
           "reviewRating": 4.900000095367432,
           "straightLineDistanceKm": 0.27
         },
-        "promotionalUnitPrice": 25.64,
-        "unitPrice": 26.99
+        "promotionalUnitPrice": 27.19,
+        "unitPrice": 33.99
       },
       {
         "itemEan": "7893500020158",
@@ -256,10 +255,11 @@
         "unitPrice": 30.99
       },
       {
-        "itemEan": "7896290300011",
-        "itemId": "84d23fb7-c2ea-4435-80dd-0c7663dc9816",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510031433_ls39feod7t.jpeg",
-        "itemName": "Arroz Branco Tipo 1 Prato Fino 5kg",
+        "itemEan": "7896038321032",
+        "itemId": "19145c33-1df0-48e5-adfa-b90841a541cb",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510031818_yi6ys3jii5.jpeg",
+        "itemName": "Arroz Branco Tio Urbano Pacote 5kg",
+        "itemSkuId": "SKU-LVJP76602",
         "merchant": {
           "deliveryMethod": {
             "deliveryMethodId": "FAST_DELIVERY",
@@ -280,8 +280,8 @@
           "reviewRating": 4.900000095367432,
           "straightLineDistanceKm": 0.27
         },
-        "promotionalUnitPrice": 27.19,
-        "unitPrice": 33.99
+        "promotionalUnitPrice": 25.64,
+        "unitPrice": 26.99
       },
       {
         "itemEan": "7896006711155",
@@ -342,35 +342,6 @@
         "unitPrice": 34.99
       },
       {
-        "itemEan": "7893500020158",
-        "itemId": "6716645f-55ab-4047-861e-bedc25f8646f",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510042209_ei5b7fnt57n.jpeg",
-        "itemName": "Arroz Branco Tio João T1 5kg",
-        "itemSkuId": "SKU-BNJC03352",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "FAST_DELIVERY",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 57,
-              "min": 47
-            },
-            "fee": 12.99,
-            "promotionalFee": 12.99
-          },
-          "isOpen": true,
-          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
-          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
-          "minimumOrderAmount": 60,
-          "ratingCount": 1867,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 1.26
-        },
-        "promotionalUnitPrice": 26.55,
-        "unitPrice": 26.55
-      },
-      {
         "itemEan": "7895000318629",
         "itemId": "f03a106f-7c1e-49b2-bd4d-d28f6b9d6515",
         "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202408261322_ec6nhp7hv0g.png",
@@ -400,16 +371,18 @@
         "unitPrice": 4.89
       },
       {
-        "itemEan": "7896024210494",
-        "itemId": "73011468-afe4-495d-a66e-5615b112cf9b",
-        "itemName": "Arroz Branco Camil Tipo 1 5kg",
+        "itemEan": "7893500020158",
+        "itemId": "6716645f-55ab-4047-861e-bedc25f8646f",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510042209_ei5b7fnt57n.jpeg",
+        "itemName": "Arroz Branco Tio João T1 5kg",
+        "itemSkuId": "SKU-BNJC03352",
         "merchant": {
           "deliveryMethod": {
             "deliveryMethodId": "FAST_DELIVERY",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 57,
-              "min": 47
+              "max": 49,
+              "min": 39
             },
             "fee": 12.99,
             "promotionalFee": 12.99
@@ -423,8 +396,8 @@
           "reviewRating": 4.900000095367432,
           "straightLineDistanceKm": 1.26
         },
-        "promotionalUnitPrice": 22.9,
-        "unitPrice": 22.9
+        "promotionalUnitPrice": 26.55,
+        "unitPrice": 26.55
       },
       {
         "itemEan": "7893500020110",
@@ -437,8 +410,8 @@
             "deliveryMethodId": "FAST_DELIVERY",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 57,
-              "min": 47
+              "max": 49,
+              "min": 39
             },
             "fee": 12.99,
             "promotionalFee": 12.99
@@ -466,8 +439,8 @@
             "deliveryMethodId": "FAST_DELIVERY",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 57,
-              "min": 47
+              "max": 49,
+              "min": 39
             },
             "fee": 12.99,
             "promotionalFee": 12.99
@@ -485,6 +458,33 @@
         "unitPrice": 28.9
       },
       {
+        "itemEan": "7896024210494",
+        "itemId": "73011468-afe4-495d-a66e-5615b112cf9b",
+        "itemName": "Arroz Branco Camil Tipo 1 5kg",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "FAST_DELIVERY",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 49,
+              "min": 39
+            },
+            "fee": 12.99,
+            "promotionalFee": 12.99
+          },
+          "isOpen": true,
+          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
+          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1867,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.26
+        },
+        "promotionalUnitPrice": 22.9,
+        "unitPrice": 22.9
+      },
+      {
         "itemEan": "7896290300011",
         "itemId": "f9685e5f-dfd3-4de1-857a-163508fbed85",
         "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510031433_ls39feod7t.jpeg",
@@ -494,8 +494,8 @@
             "deliveryMethodId": "FAST_DELIVERY",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 46,
-              "min": 36
+              "max": 40,
+              "min": 30
             },
             "fee": 13.99,
             "promotionalFee": 13.99
@@ -523,8 +523,8 @@
             "deliveryMethodId": "FAST_DELIVERY",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 46,
-              "min": 36
+              "max": 40,
+              "min": 30
             },
             "fee": 13.99,
             "promotionalFee": 13.99
@@ -542,93 +542,6 @@
         "unitPrice": 13.99
       },
       {
-        "itemEan": "7895000318629",
-        "itemId": "db4929b2-3cdc-4210-b55c-d05135a64e34",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202408261322_ec6nhp7hv0g.png",
-        "itemName": "Arroz Branco Tipo 1 Qualitá 1kg",
-        "itemSkuId": "SKU-BOWG13311",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 234,
-              "min": 224
-            },
-            "fee": 11.99,
-            "promotionalFee": 0
-          },
-          "isOpen": true,
-          "merchantId": "e6067614-d8f3-4108-8b6e-c72fd364ae2c",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/3974223/202607281734_5AGE.png",
-          "merchantName": "Pão de Açúcar - Shopping Iguatemi São Carlos",
-          "minimumOrderAmount": 30,
-          "ratingCount": 102,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 2.09
-        },
-        "promotionalUnitPrice": 4.4,
-        "unitPrice": 4.89
-      },
-      {
-        "itemEan": "7893500020158",
-        "itemId": "60760f4d-1124-4f0a-a7cb-3c667c50eac7",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510042209_ei5b7fnt57n.jpeg",
-        "itemName": "Arroz Branco Tio João T1 5kg",
-        "itemSkuId": "SKU-BNJC03352",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 234,
-              "min": 224
-            },
-            "fee": 11.99,
-            "promotionalFee": 0
-          },
-          "isOpen": true,
-          "merchantId": "e6067614-d8f3-4108-8b6e-c72fd364ae2c",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/3974223/202607281734_5AGE.png",
-          "merchantName": "Pão de Açúcar - Shopping Iguatemi São Carlos",
-          "minimumOrderAmount": 30,
-          "ratingCount": 102,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 2.09
-        },
-        "promotionalUnitPrice": 33.99,
-        "unitPrice": 33.99
-      },
-      {
-        "itemEan": "7895000474721",
-        "itemId": "3cf777cc-fbf2-4bdb-8c12-c6a0dd65a1e3",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210190452_i1mbaphgf9.jpg",
-        "itemName": "Arroz Branco Orgânico Teaq Vácuo 1kg",
-        "itemSkuId": "SKU-XWPS48555",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 234,
-              "min": 224
-            },
-            "fee": 11.99,
-            "promotionalFee": 0
-          },
-          "isOpen": true,
-          "merchantId": "e6067614-d8f3-4108-8b6e-c72fd364ae2c",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/3974223/202607281734_5AGE.png",
-          "merchantName": "Pão de Açúcar - Shopping Iguatemi São Carlos",
-          "minimumOrderAmount": 30,
-          "ratingCount": 102,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 2.09
-        },
-        "promotionalUnitPrice": 17.99,
-        "unitPrice": 17.99
-      },
-      {
         "itemEan": "7893500020110",
         "itemId": "c2a782b9-39a9-41f3-9a1d-ab31b0c94601",
         "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510031303_4gc1lsdzn1o.jpeg",
@@ -639,8 +552,8 @@
             "deliveryMethodId": "DEFAULT",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 234,
-              "min": 224
+              "max": 238,
+              "min": 228
             },
             "fee": 11.99,
             "promotionalFee": 0
@@ -658,18 +571,18 @@
         "unitPrice": 7.29
       },
       {
-        "itemEan": "7896038321032",
-        "itemId": "aa7a0242-8fde-46c3-929f-7ce80d4296bd",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510031818_yi6ys3jii5.jpeg",
-        "itemName": "Arroz Branco Tio Urbano Pacote 5kg",
-        "itemSkuId": "SKU-LVJP76602",
+        "itemEan": "7893500020158",
+        "itemId": "60760f4d-1124-4f0a-a7cb-3c667c50eac7",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510042209_ei5b7fnt57n.jpeg",
+        "itemName": "Arroz Branco Tio João T1 5kg",
+        "itemSkuId": "SKU-BNJC03352",
         "merchant": {
           "deliveryMethod": {
             "deliveryMethodId": "DEFAULT",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 234,
-              "min": 224
+              "max": 238,
+              "min": 228
             },
             "fee": 11.99,
             "promotionalFee": 0
@@ -683,8 +596,37 @@
           "reviewRating": 4.900000095367432,
           "straightLineDistanceKm": 2.09
         },
-        "promotionalUnitPrice": 24.69,
-        "unitPrice": 25.99
+        "promotionalUnitPrice": 33.99,
+        "unitPrice": 33.99
+      },
+      {
+        "itemEan": "7895000318629",
+        "itemId": "db4929b2-3cdc-4210-b55c-d05135a64e34",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202408261322_ec6nhp7hv0g.png",
+        "itemName": "Arroz Branco Tipo 1 Qualitá 1kg",
+        "itemSkuId": "SKU-BOWG13311",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 238,
+              "min": 228
+            },
+            "fee": 11.99,
+            "promotionalFee": 0
+          },
+          "isOpen": true,
+          "merchantId": "e6067614-d8f3-4108-8b6e-c72fd364ae2c",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/3974223/202607281734_5AGE.png",
+          "merchantName": "Pão de Açúcar - Shopping Iguatemi São Carlos",
+          "minimumOrderAmount": 30,
+          "ratingCount": 102,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 2.09
+        },
+        "promotionalUnitPrice": 4.4,
+        "unitPrice": 4.89
       },
       {
         "itemEan": "7896006711155",
@@ -697,8 +639,8 @@
             "deliveryMethodId": "DEFAULT",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 234,
-              "min": 224
+              "max": 238,
+              "min": 228
             },
             "fee": 11.99,
             "promotionalFee": 0
@@ -726,8 +668,8 @@
             "deliveryMethodId": "DEFAULT",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 234,
-              "min": 224
+              "max": 238,
+              "min": 228
             },
             "fee": 11.99,
             "promotionalFee": 0
@@ -743,6 +685,64 @@
         },
         "promotionalUnitPrice": 32.99,
         "unitPrice": 32.99
+      },
+      {
+        "itemEan": "7896864400116",
+        "itemId": "9431642f-9567-443a-86ea-bfdf9617e0b4",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210182259_yjbf76enlxc.jpg",
+        "itemName": "Arroz Branco Premium Tipo 1 Picinin 5kg",
+        "itemSkuId": "SKU-CEBC94752",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 238,
+              "min": 228
+            },
+            "fee": 11.99,
+            "promotionalFee": 0
+          },
+          "isOpen": true,
+          "merchantId": "e6067614-d8f3-4108-8b6e-c72fd364ae2c",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/3974223/202607281734_5AGE.png",
+          "merchantName": "Pão de Açúcar - Shopping Iguatemi São Carlos",
+          "minimumOrderAmount": 30,
+          "ratingCount": 102,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 2.09
+        },
+        "promotionalUnitPrice": 29.99,
+        "unitPrice": 29.99
+      },
+      {
+        "itemEan": "7896038321032",
+        "itemId": "aa7a0242-8fde-46c3-929f-7ce80d4296bd",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510031818_yi6ys3jii5.jpeg",
+        "itemName": "Arroz Branco Tio Urbano Pacote 5kg",
+        "itemSkuId": "SKU-LVJP76602",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 238,
+              "min": 228
+            },
+            "fee": 11.99,
+            "promotionalFee": 0
+          },
+          "isOpen": true,
+          "merchantId": "e6067614-d8f3-4108-8b6e-c72fd364ae2c",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/3974223/202607281734_5AGE.png",
+          "merchantName": "Pão de Açúcar - Shopping Iguatemi São Carlos",
+          "minimumOrderAmount": 30,
+          "ratingCount": 102,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 2.09
+        },
+        "promotionalUnitPrice": 24.69,
+        "unitPrice": 25.99
       }
     ]
   }

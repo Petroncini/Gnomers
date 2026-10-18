@@ -31,9 +31,9 @@
       }
     ]
   },
-  "recordedAt": "2026-10-18T09:11:19",
+  "recordedAt": "2026-10-18T11:49:02",
   "response": {
-    "cartId": "3d202a4e-50b4-47fe-a4b4-5228ece94f3b",
+    "cartId": "0102dd62-0058-45f3-9e31-8fd73016fbc9",
     "merchant": {
       "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
       "merchantName": "Extra - São Carlos",
@@ -43,35 +43,35 @@
     "items": [
       {
         "itemId": "cf952cab-9904-416e-8711-127d1d483e99",
-        "cartItemId": "b2c201df-d549-4fbc-a092-8252bb2422e2",
+        "cartItemId": "10fe4eba-da7f-4d2f-97e0-648d778ab437",
         "quantity": 2,
         "unitPrice": 11.99,
         "name": "Granola Jasmine Frutas Tropicais Zero Açúcar 250g"
       },
       {
         "itemId": "e4b1acac-7437-44ec-889f-230e79e813da",
-        "cartItemId": "6df429f3-d24c-49d5-82e1-bb8e20203842",
+        "cartItemId": "70e3bd48-2306-49bb-9bff-34c29488be4b",
         "quantity": 1,
         "unitPrice": 26.09,
         "name": "Café Torrado e Moído Extra Forte Caboclo Vácuo 500g"
       },
       {
         "itemId": "1b20de44-14b0-4dc7-9c5a-a2deb43fb6fd",
-        "cartItemId": "ef1e13ca-177b-46cb-83d3-895a9215a62f",
+        "cartItemId": "9057aab4-f734-4a46-80d8-52c26339d6ac",
         "quantity": 1,
         "unitPrice": 4.31,
         "name": "Arroz Branco Tipo 1 Qualitá 1kg"
       },
       {
         "itemId": "15b6fc89-40c5-4e22-b050-68dc4077ec41",
-        "cartItemId": "e725257d-ce35-4fe6-ac20-1d145cdaf15b",
+        "cartItemId": "d01763f8-0a79-422e-ba0e-6661e89e9041",
         "quantity": 2,
         "unitPrice": 5.71,
         "name": "Leite Uht Integral com Tampa Italac 1l"
       },
       {
         "itemId": "2ee53d10-5c5b-4df5-8f17-763cedbe8cfc",
-        "cartItemId": "35e583d8-1e39-43ff-b637-88b682d6651b",
+        "cartItemId": "3b4c3f0d-dc1f-42e7-b41c-0d1aba2e2b11",
         "quantity": 1,
         "unitPrice": 6.45,
         "name": "Feijão Preto Tipo 1 Qualitá 1kg"
@@ -113,6 +113,6 @@
       "voucherTotalName": "Valor dos cupons",
       "voucherTotalAmount": 0.0
     },
-    "appDeeplink": "ifood://cart?cartId=3d202a4e-50b4-47fe-a4b4-5228ece94f3b"
+    "appDeeplink": "ifood://cart?cartId=0102dd62-0058-45f3-9e31-8fd73016fbc9"
   }
 }

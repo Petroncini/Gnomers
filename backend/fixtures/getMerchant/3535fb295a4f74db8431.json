@@ -7,7 +7,7 @@
       "longitude": -47.89623
     }
   },
-  "recordedAt": "2026-10-18T09:10:57",
+  "recordedAt": "2026-10-18T11:45:35",
   "response": {
     "address": "Rua Quinze De Novembro, 1070, Parque Santa Mônica, SAO CARLOS - SP, 13561206, BR",
     "agentHints": {
@@ -17,7 +17,7 @@
     "appDeeplink": "ifood://catalog-hub/fdc30d9c-4a05-4e5a-b1de-421b2df23eb0/GROCERIES",
     "catalogSummary": {
       "navigationHint": "Call `browseOffers` with `resultKind=ITEM`, the matching `merchantType`, and `refinements.merchantId=fdc30d9c-4a05-4e5a-b1de-421b2df23eb0` to browse items. Use `searchOffers` with `refinements.merchantId=fdc30d9c-4a05-4e5a-b1de-421b2df23eb0` for keyword search within this merchant.",
-      "totalItems": 2402
+      "totalItems": 2396
     },
     "deliveryMethods": [
       {

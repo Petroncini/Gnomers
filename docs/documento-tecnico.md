@@ -144,7 +144,7 @@ Cada decisão abaixo foi forçada por um comportamento medido no sandbox (regist
 
 | Comportamento observado | Decisão |
 |---|---|
-| A busca exige todas as palavras e não conhece sinônimos: "granola sem açúcar" e "granola zero açúcar" não têm nenhum resultado em comum | o LLM traduz cada item em até 3 buscas no vocabulário de rótulo: específica, curta e uma alternativa |
+| A busca só usa sinônimos quando nada casa literalmente: "granola sem açúcar" traz 6 resultados (3 de leite de aveia) e nenhuma das 18 granolas "Zero Açúcar" de "granola zero açúcar" | o LLM traduz cada item em até 3 buscas no vocabulário de rótulo: específica, curta e uma alternativa |
 | Com `sort: PRICE`, "feijão" e "arroz branco" trazem tempero e lámen antes do produto | busca por relevância; quem compara preço é o solver |
 | A busca não mostra a categoria (`itemTaxonomy`) de cada resultado, e um filtro errado (`LEITE_CONDENSADO`) esconde tudo sem aviso | o app não depende de taxonomia; o LLM julga o produto pelo nome |
 | O catálogo de mercado não tem marca, tamanho nem variedade como campos | extração do nome pelo LLM, com cache por produto e reaproveitamento por EAN |

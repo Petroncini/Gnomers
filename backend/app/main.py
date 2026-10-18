@@ -550,7 +550,15 @@ class ChatIn(BaseModel):
 async def plan_chat(plan_id: int, body: ChatIn, s: Session = Depends(get_session)):
     async with actions.plan_lock(plan_id):
         plan = _fresh_plan(s, plan_id)
-        return await actions.chat(s, ifood(), plan, body.card_id, body.message)
+        out = await actions.chat(s, ifood(), plan, body.card_id, body.message)
+        # a conversa fica no plano: o agente recebe as falas anteriores na próxima mensagem
+        result = dict(plan.result or {})
+        result["chat"] = (result.get("chat") or [])[-18:] + [{"role": "user", "text": body.message},
+                                                             {"role": "agent", "text": out["reply"]}]
+        plan.result = result
+        s.add(plan)
+        s.commit()
+        return out
 
 
 class CheckoutIn(BaseModel):

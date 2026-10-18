@@ -149,3 +149,31 @@ def test_product_found_by_the_agent_gets_its_size_from_the_name(client, plan, sc
     added = [c for c in stored["candidates"][str(cafe["id"])] if c.get("reasons") == ["escolhido no chat"]]
     assert len(added) == 1 and added[0]["size"] == 500.0
     assert not any(c["type"] == "replan" for c in stored["decisions"])
+
+
+def test_short_answer_uses_the_previous_turn(client, plan, scripted):
+    """'sim' depois de uma oferta de troca: o agente recebe a conversa e troca pelo produto já visto."""
+    calls, replies = scripted
+    cafe = next(i for i in plan["result"]["items"] if i["category"] == "cafe")
+    cart = next(c for c in plan["result"]["chosen"]["carts"] if any(ln["item_id"] == cafe["id"] for ln in c["lines"]))
+    offered = {}
+
+    def offer(body):
+        found = last_tool_result(body)["resultados"]
+        offered.update(next(r for r in found if "Extraforte" in r["nome"] and r["mercado_no_carrinho"]))
+        return {"content": f"Tem o {offered['nome']}. Quer que eu troque?"}
+
+    replies.extend([tool_call("searchOffers", {"query": "café extraforte", "merchantId": cart["merchant_id"]}), offer])
+    client.post(f"/plans/{plan['id']}/chat", json={"message": "tem café extraforte?"})
+
+    def swap_without_search(body):
+        asked = body["messages"][-1]["content"]
+        assert "Conversa até agora" in asked and "Quer que eu troque?" in asked
+        assert offered["itemId"] in asked  # o produto visto antes vai junto, com o itemId
+        return tool_call("trocarItem", {"itemDaLista": cafe["id"], "itemId": offered["itemId"], "quantidade": 1}, "c9")
+
+    replies.extend([swap_without_search, {"content": "Troquei."}])
+    out = client.post(f"/plans/{plan['id']}/chat", json={"message": "sim"}).json()
+    assert out["steps"] and out["steps"][0].startswith("Troquei ")
+    names = [ln["name"] for c in out["plan"]["result"]["chosen"]["carts"] for ln in c["lines"] if ln["item_id"] == cafe["id"]]
+    assert names == [offered["nome"]]

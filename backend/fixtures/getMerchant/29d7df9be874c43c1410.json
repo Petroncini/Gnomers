@@ -7,7 +7,7 @@
       "longitude": -47.89623
     }
   },
-  "recordedAt": "2026-10-18T09:11:05",
+  "recordedAt": "2026-10-18T11:45:42",
   "response": {
     "address": "RUA PASSEIO DOS FLAMBOYANTS, 200, S C IGUATEMI LJ AN 1, PQ FABER, SAO CARLOS - SP, 13560970, BR",
     "agentHints": {
@@ -17,15 +17,15 @@
     "appDeeplink": "ifood://catalog-hub/e6067614-d8f3-4108-8b6e-c72fd364ae2c/GROCERIES",
     "catalogSummary": {
       "navigationHint": "Call `browseOffers` with `resultKind=ITEM`, the matching `merchantType`, and `refinements.merchantId=e6067614-d8f3-4108-8b6e-c72fd364ae2c` to browse items. Use `searchOffers` with `refinements.merchantId=e6067614-d8f3-4108-8b6e-c72fd364ae2c` for keyword search within this merchant.",
-      "totalItems": 10074
+      "totalItems": 10054
     },
     "deliveryMethods": [
       {
         "deliveryMethodId": "DEFAULT",
         "deliveryMethodMode": "DELIVERY",
         "estimatedMinutes": {
-          "max": 234,
-          "min": 224
+          "max": 238,
+          "min": 228
         },
         "fee": 11.99,
         "promotionalFee": 0

@@ -14,7 +14,7 @@
     },
     "pageSize": 25
   },
-  "recordedAt": "2026-10-18T09:10:48",
+  "recordedAt": "2026-10-18T11:45:24",
   "response": {
     "agentHints": {
       "nextStepWhenUserPicksItem": "Retrieve full item details — option groups and applicable promotions — before presenting it to the user."
@@ -93,8 +93,8 @@
             "deliveryMethodId": "FAST_DELIVERY",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 58,
-              "min": 48
+              "max": 49,
+              "min": 39
             },
             "fee": 12.99,
             "promotionalFee": 12.99
@@ -151,8 +151,8 @@
             "deliveryMethodId": "FAST_DELIVERY",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 58,
-              "min": 48
+              "max": 49,
+              "min": 39
             },
             "fee": 12.99,
             "promotionalFee": 12.99
@@ -180,8 +180,8 @@
             "deliveryMethodId": "FAST_DELIVERY",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 46,
-              "min": 36
+              "max": 40,
+              "min": 30
             },
             "fee": 13.99,
             "promotionalFee": 13.99
@@ -199,35 +199,6 @@
         "unitPrice": 49.99
       },
       {
-        "itemEan": "7896283002427",
-        "itemId": "1e97c3dd-48e4-44a9-b1a9-0126042320e7",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202604171509_0w1qr4g2rqu.png",
-        "itemName": "Granola Jasmine Frutas Tropicais Zero Açúcar 250g",
-        "itemSkuId": "SKU-BADO54350",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 234,
-              "min": 224
-            },
-            "fee": 11.99,
-            "promotionalFee": 0
-          },
-          "isOpen": true,
-          "merchantId": "e6067614-d8f3-4108-8b6e-c72fd364ae2c",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/3974223/202607281734_5AGE.png",
-          "merchantName": "Pão de Açúcar - Shopping Iguatemi São Carlos",
-          "minimumOrderAmount": 30,
-          "ratingCount": 102,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 2.09
-        },
-        "promotionalUnitPrice": 15.99,
-        "unitPrice": 15.99
-      },
-      {
         "itemEan": "7891150087606",
         "itemId": "e838109b-d87e-4b2f-b4a8-333796ec12d5",
         "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202606191732_4mdh63u0v6.png",
@@ -238,8 +209,8 @@
             "deliveryMethodId": "DEFAULT",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 234,
-              "min": 224
+              "max": 238,
+              "min": 228
             },
             "fee": 11.99,
             "promotionalFee": 0
@@ -257,6 +228,35 @@
         "unitPrice": 46.99
       },
       {
+        "itemEan": "7898994481348",
+        "itemId": "acfbed32-88cd-4fe6-afb1-8d7ba5d91c38",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202410151447_mo7clmqffs9.jpeg",
+        "itemName": "Granola Vegana Zero Açúcar Grano Square 200g",
+        "itemSkuId": "SKU-VNOL43546",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 238,
+              "min": 228
+            },
+            "fee": 11.99,
+            "promotionalFee": 0
+          },
+          "isOpen": true,
+          "merchantId": "e6067614-d8f3-4108-8b6e-c72fd364ae2c",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/3974223/202607281734_5AGE.png",
+          "merchantName": "Pão de Açúcar - Shopping Iguatemi São Carlos",
+          "minimumOrderAmount": 30,
+          "ratingCount": 102,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 2.09
+        },
+        "promotionalUnitPrice": 55.9,
+        "unitPrice": 55.9
+      },
+      {
         "itemEan": "7891150087613",
         "itemId": "570f9712-3e0a-4151-9b35-0fe07432606b",
         "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202607032127_3ju4x0b8tnf.png",
@@ -267,8 +267,8 @@
             "deliveryMethodId": "DEFAULT",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 234,
-              "min": 224
+              "max": 238,
+              "min": 228
             },
             "fee": 11.99,
             "promotionalFee": 0
@@ -296,8 +296,8 @@
             "deliveryMethodId": "DEFAULT",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 234,
-              "min": 224
+              "max": 238,
+              "min": 228
             },
             "fee": 11.99,
             "promotionalFee": 0
@@ -315,18 +315,18 @@
         "unitPrice": 49.99
       },
       {
-        "itemEan": "7898994481348",
-        "itemId": "acfbed32-88cd-4fe6-afb1-8d7ba5d91c38",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202410151447_mo7clmqffs9.jpeg",
-        "itemName": "Granola Vegana Zero Açúcar Grano Square 200g",
-        "itemSkuId": "SKU-VNOL43546",
+        "itemEan": "7896283002427",
+        "itemId": "1e97c3dd-48e4-44a9-b1a9-0126042320e7",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202604171509_0w1qr4g2rqu.png",
+        "itemName": "Granola Jasmine Frutas Tropicais Zero Açúcar 250g",
+        "itemSkuId": "SKU-BADO54350",
         "merchant": {
           "deliveryMethod": {
             "deliveryMethodId": "DEFAULT",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 234,
-              "min": 224
+              "max": 238,
+              "min": 228
             },
             "fee": 11.99,
             "promotionalFee": 0
@@ -340,37 +340,8 @@
           "reviewRating": 4.900000095367432,
           "straightLineDistanceKm": 2.09
         },
-        "promotionalUnitPrice": 55.9,
-        "unitPrice": 55.9
-      },
-      {
-        "itemEan": "7896283002427",
-        "itemId": "1e870b05-1501-4798-8acb-1b1d64a44dbe",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202604171509_0w1qr4g2rqu.png",
-        "itemName": "Granola Jasmine Frutas Tropicais Zero Açúcar 250g",
-        "itemSkuId": "SKU-BADO54350",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 92,
-              "min": 82
-            },
-            "fee": 7.49,
-            "promotionalFee": 7.49
-          },
-          "isOpen": true,
-          "merchantId": "75a8e0a0-2766-48e7-990f-5d551d441dbb",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/75a8e0a0-2766-48e7-990f-5d551d441dbb/201909191637_C7AP_i.png",
-          "merchantName": "Supermercados Arco Íris Express",
-          "minimumOrderAmount": 30,
-          "ratingCount": 89,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 1.32
-        },
-        "promotionalUnitPrice": 18.69,
-        "unitPrice": 18.69
+        "promotionalUnitPrice": 15.99,
+        "unitPrice": 15.99
       },
       {
         "itemEan": "7896283002427",
@@ -429,6 +400,35 @@
         },
         "promotionalUnitPrice": 37.56,
         "unitPrice": 39.54
+      },
+      {
+        "itemEan": "7896283002427",
+        "itemId": "1e870b05-1501-4798-8acb-1b1d64a44dbe",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202604171509_0w1qr4g2rqu.png",
+        "itemName": "Granola Jasmine Frutas Tropicais Zero Açúcar 250g",
+        "itemSkuId": "SKU-BADO54350",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 72,
+              "min": 62
+            },
+            "fee": 7.49,
+            "promotionalFee": 7.49
+          },
+          "isOpen": false,
+          "merchantId": "75a8e0a0-2766-48e7-990f-5d551d441dbb",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/75a8e0a0-2766-48e7-990f-5d551d441dbb/201909191637_C7AP_i.png",
+          "merchantName": "Supermercados Arco Íris Express",
+          "minimumOrderAmount": 30,
+          "ratingCount": 89,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.32
+        },
+        "promotionalUnitPrice": 18.69,
+        "unitPrice": 18.69
       },
       {
         "itemEan": "7898115759004",
