@@ -9,4 +9,6 @@
 | 05 | Documento técnico resumido | [05-06-documento-tecnico-e-feedback-mcp.pdf](05-06-documento-tecnico-e-feedback-mcp.pdf) (versão completa: [docs/documento-tecnico.md](../docs/documento-tecnico.md)) |
 | 06 | Feedback sobre os MCPs | [05-06-documento-tecnico-e-feedback-mcp.pdf](05-06-documento-tecnico-e-feedback-mcp.pdf) (versão completa: [docs/mcp-feedback.md](../docs/mcp-feedback.md)) |
 
+Apresentação (pitch): [pitch-cesta.pptx](pitch-cesta.pptx).
+
 Resultados medidos (economia e acerto do juiz): [docs/avaliacao.md](../docs/avaliacao.md).
