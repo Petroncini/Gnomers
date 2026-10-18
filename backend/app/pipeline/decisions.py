@@ -8,7 +8,7 @@ marcas que o próprio usuário definiu aparecem só como informação.
 from __future__ import annotations
 
 from app.pipeline.normalize import ItemSpec, SkuInfo, required_amount, sku_key
-from app.rules import norm
+from app.rules import brl, norm
 
 QTY_DRIFT = 0.25  # comprar 25% a mais do que o pedido já merece aviso
 
@@ -73,25 +73,25 @@ async def build_cards(specs: list[ItemSpec], winner: dict, skus: dict[str, SkuIn
                 cards.append({**base, "type": "brand_substitution", "question": True,
                               "title": f"{label}: {info.brand or 'outra marca'} no lugar de {wanted_brand}",
                               "default_text": f"Não achei {wanted_brand} com bom preço; coloquei {info.name} "
-                                              f"por R$ {ln['unit_price']:.2f}."})
+                                              f"por {brl(ln['unit_price'])}."})
         elif not wanted_brand and not r.brand_chain and info.brand:
             # sem regra para a marca: o sistema escolheu; vale perguntar uma vez por categoria
             # sem regra para a marca: só informa; vira pergunta se o usuário abrir o chat no cartão
             cards.append({**base, "type": "brand_choice", "question": False,
                           "title": f"{label}: escolhi {info.brand}",
                           "default_text": f"Sem marca preferida de {label.lower()}, escolhi {info.name} "
-                                          f"por R$ {ln['unit_price']:.2f}, o melhor custo-benefício."})
+                                          f"por {brl(ln['unit_price'])}, o melhor custo-benefício."})
 
-        missing_terms = [x for x in info.reasons if x.startswith("variedade")]
-        # só pergunta se há, nos mercados da compra, uma opção com a variedade pedida; senão não há escolha
-        with_variety = [a for a in alts if not any(x.startswith("variedade") for x in a["reasons"])]
-        if missing_terms and not r.variety_hard and with_variety:
-            wanted = missing_terms[0].split("falta ", 1)[-1]
+        # substituto escolhido pelo preço quando havia opção exata nos mercados da compra: vale perguntar
+        substitute = next((x for x in info.reasons if x.startswith("substituto: ")), None)
+        exact_alts = [a for a in alts if not any(x.startswith("substituto") for x in a["reasons"])]
+        if substitute and not r.variety_hard and exact_alts:
+            why = substitute.split(": ", 1)[1]
             cards.append({**base, "type": "variety", "question": True,
-                          "title": f"{label}: sem {wanted} pelo melhor preço",
-                          "default_text": f"Coloquei {info.name} (R$ {ln['unit_price']:.2f}), que não é {wanted}. "
-                                          f"Com {wanted}, a opção mais em conta é {with_variety[0]['name']} "
-                                          f"(R$ {with_variety[0]['price']:.2f})."})
+                          "title": f"{label}: {why}",
+                          "default_text": f"Coloquei {info.name} ({brl(ln['unit_price'])}): {why}. "
+                                          f"O que você pediu sai por {brl(exact_alts[0]['price'])}: "
+                                          f"{exact_alts[0]['name']}."})
 
         required, unit = required_amount(spec)
         bought = ln["quantity"] * info.size
@@ -106,7 +106,7 @@ async def build_cards(specs: list[ItemSpec], winner: dict, skus: dict[str, SkuIn
         names = " e ".join(c["merchant_name"] for c in winner["carts"])
         saving = round(single_total - winner["total"], 2) if single_total else None
         text = f"Dividi a compra entre {names}"
-        text += f" e economizei R$ {saving:.2f} em relação a um mercado só." if saving and saving > 0 else "."
+        text += f" e economizei {brl(saving)} em relação a um mercado só." if saving and saving > 0 else "."
         cards.append({"type": "split", "item_id": None, "category": None, "question": True, "title": "Compra dividida",
                       "default_text": text, "saving": saving, "alternatives": []})
 

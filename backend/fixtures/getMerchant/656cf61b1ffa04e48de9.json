@@ -7,7 +7,7 @@
       "longitude": -47.89623
     }
   },
-  "recordedAt": "2026-10-18T05:11:22",
+  "recordedAt": "2026-10-18T05:47:45",
   "response": {
     "address": "Av São Carlos, 3594, Vila Costa do Sol, SAO CARLOS - SP, 13566330, BR",
     "agentHints": {
@@ -17,7 +17,7 @@
     "appDeeplink": "ifood://catalog-hub/782805bb-66e0-4d8d-8e86-5befa3b5d7f8/GROCERIES",
     "catalogSummary": {
       "navigationHint": "Call `browseOffers` with `resultKind=ITEM`, the matching `merchantType`, and `refinements.merchantId=782805bb-66e0-4d8d-8e86-5befa3b5d7f8` to browse items. Use `searchOffers` with `refinements.merchantId=782805bb-66e0-4d8d-8e86-5befa3b5d7f8` for keyword search within this merchant.",
-      "totalItems": 5401
+      "totalItems": 5649
     },
     "deliveryMethods": [],
     "featuredItems": [

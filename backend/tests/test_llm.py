@@ -87,8 +87,21 @@ async def test_search_plan_output_is_validated(openrouter):
     assert plan["must_have"] == ["moído"]
 
 
-async def test_variety_check_uses_common_sense(openrouter):
-    _, replies = openrouter
-    replies.append(json.dumps({"products": [{"index": 0, "missing": []}, {"index": 1, "missing": ["sem açúcar"]}]}))
-    out = await llm.check_variety(["sem açúcar"], ["Granola Zero Açúcares Mãe Terra 250g", "Granola Kobber Tradicional"])
-    assert out == [[], ["sem açúcar"]]
+async def test_judge_decides_product_and_variety_together(openrouter):
+    calls, replies = openrouter
+    replies.append(json.dumps({"products": [
+        {"index": 0, "verdict": "exato", "reason": ""},
+        {"index": 1, "verdict": "substituto", "reason": "não é sem açúcar"},
+        {"index": 2, "verdict": "nao_serve", "reason": "é leite de aveia"}]}))
+    out = await llm.judge_products("1 granola sem açucar (>500g)", "granola", ["sem açúcar"],
+                                   ["Granola Zero Açúcares Mãe Terra 250g", "Granola Kobber Tradicional", "Nude Leite de Aveia 1l"])
+    assert [v["verdict"] for v in out] == ["exato", "substituto", "nao_serve"]
+    asked = calls[0]["messages"][-1]["content"]
+    assert "1 granola sem açucar" in asked and "sem açúcar" in asked  # o pedido inteiro, numa chamada só
+
+
+async def test_judge_fallback_without_llm():
+    # LLM desligado nos testes: as regras viram o plano B do juiz
+    out = await llm.judge_products("2 leite italac integral", "leite", ["integral"],
+                                   ["Leite Integral Italac 1l", "Leite em Pó Integral Italac 400g", "Leite Desnatado Italac 1l"])
+    assert [v["verdict"] for v in out] == ["exato", "nao_serve", "substituto"]

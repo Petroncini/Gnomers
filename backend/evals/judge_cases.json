@@ -1,0 +1,2214 @@
+{
+ "criteria": "exato: o produto pedido com as características pedidas; substituto: o mesmo produto sem alguma característica pedida; nao_serve: outro produto ou o mesmo alimento em outra forma (em pó, condensado, pronto, solúvel, cápsula, sachê individual). Marca e tamanho não contam.",
+ "cases": [
+  {
+   "request": "1 kilo de arroz branco",
+   "category": "arroz",
+   "must_have": [],
+   "product": "Arroz Branco Tipo 1 Qualitá 1kg",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de arroz branco",
+   "category": "arroz",
+   "must_have": [],
+   "product": "Arroz Branco Tipo 1 Tio João 1kg",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de arroz branco",
+   "category": "arroz",
+   "must_have": [],
+   "product": "Arroz Branco Polido Longo e Fino Tipo 1 Empório São João 5kg",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de arroz branco",
+   "category": "arroz",
+   "must_have": [],
+   "product": "Arroz Branco Tipo 1 Camil 5kg",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de arroz branco",
+   "category": "arroz",
+   "must_have": [],
+   "product": "Arroz Branco Tio Urbano Pacote 5kg",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de arroz branco",
+   "category": "arroz",
+   "must_have": [],
+   "product": "Arroz Branco Tio João T1 5kg",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de arroz branco",
+   "category": "arroz",
+   "must_have": [],
+   "product": "Arroz Branco Tipo 1 Prato Fino 5kg",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de arroz branco",
+   "category": "arroz",
+   "must_have": [],
+   "product": "Arroz Branco Camil Tipo 1 5kg",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de arroz branco",
+   "category": "arroz",
+   "must_have": [],
+   "product": "Arroz Branco Tipo 1 Prato Fino 2kg",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de arroz branco",
+   "category": "arroz",
+   "must_have": [],
+   "product": "Arroz Tipo 1 Prato Fino 1kg",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de arroz branco",
+   "category": "arroz",
+   "must_have": [],
+   "product": "Arroz Tipo 1 Namorado 5kg",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de arroz branco",
+   "category": "arroz",
+   "must_have": [],
+   "product": "Arroz Longo Fino Tipo 1 Camil 1kg",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de arroz branco",
+   "category": "arroz",
+   "must_have": [],
+   "product": "Arroz Tipo 1 Camil Pacote 2kg",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de arroz branco",
+   "category": "arroz",
+   "must_have": [],
+   "product": "Arroz Tipo 1 Pra Valer 5kg",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de arroz branco",
+   "category": "arroz",
+   "must_have": [],
+   "product": "Arroz Tipo 1 Solito Pacote 5kg",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de arroz branco",
+   "category": "arroz",
+   "must_have": [],
+   "product": "Arroz Tipo 1 Qualitá Embalagem 5kg",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de arroz branco",
+   "category": "arroz",
+   "must_have": [],
+   "product": "Arroz Tipo 1 Vasconcelos Embalagem 1kg",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de arroz branco",
+   "category": "arroz",
+   "must_have": [],
+   "product": "Arroz Tipo 1 Empório São João Pacote 1kg",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de arroz branco",
+   "category": "arroz",
+   "must_have": [],
+   "product": "Arroz Tipo 1 Serrazul 5kg",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de arroz branco",
+   "category": "arroz",
+   "must_have": [],
+   "product": "Arroz Tipo 1 Tio João 2kg",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de arroz branco",
+   "category": "arroz",
+   "must_have": [],
+   "product": "Arroz Tipo 1 Prato Fino Pacote 1kg",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de arroz branco",
+   "category": "arroz",
+   "must_have": [],
+   "product": "Arroz Seleto 5kg",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de arroz branco",
+   "category": "arroz",
+   "must_have": [],
+   "product": "Tempero Pronto Kisabor Tempera Fácil Arroz Branco Embalagem 60g",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "1 kilo de arroz branco",
+   "category": "arroz",
+   "must_have": [],
+   "product": "Tempero para Arroz Branco Meu Tempero Zilio Pacote 50g",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "1 kilo de arroz branco",
+   "category": "arroz",
+   "must_have": [],
+   "product": "Arroz Tipo 1 Camil Branco 1kg",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de arroz branco",
+   "category": "arroz",
+   "must_have": [],
+   "product": "Arroz Branco Tipo 1 Tio Urbano 1kg",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de arroz branco",
+   "category": "arroz",
+   "must_have": [],
+   "product": "Arroz Branco Tipo 1 Blue Ville 1kg",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de arroz branco",
+   "category": "arroz",
+   "must_have": [],
+   "product": "Tempero Branco Para Arroz Sazón 60g",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "1 kilo de arroz branco",
+   "category": "arroz",
+   "must_have": [],
+   "product": "Arroz Branco Rei do Prato 1kg",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de arroz branco",
+   "category": "arroz",
+   "must_have": [],
+   "product": "Arroz Branco Orgânico Teaq Vácuo 1kg",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de arroz branco",
+   "category": "arroz",
+   "must_have": [],
+   "product": "Arroz Branco Tipo 1 Rosalito",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "category": "feijao",
+   "must_have": [],
+   "product": "Feijão Carioca Enlatado Qualitá 420g",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "category": "feijao",
+   "must_have": [],
+   "product": "Feijão Carioca de Luci Embalagem 1kg",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "category": "feijao",
+   "must_have": [],
+   "product": "Feijão Carioca Tipo 1 Camil 1kg",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "category": "feijao",
+   "must_have": [],
+   "product": "Feijão Carioca Empório São João Pacote 1kg",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "category": "feijao",
+   "must_have": [],
+   "product": "Feijao Carioca Broto Legal 1kg",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "category": "feijao",
+   "must_have": [],
+   "product": "Feijão Carioca Serra Azul Pacote 1kg",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "category": "feijao",
+   "must_have": [],
+   "product": "Feijao Carioca Pantera 1kg Tp1 Com",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "category": "feijao",
+   "must_have": [],
+   "product": "Feijão Carioca Qualitá Embalagem 1kg",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "category": "feijao",
+   "must_have": [],
+   "product": "Feijão Carioca Caldo Nobre Pacote 1kg",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "category": "feijao",
+   "must_have": [],
+   "product": "Feijão Carioca Tipo 1 Kicaldo 1kg",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "category": "feijao",
+   "must_have": [],
+   "product": "Feijão Carioca Premium Picinin 1kg",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "category": "feijao",
+   "must_have": [],
+   "product": "Feijão Carioca da Casa Embalagem 1kg",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "category": "feijao",
+   "must_have": [],
+   "product": "Feijao Carioca Vapza 500g",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "category": "feijao",
+   "must_have": [],
+   "product": "Feijão Bolinha de Luci Embalagem 1kg",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "category": "feijao",
+   "must_have": [],
+   "product": "Feijão Preto Tipo 1 Camil 1kg",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "category": "feijao",
+   "must_have": [],
+   "product": "Feijão Bolinha Broto Legal 500g",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "category": "feijao",
+   "must_have": [],
+   "product": "Feijão Preto Serra Azul Embalagem 1kg",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "category": "feijao",
+   "must_have": [],
+   "product": "Feijão Preto Broto Legal 1kg",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "category": "feijao",
+   "must_have": [],
+   "product": "Feijão Preto Empório São João 1kg",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "category": "feijao",
+   "must_have": [],
+   "product": "Feijão Vermelho Meu Biju Tipo 1 Pacote 500g",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "category": "feijao",
+   "must_have": [],
+   "product": "Feijão Preto Tipo 1 Qualitá 1kg",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "category": "feijao",
+   "must_have": [],
+   "product": "Feijão Preto Picinin Pacote 1kg",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "category": "feijao",
+   "must_have": [],
+   "product": "Feijão Fradinho Tipo 1 Camil Pacote 500g",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "category": "feijao",
+   "must_have": [],
+   "product": "Feijão Rosinha Camil 500g",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "category": "feijao",
+   "must_have": [],
+   "product": "Feijão Jalo Tipo 1 Camil Pacote 500g",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "category": "feijao",
+   "must_have": [],
+   "product": "Feijão Carioca Pronto Para Aquecer Vapza 200g",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "category": "feijao",
+   "must_have": [],
+   "product": "Feijão Rajado Tipo 1 Camil Pacote 500g",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "category": "feijao",
+   "must_have": [],
+   "product": "Feijão Carioca Vapza Orgânico Cozido a Vapor Caixa 250g",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "category": "feijao",
+   "must_have": [],
+   "product": "Feijão Bolinha Camil Pacote 500g",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "category": "feijao",
+   "must_have": [],
+   "product": "Feijão Fradinho Solito 500g",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "category": "feijao",
+   "must_have": [],
+   "product": "Feijão Preto Pronto Bonare Sachê",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "category": "feijao",
+   "must_have": [],
+   "product": "Feijão Fradinho Broto Legal 500g",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "category": "feijao",
+   "must_have": [],
+   "product": "Feijão Fradinho Tipo 1 Qualitá Pacote 500g",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "category": "feijao",
+   "must_have": [],
+   "product": "Feijão Branco Solito 500g",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "category": "feijao",
+   "must_have": [],
+   "product": "Feijão Bolinha Tipo 1 Solito 500g Pacote",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "category": "feijao",
+   "must_have": [],
+   "product": "Feijão Preto Tipo 1 Carrefour 1kg",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "category": "feijao",
+   "must_have": [],
+   "product": "Feijão Branco Broto Legal 500g",
+   "expected": "exato"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "category": "feijao",
+   "must_have": [],
+   "product": "Feijão Carioca Maravilha Tipo 1 Embalagem 1kg",
+   "expected": "exato"
+  },
+  {
+   "request": "1 granola sem açucar (>500g)",
+   "category": "granola",
+   "must_have": [
+    "sem açúcar"
+   ],
+   "product": "Granola Tradicional Zero Açúcares Mãe Terra 250g",
+   "expected": "exato"
+  },
+  {
+   "request": "1 granola sem açucar (>500g)",
+   "category": "granola",
+   "must_have": [
+    "sem açúcar"
+   ],
+   "product": "Granola Tradicional Zero Açúcar Mãe Terra Pacote 800g",
+   "expected": "exato"
+  },
+  {
+   "request": "1 granola sem açucar (>500g)",
+   "category": "granola",
+   "must_have": [
+    "sem açúcar"
+   ],
+   "product": "Granola Vegana Zero Açúcar Grano Square 200g",
+   "expected": "exato"
+  },
+  {
+   "request": "1 granola sem açucar (>500g)",
+   "category": "granola",
+   "must_have": [
+    "sem açúcar"
+   ],
+   "product": "Granola Martigran Sem Açúcar",
+   "expected": "exato"
+  },
+  {
+   "request": "1 granola sem açucar (>500g)",
+   "category": "granola",
+   "must_have": [
+    "sem açúcar"
+   ],
+   "product": "Granola Piri Piri sem Açúcar Embalagem 250g",
+   "expected": "exato"
+  },
+  {
+   "request": "1 granola sem açucar (>500g)",
+   "category": "granola",
+   "must_have": [
+    "sem açúcar"
+   ],
+   "product": "Granola Martigran Sem Açúcar Embalagem 1kg",
+   "expected": "exato"
+  },
+  {
+   "request": "1 granola sem açucar (>500g)",
+   "category": "granola",
+   "must_have": [
+    "sem açúcar"
+   ],
+   "product": "Granola Qualitá Light Uva Passa Banana Damasco 200g",
+   "expected": "substituto"
+  },
+  {
+   "request": "1 granola sem açucar (>500g)",
+   "category": "granola",
+   "must_have": [
+    "sem açúcar"
+   ],
+   "product": "Granola Cranberries e Açaí sem Gluten Jasmine 250g",
+   "expected": "substituto"
+  },
+  {
+   "request": "1 granola sem açucar (>500g)",
+   "category": "granola",
+   "must_have": [
+    "sem açúcar"
+   ],
+   "product": "Granola Naturale Passas e Mel 1kg",
+   "expected": "substituto"
+  },
+  {
+   "request": "1 granola sem açucar (>500g)",
+   "category": "granola",
+   "must_have": [
+    "sem açúcar"
+   ],
+   "product": "Granola Tradicional Int. Jasmine com Coco e Uva Passa 1kg",
+   "expected": "substituto"
+  },
+  {
+   "request": "1 granola sem açucar (>500g)",
+   "category": "granola",
+   "must_have": [
+    "sem açúcar"
+   ],
+   "product": "Granola Light Castanha Maçã e Canela Qualitá 800g",
+   "expected": "substituto"
+  },
+  {
+   "request": "1 granola sem açucar (>500g)",
+   "category": "granola",
+   "must_have": [
+    "sem açúcar"
+   ],
+   "product": "Granola Frutas e Mel Mãe Terra 250g",
+   "expected": "substituto"
+  },
+  {
+   "request": "1 granola sem açucar (>500g)",
+   "category": "granola",
+   "must_have": [
+    "sem açúcar"
+   ],
+   "product": "Granola Banana e Cacau Mãe Terra 800g",
+   "expected": "substituto"
+  },
+  {
+   "request": "1 granola sem açucar (>500g)",
+   "category": "granola",
+   "must_have": [
+    "sem açúcar"
+   ],
+   "product": "Granola Mel E Frutas Jasmine 250g",
+   "expected": "substituto"
+  },
+  {
+   "request": "1 granola sem açucar (>500g)",
+   "category": "granola",
+   "must_have": [
+    "sem açúcar"
+   ],
+   "product": "Granola Jasmine Cereais Maltados com Castanha Do Pará 250g",
+   "expected": "substituto"
+  },
+  {
+   "request": "1 granola sem açucar (>500g)",
+   "category": "granola",
+   "must_have": [
+    "sem açúcar"
+   ],
+   "product": "Granola Integral Cranberry e Gojiberry Jasmine Pouch 250g",
+   "expected": "substituto"
+  },
+  {
+   "request": "1 granola sem açucar (>500g)",
+   "category": "granola",
+   "must_have": [
+    "sem açúcar"
+   ],
+   "product": "Granola Tradicional Jasmine Grain Flakes 250g",
+   "expected": "substituto"
+  },
+  {
+   "request": "1 granola sem açucar (>500g)",
+   "category": "granola",
+   "must_have": [
+    "sem açúcar"
+   ],
+   "product": "Granola de Frutas E Mel Vegano Mãe Terra 800g",
+   "expected": "substituto"
+  },
+  {
+   "request": "1 granola sem açucar (>500g)",
+   "category": "granola",
+   "must_have": [
+    "sem açúcar"
+   ],
+   "product": "Granola Light Uva Passa Banana e Damasco Qualitá 800g",
+   "expected": "substituto"
+  },
+  {
+   "request": "1 granola sem açucar (>500g)",
+   "category": "granola",
+   "must_have": [
+    "sem açúcar"
+   ],
+   "product": "Granola Qualitá Tradicional Mel 200g",
+   "expected": "substituto"
+  },
+  {
+   "request": "1 granola sem açucar (>500g)",
+   "category": "granola",
+   "must_have": [
+    "sem açúcar"
+   ],
+   "product": "Granola Banana e Cacau Mãe Terra 250g",
+   "expected": "substituto"
+  },
+  {
+   "request": "1 granola sem açucar (>500g)",
+   "category": "granola",
+   "must_have": [
+    "sem açúcar"
+   ],
+   "product": "Granola Banana e Canela Jasmine Pouch 250g",
+   "expected": "substituto"
+  },
+  {
+   "request": "1 granola sem açucar (>500g)",
+   "category": "granola",
+   "must_have": [
+    "sem açúcar"
+   ],
+   "product": "Granola Integral Tradicional Zero Açúcar Jasmine 850g",
+   "expected": "exato"
+  },
+  {
+   "request": "1 granola sem açucar (>500g)",
+   "category": "granola",
+   "must_have": [
+    "sem açúcar"
+   ],
+   "product": "Refrigerante Coca-Cola Zero Açúcar 200ml",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "1 granola sem açucar (>500g)",
+   "category": "granola",
+   "must_have": [
+    "sem açúcar"
+   ],
+   "product": "Refresco em Pó Clight Sem Açúcar Limonada 8g",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "1 granola sem açucar (>500g)",
+   "category": "granola",
+   "must_have": [
+    "sem açúcar"
+   ],
+   "product": "Refresco Em Pó Clight Sem Açúcar Laranja 8g",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "1 granola sem açucar (>500g)",
+   "category": "granola",
+   "must_have": [
+    "sem açúcar"
+   ],
+   "product": "Refresco em Pó Clight Sem Açúcar Morango 8g",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "1 granola sem açucar (>500g)",
+   "category": "granola",
+   "must_have": [
+    "sem açúcar"
+   ],
+   "product": "Refresco Em Pó Clight Sem Açúcar Maracuja 8g",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "1 granola sem açucar (>500g)",
+   "category": "granola",
+   "must_have": [
+    "sem açúcar"
+   ],
+   "product": "Refresco em Pó Uva Sem Açúcar Clight 8g",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "1 granola sem açucar (>500g)",
+   "category": "granola",
+   "must_have": [
+    "sem açúcar"
+   ],
+   "product": "Refresco em Pó de Abacaxi Sem Açúcar Clight 8g",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "1 granola sem açucar (>500g)",
+   "category": "granola",
+   "must_have": [
+    "sem açúcar"
+   ],
+   "product": "Refresco Guaraná Com Açaí Zero Açúcar Guara Maxx Garrafa 250ml",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "1 granola sem açucar (>500g)",
+   "category": "granola",
+   "must_have": [
+    "sem açúcar"
+   ],
+   "product": "Chá Ice Tea de Pêssego Zero Açúcares Leão 300ml",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "1 granola sem açucar (>500g)",
+   "category": "granola",
+   "must_have": [
+    "sem açúcar"
+   ],
+   "product": "Refrigerante Zero Açucar Coca-Cola 220ml",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "1 granola sem açucar (>500g)",
+   "category": "granola",
+   "must_have": [
+    "sem açúcar"
+   ],
+   "product": "Suco de Frutas Uva Tampico  200ml",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "1 granola sem açucar (>500g)",
+   "category": "granola",
+   "must_have": [
+    "sem açúcar"
+   ],
+   "product": "Refrigerante Xereta Tubaína Zero Açúcares 200ml",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "1 granola sem açucar (>500g)",
+   "category": "granola",
+   "must_have": [
+    "sem açúcar"
+   ],
+   "product": "Refresco em Pó de Tangerina Sem Açúcar Clight 8g",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "1 granola sem açucar (>500g)",
+   "category": "granola",
+   "must_have": [
+    "sem açúcar"
+   ],
+   "product": "Granola Jasmine Frutas Tropicais Zero Açúcar 250g",
+   "expected": "exato"
+  },
+  {
+   "request": "1 granola sem açucar (>500g)",
+   "category": "granola",
+   "must_have": [
+    "sem açúcar"
+   ],
+   "product": "Granola Original Zero Açúcar Naked Nuts 250g",
+   "expected": "exato"
+  },
+  {
+   "request": "1 granola sem açucar (>500g)",
+   "category": "granola",
+   "must_have": [
+    "sem açúcar"
+   ],
+   "product": "Granola Tradicional Zero Açúcar Tia Sônia 200g",
+   "expected": "exato"
+  },
+  {
+   "request": "1 granola sem açucar (>500g)",
+   "category": "granola",
+   "must_have": [
+    "sem açúcar"
+   ],
+   "product": "Granola Sabor Maçã E Mel Zero Açúcar Kodilar/Natural Life 250g",
+   "expected": "exato"
+  },
+  {
+   "request": "1 granola sem açucar (>500g)",
+   "category": "granola",
+   "must_have": [
+    "sem açúcar"
+   ],
+   "product": "Nude Leite de Aveia Tudão 1l",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Café Cappuccino Lor Premium Avelã Sachet 17,8g",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Café Cappuccino Lor Baunilha 20,3g",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Cappuccino Utam Light 140g",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Café Torrado e Moído Mogiana Paulista 3 Corações 250g",
+   "expected": "exato"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Café Torrado e Moído Extra Forte Caboclo Vácuo 500g",
+   "expected": "exato"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Café Torrado e Moído Descafeínado Pilão 250g",
+   "expected": "exato"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Café Torrado e Moído Melitta Sabor da Fazenda 500g",
+   "expected": "exato"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Café Torrado e Moído Gourmet Dark Roast 3 Corações 250g",
+   "expected": "exato"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Café Torrado e Moído Extra Forte Vácuo Pilão 500g",
+   "expected": "exato"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Café Torrado E Moído Premium Evolutto 500G",
+   "expected": "exato"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Café Torrado e Moído Tradicional 3 Corações 250g",
+   "expected": "exato"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Café Torrado e Moído Tradicional Caboclo 500g",
+   "expected": "exato"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Café Torrado E Moído A Vácuo Tradicional Pilão Pacote 500g",
+   "expected": "exato"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Café Torrado E Moído Tradicional A Vácuo 3 Corações 500g",
+   "expected": "exato"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Café Torrado E Moído Extra Forte Café Brasileiro 500g",
+   "expected": "exato"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Café Torrado e Moído Tradicional Melitta 500g",
+   "expected": "exato"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Café Torrado E Moído Extra Forte Café Brasileiro 250g",
+   "expected": "exato"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Café Torrado E Moído Tradicional Café Brasileiro 500g",
+   "expected": "exato"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Café 3 Corações 500g Tradicional",
+   "expected": "exato"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Café Torrado e Moído Tradicional Vácuo Melitta 500g",
+   "expected": "exato"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Café Pilão Tradicional Pacote 500g",
+   "expected": "exato"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Café Tradicional Pilão 250g",
+   "expected": "exato"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Café Melitta Tradicional Vácuo 250g",
+   "expected": "exato"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Café Premium Estrada Real 3 Corações 500g",
+   "expected": "exato"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Café Em Pó Gourmet Cerrado Mineiro 3 Corações 250g",
+   "expected": "exato"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Café Moído A Sentinela Sirkel 250g",
+   "expected": "exato"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Café Moído Especial Constantino 500g",
+   "expected": "exato"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Cafe Orfeu Torrado e Moido Varietais 250G Catucai",
+   "expected": "exato"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Café Torrado e Moído Meninos Soltando Pipas 1947 Portinari 3 Corações 250g",
+   "expected": "exato"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Café Gourmet Torrado e Moído Café Nhaí 250g",
+   "expected": "exato"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Café Torrado e Moido Catuai Vermelho Oba Bem Querer 250g",
+   "expected": "exato"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Café Torrado e Moído a Vácuo Tradicional Brasileiro 500g",
+   "expected": "exato"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Café Gourmet Torrado e Moído Espírito Santo 3 Corações 250g",
+   "expected": "exato"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Café Torrado E Moído Descafeinado A Vácuo 3 Corações 250g",
+   "expected": "exato"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Café Moído Sabor Chocolate Rituais 3 Corações 250g",
+   "expected": "substituto"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Café Torrado E Moído 3 Corações Extra Forte A Vácuo 500g",
+   "expected": "exato"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Café Extra Forte Torrado E Moído Brasileiro 500g",
+   "expected": "exato"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Café Torrado e Moído Extraforte Vácuo Melitta 500g",
+   "expected": "exato"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Café Torrado E Moído Coado Pilão Cafeteria Especialidades 500g",
+   "expected": "exato"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Café Moído Bravo Maestro 250g",
+   "expected": "exato"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Café Moído Intenso Illy 125g",
+   "expected": "exato"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Café Torrado E Moído Expresso Pilão Cafeteria Especialidades 500g",
+   "expected": "exato"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Café Moído Mister Prima Qualita 500g",
+   "expected": "exato"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Café Torrado e Moído Extra Forte Ruiz Coffees 500g",
+   "expected": "exato"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Café Individual 3 Corações Tradicional Drip Coffee",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Sabonete Em Barra Natural Café E Óleo de Amêndoas Palmolive 85g",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Café Com Leite Solúvel 3 Corações Sache 20g",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Refrigerante Coca Cola Plus Café Espresso 220ml",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Cafe Drip 3 Coracoes Rituais Chocolate 12G",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Café Em Sachê Torrado E Moído Drip Coffee Exótico 3 Corações Rituais 85+ Envelope 12g",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Café Gourmet Dark Roast Drip Coffee Três Corações Sachê 11g",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Bala Sem Açúcar Fruittella Life Café Expresso 18,9g 9 Unidades",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Filtro de Café N 102 Home Carrefour 30un",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Sabonete em Barra Café e Óleo de Amêndoa Palmolive 150g",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Cafe Brasileiro Gran.Soluvel Refil",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Café Energético Vegano Vida Coffee Original Sem Lactose/Sem Glúten/Sem Açúcares Vida Veg 250ml",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Supercoffee 3.0 Café Termogênico Sabor Original Caffeine Army 380g",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Café Moído Delta Vietnam 250g",
+   "expected": "exato"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Café Especial Moido O Flautista Sirkel Coffe 250g",
+   "expected": "exato"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Esmalte Mistérios Do Inverno Café com Canela Risqué",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Cafe Po Drip Coffee Coffee++ 10g Classico",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Cápsula De Café Espresso Roast Starbucks",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Café em Grãos Prima Qualitá Espresso Gourmet Pacote 500g",
+   "expected": "substituto"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "category": "cafe",
+   "must_have": [],
+   "product": "Café Preto 300ml",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "2 leite integral",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite em Pó Instantâneo Integral La Sereníssima 200g",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "2 leite integral",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite em Pó Integral La Sereníssima 400g",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "2 leite integral",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Pó Ninho Integral 380g",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "2 leite integral",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Em Pó Integral Instantâneo Ninho 380g",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "2 leite integral",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Pó Integral Ninho 575g",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "2 leite integral",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite em Pó Instantâneo Integral La Sereníssima 400g",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "2 leite integral",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Em Pó Integral La Serenissima",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "2 leite integral",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Pó Integral Instantâneo Ninho 575g",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "2 leite integral",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Em Pó Integral Ninho 380g",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "2 leite integral",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite em Pó Desnatado Nestlé Molico 500g",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "2 leite integral",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Pó Instantâneo Desnatado Piracanjuba Pacote 500g",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "2 leite integral",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite em Pó Desnatado La Sereníssima 300g",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "2 leite integral",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Em Po Laserenissima Inst Desnatado Pct 200g",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "2 leite integral",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite em Pó Molico Lata 280g 2x Mais Cálcio",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "2 leite integral",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Pó Semidesnatado Ninho Adulto Lata 350g",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "2 leite integral",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Uht Integral com Tampa Italac 1l",
+   "expected": "exato"
+  },
+  {
+   "request": "2 leite integral",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Tp Italac 1L A2 Integral",
+   "expected": "exato"
+  },
+  {
+   "request": "2 leite integral",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Longa Vida Integral Italac 1l",
+   "expected": "exato"
+  },
+  {
+   "request": "2 leite integral",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Integral Italac Zero Lactose 1l",
+   "expected": "exato"
+  },
+  {
+   "request": "2 leite integral",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Em Pó Integral Instantâneo Italac 400g",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "2 leite integral",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Condensado Italac Integral 395g",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "2 leite integral",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite em Pó Integral Instantâneo Italac Lata 400g",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "2 leite integral",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite em Pó Integral Italac 400g",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "2 leite integral",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Integral A2a2 Xandô 1l",
+   "expected": "exato"
+  },
+  {
+   "request": "2 leite integral",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Uht Integral Piracanjuba 1l",
+   "expected": "exato"
+  },
+  {
+   "request": "2 leite integral",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Uht Integral Ninho Forti+ 1l",
+   "expected": "exato"
+  },
+  {
+   "request": "2 leite integral",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Integral Ninho 1l",
+   "expected": "exato"
+  },
+  {
+   "request": "2 leite integral",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Uht Integral Jussara 1l",
+   "expected": "exato"
+  },
+  {
+   "request": "2 leite integral",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Uht Integral Quatá 1l",
+   "expected": "exato"
+  },
+  {
+   "request": "2 leite integral",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Integral Fazenda Bela Vista 1l",
+   "expected": "exato"
+  },
+  {
+   "request": "2 leite integral",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Longa Vida Qualitá Integral Caixa 1l",
+   "expected": "exato"
+  },
+  {
+   "request": "2 leite integral",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Longa Vida Integral Uht Leitíssimo 1l",
+   "expected": "exato"
+  },
+  {
+   "request": "2 leite integral",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Integral Tipo a Xandô 1l",
+   "expected": "exato"
+  },
+  {
+   "request": "2 leite integral",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Uht Parmalat Integral 1l",
+   "expected": "exato"
+  },
+  {
+   "request": "2 leite integral",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Parmalat Integral 1l",
+   "expected": "exato"
+  },
+  {
+   "request": "2 leite integral",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Uht Integral Dália 1l",
+   "expected": "exato"
+  },
+  {
+   "request": "2 leite integral",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Integral Piracanjuba 1l",
+   "expected": "exato"
+  },
+  {
+   "request": "2 leite integral",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Integral Sonhos de Leite Tipo a Saco 1l",
+   "expected": "exato"
+  },
+  {
+   "request": "2 leite integral",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Integral Nilza Caixa 1l",
+   "expected": "exato"
+  },
+  {
+   "request": "2 leite integral",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Uht Italac Desnatado Com Tampa 1l",
+   "expected": "substituto"
+  },
+  {
+   "request": "2 leite integral",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Uht Semidesnatado com Tampa Italac 1l",
+   "expected": "substituto"
+  },
+  {
+   "request": "2 leite integral",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Uht Especial A2 Semidesnatado Italac 1l",
+   "expected": "substituto"
+  },
+  {
+   "request": "2 leite integral",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Condensado Italac Semidesnatado Caixa 395g",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "2 leite integral",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite em Pó Itambé Integral 400g",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "2 leite integral",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite em Pó Integral Instantâneo Qualitá 400g",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "2 leite integral",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Em Pó Piracanjuba Instantâneo Integral 400g",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "2 leite integral",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite em Pó Integral Piracanjuba 400g",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "2 leite integral",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite em Pó Qualitá Integral Sachê 400g",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "2 leite integral",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Em Pó Itambé Integral Instantâneo 400g",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "2 leite integral",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Integral Instantâneo Ninho Nestlé 380g",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "2 leite integral",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Pipoca Pronta Pipo Leite Ninho 90g",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite em Pó Instantâneo Integral La Sereníssima 200g",
+   "expected": "exato"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite em Pó Integral La Sereníssima 400g",
+   "expected": "exato"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Pó Ninho Integral 380g",
+   "expected": "exato"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Em Pó Integral Instantâneo Ninho 380g",
+   "expected": "exato"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Pó Integral Ninho 575g",
+   "expected": "exato"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite em Pó Instantâneo Integral La Sereníssima 400g",
+   "expected": "exato"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Em Pó Integral La Serenissima",
+   "expected": "exato"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Pó Integral Instantâneo Ninho 575g",
+   "expected": "exato"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Em Pó Integral Ninho 380g",
+   "expected": "exato"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite em Pó Desnatado Nestlé Molico 500g",
+   "expected": "substituto"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Pó Instantâneo Desnatado Piracanjuba Pacote 500g",
+   "expected": "substituto"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite em Pó Desnatado La Sereníssima 300g",
+   "expected": "substituto"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Em Po Laserenissima Inst Desnatado Pct 200g",
+   "expected": "substituto"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Pó Semidesnatado Ninho Adulto Lata 350g",
+   "expected": "substituto"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Uht Integral com Tampa Italac 1l",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Tp Italac 1L A2 Integral",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Longa Vida Integral Italac 1l",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Integral Italac Zero Lactose 1l",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Em Pó Integral Instantâneo Italac 400g",
+   "expected": "exato"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Condensado Italac Integral 395g",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite em Pó Integral Instantâneo Italac Lata 400g",
+   "expected": "exato"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite em Pó Integral Italac 400g",
+   "expected": "exato"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Integral A2a2 Xandô 1l",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Uht Integral Piracanjuba 1l",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Uht Integral Ninho Forti+ 1l",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Integral Ninho 1l",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Uht Integral Jussara 1l",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Uht Integral Quatá 1l",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Integral Fazenda Bela Vista 1l",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Longa Vida Qualitá Integral Caixa 1l",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Longa Vida Integral Uht Leitíssimo 1l",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Integral Tipo a Xandô 1l",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Uht Parmalat Integral 1l",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Parmalat Integral 1l",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Uht Integral Dália 1l",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Integral Piracanjuba 1l",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Integral Sonhos de Leite Tipo a Saco 1l",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Integral Nilza Caixa 1l",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Uht Italac Desnatado Com Tampa 1l",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Uht Semidesnatado com Tampa Italac 1l",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Uht Especial A2 Semidesnatado Italac 1l",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Condensado Italac Semidesnatado Caixa 395g",
+   "expected": "nao_serve"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite em Pó Itambé Integral 400g",
+   "expected": "exato"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite em Pó Integral Instantâneo Qualitá 400g",
+   "expected": "exato"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Em Pó Piracanjuba Instantâneo Integral 400g",
+   "expected": "exato"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite em Pó Integral Piracanjuba 400g",
+   "expected": "exato"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite em Pó Qualitá Integral Sachê 400g",
+   "expected": "exato"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Em Pó Itambé Integral Instantâneo 400g",
+   "expected": "exato"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Leite Integral Instantâneo Ninho Nestlé 380g",
+   "expected": "exato"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "category": "leite",
+   "must_have": [
+    "integral"
+   ],
+   "product": "Pipoca Pronta Pipo Leite Ninho 90g",
+   "expected": "nao_serve"
+  }
+ ]
+}

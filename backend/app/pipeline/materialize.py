@@ -11,6 +11,7 @@ import asyncio
 import logging
 from datetime import datetime
 
+from app.rules import brl
 from app.mcp.client import McpToolError
 from app.mcp.ifood import Ifood
 from app.pipeline.normalize import SkuInfo, sku_key
@@ -251,7 +252,7 @@ async def materialize(api: Ifood, solutions: list[Solution], skus: dict[str, Sku
             "missing": sol.missing,
         })
         if emit:
-            await emit("cart", {"message": f"Opção {idx + 1}: R$ {total:.2f}" + ("" if ok else " (com problema)"),
+            await emit("cart", {"message": f"Opção {idx + 1}: {brl(total)}" + ("" if ok else " (com problema)"),
                                 "index": idx, "total": total, "ok": bool(ok)})
     return results
 

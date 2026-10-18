@@ -18,7 +18,7 @@ from app.mcp.ifood import Ifood, ifood
 from app.models import Address, ListItem, Plan, Rule, ShoppingList, User
 from app.pipeline import address as address_mod
 from app.pipeline import decisions, discovery, materialize, normalize, optimize
-from app.rules import norm, resolve
+from app.rules import brl, norm, resolve
 
 log = logging.getLogger(__name__)
 
@@ -212,7 +212,8 @@ async def _run(s: Session, api: Ifood, plan: Plan, say, only_open: bool) -> None
                                         brand=it.brand, variety_terms=variety,
                                         pack_size=it.pack_size, pack_unit=it.pack_unit, quantity=it.quantity or 1,
                                         rules=resolved, pin_size=pins.get(str(it.id), {}).get("size"),
-                                        required_terms=required_terms))
+                                        required_terms=required_terms,
+                                        request=resolved.product_description or it.raw_text))
         queries.append(discovery.ItemQuery(item_id=it.id, raw_text=it.raw_text, query=query,
                                            intention=it.intention or "product", category=it.category or norm(query),
                                            brand=it.brand, rules=resolved, core=core,
@@ -256,8 +257,8 @@ async def _run(s: Session, api: Ifood, plan: Plan, say, only_open: bool) -> None
         if missing:
             parts.append("Não encontrei: " + ", ".join(missing) + ".")
         if covered and basket < lowest_min:
-            parts.append(f"Os itens encontrados custam cerca de R$ {basket:.2f}, abaixo do menor pedido mínimo "
-                         f"entre os mercados (R$ {lowest_min:.2f}). Acrescente itens à lista.")
+            parts.append(f"Os itens encontrados custam cerca de {brl(basket)}, abaixo do menor pedido mínimo "
+                         f"entre os mercados ({brl(lowest_min)}). Acrescente itens à lista.")
         elif only_open:
             parts.append("Fora do horário comercial quase todos os mercados ficam fechados; "
                          "escolha um horário de entrega ou tente mais tarde.")

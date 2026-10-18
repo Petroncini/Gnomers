@@ -182,6 +182,102 @@ async def _with_fallback(task: str, coro_factory, fallback):
         metrics.current_task.reset(token)
 
 
+# ------------------------------------------------------------------- tool loop
+
+async def _openrouter_tools(system: str, messages: list[dict], tools: list[dict], model: str,
+                            final: bool) -> dict:
+    global _http
+    if _http is None:
+        _http = httpx.AsyncClient(timeout=httpx.Timeout(90.0, connect=10.0))
+    body = {
+        "model": model, "max_tokens": 1500,
+        "messages": [{"role": "system", "content": system}, *messages],
+        "tools": [{"type": "function", "function": t} for t in tools],
+        "tool_choice": "none" if final else "auto",
+        "provider": {"require_parameters": True},
+        "usage": {"include": True},
+    }
+    headers = {"Authorization": f"Bearer {settings.openrouter_api_key}",
+               "HTTP-Referer": "https://github.com/Petroncini/Gnomers", "X-Title": "Gnomers"}
+    started = time.perf_counter()
+    try:
+        res = await _http.post(OPENROUTER_URL, json=body, headers=headers)
+    except httpx.HTTPError as exc:
+        raise LLMError(f"OpenRouter inacessível: {exc!r}") from exc
+    if res.status_code != 200:
+        raise LLMError(f"OpenRouter {res.status_code}: {res.text[:300]}")
+    data = res.json()
+    if data.get("error"):
+        raise LLMError(f"OpenRouter: {data['error']}")
+    usage = data.get("usage") or {}
+    metrics.record_llm(model, (time.perf_counter() - started) * 1000, int(usage.get("prompt_tokens") or 0),
+                       int(usage.get("completion_tokens") or 0), usage.get("cost"))
+    return (data.get("choices") or [{}])[0].get("message") or {}
+
+
+async def tool_loop(system: str, user: str, tools: list[dict], execute, *, max_turns: int = 8,
+                    strong: bool = False) -> str:
+    """Loop de tool use: o modelo chama tools (`execute(nome, args) -> str`) até responder em texto.
+
+    `tools` usa o formato {name, description, parameters (JSON Schema)}. Na última rodada as tools
+    ficam desligadas, então o loop sempre termina com uma resposta. Levanta LLMError se o provedor falhar.
+    """
+    if not enabled():
+        raise LLMError("sem LLM configurado")
+    model = model_for(strong)
+    if provider() == "openrouter":
+        messages: list[dict] = [{"role": "user", "content": user}]
+        for turn in range(max_turns):
+            msg = await _openrouter_tools(system, messages, tools, model, final=turn == max_turns - 1)
+            calls = msg.get("tool_calls") or []
+            if not calls:
+                content = msg.get("content")
+                if isinstance(content, list):
+                    content = "".join(part.get("text", "") for part in content if isinstance(part, dict))
+                if not content:
+                    raise LLMError("resposta vazia do agente")
+                return content
+            messages.append({"role": "assistant", "content": msg.get("content") or "", "tool_calls": calls})
+            for call in calls:
+                try:
+                    args = json.loads(call["function"].get("arguments") or "{}")
+                except json.JSONDecodeError:
+                    out = "Erro: argumentos não são JSON válido."
+                else:
+                    out = await execute(call["function"]["name"], args)
+                messages.append({"role": "tool", "tool_call_id": call["id"], "content": out})
+        raise LLMError("o agente não respondeu")
+
+    global _anthropic
+    if _anthropic is None:
+        _anthropic = anthropic.AsyncAnthropic(api_key=settings.anthropic_api_key or None, max_retries=2)
+    a_tools = [{"name": t["name"], "description": t["description"], "input_schema": t["parameters"]} for t in tools]
+    messages = [{"role": "user", "content": user}]
+    for turn in range(max_turns):
+        started = time.perf_counter()
+        try:
+            response = await _anthropic.messages.create(
+                model=model, max_tokens=1500, system=system, messages=messages, tools=a_tools,
+                tool_choice={"type": "none"} if turn == max_turns - 1 else {"type": "auto"})
+        except (anthropic.APIConnectionError, anthropic.RateLimitError, anthropic.APIStatusError) as exc:
+            raise LLMError(f"Anthropic: {exc}") from exc
+        metrics.record_llm(model, (time.perf_counter() - started) * 1000, response.usage.input_tokens,
+                           response.usage.output_tokens, None)
+        if response.stop_reason != "tool_use":
+            text = "".join(b.text for b in response.content if b.type == "text")
+            if not text:
+                raise LLMError("resposta vazia do agente")
+            return text
+        messages.append({"role": "assistant", "content": response.content})
+        results = []
+        for block in response.content:
+            if block.type == "tool_use":
+                results.append({"type": "tool_result", "tool_use_id": block.id,
+                                "content": await execute(block.name, dict(block.input))})
+        messages.append({"role": "user", "content": results})
+    raise LLMError("o agente não respondeu")
+
+
 # ---------------------------------------------------------------- parse_item
 
 class ParsedItem(BaseModel):
@@ -303,35 +399,63 @@ async def plan_searches(text: str, category: str, brand: str | None = None) -> d
     return await _with_fallback("plan_searches", call, lambda: _heuristic_plan(text, category, brand))
 
 
-# ---------------------------------------------------------------- check_variety
+# ---------------------------------------------------------------- judge_products
 
-class VarietyCheck(BaseModel):
+class Verdict(BaseModel):
     index: int
-    missing: list[str] = Field(description="das características pedidas, as que o produto NÃO tem")
+    verdict: Literal["exato", "substituto", "nao_serve"]
+    reason: str = Field(description="motivo curto, em português, para o cliente (até 12 palavras)")
 
 
-class VarietyBatch(BaseModel):
-    products: list[VarietyCheck]
+class VerdictBatch(BaseModel):
+    products: list[Verdict]
 
 
-async def check_variety(terms: list[str], names: list[str]) -> list[list[str]]:
-    """Para cada nome, as características pedidas que faltam, com bom senso ("Zero Açúcar" atende "sem açúcar")."""
+JUDGE_SYSTEM = """Você decide se produtos de supermercado servem para o que o cliente pediu na lista.
+Para cada produto, responda:
+- exato: é o produto pedido, com todas as características pedidas. Sinônimos de rótulo contam
+  ("Zero Açúcar" atende "sem açúcar"; "Torrado e Moído" atende "café moído").
+- substituto: é o mesmo tipo de produto, mas sem alguma característica pedida (granola comum para
+  "granola sem açúcar"). O motivo diz o que falta.
+- nao_serve: é outro produto que só cita a palavra (tempero de feijão, leite de coco, biscoito sabor
+  leite), ou o mesmo alimento em outra forma, que não se usa no lugar: em pó, condensado, solúvel,
+  cápsula ou sachê, pronto/cozido quando o pedido é cru, bebida pronta quando o pedido é para preparar.
+NÃO julgue marca, preço nem tamanho da embalagem: isso é decidido em outra etapa. Na dúvida entre
+exato e substituto, escolha substituto."""
+
+_VERDICT_LABEL = {"exato": "exato", "substituto": "substituto", "nao_serve": "não serve"}
+
+
+def _heuristic_verdict(request: str, category: str, must_have: list[str], name: str) -> dict:
+    """Plano B sem LLM: a palavra da categoria no começo do nome, a lista de derivados e os sinônimos fixos."""
+    if not heuristics.normalize_product(category, name, request)["matches"] \
+            or heuristics.is_derivative(category, name, request):
+        return {"verdict": "nao_serve", "reason": f"não é {category}"}
+    missing = [t for t in must_have if not heuristics.has_term(name, t)]
+    if missing:
+        return {"verdict": "substituto", "reason": "sem " + ", ".join(missing)}
+    return {"verdict": "exato", "reason": ""}
+
+
+async def judge_products(request: str, category: str, must_have: list[str], names: list[str]) -> list[dict]:
+    """Um veredito por produto ({verdict, reason}) para o pedido do cliente, numa decisão só."""
     def fallback():
-        return [[t for t in terms if not heuristics.has_term(n, t)] for n in names]
+        return [_heuristic_verdict(request, category, must_have, n) for n in names]
 
     async def call():
-        lines = "\n".join(f"{i}. {n}" for i, n in enumerate(names))
-        out = await _run(VarietyBatch,
-                         "Você confere se produtos de supermercado têm as características pedidas pelo cliente. "
-                         "Considere sinônimos e formas de rótulo ('Zero Açúcar' atende 'sem açúcar'; 'Torrado e "
-                         "Moído' atende 'moído'). Na dúvida, considere que falta. Responda um objeto por produto.",
-                         f"Características pedidas: {terms}\nProdutos:\n{lines}", max_tokens=2000)
-        by_index = {c.index: c.missing for c in out.products}
-        if set(by_index) != set(range(len(names))):
-            raise LLMError("check_variety não respondeu todos os produtos")
-        return [[t for t in by_index[i] if t in terms] for i in range(len(names))]
+        out: list[dict] = []
+        for start in range(0, len(names), 40):
+            chunk = names[start:start + 40]
+            lines = "\n".join(f"{i}. {n}" for i, n in enumerate(chunk))
+            asked = f"Pedido do cliente: {request}\nCaracterísticas exigidas: {must_have or 'nenhuma além do produto'}"
+            batch = await _run(VerdictBatch, JUDGE_SYSTEM, f"{asked}\nProdutos:\n{lines}", max_tokens=4000)
+            by_index = {v.index: v for v in batch.products}
+            if set(by_index) != set(range(len(chunk))):
+                raise LLMError("judge_products não julgou todos os produtos")
+            out += [{"verdict": by_index[i].verdict, "reason": by_index[i].reason} for i in range(len(chunk))]
+        return out
 
-    return await _with_fallback("check_variety", call, fallback)
+    return await _with_fallback("judge_products", call, fallback)
 
 
 # ----------------------------------------------------------------- score_notes
@@ -521,17 +645,19 @@ async def explain(question: str, plan_result: dict) -> str:
 
 
 def _explain_heuristic(result: dict) -> str:
+    from app.rules import brl
+
     chosen = result.get("chosen") or {}
     carts = chosen.get("carts", [])
     if not carts:
         return "Ainda não há um carrinho montado para esta lista."
     names = " e ".join(c["merchant_name"] for c in carts)
     total = chosen.get("total", 0)
-    text = f"Escolhi {names} porque deu o menor total real (R$ {total:.2f}), já com frete e cupom."
+    text = f"Escolhi {names} porque deu o menor total real ({brl(total)}), já com frete e cupom."
     alternatives = result.get("alternatives", [])
     if alternatives:
         alt = alternatives[0]
-        text += f" A segunda melhor opção ficava em R$ {alt['total']:.2f}."
+        text += f" A segunda melhor opção ficava em {brl(alt['total'])}."
     return text
 
 

@@ -8,6 +8,7 @@ repassam ao recorder, que decide entre MCP real, gravação e reprodução.
 from __future__ import annotations
 
 import asyncio
+import collections
 import copy
 import json
 import logging
@@ -43,6 +44,32 @@ def _loc(lat: float, lng: float) -> dict:
     return {"latitude": float(lat), "longitude": float(lng)}
 
 
+class RateLimiter:
+    """No máximo `limit` chamadas em qualquer janela de `window` segundos; quem passa disso espera a vez.
+
+    Espaçar antes do limite sai mais barato que descobrir o bloqueio depois: o iFood não devolve 429
+    nem quanto esperar, só INTERNAL em todas as tools por alguns minutos.
+    """
+
+    def __init__(self, limit: int, window: float, clock=time.monotonic, sleep=asyncio.sleep):
+        self.limit, self.window, self.clock, self.sleep = limit, window, clock, sleep
+        self._calls: collections.deque[float] = collections.deque()
+        self._lock = asyncio.Lock()
+
+    async def acquire(self) -> None:
+        async with self._lock:
+            while True:
+                now = self.clock()
+                while self._calls and now - self._calls[0] >= self.window:
+                    self._calls.popleft()
+                if len(self._calls) < self.limit:
+                    self._calls.append(now)
+                    return
+                wait = self.window - (now - self._calls[0])
+                log.info("ritmo do iFood: esperando %.1fs (%d chamadas no último minuto)", wait, len(self._calls))
+                await self.sleep(wait)
+
+
 class Ifood:
     def __init__(self, mode: str | None = None):
         self.mode = mode or settings.mcp_mode
@@ -61,6 +88,8 @@ class Ifood:
         self.recorder = Recorder(recorder_mode, settings.fixtures_dir, caller if self.mode != "replay" else None)
         self._sem = asyncio.Semaphore(settings.mcp_concurrency)
         self._cache: dict[str, tuple[float, Any]] = {}
+        # só chamadas que chegam ao iFood contam; cache, replay e simulador não
+        self._pace = RateLimiter(settings.mcp_calls_per_min, 60.0) if self.mode in ("live", "record") else None
 
     async def call(self, tool: str, args: dict) -> Any:
         # remove campos vazios: o MCP trata ausência e null de jeitos diferentes
@@ -89,6 +118,8 @@ class Ifood:
                 raise
 
     async def _timed(self, tool: str, args: dict) -> Any:
+        if self._pace:
+            await self._pace.acquire()
         started = time.perf_counter()
         try:
             out = await self.recorder.call(tool, args)

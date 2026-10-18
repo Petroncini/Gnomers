@@ -1,0 +1,96 @@
+{
+  "tool": "setCartDelivery",
+  "args": {
+    "cartId": "8268d046-038e-43dc-8178-620730584e2f",
+    "deliveryMethodId": "DEFAULT",
+    "selectedTimeSlotId": "117fd702-dd62-5991-94a0-0854f835f3af"
+  },
+  "recordedAt": "2026-10-18T05:48:03",
+  "response": {
+    "cartId": "8268d046-038e-43dc-8178-620730584e2f",
+    "merchant": {
+      "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
+      "merchantName": "Savegnago - Shopping Passeio - LJ 33",
+      "orderMinimumPrice": 60.0,
+      "formattedAddress": "Avenida Francisco Pereira Lopes, 1701 — Parque Santa Mônica, SAO CARLOS, SP"
+    },
+    "items": [
+      {
+        "itemId": "e958400f-06c1-428f-83b9-d70edb9379e2",
+        "cartItemId": "77f5a86e-4f5c-4a14-a5ed-c23fb5248c66",
+        "quantity": 1,
+        "unitPrice": 5.15,
+        "name": "Arroz Branco Tipo 1 Tio João 1kg"
+      },
+      {
+        "itemId": "bbf35701-96c1-4a78-8f24-c47d004baca7",
+        "cartItemId": "aaae34d9-43e3-43a8-9e97-bc140ebf15a3",
+        "quantity": 2,
+        "unitPrice": 5.79,
+        "name": "Leite Uht Integral com Tampa Italac 1l"
+      },
+      {
+        "itemId": "954ac44a-4f14-4340-ad81-bdb54f67e5c5",
+        "cartItemId": "0ee04a09-ea23-4c68-bb07-5343e585dae8",
+        "quantity": 1,
+        "unitPrice": 8.25,
+        "name": "Feijão Carioca Empório São João Pacote 1kg"
+      },
+      {
+        "itemId": "39ffe1a0-e68c-4138-8f9d-02e8afe82370",
+        "cartItemId": "cd99ac69-925d-4d15-a693-ce5bc12a12d2",
+        "quantity": 2,
+        "unitPrice": 11.95,
+        "name": "Granola Banana e Canela Jasmine Pouch 250g"
+      },
+      {
+        "itemId": "8c2a17da-64c8-4f7e-86a7-83200dc2c08f",
+        "cartItemId": "c7f2326c-d1ae-412a-9873-b8bb3b9d2716",
+        "quantity": 1,
+        "unitPrice": 18.95,
+        "name": "Café Torrado e Moído a Vácuo Tradicional Brasileiro 500g"
+      }
+    ],
+    "deliveryAddress": {
+      "streetName": "Rua São Sebastião",
+      "streetNumber": "1455",
+      "neighborhood": "Centro"
+    },
+    "deliveryMethod": {
+      "deliveryMethodId": "DEFAULT",
+      "deliveryMethodMode": "DELIVERY",
+      "deliveryMethodName": "Padrão",
+      "fee": 9.99,
+      "estimatedMinutes": {
+        "min": 92,
+        "max": 102
+      },
+      "timeSlot": {
+        "from": "2026-10-19T11:00:00",
+        "to": "2026-10-19T13:00:00"
+      }
+    },
+    "fees": [
+      {
+        "name": "Taxa de serviço",
+        "description": "Cobramos uma taxa que nos ajuda a cobrir custos operacionais, inclusive de segurança, e a manter os investimentos contínuos na plataforma.",
+        "amount": 1.99
+      }
+    ],
+    "summary": {
+      "totalName": "Valor total",
+      "totalAmount": 64.91,
+      "subtotalName": "Valor dos itens",
+      "subtotalAmount": 67.83,
+      "deliveryFeeName": "Valor da taxa de entrega",
+      "deliveryFeeAmount": 9.99,
+      "feeTotalName": "Valor das taxas e serviços",
+      "feeTotalAmount": 1.99,
+      "benefitsTotalName": "Valor dos benefícios",
+      "benefitsTotalAmount": 14.9,
+      "voucherTotalName": "Valor dos cupons",
+      "voucherTotalAmount": 0.0
+    },
+    "appDeeplink": "ifood://cart?cartId=8268d046-038e-43dc-8178-620730584e2f"
+  }
+}

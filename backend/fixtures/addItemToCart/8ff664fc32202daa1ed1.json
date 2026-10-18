@@ -1,0 +1,117 @@
+{
+  "tool": "addItemToCart",
+  "args": {
+    "cartId": "2f898d54-22ac-46ff-bf66-4bd36d6025dd",
+    "itemId": "ca636e00-45d5-4694-9469-cd581eb514a1",
+    "quantity": 1,
+    "options": []
+  },
+  "recordedAt": "2026-10-18T05:56:57",
+  "response": {
+    "cartId": "2f898d54-22ac-46ff-bf66-4bd36d6025dd",
+    "merchant": {
+      "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
+      "merchantName": "Extra - São Carlos",
+      "orderMinimumPrice": 60.0,
+      "formattedAddress": "Rua São Sebastião,, 1746 — Centro, SAO CARLOS, SP"
+    },
+    "items": [
+      {
+        "itemId": "cf952cab-9904-416e-8711-127d1d483e99",
+        "cartItemId": "f399495d-6cd5-4c08-bf23-3f251bb46b91",
+        "quantity": 2,
+        "unitPrice": 11.99,
+        "name": "Granola Jasmine Frutas Tropicais Zero Açúcar 250g"
+      },
+      {
+        "itemId": "e4b1acac-7437-44ec-889f-230e79e813da",
+        "cartItemId": "cfb22eea-4165-4f06-aca1-299e6476263d",
+        "quantity": 1,
+        "unitPrice": 26.09,
+        "name": "Café Torrado e Moído Extra Forte Caboclo Vácuo 500g"
+      },
+      {
+        "itemId": "1b20de44-14b0-4dc7-9c5a-a2deb43fb6fd",
+        "cartItemId": "e6c073e3-e03d-4b8b-99a8-ce02ef5ed85e",
+        "quantity": 1,
+        "unitPrice": 4.31,
+        "name": "Arroz Branco Tipo 1 Qualitá 1kg"
+      },
+      {
+        "itemId": "e5da4198-5313-4eff-a3a4-de698e94412d",
+        "cartItemId": "81922a38-a901-4b7c-90e7-8b5860b744b0",
+        "quantity": 1,
+        "unitPrice": 5.99,
+        "name": "Leite Integral Ninho 1l"
+      },
+      {
+        "itemId": "e5da4198-5313-4eff-a3a4-de698e94412d",
+        "cartItemId": "999b871a-e1e4-43a7-9041-f45fc27fd98b",
+        "quantity": 1,
+        "unitPrice": 7.49,
+        "name": "Leite Integral Ninho 1l"
+      },
+      {
+        "itemId": "ca636e00-45d5-4694-9469-cd581eb514a1",
+        "cartItemId": "a527c67e-282e-4811-9fb3-0a3febb04560",
+        "quantity": 1,
+        "unitPrice": 16.14,
+        "name": "Leite em Pó Integral La Sereníssima 400g"
+      },
+      {
+        "itemId": "8ea84a1b-8547-4d6b-a60e-cdeb51015f86",
+        "cartItemId": "da545931-b590-49c1-a263-7eaa274d170d",
+        "quantity": 1,
+        "unitPrice": 6.64,
+        "name": "Feijão Carioca Caldo Nobre Pacote 1kg"
+      }
+    ],
+    "deliveryAddress": {
+      "streetName": "Rua São Sebastião",
+      "streetNumber": "1455",
+      "neighborhood": "Centro"
+    },
+    "paymentMethod": {
+      "paymentMethodId": "75354fd8-e916-41db-9286-93be2232efe2",
+      "kind": "PIX",
+      "displayName": "Pix",
+      "brand": "PIX"
+    },
+    "deliveryMethod": {
+      "deliveryMethodId": "DEFAULT",
+      "deliveryMethodMode": "DELIVERY",
+      "deliveryMethodName": "Padrão",
+      "fee": 0.0,
+      "estimatedMinutes": {
+        "min": 110,
+        "max": 120
+      },
+      "timeSlot": {
+        "from": "2026-10-19T11:00:00",
+        "to": "2026-10-19T13:00:00"
+      }
+    },
+    "fees": [
+      {
+        "name": "Taxa de serviço",
+        "description": "Cobramos uma taxa que nos ajuda a cobrir custos operacionais, inclusive de segurança, e a manter os investimentos contínuos na plataforma.",
+        "amount": 2.27
+      }
+    ],
+    "summary": {
+      "totalName": "Valor total",
+      "totalAmount": 92.91,
+      "subtotalName": "Valor dos itens",
+      "subtotalAmount": 90.64,
+      "deliveryFeeName": "Valor da taxa de entrega",
+      "deliveryFeeAmount": 0.0,
+      "feeTotalName": "Valor das taxas e serviços",
+      "feeTotalAmount": 2.27,
+      "benefitsTotalName": "Valor dos benefícios",
+      "benefitsTotalAmount": 12.57,
+      "voucherTotalName": "Valor dos cupons",
+      "voucherTotalAmount": 0.0
+    },
+    "appDeeplink": "ifood://cart?cartId=2f898d54-22ac-46ff-bf66-4bd36d6025dd"
+  }
+}

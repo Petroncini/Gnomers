@@ -14,7 +14,7 @@
     },
     "pageSize": 25
   },
-  "recordedAt": "2026-10-18T05:10:58",
+  "recordedAt": "2026-10-18T05:47:21",
   "response": {
     "agentHints": {
       "nextStepWhenUserPicksItem": "Retrieve full item details — option groups and applicable promotions — before presenting it to the user."
@@ -343,11 +343,11 @@
         "unitPrice": 30.99
       },
       {
-        "itemEan": "7896062699961",
-        "itemId": "98cc3396-c045-42b3-bf1a-19cc697c6462",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202312071416_ub48aoaanye.jpg",
-        "itemName": "Arroz Tipo 1 Solito Pacote 5kg",
-        "itemSkuId": "SKU-DTMO66755",
+        "itemEan": "7896006711155",
+        "itemId": "f8e9565b-5fa7-4e37-8113-5a00492524b8",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510042239_gnoj8rq4vo6.jpeg",
+        "itemName": "Arroz Branco Tipo 1 Camil 5kg",
+        "itemSkuId": "SKU-ZDLV97808",
         "merchant": {
           "deliveryMethod": {
             "deliveryMethodId": "DEFAULT",
@@ -368,8 +368,8 @@
           "reviewRating": 4.900000095367432,
           "straightLineDistanceKm": 0.27
         },
-        "promotionalUnitPrice": 22.79,
-        "unitPrice": 23.99
+        "promotionalUnitPrice": 22.39,
+        "unitPrice": 27.99
       },
       {
         "itemEan": "7896006711117",
@@ -487,11 +487,11 @@
         "unitPrice": 28.74
       },
       {
-        "itemEan": "7896006711155",
-        "itemId": "f8e9565b-5fa7-4e37-8113-5a00492524b8",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510042239_gnoj8rq4vo6.jpeg",
-        "itemName": "Arroz Branco Tipo 1 Camil 5kg",
-        "itemSkuId": "SKU-ZDLV97808",
+        "itemEan": "7896062699961",
+        "itemId": "98cc3396-c045-42b3-bf1a-19cc697c6462",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202312071416_ub48aoaanye.jpg",
+        "itemName": "Arroz Tipo 1 Solito Pacote 5kg",
+        "itemSkuId": "SKU-DTMO66755",
         "merchant": {
           "deliveryMethod": {
             "deliveryMethodId": "DEFAULT",
@@ -512,8 +512,8 @@
           "reviewRating": 4.900000095367432,
           "straightLineDistanceKm": 0.27
         },
-        "promotionalUnitPrice": 22.39,
-        "unitPrice": 27.99
+        "promotionalUnitPrice": 22.79,
+        "unitPrice": 23.99
       },
       {
         "itemEan": "7895000318612",
@@ -545,11 +545,11 @@
         "unitPrice": 23.99
       },
       {
-        "itemEan": "7893500020134",
-        "itemId": "d6a91140-381d-4336-aed0-2f61d76bdeaa",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210182226_zivt8y82lm.jpg",
-        "itemName": "Arroz Tipo 1 Tio João 2kg",
-        "itemSkuId": "SKU-PTXL29661",
+        "itemEan": "7898949924333",
+        "itemId": "cd85b7dc-a90f-4547-ac8a-faa4f88b3ffb",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210180428_2w7ph4pcwzw.jpg",
+        "itemName": "Arroz Tipo 1 Vasconcelos Embalagem 1kg",
+        "itemSkuId": "SKU-MKBF79634",
         "merchant": {
           "deliveryMethod": {
             "deliveryMethodId": "DEFAULT",
@@ -570,8 +570,8 @@
           "reviewRating": 4.900000095367432,
           "straightLineDistanceKm": 1.26
         },
-        "promotionalUnitPrice": 10.35,
-        "unitPrice": 10.35
+        "promotionalUnitPrice": 5.49,
+        "unitPrice": 5.49
       },
       {
         "itemEan": "7896086420336",
@@ -632,11 +632,11 @@
         "unitPrice": 19.9
       },
       {
-        "itemEan": "7898949924333",
-        "itemId": "cd85b7dc-a90f-4547-ac8a-faa4f88b3ffb",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210180428_2w7ph4pcwzw.jpg",
-        "itemName": "Arroz Tipo 1 Vasconcelos Embalagem 1kg",
-        "itemSkuId": "SKU-MKBF79634",
+        "itemEan": "7893500020134",
+        "itemId": "d6a91140-381d-4336-aed0-2f61d76bdeaa",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210182226_zivt8y82lm.jpg",
+        "itemName": "Arroz Tipo 1 Tio João 2kg",
+        "itemSkuId": "SKU-PTXL29661",
         "merchant": {
           "deliveryMethod": {
             "deliveryMethodId": "DEFAULT",
@@ -657,8 +657,8 @@
           "reviewRating": 4.900000095367432,
           "straightLineDistanceKm": 1.26
         },
-        "promotionalUnitPrice": 5.49,
-        "unitPrice": 5.49
+        "promotionalUnitPrice": 10.35,
+        "unitPrice": 10.35
       },
       {
         "itemEan": "7896290300196",

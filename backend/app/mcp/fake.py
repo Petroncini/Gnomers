@@ -17,7 +17,7 @@ from typing import Any
 
 from app.heuristics import singular
 from app.mcp.client import McpToolError
-from app.rules import norm
+from app.rules import brl, norm
 
 ICMC = {"latitude": -22.0068, "longitude": -47.8954}
 
@@ -259,7 +259,7 @@ class FakeIfood:
         total = round(subtotal + fee - voucher, 2)
         warning = None
         if subtotal < m["minimumOrderAmount"]:
-            warning = {"code": "BELOW_MINIMUM_ORDER", "message": f"Subtotal abaixo do pedido mínimo de R$ {m['minimumOrderAmount']:.2f}.",
+            warning = {"code": "BELOW_MINIMUM_ORDER", "message": f"Subtotal abaixo do pedido mínimo de {brl(m['minimumOrderAmount'])}.",
                        "details": {}, "impact": {"canProceedToCheckout": False}, "suggestedActions": [],
                        "userFriendlyMessage": "Pedido abaixo do mínimo da loja."}
         return {

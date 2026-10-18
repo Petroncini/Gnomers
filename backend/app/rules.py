@@ -208,6 +208,11 @@ def resolve(rules: list[RuleLike], category: str, list_id: int | None) -> Resolv
     return out
 
 
+def brl(value: float) -> str:
+    """Valor em reais no formato brasileiro: R$ 1.234,56."""
+    return "R$ " + f"{value:,.2f}".replace(",", "_").replace(".", ",").replace("_", ".")
+
+
 def describe(kind: str, payload: dict, category: str | None) -> str:
     """Frase curta da regra para a tela de preferências e para a proposta do chat."""
     prefix = f"{category.capitalize()}: " if category else ""
@@ -233,7 +238,7 @@ def describe(kind: str, payload: dict, category: str | None) -> str:
     if kind == "delivery":
         parts = []
         if payload.get("max_fee") is not None:
-            parts.append(f"frete até R$ {payload['max_fee']:.2f}")
+            parts.append(f"frete até {brl(payload['max_fee'])}")
         if payload.get("max_minutes") is not None:
             parts.append(f"entrega em até {payload['max_minutes']} min")
         return prefix + ", ".join(parts)

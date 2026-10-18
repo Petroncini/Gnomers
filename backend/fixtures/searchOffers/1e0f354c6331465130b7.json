@@ -14,7 +14,7 @@
     },
     "pageSize": 25
   },
-  "recordedAt": "2026-10-18T05:11:07",
+  "recordedAt": "2026-10-18T05:47:29",
   "response": {
     "agentHints": {
       "nextStepWhenUserPicksItem": "Retrieve full item details — option groups and applicable promotions — before presenting it to the user."
@@ -25,95 +25,8 @@
     "resultKind": "ITEM",
     "results": [
       {
-        "itemEan": "7898055420200",
-        "itemId": "365d3de7-69b9-4b78-a934-a83a391bc70e",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202310021548_cyqh5r01vqk.jpg",
-        "itemName": "Granola Naturale Passas e Mel 1kg",
-        "itemSkuId": "SKU-PECD09138",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 120,
-              "min": 110
-            },
-            "fee": 6.49,
-            "promotionalFee": 0
-          },
-          "isOpen": false,
-          "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
-          "merchantName": "Extra - São Carlos",
-          "minimumOrderAmount": 60,
-          "ratingCount": 1354,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 0.27
-        },
-        "promotionalUnitPrice": 20.99,
-        "unitPrice": 20.99
-      },
-      {
-        "itemEan": "7896283000430",
-        "itemId": "eb1f929b-f53f-41cd-a657-7c6754900010",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510031501_ec227g829h.jpeg",
-        "itemName": "Granola Jasmine Cereais Maltados com Castanha Do Pará 250g",
-        "itemSkuId": "SKU-LTGL99566",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 118,
-              "min": 98
-            },
-            "fee": 9.99,
-            "promotionalFee": 0
-          },
-          "isOpen": false,
-          "merchantId": "782805bb-66e0-4d8d-8e86-5befa3b5d7f8",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/782805bb-66e0-4d8d-8e86-5befa3b5d7f8/202603111724_A6N4.png",
-          "merchantName": "Carrefour Bairro - São Carlos 2",
-          "minimumOrderAmount": 30,
-          "ratingCount": 584,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 1.43
-        },
-        "promotionalUnitPrice": 10.43,
-        "unitPrice": 10.43
-      },
-      {
-        "itemEan": "7895000471614",
-        "itemId": "60fe4d4d-afce-4c19-92a9-5189d57ac730",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210190453_iw073xrv18.jpg",
-        "itemName": "Granola Light Castanha Maçã e Canela Qualitá 800g",
-        "itemSkuId": "SKU-AIZH03604",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 70,
-              "min": 50
-            },
-            "fee": 7.49,
-            "promotionalFee": 0
-          },
-          "isOpen": false,
-          "merchantId": "fdc30d9c-4a05-4e5a-b1de-421b2df23eb0",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/fdc30d9c-4a05-4e5a-b1de-421b2df23eb0/202601271313_QN9O.png",
-          "merchantName": "Minuto Pão - XV de Novembro",
-          "minimumOrderAmount": 30,
-          "ratingCount": 688,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 0.41
-        },
-        "promotionalUnitPrice": 20.99,
-        "unitPrice": 29.99
-      },
-      {
         "itemEan": "7895000471577",
-        "itemId": "96c3ba9b-cba9-4dcb-9852-835245ae7263",
+        "itemId": "4e4bd029-5523-4803-8cb1-f00ade001906",
         "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202303241303_g0coap8wl4v.jpg",
         "itemName": "Granola Qualitá Light Uva Passa Banana Damasco 200g",
         "itemSkuId": "SKU-ACKZ45347",
@@ -139,6 +52,64 @@
         },
         "promotionalUnitPrice": 7.12,
         "unitPrice": 9.49
+      },
+      {
+        "itemEan": "7896283006159",
+        "itemId": "c10ac089-a80a-45d5-8fd1-be0bd64e4b81",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202305081357_kx85z92h89.jpg",
+        "itemName": "Granola Cranberries e Açaí sem Gluten Jasmine 250g",
+        "itemSkuId": "SKU-JBXJ04678",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 118,
+              "min": 98
+            },
+            "fee": 9.99,
+            "promotionalFee": 0
+          },
+          "isOpen": false,
+          "merchantId": "782805bb-66e0-4d8d-8e86-5befa3b5d7f8",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/782805bb-66e0-4d8d-8e86-5befa3b5d7f8/202603111724_A6N4.png",
+          "merchantName": "Carrefour Bairro - São Carlos 2",
+          "minimumOrderAmount": 30,
+          "ratingCount": 584,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.43
+        },
+        "promotionalUnitPrice": 10.43,
+        "unitPrice": 10.43
+      },
+      {
+        "itemEan": "7895000471577",
+        "itemId": "a5c4b77d-e269-4d60-9e6f-51f7361d699a",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202303241303_g0coap8wl4v.jpg",
+        "itemName": "Granola Qualitá Light Uva Passa Banana Damasco 200g",
+        "itemSkuId": "SKU-ACKZ45347",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 70,
+              "min": 50
+            },
+            "fee": 7.49,
+            "promotionalFee": 0
+          },
+          "isOpen": false,
+          "merchantId": "fdc30d9c-4a05-4e5a-b1de-421b2df23eb0",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/fdc30d9c-4a05-4e5a-b1de-421b2df23eb0/202601271313_QN9O.png",
+          "merchantName": "Minuto Pão - XV de Novembro",
+          "minimumOrderAmount": 30,
+          "ratingCount": 688,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 0.41
+        },
+        "promotionalUnitPrice": 6.74,
+        "unitPrice": 8.99
       },
       {
         "itemEan": "7898055420200",
@@ -170,8 +141,37 @@
         "unitPrice": 20.99
       },
       {
+        "itemEan": "7898055420200",
+        "itemId": "365d3de7-69b9-4b78-a934-a83a391bc70e",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202310021548_cyqh5r01vqk.jpg",
+        "itemName": "Granola Naturale Passas e Mel 1kg",
+        "itemSkuId": "SKU-PECD09138",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 120,
+              "min": 110
+            },
+            "fee": 6.49,
+            "promotionalFee": 0
+          },
+          "isOpen": false,
+          "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
+          "merchantName": "Extra - São Carlos",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1354,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 0.27
+        },
+        "promotionalUnitPrice": 20.99,
+        "unitPrice": 20.99
+      },
+      {
         "itemEan": "7895000471577",
-        "itemId": "4e4bd029-5523-4803-8cb1-f00ade001906",
+        "itemId": "96c3ba9b-cba9-4dcb-9852-835245ae7263",
         "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202303241303_g0coap8wl4v.jpg",
         "itemName": "Granola Qualitá Light Uva Passa Banana Damasco 200g",
         "itemSkuId": "SKU-ACKZ45347",
@@ -257,11 +257,11 @@
         "unitPrice": 43.99
       },
       {
-        "itemEan": "7895000471614",
-        "itemId": "e7a50f28-cbf0-4079-a2a2-503522add76d",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210190453_iw073xrv18.jpg",
-        "itemName": "Granola Light Castanha Maçã e Canela Qualitá 800g",
-        "itemSkuId": "SKU-AIZH03604",
+        "itemEan": "7896496972104",
+        "itemId": "77948fde-5652-4338-8d3f-4f2d738350d4",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202507022247_o4esuf2sdh.png",
+        "itemName": "Granola Frutas e Mel Mãe Terra 250g",
+        "itemSkuId": "SKU-AMBE57319",
         "merchant": {
           "deliveryMethod": {
             "deliveryMethodId": "DEFAULT",
@@ -282,8 +282,8 @@
           "reviewRating": 4.900000095367432,
           "straightLineDistanceKm": 0.27
         },
-        "promotionalUnitPrice": 30.79,
-        "unitPrice": 43.99
+        "promotionalUnitPrice": 16.99,
+        "unitPrice": 16.99
       },
       {
         "itemEan": "7891150087606",
@@ -315,11 +315,11 @@
         "unitPrice": 48.99
       },
       {
-        "itemEan": "7896496972104",
-        "itemId": "77948fde-5652-4338-8d3f-4f2d738350d4",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202507022247_o4esuf2sdh.png",
-        "itemName": "Granola Frutas e Mel Mãe Terra 250g",
-        "itemSkuId": "SKU-AMBE57319",
+        "itemEan": "7891150075450",
+        "itemId": "4ede0101-4e93-4253-987d-ecb3b816192a",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202507022240_pymqeayldlq.png",
+        "itemName": "Granola Banana e Cacau Mãe Terra 800g",
+        "itemSkuId": "SKU-YCGJ93193",
         "merchant": {
           "deliveryMethod": {
             "deliveryMethodId": "DEFAULT",
@@ -340,8 +340,8 @@
           "reviewRating": 4.900000095367432,
           "straightLineDistanceKm": 0.27
         },
-        "promotionalUnitPrice": 16.99,
-        "unitPrice": 16.99
+        "promotionalUnitPrice": 48.99,
+        "unitPrice": 48.99
       },
       {
         "itemEan": "7896283001000",
@@ -373,6 +373,35 @@
         "unitPrice": 11.99
       },
       {
+        "itemEan": "7896283000430",
+        "itemId": "eb1f929b-f53f-41cd-a657-7c6754900010",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510031501_ec227g829h.jpeg",
+        "itemName": "Granola Jasmine Cereais Maltados com Castanha Do Pará 250g",
+        "itemSkuId": "SKU-LTGL99566",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 118,
+              "min": 98
+            },
+            "fee": 9.99,
+            "promotionalFee": 0
+          },
+          "isOpen": false,
+          "merchantId": "782805bb-66e0-4d8d-8e86-5befa3b5d7f8",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/782805bb-66e0-4d8d-8e86-5befa3b5d7f8/202603111724_A6N4.png",
+          "merchantName": "Carrefour Bairro - São Carlos 2",
+          "minimumOrderAmount": 30,
+          "ratingCount": 584,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.43
+        },
+        "promotionalUnitPrice": 10.43,
+        "unitPrice": 10.43
+      },
+      {
         "itemEan": "7896283002434",
         "itemId": "1c48731e-181d-4d42-b819-c2515b36688b",
         "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202604020927_38e760yggfi.jpeg",
@@ -402,69 +431,11 @@
         "unitPrice": 10.43
       },
       {
-        "itemEan": "7891150075450",
-        "itemId": "4ede0101-4e93-4253-987d-ecb3b816192a",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202507022240_pymqeayldlq.png",
-        "itemName": "Granola Banana e Cacau Mãe Terra 800g",
-        "itemSkuId": "SKU-YCGJ93193",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 120,
-              "min": 110
-            },
-            "fee": 6.49,
-            "promotionalFee": 0
-          },
-          "isOpen": false,
-          "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
-          "merchantName": "Extra - São Carlos",
-          "minimumOrderAmount": 60,
-          "ratingCount": 1354,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 0.27
-        },
-        "promotionalUnitPrice": 48.99,
-        "unitPrice": 48.99
-      },
-      {
-        "itemEan": "7896283002434",
-        "itemId": "0326ab32-22c5-4605-9b4e-ebefa7311a3b",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202604020927_38e760yggfi.jpeg",
-        "itemName": "Granola Integral Cranberry e Gojiberry Jasmine Pouch 250g",
-        "itemSkuId": "SKU-JBXJ04678",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 120,
-              "min": 110
-            },
-            "fee": 6.49,
-            "promotionalFee": 0
-          },
-          "isOpen": false,
-          "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
-          "merchantName": "Extra - São Carlos",
-          "minimumOrderAmount": 60,
-          "ratingCount": 1354,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 0.27
-        },
-        "promotionalUnitPrice": 11.99,
-        "unitPrice": 11.99
-      },
-      {
-        "itemEan": "7895000471621",
-        "itemId": "1d42aff6-f137-4755-b717-cd2007b6a653",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210190452_0rg9dfdqhrfa.jpg",
-        "itemName": "Granola Light Uva Passa Banana e Damasco Qualitá 800g",
-        "itemSkuId": "SKU-TZCF48488",
+        "itemEan": "7895000471614",
+        "itemId": "e7a50f28-cbf0-4079-a2a2-503522add76d",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210190453_iw073xrv18.jpg",
+        "itemName": "Granola Light Castanha Maçã e Canela Qualitá 800g",
+        "itemSkuId": "SKU-AIZH03604",
         "merchant": {
           "deliveryMethod": {
             "deliveryMethodId": "DEFAULT",
@@ -487,6 +458,35 @@
         },
         "promotionalUnitPrice": 30.79,
         "unitPrice": 43.99
+      },
+      {
+        "itemEan": "7896283000157",
+        "itemId": "77ad9c2e-90f3-4cc9-b820-ae3ec9e8427b",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510031254_iu8ech3wtcr.jpeg",
+        "itemName": "Granola Tradicional Jasmine Grain Flakes 250g",
+        "itemSkuId": "SKU-ZWYL79142",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 118,
+              "min": 98
+            },
+            "fee": 9.99,
+            "promotionalFee": 0
+          },
+          "isOpen": false,
+          "merchantId": "782805bb-66e0-4d8d-8e86-5befa3b5d7f8",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/782805bb-66e0-4d8d-8e86-5befa3b5d7f8/202603111724_A6N4.png",
+          "merchantName": "Carrefour Bairro - São Carlos 2",
+          "minimumOrderAmount": 30,
+          "ratingCount": 584,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.43
+        },
+        "promotionalUnitPrice": 9.91,
+        "unitPrice": 10.43
       },
       {
         "itemEan": "7896496972111",
@@ -518,6 +518,35 @@
         "unitPrice": 48.99
       },
       {
+        "itemEan": "7895000471621",
+        "itemId": "1d42aff6-f137-4755-b717-cd2007b6a653",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210190452_0rg9dfdqhrfa.jpg",
+        "itemName": "Granola Light Uva Passa Banana e Damasco Qualitá 800g",
+        "itemSkuId": "SKU-TZCF48488",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 120,
+              "min": 110
+            },
+            "fee": 6.49,
+            "promotionalFee": 0
+          },
+          "isOpen": false,
+          "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
+          "merchantName": "Extra - São Carlos",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1354,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 0.27
+        },
+        "promotionalUnitPrice": 30.79,
+        "unitPrice": 43.99
+      },
+      {
         "itemEan": "7896283002434",
         "itemId": "70ea3f06-5952-404f-a85b-4794ac5f4410",
         "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202604020927_38e760yggfi.jpeg",
@@ -545,35 +574,6 @@
         },
         "promotionalUnitPrice": 15.99,
         "unitPrice": 15.99
-      },
-      {
-        "itemEan": "7898952041614",
-        "itemId": "fc0af2aa-93e4-43b4-8613-11ab71984e3a",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510311405_3z0qsmidg2t.png",
-        "itemName": "Granola Australia Keto Low Carb Harts Natural 300g",
-        "itemSkuId": "SKU-XLQO17694",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 70,
-              "min": 50
-            },
-            "fee": 7.49,
-            "promotionalFee": 0
-          },
-          "isOpen": false,
-          "merchantId": "fdc30d9c-4a05-4e5a-b1de-421b2df23eb0",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/fdc30d9c-4a05-4e5a-b1de-421b2df23eb0/202601271313_QN9O.png",
-          "merchantName": "Minuto Pão - XV de Novembro",
-          "minimumOrderAmount": 30,
-          "ratingCount": 688,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 0.41
-        },
-        "promotionalUnitPrice": 65.9,
-        "unitPrice": 65.9
       },
       {
         "itemEan": "7895000471546",
@@ -605,11 +605,11 @@
         "unitPrice": 8.99
       },
       {
-        "itemEan": "7895000471577",
-        "itemId": "a5c4b77d-e269-4d60-9e6f-51f7361d699a",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202303241303_g0coap8wl4v.jpg",
-        "itemName": "Granola Qualitá Light Uva Passa Banana Damasco 200g",
-        "itemSkuId": "SKU-ACKZ45347",
+        "itemEan": "7895000471614",
+        "itemId": "60fe4d4d-afce-4c19-92a9-5189d57ac730",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210190453_iw073xrv18.jpg",
+        "itemName": "Granola Light Castanha Maçã e Canela Qualitá 800g",
+        "itemSkuId": "SKU-AIZH03604",
         "merchant": {
           "deliveryMethod": {
             "deliveryMethodId": "DEFAULT",
@@ -630,15 +630,44 @@
           "reviewRating": 4.900000095367432,
           "straightLineDistanceKm": 0.41
         },
-        "promotionalUnitPrice": 6.74,
-        "unitPrice": 8.99
+        "promotionalUnitPrice": 20.99,
+        "unitPrice": 29.99
       },
       {
-        "itemEan": "7891772140598",
-        "itemId": "105b0599-7e27-48a5-ba12-04585e3bde3b",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202606191715_7jtdvnsilem.png",
-        "itemName": "Granola Kobber 250g Tradicional",
-        "itemSkuId": "SKU-VPKC65795",
+        "itemEan": "7898952041614",
+        "itemId": "fc0af2aa-93e4-43b4-8613-11ab71984e3a",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510311405_3z0qsmidg2t.png",
+        "itemName": "Granola Australia Keto Low Carb Harts Natural 300g",
+        "itemSkuId": "SKU-XLQO17694",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 70,
+              "min": 50
+            },
+            "fee": 7.49,
+            "promotionalFee": 0
+          },
+          "isOpen": false,
+          "merchantId": "fdc30d9c-4a05-4e5a-b1de-421b2df23eb0",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/fdc30d9c-4a05-4e5a-b1de-421b2df23eb0/202601271313_QN9O.png",
+          "merchantName": "Minuto Pão - XV de Novembro",
+          "minimumOrderAmount": 30,
+          "ratingCount": 688,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 0.41
+        },
+        "promotionalUnitPrice": 65.9,
+        "unitPrice": 65.9
+      },
+      {
+        "itemEan": "7891150087613",
+        "itemId": "f25d686d-2f80-438f-98e2-dffe1f78091a",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202607032127_3ju4x0b8tnf.png",
+        "itemName": "Granola Tradicional Zero Açúcares Mãe Terra 250g",
+        "itemSkuId": "SKU-DXCN55468",
         "merchant": {
           "deliveryMethod": {
             "deliveryMethodId": "DEFAULT",
@@ -659,13 +688,15 @@
           "reviewRating": 4.900000095367432,
           "straightLineDistanceKm": 1.26
         },
-        "promotionalUnitPrice": 9.9,
-        "unitPrice": 9.9
+        "promotionalUnitPrice": 16.4,
+        "unitPrice": 16.4
       },
       {
-        "itemEan": "7896256043020",
-        "itemId": "fd87aa0b-0439-4050-80b0-7fc6e417299d",
-        "itemName": "Granola Tradicional Coop 250g",
+        "itemEan": "7896496972203",
+        "itemId": "23871701-c1d0-4c7a-bcd3-4f1788c72b9a",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202507022251_75pdurxfmqs.png",
+        "itemName": "Granola Banana e Cacau Mãe Terra 250g",
+        "itemSkuId": "SKU-YJNB27506",
         "merchant": {
           "deliveryMethod": {
             "deliveryMethodId": "DEFAULT",
@@ -686,15 +717,15 @@
           "reviewRating": 4.900000095367432,
           "straightLineDistanceKm": 1.26
         },
-        "promotionalUnitPrice": 16.75,
-        "unitPrice": 16.75
+        "promotionalUnitPrice": 16.4,
+        "unitPrice": 16.4
       },
       {
-        "itemEan": "7891772154755",
-        "itemId": "6bd22578-6b42-4fcf-ad74-bfc425ddf10c",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202606191754_sv2ind6tbea.png",
-        "itemName": "Granola Kobber Zero Embalagem 800g",
-        "itemSkuId": "SKU-KSAT96528",
+        "itemEan": "7896283000492",
+        "itemId": "39ffe1a0-e68c-4138-8f9d-02e8afe82370",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202502121613_h485de61or.jpeg",
+        "itemName": "Granola Banana e Canela Jasmine Pouch 250g",
+        "itemSkuId": "SKU-CAPD12349",
         "merchant": {
           "deliveryMethod": {
             "deliveryMethodId": "DEFAULT",
@@ -715,37 +746,8 @@
           "reviewRating": 4.900000095367432,
           "straightLineDistanceKm": 1.26
         },
-        "promotionalUnitPrice": 55.5,
-        "unitPrice": 55.5
-      },
-      {
-        "itemEan": "7896283007262",
-        "itemId": "c8c1c75f-4866-4021-86b0-c65dcf77527f",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510031255_p2ot0q3ogil.jpeg",
-        "itemName": "Granola de Castanha Caju Jasmine 250g",
-        "itemSkuId": "SKU-XELQ18324",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 102,
-              "min": 92
-            },
-            "fee": 9.99,
-            "promotionalFee": 9.99
-          },
-          "isOpen": false,
-          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
-          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
-          "minimumOrderAmount": 60,
-          "ratingCount": 1867,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 1.26
-        },
-        "promotionalUnitPrice": 15.85,
-        "unitPrice": 15.85
+        "promotionalUnitPrice": 11.95,
+        "unitPrice": 11.95
       }
     ]
   }

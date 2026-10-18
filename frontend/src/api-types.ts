@@ -750,6 +750,11 @@ export interface components {
             proposed_rule: components["schemas"]["ProposedRule"] | null;
             /** Reply */
             reply: string;
+            /**
+             * Steps
+             * @default []
+             */
+            steps: string[];
         };
         /** CheckoutIn */
         CheckoutIn: {

@@ -2,7 +2,9 @@
 
 from __future__ import annotations
 
+import asyncio
 import copy
+import logging
 import re
 import statistics
 from datetime import datetime, timedelta, timezone
@@ -16,7 +18,19 @@ from app.mcp.client import McpToolError
 from app.mcp.ifood import Ifood
 from app.models import ListItem, Order, OrderLine, Plan, Rule, ShoppingList, User
 from app.pipeline.materialize import _blocking, _summary
-from app.rules import describe, validate_payload
+from app.rules import brl, describe, validate_payload
+
+
+log = logging.getLogger(__name__)
+
+
+_plan_locks: dict[int, asyncio.Lock] = {}
+
+
+def plan_lock(plan_id: int) -> asyncio.Lock:
+    """Uma alteração por vez em cada plano. Cada ação copia o resultado, chama o iFood e salva; duas ao
+    mesmo tempo (um cartão e o agente do chat, por exemplo) fariam a segunda apagar a primeira."""
+    return _plan_locks.setdefault(plan_id, asyncio.Lock())
 
 
 class ActionError(Exception):
@@ -198,8 +212,8 @@ def _update_replan_card(s: Session, plan: Plan, result: dict) -> None:
             cards.append({
                 "id": max([c["id"] for c in cards], default=-1) + 1, "type": "replan", "item_id": None,
                 "category": None, "title": "Dá para pagar menos", "question": True, "status": "open",
-                "text": (f"Com as suas trocas, comprar tudo em {names} sai por volta de R$ {best.estimated_total:.2f}, "
-                         f"contra R$ {chosen['total']:.2f} agora. Quer que eu refaça o carrinho mantendo suas escolhas?"),
+                "text": (f"Com as suas trocas, comprar tudo em {names} sai por volta de {brl(best.estimated_total)}, "
+                         f"contra {brl(chosen['total'])} agora. Quer que eu refaça o carrinho mantendo suas escolhas?"),
                 "default_text": "", "alternatives": [], "saving": gain,
             })
     # o cartão da divisão precisa refletir o total de agora
@@ -259,6 +273,11 @@ async def answer_decision(s: Session, api: Ifood, plan: Plan, card_id: int, acti
 
 async def chat(s: Session, api: Ifood, plan: Plan, card_id: int | None, message: str) -> dict:
     card = next((c for c in plan.result.get("decisions", []) if c["id"] == card_id), None) if card_id is not None else None
+    if card is None and llm.enabled():
+        # mensagem livre: o agente com tools consulta o iFood e mexe no carrinho; sem LLM, segue o fluxo abaixo
+        out = await _agent_reply(s, api, plan, message)
+        if out:
+            return out
     if card is None:
         # sem cartão: pode ser pergunta ou correção de um item ("na verdade quero café em pó")
         items = [{"id": i["id"], "raw_text": i["raw_text"], "category": i["category"]} for i in plan.result.get("items", [])]
@@ -270,6 +289,11 @@ async def chat(s: Session, api: Ifood, plan: Plan, card_id: int | None, message:
         # sem cartão, uma preferência dita no chat vira proposta de regra (a tela oferece refazer o carrinho)
         return {"reply": "Entendi. Quer guardar isso e refazer o carrinho?",
                 "proposed_rule": _proposal(extracted["rule"], None, plan), "plan": plan_view(plan)}
+    if card is not None and extracted.get("is_question") and llm.enabled():
+        # pergunta sobre um cartão ("tem outra marca mais barata?") pode precisar consultar o iFood
+        out = await _agent_reply(s, api, plan, message, card)
+        if out:
+            return out
     if card is None or extracted.get("is_question"):
         answer = await llm.explain(message, _plan_brief(plan.result))
         return {"reply": answer, "proposed_rule": None, "plan": plan_view(plan)}
@@ -305,6 +329,17 @@ async def chat(s: Session, api: Ifood, plan: Plan, card_id: int | None, message:
     if proposal and proposal["kind"] == "product" and act["type"] == "none":
         reply = "Entendi. Quer guardar isso e refazer o carrinho?"
     return {"reply": reply or "Anotado.", "proposed_rule": proposal, "plan": plan_view(plan)}
+
+
+async def _agent_reply(s: Session, api: Ifood, plan: Plan, message: str, card: dict | None = None) -> dict | None:
+    from app import agent
+
+    try:
+        out = await agent.run(s, api, plan, message, card)
+    except llm.LLMError as exc:
+        log.warning("agente do chat falhou, usando o fluxo sem tools: %s", exc)
+        return None
+    return {**out, "plan": plan_view(plan)}
 
 
 def _proposal(rule: dict, card: dict | None, plan: Plan) -> dict | None:

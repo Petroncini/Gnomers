@@ -21,7 +21,7 @@ from app import actions, llm, onboarding, proactive, scheduler
 from app import schemas as S
 from app.config import settings
 from app.heuristics import PARSER_VERSION
-from app.db import advance_days, current_user, get_session, init_db, today
+from app.db import advance_days, current_user, fail_interrupted_plans, get_session, init_db, today
 from app.mcp.client import McpToolError, NotAuthenticated
 from app.mcp.ifood import ifood
 from app.models import Address, ListItem, Order, Plan, Rule, ShoppingList, Suggestion
@@ -36,6 +36,8 @@ FRONTEND = "http://localhost:5173"
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     init_db()
+    if (n := fail_interrupted_plans()):
+        logging.getLogger(__name__).warning("%d plano(s) interrompido(s) marcados como falha", n)
     scheduler.start()
     yield
     scheduler.stop()
@@ -526,11 +528,19 @@ class DecisionIn(BaseModel):
     rule: Optional[dict] = None
 
 
+def _fresh_plan(s: Session, plan_id: int) -> Plan:
+    """O plano como está no banco agora: outra requisição pode ter mudado o carrinho enquanto esta esperava."""
+    plan = _get_plan(s, plan_id)
+    s.refresh(plan)
+    return plan
+
+
 @app.post("/plans/{plan_id}/decisions/{card_id}", response_model=S.DecisionResponse)
 async def decide(plan_id: int, card_id: int, body: DecisionIn, s: Session = Depends(get_session)):
-    plan = _get_plan(s, plan_id)
-    return await actions.answer_decision(s, ifood(), plan, card_id, body.action, sku_id=body.sku_id,
-                                         quantity=body.quantity, rule=body.rule)
+    async with actions.plan_lock(plan_id):
+        plan = _fresh_plan(s, plan_id)
+        return await actions.answer_decision(s, ifood(), plan, card_id, body.action, sku_id=body.sku_id,
+                                             quantity=body.quantity, rule=body.rule)
 
 
 class ChatIn(BaseModel):
@@ -540,8 +550,9 @@ class ChatIn(BaseModel):
 
 @app.post("/plans/{plan_id}/chat", response_model=S.ChatResponse)
 async def plan_chat(plan_id: int, body: ChatIn, s: Session = Depends(get_session)):
-    plan = _get_plan(s, plan_id)
-    return await actions.chat(s, ifood(), plan, body.card_id, body.message)
+    async with actions.plan_lock(plan_id):
+        plan = _fresh_plan(s, plan_id)
+        return await actions.chat(s, ifood(), plan, body.card_id, body.message)
 
 
 class CheckoutIn(BaseModel):
@@ -550,8 +561,9 @@ class CheckoutIn(BaseModel):
 
 @app.post("/plans/{plan_id}/checkout", response_model=S.CheckoutResponse)
 async def plan_checkout(plan_id: int, body: CheckoutIn, s: Session = Depends(get_session)):
-    plan = _get_plan(s, plan_id)
-    return await actions.checkout(s, ifood(), plan, accept_changes=body.accept_changes)
+    async with actions.plan_lock(plan_id):
+        plan = _fresh_plan(s, plan_id)
+        return await actions.checkout(s, ifood(), plan, accept_changes=body.accept_changes)
 
 
 @app.get("/orders/{order_id}/track", response_model=S.TrackingView)

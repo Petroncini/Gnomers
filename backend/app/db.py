@@ -61,3 +61,19 @@ def current_user(s: Session) -> User:
     user = s.get(User, 1)
     assert user is not None
     return user
+
+
+def fail_interrupted_plans() -> int:
+    """Planos que estavam montando quando o processo caiu nunca terminariam: viram falha com aviso."""
+    from sqlmodel import select
+
+    from app.models import Plan
+
+    with Session(engine) as s:
+        stuck = s.exec(select(Plan).where(Plan.status.in_(("pending", "running")))).all()
+        for plan in stuck:
+            plan.status = "failed"
+            plan.error = "O servidor reiniciou enquanto o carrinho era montado. Tente de novo."
+            s.add(plan)
+        s.commit()
+        return len(stuck)

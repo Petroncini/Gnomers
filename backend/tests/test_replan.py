@@ -71,6 +71,8 @@ async def _build(monkeypatch, names_sizes, spec_kw, llm_matches=True):
         return out
 
     monkeypatch.setattr(llm, "normalize_products", fake_normalize)
+    from app.db import init_db
+    init_db()
     spec = normalize.ItemSpec(id=99, raw_text="x", query=spec_kw["query"], category=spec_kw["category"], brand=None,
                               variety_terms=[], pack_size=spec_kw.get("pack_size"), pack_unit=spec_kw.get("pack_unit"),
                               quantity=spec_kw.get("quantity", 1), rules=spec_kw.get("rules", Resolved()))
@@ -112,3 +114,11 @@ def test_note_about_exact_quantity_counts_as_rule():
         payload = {"text": "Preferir a quantidade exata pedida, mesmo que fique mais caro"}
 
     assert resolve([R()], "granola", None).quantity_exact
+
+
+async def test_tiny_packs_do_not_cover_a_big_request(monkeypatch):
+    out = await _build(monkeypatch, [("Café Torrado e Moído Pilão Pacote 10g", 1.49),
+                                     ("Café Torrado e Moído Tradicional 3 Corações 500g", 22.49)],
+                       {"query": "café moído", "category": "cafe", "pack_size": 500, "pack_unit": "g"})
+    assert [info.name for info in out.skus.values()] == ["Café Torrado e Moído Tradicional 3 Corações 500g"]
+    assert out.rejected[99].get("embalagem pequena demais") == 1

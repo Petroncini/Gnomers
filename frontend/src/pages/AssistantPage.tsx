@@ -14,6 +14,7 @@ const STAGES: [string, string][] = [
 interface Message {
   from: "user" | "agent";
   text: string;
+  steps?: string[];
   proposal?: ProposedRule;
   cardId: number | null;  // a conversa fica junto do conflito sobre o qual ela foi
 }
@@ -85,7 +86,7 @@ export default function AssistantPage() {
     try {
       const r = await api.post<ChatResponse>(`/plans/${plan.id}/chat`, { message: msg, card_id: cardId ?? undefined });
       setPlan(r.plan);
-      setMessages((m) => [...m, { from: "agent", text: r.reply, proposal: r.proposed_rule ?? undefined, cardId }]);
+      setMessages((m) => [...m, { from: "agent", text: r.reply, steps: r.steps, proposal: r.proposed_rule ?? undefined, cardId }]);
     } catch (e) {
       setMessages((m) => [...m, { from: "agent", text: `Não consegui: ${(e as Error).message}`, cardId }]);
     } finally {
@@ -98,6 +99,11 @@ export default function AssistantPage() {
 
   const thread = (cardId: number | null) => messages.map((m, i) => m.cardId !== cardId ? null : (
     <div key={`m${i}`} className={`bubble ${m.from}`}>
+      {!!m.steps?.length && (
+        <ul className="agent-steps" aria-label="O que o assistente fez">
+          {m.steps.map((st, j) => <li key={j}>{st}</li>)}
+        </ul>
+      )}
       <p>{m.text}</p>
       {m.proposal && plan && (
         <RuleProposal proposal={m.proposal} listId={plan.list_id} planId={plan.id}

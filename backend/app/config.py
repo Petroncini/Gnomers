@@ -54,6 +54,8 @@ class Settings:
     llm_strong_model: str = field(default_factory=lambda: _get("GNOMERS_LLM_STRONG"))
     llm_enabled: bool = field(default_factory=lambda: _get("GNOMERS_LLM", "auto") != "off")
     mcp_concurrency: int = field(default_factory=lambda: int(_get("GNOMERS_MCP_CONCURRENCY", "6")))
+    # o sandbox bloqueia o token (com erro INTERNAL) depois de ~60 chamadas em 1-2 min
+    mcp_calls_per_min: int = field(default_factory=lambda: int(_get("GNOMERS_MCP_CALLS_PER_MIN", "30")))
     mcp_timeout_s: float = field(default_factory=lambda: float(_get("GNOMERS_MCP_TIMEOUT", "30")))
 
     @property

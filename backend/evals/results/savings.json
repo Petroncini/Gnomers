@@ -1,0 +1,1168 @@
+{
+ "lists": 42,
+ "offers": 403,
+ "merchants": 19,
+ "candidates": 180,
+ "cesta_feasible": 42,
+ "cesta_split": 1,
+ "vs_nearest": {
+  "lists": 42,
+  "mean_brl": 11.46,
+  "mean_pct": 0.19,
+  "max_brl": 29.98,
+  "cesta_cheaper_or_equal": 40,
+  "person_topped_up": 29,
+  "person_mean_merchants": 1,
+  "no_store_with_everything": 0
+ },
+ "vs_biggest": {
+  "lists": 42,
+  "mean_brl": 13.79,
+  "mean_pct": 0.189,
+  "max_brl": 118.77,
+  "cesta_cheaper_or_equal": 41,
+  "person_topped_up": 23,
+  "person_mean_merchants": 1,
+  "no_store_with_everything": 0
+ },
+ "vs_cheapest_each": {
+  "lists": 42,
+  "mean_brl": 67.41,
+  "mean_pct": 0.54,
+  "max_brl": 118.33,
+  "cesta_cheaper_or_equal": 41,
+  "person_topped_up": 42,
+  "person_mean_merchants": 3.36,
+  "no_store_with_everything": 0
+ },
+ "llm": {
+  "calls": 26,
+  "cost_usd": 0.03148,
+  "fallbacks": []
+ },
+ "llm_enabled": true,
+ "rows": [
+  {
+   "list": [
+    "1 kilo de arroz branco",
+    "1 kilo de feijão",
+    "500g café moído"
+   ],
+   "cesta": {
+    "total": 30.65,
+    "merchants": 1
+   },
+   "nearest": {
+    "total": 60.0,
+    "merchants": 1,
+    "topped_up": true
+   },
+   "biggest": {
+    "total": 60.0,
+    "merchants": 1,
+    "topped_up": true
+   },
+   "cheapest_each": {
+    "total": 120.0,
+    "merchants": 3,
+    "topped_up": true
+   }
+  },
+  {
+   "list": [
+    "1 kilo de arroz branco",
+    "1 kilo de feijão",
+    "1 granola sem açúcar 500g"
+   ],
+   "cesta": {
+    "total": 34.24,
+    "merchants": 1
+   },
+   "nearest": {
+    "total": 60.0,
+    "merchants": 1,
+    "topped_up": true
+   },
+   "biggest": {
+    "total": 60.0,
+    "merchants": 1,
+    "topped_up": true
+   },
+   "cheapest_each": {
+    "total": 120.0,
+    "merchants": 3,
+    "topped_up": true
+   }
+  },
+  {
+   "list": [
+    "1 kilo de arroz branco",
+    "1 kilo de feijão",
+    "2 leite integral 1L"
+   ],
+   "cesta": {
+    "total": 30.26,
+    "merchants": 1
+   },
+   "nearest": {
+    "total": 60.0,
+    "merchants": 1,
+    "topped_up": true
+   },
+   "biggest": {
+    "total": 60.0,
+    "merchants": 1,
+    "topped_up": true
+   },
+   "cheapest_each": {
+    "total": 120.0,
+    "merchants": 3,
+    "topped_up": true
+   }
+  },
+  {
+   "list": [
+    "1 kilo de arroz branco",
+    "1 kilo de feijão",
+    "1 leite em pó integral 400g"
+   ],
+   "cesta": {
+    "total": 30.02,
+    "merchants": 1
+   },
+   "nearest": {
+    "total": 60.0,
+    "merchants": 1,
+    "topped_up": true
+   },
+   "biggest": {
+    "total": 60.0,
+    "merchants": 1,
+    "topped_up": true
+   },
+   "cheapest_each": {
+    "total": 120.0,
+    "merchants": 3,
+    "topped_up": true
+   }
+  },
+  {
+   "list": [
+    "1 kilo de arroz branco",
+    "500g café moído",
+    "1 granola sem açúcar 500g"
+   ],
+   "cesta": {
+    "total": 51.81,
+    "merchants": 1
+   },
+   "nearest": {
+    "total": 60.0,
+    "merchants": 1,
+    "topped_up": true
+   },
+   "biggest": {
+    "total": 60.0,
+    "merchants": 1,
+    "topped_up": true
+   },
+   "cheapest_each": {
+    "total": 120.0,
+    "merchants": 3,
+    "topped_up": true
+   }
+  },
+  {
+   "list": [
+    "1 kilo de arroz branco",
+    "500g café moído",
+    "2 leite integral 1L"
+   ],
+   "cesta": {
+    "total": 36.64,
+    "merchants": 1
+   },
+   "nearest": {
+    "total": 60.0,
+    "merchants": 1,
+    "topped_up": true
+   },
+   "biggest": {
+    "total": 60.0,
+    "merchants": 1,
+    "topped_up": true
+   },
+   "cheapest_each": {
+    "total": 120.0,
+    "merchants": 3,
+    "topped_up": true
+   }
+  },
+  {
+   "list": [
+    "1 kilo de arroz branco",
+    "500g café moído",
+    "1 leite em pó integral 400g"
+   ],
+   "cesta": {
+    "total": 45.18,
+    "merchants": 1
+   },
+   "nearest": {
+    "total": 60.0,
+    "merchants": 1,
+    "topped_up": true
+   },
+   "biggest": {
+    "total": 60.0,
+    "merchants": 1,
+    "topped_up": true
+   },
+   "cheapest_each": {
+    "total": 120.0,
+    "merchants": 3,
+    "topped_up": true
+   }
+  },
+  {
+   "list": [
+    "1 kilo de arroz branco",
+    "1 granola sem açúcar 500g",
+    "2 leite integral 1L"
+   ],
+   "cesta": {
+    "total": 35.01,
+    "merchants": 1
+   },
+   "nearest": {
+    "total": 60.0,
+    "merchants": 1,
+    "topped_up": true
+   },
+   "biggest": {
+    "total": 60.0,
+    "merchants": 1,
+    "topped_up": true
+   },
+   "cheapest_each": {
+    "total": 90.0,
+    "merchants": 2,
+    "topped_up": true
+   }
+  },
+  {
+   "list": [
+    "1 kilo de arroz branco",
+    "1 granola sem açúcar 500g",
+    "1 leite em pó integral 400g"
+   ],
+   "cesta": {
+    "total": 38.21,
+    "merchants": 1
+   },
+   "nearest": {
+    "total": 60.0,
+    "merchants": 1,
+    "topped_up": true
+   },
+   "biggest": {
+    "total": 60.0,
+    "merchants": 1,
+    "topped_up": true
+   },
+   "cheapest_each": {
+    "total": 120.0,
+    "merchants": 3,
+    "topped_up": true
+   }
+  },
+  {
+   "list": [
+    "1 kilo de arroz branco",
+    "2 leite integral 1L",
+    "1 leite em pó integral 400g"
+   ],
+   "cesta": {
+    "total": 30.55,
+    "merchants": 1
+   },
+   "nearest": {
+    "total": 60.0,
+    "merchants": 1,
+    "topped_up": true
+   },
+   "biggest": {
+    "total": 60.0,
+    "merchants": 1,
+    "topped_up": true
+   },
+   "cheapest_each": {
+    "total": 120.0,
+    "merchants": 3,
+    "topped_up": true
+   }
+  },
+  {
+   "list": [
+    "1 kilo de feijão",
+    "500g café moído",
+    "1 granola sem açúcar 500g"
+   ],
+   "cesta": {
+    "total": 56.2,
+    "merchants": 1
+   },
+   "nearest": {
+    "total": 60.0,
+    "merchants": 1,
+    "topped_up": true
+   },
+   "biggest": {
+    "total": 60.0,
+    "merchants": 1,
+    "topped_up": true
+   },
+   "cheapest_each": {
+    "total": 90.0,
+    "merchants": 3,
+    "topped_up": true
+   }
+  },
+  {
+   "list": [
+    "1 kilo de feijão",
+    "500g café moído",
+    "2 leite integral 1L"
+   ],
+   "cesta": {
+    "total": 37.64,
+    "merchants": 1
+   },
+   "nearest": {
+    "total": 60.0,
+    "merchants": 1,
+    "topped_up": true
+   },
+   "biggest": {
+    "total": 60.0,
+    "merchants": 1,
+    "topped_up": true
+   },
+   "cheapest_each": {
+    "total": 90.0,
+    "merchants": 3,
+    "topped_up": true
+   }
+  },
+  {
+   "list": [
+    "1 kilo de feijão",
+    "500g café moído",
+    "1 leite em pó integral 400g"
+   ],
+   "cesta": {
+    "total": 49.57,
+    "merchants": 1
+   },
+   "nearest": {
+    "total": 60.0,
+    "merchants": 1,
+    "topped_up": true
+   },
+   "biggest": {
+    "total": 60.0,
+    "merchants": 1,
+    "topped_up": true
+   },
+   "cheapest_each": {
+    "total": 90.0,
+    "merchants": 3,
+    "topped_up": true
+   }
+  },
+  {
+   "list": [
+    "1 kilo de feijão",
+    "1 granola sem açúcar 500g",
+    "2 leite integral 1L"
+   ],
+   "cesta": {
+    "total": 33.01,
+    "merchants": 1
+   },
+   "nearest": {
+    "total": 60.0,
+    "merchants": 1,
+    "topped_up": true
+   },
+   "biggest": {
+    "total": 33.01,
+    "merchants": 1,
+    "topped_up": false
+   },
+   "cheapest_each": {
+    "total": 60.0,
+    "merchants": 2,
+    "topped_up": true
+   }
+  },
+  {
+   "list": [
+    "1 kilo de feijão",
+    "1 granola sem açúcar 500g",
+    "1 leite em pó integral 400g"
+   ],
+   "cesta": {
+    "total": 43.19,
+    "merchants": 1
+   },
+   "nearest": {
+    "total": 60.0,
+    "merchants": 1,
+    "topped_up": true
+   },
+   "biggest": {
+    "total": 43.19,
+    "merchants": 1,
+    "topped_up": false
+   },
+   "cheapest_each": {
+    "total": 90.0,
+    "merchants": 3,
+    "topped_up": true
+   }
+  },
+  {
+   "list": [
+    "1 kilo de feijão",
+    "2 leite integral 1L",
+    "1 leite em pó integral 400g"
+   ],
+   "cesta": {
+    "total": 31.21,
+    "merchants": 1
+   },
+   "nearest": {
+    "total": 60.0,
+    "merchants": 1,
+    "topped_up": true
+   },
+   "biggest": {
+    "total": 31.21,
+    "merchants": 1,
+    "topped_up": false
+   },
+   "cheapest_each": {
+    "total": 90.0,
+    "merchants": 3,
+    "topped_up": true
+   }
+  },
+  {
+   "list": [
+    "500g café moído",
+    "1 granola sem açúcar 500g",
+    "2 leite integral 1L"
+   ],
+   "cesta": {
+    "total": 60.85,
+    "merchants": 1
+   },
+   "nearest": {
+    "total": 60.0,
+    "merchants": 1,
+    "topped_up": true
+   },
+   "biggest": {
+    "total": 179.62,
+    "merchants": 1,
+    "topped_up": false
+   },
+   "cheapest_each": {
+    "total": 60.0,
+    "merchants": 2,
+    "topped_up": true
+   }
+  },
+  {
+   "list": [
+    "500g café moído",
+    "1 granola sem açúcar 500g",
+    "1 leite em pó integral 400g"
+   ],
+   "cesta": {
+    "total": 64.11,
+    "merchants": 1
+   },
+   "nearest": {
+    "total": 64.11,
+    "merchants": 1,
+    "topped_up": false
+   },
+   "biggest": {
+    "total": 91.01,
+    "merchants": 1,
+    "topped_up": false
+   },
+   "cheapest_each": {
+    "total": 90.0,
+    "merchants": 3,
+    "topped_up": true
+   }
+  },
+  {
+   "list": [
+    "500g café moído",
+    "2 leite integral 1L",
+    "1 leite em pó integral 400g"
+   ],
+   "cesta": {
+    "total": 51.64,
+    "merchants": 1
+   },
+   "nearest": {
+    "total": 60.0,
+    "merchants": 1,
+    "topped_up": true
+   },
+   "biggest": {
+    "total": 68.61,
+    "merchants": 1,
+    "topped_up": false
+   },
+   "cheapest_each": {
+    "total": 90.0,
+    "merchants": 3,
+    "topped_up": true
+   }
+  },
+  {
+   "list": [
+    "1 granola sem açúcar 500g",
+    "2 leite integral 1L",
+    "1 leite em pó integral 400g"
+   ],
+   "cesta": {
+    "total": 43.96,
+    "merchants": 1
+   },
+   "nearest": {
+    "total": 60.0,
+    "merchants": 1,
+    "topped_up": true
+   },
+   "biggest": {
+    "total": 60.0,
+    "merchants": 1,
+    "topped_up": true
+   },
+   "cheapest_each": {
+    "total": 60.0,
+    "merchants": 2,
+    "topped_up": true
+   }
+  },
+  {
+   "list": [
+    "1 kilo de arroz branco",
+    "1 kilo de feijão",
+    "500g café moído",
+    "1 granola sem açúcar 500g"
+   ],
+   "cesta": {
+    "total": 60.07,
+    "merchants": 1
+   },
+   "nearest": {
+    "total": 60.0,
+    "merchants": 1,
+    "topped_up": true
+   },
+   "biggest": {
+    "total": 60.0,
+    "merchants": 1,
+    "topped_up": true
+   },
+   "cheapest_each": {
+    "total": 150.0,
+    "merchants": 4,
+    "topped_up": true
+   }
+  },
+  {
+   "list": [
+    "1 kilo de arroz branco",
+    "1 kilo de feijão",
+    "500g café moído",
+    "2 leite integral 1L"
+   ],
+   "cesta": {
+    "total": 44.63,
+    "merchants": 1
+   },
+   "nearest": {
+    "total": 60.0,
+    "merchants": 1,
+    "topped_up": true
+   },
+   "biggest": {
+    "total": 60.0,
+    "merchants": 1,
+    "topped_up": true
+   },
+   "cheapest_each": {
+    "total": 150.0,
+    "merchants": 4,
+    "topped_up": true
+   }
+  },
+  {
+   "list": [
+    "1 kilo de arroz branco",
+    "1 kilo de feijão",
+    "500g café moído",
+    "1 leite em pó integral 400g"
+   ],
+   "cesta": {
+    "total": 53.97,
+    "merchants": 1
+   },
+   "nearest": {
+    "total": 60.0,
+    "merchants": 1,
+    "topped_up": true
+   },
+   "biggest": {
+    "total": 60.0,
+    "merchants": 1,
+    "topped_up": true
+   },
+   "cheapest_each": {
+    "total": 150.0,
+    "merchants": 4,
+    "topped_up": true
+   }
+  },
+  {
+   "list": [
+    "1 kilo de arroz branco",
+    "1 kilo de feijão",
+    "1 granola sem açúcar 500g",
+    "2 leite integral 1L"
+   ],
+   "cesta": {
+    "total": 40.7,
+    "merchants": 1
+   },
+   "nearest": {
+    "total": 60.0,
+    "merchants": 1,
+    "topped_up": true
+   },
+   "biggest": {
+    "total": 60.0,
+    "merchants": 1,
+    "topped_up": true
+   },
+   "cheapest_each": {
+    "total": 120.0,
+    "merchants": 3,
+    "topped_up": true
+   }
+  },
+  {
+   "list": [
+    "1 kilo de arroz branco",
+    "1 kilo de feijão",
+    "1 granola sem açúcar 500g",
+    "1 leite em pó integral 400g"
+   ],
+   "cesta": {
+    "total": 50.88,
+    "merchants": 1
+   },
+   "nearest": {
+    "total": 60.0,
+    "merchants": 1,
+    "topped_up": true
+   },
+   "biggest": {
+    "total": 60.0,
+    "merchants": 1,
+    "topped_up": true
+   },
+   "cheapest_each": {
+    "total": 150.0,
+    "merchants": 4,
+    "topped_up": true
+   }
+  },
+  {
+   "list": [
+    "1 kilo de arroz branco",
+    "1 kilo de feijão",
+    "2 leite integral 1L",
+    "1 leite em pó integral 400g"
+   ],
+   "cesta": {
+    "total": 36.48,
+    "merchants": 1
+   },
+   "nearest": {
+    "total": 60.0,
+    "merchants": 1,
+    "topped_up": true
+   },
+   "biggest": {
+    "total": 60.0,
+    "merchants": 1,
+    "topped_up": true
+   },
+   "cheapest_each": {
+    "total": 150.0,
+    "merchants": 4,
+    "topped_up": true
+   }
+  },
+  {
+   "list": [
+    "1 kilo de arroz branco",
+    "500g café moído",
+    "1 granola sem açúcar 500g",
+    "2 leite integral 1L"
+   ],
+   "cesta": {
+    "total": 63.06,
+    "merchants": 1
+   },
+   "nearest": {
+    "total": 63.06,
+    "merchants": 1,
+    "topped_up": false
+   },
+   "biggest": {
+    "total": 63.06,
+    "merchants": 1,
+    "topped_up": false
+   },
+   "cheapest_each": {
+    "total": 120.0,
+    "merchants": 3,
+    "topped_up": true
+   }
+  },
+  {
+   "list": [
+    "1 kilo de arroz branco",
+    "500g café moído",
+    "1 granola sem açúcar 500g",
+    "1 leite em pó integral 400g"
+   ],
+   "cesta": {
+    "total": 68.42,
+    "merchants": 1
+   },
+   "nearest": {
+    "total": 68.42,
+    "merchants": 1,
+    "topped_up": false
+   },
+   "biggest": {
+    "total": 68.42,
+    "merchants": 1,
+    "topped_up": false
+   },
+   "cheapest_each": {
+    "total": 150.0,
+    "merchants": 4,
+    "topped_up": true
+   }
+  },
+  {
+   "list": [
+    "1 kilo de arroz branco",
+    "500g café moído",
+    "2 leite integral 1L",
+    "1 leite em pó integral 400g"
+   ],
+   "cesta": {
+    "total": 56.04,
+    "merchants": 1
+   },
+   "nearest": {
+    "total": 60.0,
+    "merchants": 1,
+    "topped_up": true
+   },
+   "biggest": {
+    "total": 60.0,
+    "merchants": 1,
+    "topped_up": true
+   },
+   "cheapest_each": {
+    "total": 150.0,
+    "merchants": 4,
+    "topped_up": true
+   }
+  },
+  {
+   "list": [
+    "1 kilo de arroz branco",
+    "1 granola sem açúcar 500g",
+    "2 leite integral 1L",
+    "1 leite em pó integral 400g"
+   ],
+   "cesta": {
+    "total": 51.65,
+    "merchants": 1
+   },
+   "nearest": {
+    "total": 60.0,
+    "merchants": 1,
+    "topped_up": true
+   },
+   "biggest": {
+    "total": 60.0,
+    "merchants": 1,
+    "topped_up": true
+   },
+   "cheapest_each": {
+    "total": 120.0,
+    "merchants": 3,
+    "topped_up": true
+   }
+  },
+  {
+   "list": [
+    "1 kilo de feijão",
+    "500g café moído",
+    "1 granola sem açúcar 500g",
+    "2 leite integral 1L"
+   ],
+   "cesta": {
+    "total": 65.2,
+    "merchants": 1
+   },
+   "nearest": {
+    "total": 65.2,
+    "merchants": 1,
+    "topped_up": false
+   },
+   "biggest": {
+    "total": 65.2,
+    "merchants": 1,
+    "topped_up": false
+   },
+   "cheapest_each": {
+    "total": 90.0,
+    "merchants": 3,
+    "topped_up": true
+   }
+  },
+  {
+   "list": [
+    "1 kilo de feijão",
+    "500g café moído",
+    "1 granola sem açúcar 500g",
+    "1 leite em pó integral 400g"
+   ],
+   "cesta": {
+    "total": 70.56,
+    "merchants": 1
+   },
+   "nearest": {
+    "total": 70.56,
+    "merchants": 1,
+    "topped_up": false
+   },
+   "biggest": {
+    "total": 70.56,
+    "merchants": 1,
+    "topped_up": false
+   },
+   "cheapest_each": {
+    "total": 120.0,
+    "merchants": 4,
+    "topped_up": true
+   }
+  },
+  {
+   "list": [
+    "1 kilo de feijão",
+    "500g café moído",
+    "2 leite integral 1L",
+    "1 leite em pó integral 400g"
+   ],
+   "cesta": {
+    "total": 60.0,
+    "merchants": 1
+   },
+   "nearest": {
+    "total": 60.0,
+    "merchants": 1,
+    "topped_up": true
+   },
+   "biggest": {
+    "total": 60.0,
+    "merchants": 1,
+    "topped_up": true
+   },
+   "cheapest_each": {
+    "total": 120.0,
+    "merchants": 4,
+    "topped_up": true
+   }
+  },
+  {
+   "list": [
+    "1 kilo de feijão",
+    "1 granola sem açúcar 500g",
+    "2 leite integral 1L",
+    "1 leite em pó integral 400g"
+   ],
+   "cesta": {
+    "total": 49.65,
+    "merchants": 1
+   },
+   "nearest": {
+    "total": 60.0,
+    "merchants": 1,
+    "topped_up": true
+   },
+   "biggest": {
+    "total": 49.65,
+    "merchants": 1,
+    "topped_up": false
+   },
+   "cheapest_each": {
+    "total": 90.0,
+    "merchants": 3,
+    "topped_up": true
+   }
+  },
+  {
+   "list": [
+    "500g café moído",
+    "1 granola sem açúcar 500g",
+    "2 leite integral 1L",
+    "1 leite em pó integral 400g"
+   ],
+   "cesta": {
+    "total": 74.89,
+    "merchants": 1
+   },
+   "nearest": {
+    "total": 74.89,
+    "merchants": 1,
+    "topped_up": false
+   },
+   "biggest": {
+    "total": 100.59,
+    "merchants": 1,
+    "topped_up": false
+   },
+   "cheapest_each": {
+    "total": 90.0,
+    "merchants": 3,
+    "topped_up": true
+   }
+  },
+  {
+   "list": [
+    "1 kilo de arroz branco",
+    "1 kilo de feijão",
+    "500g café moído",
+    "1 granola sem açúcar 500g",
+    "2 leite integral 1L"
+   ],
+   "cesta": {
+    "total": 69.51,
+    "merchants": 1
+   },
+   "nearest": {
+    "total": 69.51,
+    "merchants": 1,
+    "topped_up": false
+   },
+   "biggest": {
+    "total": 69.51,
+    "merchants": 1,
+    "topped_up": false
+   },
+   "cheapest_each": {
+    "total": 150.0,
+    "merchants": 4,
+    "topped_up": true
+   }
+  },
+  {
+   "list": [
+    "1 kilo de arroz branco",
+    "1 kilo de feijão",
+    "500g café moído",
+    "1 granola sem açúcar 500g",
+    "1 leite em pó integral 400g"
+   ],
+   "cesta": {
+    "total": 74.87,
+    "merchants": 1
+   },
+   "nearest": {
+    "total": 74.87,
+    "merchants": 1,
+    "topped_up": false
+   },
+   "biggest": {
+    "total": 74.87,
+    "merchants": 1,
+    "topped_up": false
+   },
+   "cheapest_each": {
+    "total": 180.0,
+    "merchants": 5,
+    "topped_up": true
+   }
+  },
+  {
+   "list": [
+    "1 kilo de arroz branco",
+    "1 kilo de feijão",
+    "500g café moído",
+    "2 leite integral 1L",
+    "1 leite em pó integral 400g"
+   ],
+   "cesta": {
+    "total": 61.67,
+    "merchants": 1
+   },
+   "nearest": {
+    "total": 61.67,
+    "merchants": 1,
+    "topped_up": false
+   },
+   "biggest": {
+    "total": 61.67,
+    "merchants": 1,
+    "topped_up": false
+   },
+   "cheapest_each": {
+    "total": 180.0,
+    "merchants": 5,
+    "topped_up": true
+   }
+  },
+  {
+   "list": [
+    "1 kilo de arroz branco",
+    "1 kilo de feijão",
+    "1 granola sem açúcar 500g",
+    "2 leite integral 1L",
+    "1 leite em pó integral 400g"
+   ],
+   "cesta": {
+    "total": 57.34,
+    "merchants": 1
+   },
+   "nearest": {
+    "total": 61.66,
+    "merchants": 1,
+    "topped_up": false
+   },
+   "biggest": {
+    "total": 61.66,
+    "merchants": 1,
+    "topped_up": false
+   },
+   "cheapest_each": {
+    "total": 150.0,
+    "merchants": 4,
+    "topped_up": true
+   }
+  },
+  {
+   "list": [
+    "1 kilo de arroz branco",
+    "500g café moído",
+    "1 granola sem açúcar 500g",
+    "2 leite integral 1L",
+    "1 leite em pó integral 400g"
+   ],
+   "cesta": {
+    "total": 79.2,
+    "merchants": 1
+   },
+   "nearest": {
+    "total": 79.2,
+    "merchants": 1,
+    "topped_up": false
+   },
+   "biggest": {
+    "total": 79.2,
+    "merchants": 1,
+    "topped_up": false
+   },
+   "cheapest_each": {
+    "total": 150.0,
+    "merchants": 4,
+    "topped_up": true
+   }
+  },
+  {
+   "list": [
+    "1 kilo de feijão",
+    "500g café moído",
+    "1 granola sem açúcar 500g",
+    "2 leite integral 1L",
+    "1 leite em pó integral 400g"
+   ],
+   "cesta": {
+    "total": 81.34,
+    "merchants": 1
+   },
+   "nearest": {
+    "total": 81.34,
+    "merchants": 1,
+    "topped_up": false
+   },
+   "biggest": {
+    "total": 81.34,
+    "merchants": 1,
+    "topped_up": false
+   },
+   "cheapest_each": {
+    "total": 120.0,
+    "merchants": 4,
+    "topped_up": true
+   }
+  },
+  {
+   "list": [
+    "1 kilo de arroz branco",
+    "1 kilo de feijão",
+    "500g café moído",
+    "1 granola sem açúcar 500g",
+    "2 leite integral 1L",
+    "1 leite em pó integral 400g"
+   ],
+   "cesta": {
+    "total": 74.61,
+    "merchants": 2
+   },
+   "nearest": {
+    "total": 85.65,
+    "merchants": 1,
+    "topped_up": false
+   },
+   "biggest": {
+    "total": 85.65,
+    "merchants": 1,
+    "topped_up": false
+   },
+   "cheapest_each": {
+    "total": 180.0,
+    "merchants": 5,
+    "topped_up": true
+   }
+  }
+ ]
+}

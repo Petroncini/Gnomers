@@ -14,7 +14,7 @@
     },
     "pageSize": 25
   },
-  "recordedAt": "2026-10-18T05:11:09",
+  "recordedAt": "2026-10-18T05:47:32",
   "response": {
     "agentHints": {
       "nextStepWhenUserPicksItem": "Retrieve full item details — option groups and applicable promotions — before presenting it to the user."
@@ -83,11 +83,11 @@
         "unitPrice": 27.99
       },
       {
-        "itemEan": "7896045102440",
-        "itemId": "fcba30bf-be1b-4af4-b387-138248f83905",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202307091916_thjecha3fp.jpg",
-        "itemName": "Café Torrado E Moído Tradicional A Vácuo 3 Corações 500g",
-        "itemSkuId": "SKU-DNXV89134",
+        "itemEan": "7891018001386",
+        "itemId": "75f0d46d-6ed3-4e3c-8cfa-ac1c6a3300f9",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202505210848_lbf4l8p87f.png",
+        "itemName": "Café Torrado E Moído Tradicional Café Brasileiro 500g",
+        "itemSkuId": "SKU-RZEM22688",
         "merchant": {
           "deliveryMethod": {
             "deliveryMethodId": "DEFAULT",
@@ -108,8 +108,8 @@
           "reviewRating": 4.900000095367432,
           "straightLineDistanceKm": 1.26
         },
-        "promotionalUnitPrice": 21.8,
-        "unitPrice": 21.8
+        "promotionalUnitPrice": 18.95,
+        "unitPrice": 18.95
       },
       {
         "itemEan": "7896045102440",
@@ -141,35 +141,6 @@
         "unitPrice": 33.99
       },
       {
-        "itemEan": "7891018001386",
-        "itemId": "75f0d46d-6ed3-4e3c-8cfa-ac1c6a3300f9",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202505210848_lbf4l8p87f.png",
-        "itemName": "Café Torrado E Moído Tradicional Café Brasileiro 500g",
-        "itemSkuId": "SKU-RZEM22688",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 102,
-              "min": 92
-            },
-            "fee": 9.99,
-            "promotionalFee": 9.99
-          },
-          "isOpen": false,
-          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
-          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
-          "minimumOrderAmount": 60,
-          "ratingCount": 1867,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 1.26
-        },
-        "promotionalUnitPrice": 18.95,
-        "unitPrice": 18.95
-      },
-      {
         "itemEan": "7896089010916",
         "itemId": "5bfe6f9e-04f4-4cfd-b9b6-af71d638f126",
         "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202307052341_cca8o3riey4.jpg",
@@ -199,11 +170,11 @@
         "unitPrice": 29.9
       },
       {
-        "itemEan": "7896005800027",
-        "itemId": "97551a34-e30a-4b7e-bea0-7f831e2cb5c7",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202305031236_xb4bd615ik8.jpg",
-        "itemName": "Café Torrado e Moído Tradicional 3 Corações 250g",
-        "itemSkuId": "SKU-TYKO72579",
+        "itemEan": "7896045102440",
+        "itemId": "fcba30bf-be1b-4af4-b387-138248f83905",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202307091916_thjecha3fp.jpg",
+        "itemName": "Café Torrado E Moído Tradicional A Vácuo 3 Corações 500g",
+        "itemSkuId": "SKU-DNXV89134",
         "merchant": {
           "deliveryMethod": {
             "deliveryMethodId": "DEFAULT",
@@ -224,8 +195,8 @@
           "reviewRating": 4.900000095367432,
           "straightLineDistanceKm": 1.26
         },
-        "promotionalUnitPrice": 11.95,
-        "unitPrice": 11.95
+        "promotionalUnitPrice": 21.8,
+        "unitPrice": 21.8
       },
       {
         "itemEan": "7896005800577",
@@ -257,40 +228,11 @@
         "unitPrice": 19.95
       },
       {
-        "itemEan": "7891018427650",
-        "itemId": "8c2a17da-64c8-4f7e-86a7-83200dc2c08f",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210200230_4aqnzyxkbhh.jpg",
-        "itemName": "Café Torrado e Moído a Vácuo Tradicional Brasileiro 500g",
-        "itemSkuId": "SKU-AOBO13200",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 102,
-              "min": 92
-            },
-            "fee": 9.99,
-            "promotionalFee": 9.99
-          },
-          "isOpen": false,
-          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
-          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
-          "minimumOrderAmount": 60,
-          "ratingCount": 1867,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 1.26
-        },
-        "promotionalUnitPrice": 18.95,
-        "unitPrice": 18.95
-      },
-      {
-        "itemEan": "7896045101641",
-        "itemId": "6c5e756d-4407-46d6-9011-ae5bc618e410",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202610081345_lpa23n0x939.png",
-        "itemName": "Café Torrado e Moído Mogiana Paulista 3 Corações 250g",
-        "itemSkuId": "SKU-JUNQ42025",
+        "itemEan": "7896045115341",
+        "itemId": "79ca3a46-266d-478a-9af6-7e293b77bc51",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202610081332_5sgac3neot.png",
+        "itemName": "Café Gourmet Torrado e Moído Espírito Santo 3 Corações 250g",
+        "itemSkuId": "SKU-LUXK32712",
         "merchant": {
           "deliveryMethod": {
             "deliveryMethodId": "DEFAULT",
@@ -315,11 +257,11 @@
         "unitPrice": 20.95
       },
       {
-        "itemEan": "7896045115341",
-        "itemId": "79ca3a46-266d-478a-9af6-7e293b77bc51",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202610081332_5sgac3neot.png",
-        "itemName": "Café Gourmet Torrado e Moído Espírito Santo 3 Corações 250g",
-        "itemSkuId": "SKU-LUXK32712",
+        "itemEan": "7896045101641",
+        "itemId": "6c5e756d-4407-46d6-9011-ae5bc618e410",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202610081345_lpa23n0x939.png",
+        "itemName": "Café Torrado e Moído Mogiana Paulista 3 Corações 250g",
+        "itemSkuId": "SKU-JUNQ42025",
         "merchant": {
           "deliveryMethod": {
             "deliveryMethodId": "DEFAULT",
@@ -373,6 +315,35 @@
         "unitPrice": 32.95
       },
       {
+        "itemEan": "7896045113613",
+        "itemId": "ad579c7b-cfe1-402b-b649-ad37717af9e1",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202409010944_iak0sroumea.jpeg",
+        "itemName": "Café Moído Sabor Chocolate Rituais 3 Corações 250g",
+        "itemSkuId": "SKU-SXUG31161",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 102,
+              "min": 92
+            },
+            "fee": 9.99,
+            "promotionalFee": 9.99
+          },
+          "isOpen": false,
+          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
+          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1867,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.26
+        },
+        "promotionalUnitPrice": 27.95,
+        "unitPrice": 27.95
+      },
+      {
         "itemEan": "7896089011227",
         "itemId": "05a31046-6eec-441e-b6ad-17d6118cc1c2",
         "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202305051352_l400hnjsdlm.jpg",
@@ -402,11 +373,11 @@
         "unitPrice": 29.9
       },
       {
-        "itemEan": "7896045113613",
-        "itemId": "ad579c7b-cfe1-402b-b649-ad37717af9e1",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202409010944_iak0sroumea.jpeg",
-        "itemName": "Café Moído Sabor Chocolate Rituais 3 Corações 250g",
-        "itemSkuId": "SKU-SXUG31161",
+        "itemEan": "7891018427650",
+        "itemId": "8c2a17da-64c8-4f7e-86a7-83200dc2c08f",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210200230_4aqnzyxkbhh.jpg",
+        "itemName": "Café Torrado e Moído a Vácuo Tradicional Brasileiro 500g",
+        "itemSkuId": "SKU-AOBO13200",
         "merchant": {
           "deliveryMethod": {
             "deliveryMethodId": "DEFAULT",
@@ -427,8 +398,8 @@
           "reviewRating": 4.900000095367432,
           "straightLineDistanceKm": 1.26
         },
-        "promotionalUnitPrice": 27.95,
-        "unitPrice": 27.95
+        "promotionalUnitPrice": 18.95,
+        "unitPrice": 18.95
       },
       {
         "itemEan": "7896089011357",
@@ -489,11 +460,11 @@
         "unitPrice": 33.7
       },
       {
-        "itemEan": "7896045102396",
-        "itemId": "21f18417-6d98-477c-ad50-f5c93af5a71b",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510042101_hsifeugwc6c.jpeg",
-        "itemName": "Café Torrado E Moído 3 Corações Extra Forte A Vácuo 500g",
-        "itemSkuId": "01a0f490-788d-7af2-b5e7-1b322b0d0d6a",
+        "itemEan": "7891021006934",
+        "itemId": "a1628b22-2c9a-49ce-96ee-fbe85bb92631",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510031650_f7mbvinhhhp.jpeg",
+        "itemName": "Café Torrado e Moído Extraforte Vácuo Melitta 500g",
+        "itemSkuId": "SKU-HKTU37804",
         "merchant": {
           "deliveryMethod": {
             "deliveryMethodId": "DEFAULT",
@@ -514,8 +485,37 @@
           "reviewRating": 4.900000095367432,
           "straightLineDistanceKm": 1.26
         },
-        "promotionalUnitPrice": 21.8,
-        "unitPrice": 21.8
+        "promotionalUnitPrice": 29.98,
+        "unitPrice": 29.98
+      },
+      {
+        "itemEan": "7896089016215",
+        "itemId": "858e3590-9bbc-4c1a-bc1a-7f1e559c8a5e",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210182229_fn32xoybnuq.jpg",
+        "itemName": "Café Torrado e Moído Extra Forte Caboclo Vácuo 500g",
+        "itemSkuId": "SKU-RUUA37931",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 102,
+              "min": 92
+            },
+            "fee": 9.99,
+            "promotionalFee": 9.99
+          },
+          "isOpen": false,
+          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
+          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1867,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.26
+        },
+        "promotionalUnitPrice": 29.9,
+        "unitPrice": 29.9
       },
       {
         "itemEan": "7891018001393",
@@ -692,6 +692,35 @@
         "unitPrice": 27.99
       },
       {
+        "itemEan": "7896089013405",
+        "itemId": "86efb9f5-2782-4cd7-8324-4ab60a5af9e5",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510032041_75xvriu0vlv.jpeg",
+        "itemName": "Café Torrado e Moído Extra Forte Vácuo Pilão 500g",
+        "itemSkuId": "01a0f86e-32aa-7962-8d34-ca977f0dcee5",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 120,
+              "min": 110
+            },
+            "fee": 6.49,
+            "promotionalFee": 0
+          },
+          "isOpen": false,
+          "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
+          "merchantName": "Extra - São Carlos",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1354,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 0.27
+        },
+        "promotionalUnitPrice": 31.34,
+        "unitPrice": 32.99
+      },
+      {
         "itemEan": "7896045102440",
         "itemId": "dca86ba3-e685-4e39-a3a1-3aad0308f4b8",
         "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202307091916_thjecha3fp.jpg",
@@ -719,35 +748,6 @@
         },
         "promotionalUnitPrice": 26.39,
         "unitPrice": 32.99
-      },
-      {
-        "itemEan": "7896005800027",
-        "itemId": "9b0c0b53-66b9-4661-aaf6-3c93be77c53b",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202305031236_xb4bd615ik8.jpg",
-        "itemName": "Café Torrado e Moído Tradicional 3 Corações 250g",
-        "itemSkuId": "SKU-TYKO72579",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 120,
-              "min": 110
-            },
-            "fee": 6.49,
-            "promotionalFee": 0
-          },
-          "isOpen": false,
-          "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
-          "merchantName": "Extra - São Carlos",
-          "minimumOrderAmount": 60,
-          "ratingCount": 1354,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 0.27
-        },
-        "promotionalUnitPrice": 14.87,
-        "unitPrice": 17.49
       }
     ]
   }

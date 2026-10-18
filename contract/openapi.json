@@ -612,6 +612,14 @@
           "reply": {
             "title": "Reply",
             "type": "string"
+          },
+          "steps": {
+            "default": [],
+            "items": {
+              "type": "string"
+            },
+            "title": "Steps",
+            "type": "array"
           }
         },
         "required": [

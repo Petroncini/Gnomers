@@ -1,0 +1,565 @@
+{
+ "cases": 275,
+ "by_class": {
+  "exato": 153,
+  "nao_serve": 96,
+  "substituto": 26
+ },
+ "rules": {
+  "accuracy": 0.844,
+  "hits": 232,
+  "total": 275,
+  "accepted_bad": 35,
+  "lost_exact": 5,
+  "confusion": {
+   "exato->exato": 148,
+   "exato->nao_serve": 5,
+   "nao_serve->exato": 32,
+   "nao_serve->nao_serve": 61,
+   "nao_serve->substituto": 3,
+   "substituto->exato": 1,
+   "substituto->nao_serve": 2,
+   "substituto->substituto": 23
+  }
+ },
+ "llm": {
+  "accuracy": 0.844,
+  "hits": 232,
+  "total": 275,
+  "accepted_bad": 6,
+  "lost_exact": 0,
+  "confusion": {
+   "exato->exato": 120,
+   "exato->substituto": 33,
+   "nao_serve->nao_serve": 90,
+   "nao_serve->substituto": 6,
+   "substituto->nao_serve": 4,
+   "substituto->substituto": 22
+  },
+  "seconds": 16.4,
+  "calls": 10,
+  "cost_usd": 0.00796,
+  "fallbacks": [],
+  "model": "anthropic/claude-haiku-5.5"
+ },
+ "llm_errors": [
+  {
+   "request": "1 kilo de arroz branco",
+   "product": "Arroz Seleto 5kg",
+   "expected": "exato",
+   "got": "substituto"
+  },
+  {
+   "request": "1 kilo de arroz branco",
+   "product": "Arroz Branco Orgânico Teaq Vácuo 1kg",
+   "expected": "exato",
+   "got": "substituto"
+  },
+  {
+   "request": "1 kilo de arroz branco",
+   "product": "Arroz Branco Tipo 1 Rosalito",
+   "expected": "exato",
+   "got": "substituto"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "product": "Feijao Carioca Vapza 500g",
+   "expected": "nao_serve",
+   "got": "substituto"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "product": "Feijão Bolinha de Luci Embalagem 1kg",
+   "expected": "exato",
+   "got": "substituto"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "product": "Feijão Preto Tipo 1 Camil 1kg",
+   "expected": "exato",
+   "got": "substituto"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "product": "Feijão Bolinha Broto Legal 500g",
+   "expected": "exato",
+   "got": "substituto"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "product": "Feijão Preto Serra Azul Embalagem 1kg",
+   "expected": "exato",
+   "got": "substituto"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "product": "Feijão Preto Broto Legal 1kg",
+   "expected": "exato",
+   "got": "substituto"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "product": "Feijão Preto Empório São João 1kg",
+   "expected": "exato",
+   "got": "substituto"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "product": "Feijão Vermelho Meu Biju Tipo 1 Pacote 500g",
+   "expected": "exato",
+   "got": "substituto"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "product": "Feijão Preto Tipo 1 Qualitá 1kg",
+   "expected": "exato",
+   "got": "substituto"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "product": "Feijão Preto Picinin Pacote 1kg",
+   "expected": "exato",
+   "got": "substituto"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "product": "Feijão Fradinho Tipo 1 Camil Pacote 500g",
+   "expected": "exato",
+   "got": "substituto"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "product": "Feijão Rosinha Camil 500g",
+   "expected": "exato",
+   "got": "substituto"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "product": "Feijão Jalo Tipo 1 Camil Pacote 500g",
+   "expected": "exato",
+   "got": "substituto"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "product": "Feijão Rajado Tipo 1 Camil Pacote 500g",
+   "expected": "exato",
+   "got": "substituto"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "product": "Feijão Bolinha Camil Pacote 500g",
+   "expected": "exato",
+   "got": "substituto"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "product": "Feijão Fradinho Solito 500g",
+   "expected": "exato",
+   "got": "substituto"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "product": "Feijão Fradinho Broto Legal 500g",
+   "expected": "exato",
+   "got": "substituto"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "product": "Feijão Fradinho Tipo 1 Qualitá Pacote 500g",
+   "expected": "exato",
+   "got": "substituto"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "product": "Feijão Branco Solito 500g",
+   "expected": "exato",
+   "got": "substituto"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "product": "Feijão Bolinha Tipo 1 Solito 500g Pacote",
+   "expected": "exato",
+   "got": "substituto"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "product": "Feijão Preto Tipo 1 Carrefour 1kg",
+   "expected": "exato",
+   "got": "substituto"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "product": "Feijão Branco Broto Legal 500g",
+   "expected": "exato",
+   "got": "substituto"
+  },
+  {
+   "request": "1 granola sem açucar (>500g)",
+   "product": "Granola Martigran Sem Açúcar",
+   "expected": "exato",
+   "got": "substituto"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "product": "Café Torrado e Moído Descafeínado Pilão 250g",
+   "expected": "exato",
+   "got": "substituto"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "product": "Café 3 Corações 500g Tradicional",
+   "expected": "exato",
+   "got": "substituto"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "product": "Café Pilão Tradicional Pacote 500g",
+   "expected": "exato",
+   "got": "substituto"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "product": "Café Tradicional Pilão 250g",
+   "expected": "exato",
+   "got": "substituto"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "product": "Café Melitta Tradicional Vácuo 250g",
+   "expected": "exato",
+   "got": "substituto"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "product": "Café Premium Estrada Real 3 Corações 500g",
+   "expected": "exato",
+   "got": "substituto"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "product": "Café Torrado E Moído Descafeinado A Vácuo 3 Corações 250g",
+   "expected": "exato",
+   "got": "substituto"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "product": "Café Individual 3 Corações Tradicional Drip Coffee",
+   "expected": "nao_serve",
+   "got": "substituto"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "product": "Cafe Drip 3 Coracoes Rituais Chocolate 12G",
+   "expected": "nao_serve",
+   "got": "substituto"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "product": "Café Em Sachê Torrado E Moído Drip Coffee Exótico 3 Corações Rituais 85+ Envelope 12g",
+   "expected": "nao_serve",
+   "got": "substituto"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "product": "Café Gourmet Dark Roast Drip Coffee Três Corações Sachê 11g",
+   "expected": "nao_serve",
+   "got": "substituto"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "product": "Cafe Po Drip Coffee Coffee++ 10g Classico",
+   "expected": "nao_serve",
+   "got": "substituto"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "product": "Café em Grãos Prima Qualitá Espresso Gourmet Pacote 500g",
+   "expected": "substituto",
+   "got": "nao_serve"
+  },
+  {
+   "request": "2 leite integral",
+   "product": "Leite Uht Italac Desnatado Com Tampa 1l",
+   "expected": "substituto",
+   "got": "nao_serve"
+  },
+  {
+   "request": "2 leite integral",
+   "product": "Leite Uht Semidesnatado com Tampa Italac 1l",
+   "expected": "substituto",
+   "got": "nao_serve"
+  },
+  {
+   "request": "2 leite integral",
+   "product": "Leite Uht Especial A2 Semidesnatado Italac 1l",
+   "expected": "substituto",
+   "got": "nao_serve"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "product": "Leite Integral Instantâneo Ninho Nestlé 380g",
+   "expected": "exato",
+   "got": "substituto"
+  }
+ ],
+ "rules_errors": [
+  {
+   "request": "1 kilo de arroz branco",
+   "product": "Tempero para Arroz Branco Meu Tempero Zilio Pacote 50g",
+   "expected": "nao_serve",
+   "got": "exato"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "product": "Feijão Carioca Enlatado Qualitá 420g",
+   "expected": "nao_serve",
+   "got": "exato"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "product": "Feijao Carioca Vapza 500g",
+   "expected": "nao_serve",
+   "got": "exato"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "product": "Feijão Carioca Pronto Para Aquecer Vapza 200g",
+   "expected": "nao_serve",
+   "got": "exato"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "product": "Feijão Carioca Vapza Orgânico Cozido a Vapor Caixa 250g",
+   "expected": "nao_serve",
+   "got": "exato"
+  },
+  {
+   "request": "1 kilo de feijão cru em grão",
+   "product": "Feijão Preto Pronto Bonare Sachê",
+   "expected": "nao_serve",
+   "got": "exato"
+  },
+  {
+   "request": "1 granola sem açucar (>500g)",
+   "product": "Granola Sabor Maçã E Mel Zero Açúcar Kodilar/Natural Life 250g",
+   "expected": "exato",
+   "got": "nao_serve"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "product": "Café Em Pó Gourmet Cerrado Mineiro 3 Corações 250g",
+   "expected": "exato",
+   "got": "nao_serve"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "product": "Café Moído Sabor Chocolate Rituais 3 Corações 250g",
+   "expected": "substituto",
+   "got": "nao_serve"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "product": "Café Gourmet Dark Roast Drip Coffee Três Corações Sachê 11g",
+   "expected": "nao_serve",
+   "got": "exato"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "product": "Filtro de Café N 102 Home Carrefour 30un",
+   "expected": "nao_serve",
+   "got": "exato"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "product": "Cafe Brasileiro Gran.Soluvel Refil",
+   "expected": "nao_serve",
+   "got": "exato"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "product": "Café Energético Vegano Vida Coffee Original Sem Lactose/Sem Glúten/Sem Açúcares Vida Veg 250ml",
+   "expected": "nao_serve",
+   "got": "exato"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "product": "Cápsula De Café Espresso Roast Starbucks",
+   "expected": "nao_serve",
+   "got": "exato"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "product": "Café em Grãos Prima Qualitá Espresso Gourmet Pacote 500g",
+   "expected": "substituto",
+   "got": "exato"
+  },
+  {
+   "request": "500g café moído de filtro",
+   "product": "Café Preto 300ml",
+   "expected": "nao_serve",
+   "got": "exato"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "product": "Leite em Pó Instantâneo Integral La Sereníssima 200g",
+   "expected": "exato",
+   "got": "nao_serve"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "product": "Leite em Pó Instantâneo Integral La Sereníssima 400g",
+   "expected": "exato",
+   "got": "nao_serve"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "product": "Leite Pó Instantâneo Desnatado Piracanjuba Pacote 500g",
+   "expected": "substituto",
+   "got": "nao_serve"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "product": "Leite Uht Integral com Tampa Italac 1l",
+   "expected": "nao_serve",
+   "got": "exato"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "product": "Leite Tp Italac 1L A2 Integral",
+   "expected": "nao_serve",
+   "got": "exato"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "product": "Leite Longa Vida Integral Italac 1l",
+   "expected": "nao_serve",
+   "got": "exato"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "product": "Leite Integral Italac Zero Lactose 1l",
+   "expected": "nao_serve",
+   "got": "exato"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "product": "Leite Integral A2a2 Xandô 1l",
+   "expected": "nao_serve",
+   "got": "exato"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "product": "Leite Uht Integral Piracanjuba 1l",
+   "expected": "nao_serve",
+   "got": "exato"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "product": "Leite Uht Integral Ninho Forti+ 1l",
+   "expected": "nao_serve",
+   "got": "exato"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "product": "Leite Integral Ninho 1l",
+   "expected": "nao_serve",
+   "got": "exato"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "product": "Leite Uht Integral Jussara 1l",
+   "expected": "nao_serve",
+   "got": "exato"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "product": "Leite Uht Integral Quatá 1l",
+   "expected": "nao_serve",
+   "got": "exato"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "product": "Leite Integral Fazenda Bela Vista 1l",
+   "expected": "nao_serve",
+   "got": "exato"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "product": "Leite Longa Vida Qualitá Integral Caixa 1l",
+   "expected": "nao_serve",
+   "got": "exato"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "product": "Leite Longa Vida Integral Uht Leitíssimo 1l",
+   "expected": "nao_serve",
+   "got": "exato"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "product": "Leite Integral Tipo a Xandô 1l",
+   "expected": "nao_serve",
+   "got": "exato"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "product": "Leite Uht Parmalat Integral 1l",
+   "expected": "nao_serve",
+   "got": "exato"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "product": "Leite Parmalat Integral 1l",
+   "expected": "nao_serve",
+   "got": "exato"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "product": "Leite Uht Integral Dália 1l",
+   "expected": "nao_serve",
+   "got": "exato"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "product": "Leite Integral Piracanjuba 1l",
+   "expected": "nao_serve",
+   "got": "exato"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "product": "Leite Integral Sonhos de Leite Tipo a Saco 1l",
+   "expected": "nao_serve",
+   "got": "exato"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "product": "Leite Integral Nilza Caixa 1l",
+   "expected": "nao_serve",
+   "got": "exato"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "product": "Leite Uht Italac Desnatado Com Tampa 1l",
+   "expected": "nao_serve",
+   "got": "substituto"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "product": "Leite Uht Semidesnatado com Tampa Italac 1l",
+   "expected": "nao_serve",
+   "got": "substituto"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "product": "Leite Uht Especial A2 Semidesnatado Italac 1l",
+   "expected": "nao_serve",
+   "got": "substituto"
+  },
+  {
+   "request": "1 leite em pó integral 400g",
+   "product": "Leite Integral Instantâneo Ninho Nestlé 380g",
+   "expected": "exato",
+   "got": "nao_serve"
+  }
+ ]
+}

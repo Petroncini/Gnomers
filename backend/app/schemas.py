@@ -402,6 +402,7 @@ class ChatResponse(BaseModel):
     reply: str
     proposed_rule: Optional[ProposedRule]
     plan: PlanView
+    steps: list[str] = []  # o que o agente fez para responder ("Busquei “café extraforte” no Extra")
 
 
 class CheckoutOrder(BaseModel):

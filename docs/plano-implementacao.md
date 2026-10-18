@@ -321,5 +321,5 @@ Antes do pitch, vale passar para a Zapia uma lista de uns 20 itens com uma restr
 | Desenho de solução | seções 2, 7 e 8, com um diagrama do pipeline |
 | Racional da experiência | seções 8 e 13 (lista como interface principal, chat ancorado, decisão já aplicada) |
 | Interface visual | o próprio front-end e capturas de tela |
-| Documento técnico | seções 3 a 7 e 12 |
+| Documento técnico | `docs/documento-tecnico.md` |
 | Feedback dos MCPs | `docs/mcp-feedback.md` |

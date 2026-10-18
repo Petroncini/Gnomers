@@ -2,18 +2,22 @@
 
 from __future__ import annotations
 
+import asyncio
+import hashlib
+import re
 import statistics
 from dataclasses import dataclass, field
 
 from sqlmodel import Session, select
 
 from app import heuristics, llm
-from app.models import Product, now
+from app.models import Judgment, Product, now
 from app.pipeline.discovery import Offer
 from app.pipeline.optimize import Candidate, Item, packs_for
 from app.rules import Resolved, norm
 
 TOP_PER_MERCHANT = 5
+UNDERSIZE = 0.1  # embalagem com menos de 10% do pedido (sachê de 10 g para "café 500 g") só sem alternativa
 BATCH = 30
 OVERSIZE = 2.0  # embalagem com mais que o dobro do pedido só entra se não houver outra opção
 
@@ -32,6 +36,7 @@ class ItemSpec:
     rules: Resolved
     pin_size: float | None = None  # escolha do usuário num carrinho anterior: só embalagens deste tamanho
     required_terms: list[str] = field(default_factory=list)  # da regra "product": o que o usuário disse querer
+    request: str = ""  # o pedido como o usuário escreveu (ou a descrição da regra "product"), para o juiz
 
 
 @dataclass
@@ -51,6 +56,7 @@ class SkuInfo:
     image: str | None
     reasons: list[str] = field(default_factory=list)  # por que é substituição
     size_known: bool = True
+    verdict: str = "exato"  # do juiz: exato | substituto (nao_serve nem entra)
     quality_penalty: float = 0.0
     substitution_penalty: float = 0.0
     note_penalty: float = 0.0
@@ -60,7 +66,7 @@ class SkuInfo:
                 "brand": self.brand, "variety_terms": self.variety_terms, "pack_size": self.pack_size,
                 "pack_unit": self.pack_unit, "quality_tier": self.quality_tier, "price": self.price,
                 "list_price": self.list_price, "size": self.size, "image": self.image, "reasons": self.reasons,
-                "size_known": self.size_known, "quality_penalty": self.quality_penalty,
+                "size_known": self.size_known, "verdict": self.verdict, "quality_penalty": self.quality_penalty,
                 "substitution_penalty": self.substitution_penalty, "note_penalty": self.note_penalty}
 
 
@@ -153,10 +159,46 @@ async def _ensure_products(s: Session, specs: dict[int, ItemSpec], offers: list[
     return cached
 
 
-def _variety_ok(terms: list[str], product: Product) -> list[str]:
-    """Termos pedidos que faltam no SKU; sinônimo de rótulo conta ("Zero Açúcar" atende "sem açúcar")."""
-    have = " ".join(product.variety_terms or []) + " " + product.name
-    return [t for t in terms if not heuristics.has_term(have, t)]
+def _request_key(spec: ItemSpec) -> str:
+    must = sorted(norm(t) for t in dict.fromkeys(list(spec.variety_terms) + list(spec.required_terms)))
+    text = f"{norm(spec.request or spec.query)}|{','.join(must)}"
+    return hashlib.sha1(text.encode()).hexdigest()[:16]
+
+
+async def _judge(s: Session, specs: dict[int, ItemSpec], offers: list[Offer]) -> dict[tuple[int, str], dict]:
+    """Veredito de cada (item, produto), com cache por (pedido, produto): a mesma lista não pergunta de novo."""
+    names: dict[int, list[tuple[str, str]]] = {}
+    for o in offers:
+        lst = names.setdefault(o.item_id, [])
+        if all(n != o.name for n, _ in lst):
+            lst.append((o.name, o.sku_id))
+    out: dict[tuple[int, str], dict] = {}
+    pending: dict[int, list[tuple[str, str]]] = {}
+    keys = {item_id: _request_key(specs[item_id]) for item_id in names}
+    for item_id, pairs in names.items():
+        for name, sku in pairs:
+            hit = s.get(Judgment, f"{keys[item_id]}|{sku}")
+            if hit:
+                out[(item_id, name)] = {"verdict": hit.verdict, "reason": hit.reason}
+            else:
+                pending.setdefault(item_id, []).append((name, sku))
+
+    async def judge(item_id: int, pairs: list[tuple[str, str]]):
+        spec = specs[item_id]
+        must = list(dict.fromkeys(list(spec.variety_terms) + list(spec.required_terms)))
+        request = spec.request or spec.query
+        if spec.brand:
+            # marca é preferência (penalidade no solver), não critério do juiz: tirada do pedido
+            request = re.sub(rf"\b{re.escape(spec.brand)}\b", " ", request, flags=re.I)
+            request = re.sub(r"\s+", " ", request).strip()
+        return item_id, pairs, await llm.judge_products(request, spec.category, must, [n for n, _ in pairs])
+
+    for item_id, pairs, verdicts in await asyncio.gather(*(judge(i, p) for i, p in pending.items())):
+        for (name, sku), v in zip(pairs, verdicts):
+            out[(item_id, name)] = v
+            s.merge(Judgment(key=f"{keys[item_id]}|{sku}", verdict=v["verdict"], reason=v.get("reason", "")))
+    s.commit()
+    return out
 
 
 async def build(s: Session, specs: list[ItemSpec], offers: list[Offer], *,
@@ -171,31 +213,16 @@ async def build(s: Session, specs: list[ItemSpec], offers: list[Offer], *,
     def reject(item_id: int, why: str) -> None:
         rejected[item_id][why] = rejected[item_id].get(why, 0) + 1
 
-    # Conferência literal da variedade erra com sinônimos ("Zero Açúcar" para "sem açúcar"). Para os
-    # produtos em que ela diz que falta algo, o LLM decide com bom senso, em lote por item.
-    variety_override: dict[tuple[int, str], list[str]] = {}
-    doubtful: dict[int, list[str]] = {}
-    for o in offers:
-        spec = spec_by_id[o.item_id]
-        p = products.get(o.sku_id)
-        terms = list(dict.fromkeys(list(spec.variety_terms) + list(spec.rules.variety_terms) + list(spec.required_terms)))
-        if p is not None and p.matched and terms and _variety_ok(terms, p):
-            doubtful.setdefault(o.item_id, [])
-            if o.name not in doubtful[o.item_id]:
-                doubtful[o.item_id].append(o.name)
-    for item_id, names in doubtful.items():
-        spec = spec_by_id[item_id]
-        terms = list(dict.fromkeys(list(spec.variety_terms) + list(spec.rules.variety_terms) + list(spec.required_terms)))
-        for name, missing in zip(names, await llm.check_variety(terms, names)):
-            variety_override[(item_id, name)] = missing
+    # Um juiz decide, por item, se cada produto serve para o pedido: exato, substituto ou não serve.
+    verdicts = await _judge(s, spec_by_id, offers)
 
     for o in offers:
         spec = spec_by_id[o.item_id]
         p = products.get(o.sku_id)
         r = spec.rules
-        # a trava de derivado vale também para o que veio do cache (normalizado antes dela existir)
-        if p is None or not p.matched or heuristics.is_derivative(spec.category, o.name, spec.query):
-            reject(o.item_id, "não é o produto")
+        verdict = verdicts.get((o.item_id, o.name), {"verdict": "nao_serve", "reason": ""})
+        if p is None or verdict["verdict"] == "nao_serve":
+            reject(o.item_id, "não serve")
             continue
         if r.is_blocked_brand(p.brand):
             reject(o.item_id, "marca bloqueada")
@@ -203,11 +230,7 @@ async def build(s: Session, specs: list[ItemSpec], offers: list[Offer], *,
         if o.merchant_id in r.block_merchants:
             reject(o.item_id, "mercado bloqueado")
             continue
-        wanted_terms = list(dict.fromkeys(list(spec.variety_terms) + list(r.variety_terms)))
-        missing_terms = variety_override.get((o.item_id, o.name), _variety_ok(wanted_terms, p))
-        missing_terms = [t for t in missing_terms if t in wanted_terms]
-        hard_terms = r.variety_terms if r.variety_hard else []
-        if any(t in missing_terms for t in hard_terms):
+        if r.variety_hard and verdict["verdict"] == "substituto":
             reject(o.item_id, "variedade obrigatória ausente")
             continue
 
@@ -230,9 +253,9 @@ async def build(s: Session, specs: list[ItemSpec], offers: list[Offer], *,
             elif pos > 0:
                 reasons.append(f"marca {pos + 1}ª da cadeia")
                 sub_pen += 0.5 + 0.08 * pos * est_cost
-        if missing_terms:
-            reasons.append("variedade diferente: falta " + ", ".join(missing_terms))
-            sub_pen += len(missing_terms) * (1.0 + 0.15 * est_cost)
+        if verdict["verdict"] == "substituto":
+            reasons.append("substituto: " + (verdict["reason"] or "não é exatamente o pedido"))
+            sub_pen += 1.0 + 0.15 * est_cost
 
         brand_aff = affinity.get(norm(spec.category), {}).get(norm(p.brand), 0.0)
         tier = min(3.0, max(1.0, p.quality_tier + brand_aff))
@@ -241,7 +264,8 @@ async def build(s: Session, specs: list[ItemSpec], offers: list[Offer], *,
         info = SkuInfo(sku_id=o.sku_id, item_id=o.item_id, merchant_id=o.merchant_id, name=o.name, brand=p.brand,
                        variety_terms=list(p.variety_terms or []), pack_size=p.pack_size, pack_unit=p.pack_unit,
                        quality_tier=p.quality_tier, price=o.price, list_price=o.list_price, size=size, image=o.image,
-                       reasons=reasons, size_known=size_known, quality_penalty=round(quality_pen, 2),
+                       reasons=reasons, size_known=size_known, verdict=verdict["verdict"],
+                       quality_penalty=round(quality_pen, 2),
                        substitution_penalty=round(sub_pen, 2))
         cand = Candidate(sku_id=o.sku_id, item_id=o.item_id, merchant_id=o.merchant_id, name=o.name, brand=p.brand,
                          price=o.price, size=size, quality_penalty=round(quality_pen, 2),
@@ -268,17 +292,13 @@ async def build(s: Session, specs: list[ItemSpec], offers: list[Offer], *,
             entries = keep(entries, lambda i: abs(i.size - spec.pin_size) <= 0.02 * spec.pin_size,
                            "tamanho diferente do escolhido")
         if spec.required_terms:
-            def has_terms(i: SkuInfo) -> bool:
-                missing = variety_override.get((spec.id, i.name))
-                if missing is not None:
-                    return not any(t in missing for t in spec.required_terms)
-                text = " ".join(i.variety_terms) + " " + i.name
-                return all(heuristics.has_term(text, t) for t in spec.required_terms)
-            entries = keep(entries, has_terms, "fora da preferência declarada")
+            # preferência declarada ("na verdade quero X"): só o que o juiz considerou exato, se houver
+            entries = keep(entries, lambda i: i.verdict == "exato", "fora da preferência declarada")
         if unit_mode != "pack":
             # sem tamanho no nome, o SKU seria tratado como se tivesse o tamanho pedido
             entries = keep(entries, lambda i: i.size_known, "tamanho desconhecido")
             entries = keep(entries, lambda i: i.size <= OVERSIZE * required, "embalagem grande demais")
+            entries = keep(entries, lambda i: i.size >= UNDERSIZE * required, "embalagem pequena demais")
             if spec.rules.quantity_exact:
                 limit = required * spec.rules.max_overbuy
                 entries = keep(entries, lambda i: packs_for(required, i.size) * i.size <= limit, "maior que o pedido")

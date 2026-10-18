@@ -1,0 +1,101 @@
+{
+  "tool": "setCartPayment",
+  "args": {
+    "cartId": "a2b307ad-c98f-4526-820f-f348490abb9e",
+    "paymentMethodId": "75354fd8-e916-41db-9286-93be2232efe2"
+  },
+  "recordedAt": "2026-10-18T05:45:59",
+  "response": {
+    "cartId": "a2b307ad-c98f-4526-820f-f348490abb9e",
+    "merchant": {
+      "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
+      "merchantName": "Savegnago - Shopping Passeio - LJ 33",
+      "orderMinimumPrice": 60.0,
+      "formattedAddress": "Avenida Francisco Pereira Lopes, 1701 — Parque Santa Mônica, SAO CARLOS, SP"
+    },
+    "items": [
+      {
+        "itemId": "e958400f-06c1-428f-83b9-d70edb9379e2",
+        "cartItemId": "ed63f737-9c84-4f28-b13c-d6dd484e305d",
+        "quantity": 1,
+        "unitPrice": 5.15,
+        "name": "Arroz Branco Tipo 1 Tio João 1kg"
+      },
+      {
+        "itemId": "bbf35701-96c1-4a78-8f24-c47d004baca7",
+        "cartItemId": "cb1787e8-9334-43a6-912c-7d532cba50d2",
+        "quantity": 2,
+        "unitPrice": 5.79,
+        "name": "Leite Uht Integral com Tampa Italac 1l"
+      },
+      {
+        "itemId": "7cffe184-2857-471a-8b08-6f953ec7ee49",
+        "cartItemId": "2ea3a17c-97f5-459f-b2e0-da73a9d8e35e",
+        "quantity": 1,
+        "unitPrice": 6.19,
+        "name": "Feijão Preto Serra Azul Embalagem 1kg"
+      },
+      {
+        "itemId": "39ffe1a0-e68c-4138-8f9d-02e8afe82370",
+        "cartItemId": "9e6356f9-e968-4692-95c6-e9b2cabba217",
+        "quantity": 2,
+        "unitPrice": 11.95,
+        "name": "Granola Banana e Canela Jasmine Pouch 250g"
+      },
+      {
+        "itemId": "8c2a17da-64c8-4f7e-86a7-83200dc2c08f",
+        "cartItemId": "d653ab70-355a-4af5-ab24-92988e4bceb8",
+        "quantity": 1,
+        "unitPrice": 18.95,
+        "name": "Café Torrado e Moído a Vácuo Tradicional Brasileiro 500g"
+      }
+    ],
+    "deliveryAddress": {
+      "streetName": "Rua São Sebastião",
+      "streetNumber": "1455",
+      "neighborhood": "Centro"
+    },
+    "paymentMethod": {
+      "paymentMethodId": "75354fd8-e916-41db-9286-93be2232efe2",
+      "kind": "PIX",
+      "displayName": "Pix",
+      "brand": "PIX"
+    },
+    "deliveryMethod": {
+      "deliveryMethodId": "DEFAULT",
+      "deliveryMethodMode": "DELIVERY",
+      "deliveryMethodName": "Padrão",
+      "fee": 9.99,
+      "estimatedMinutes": {
+        "min": 92,
+        "max": 102
+      },
+      "timeSlot": {
+        "from": "2026-10-19T11:00:00",
+        "to": "2026-10-19T13:00:00"
+      }
+    },
+    "fees": [
+      {
+        "name": "Taxa de serviço",
+        "description": "Cobramos uma taxa que nos ajuda a cobrir custos operacionais, inclusive de segurança, e a manter os investimentos contínuos na plataforma.",
+        "amount": 1.99
+      }
+    ],
+    "summary": {
+      "totalName": "Valor total",
+      "totalAmount": 77.75,
+      "subtotalName": "Valor dos itens",
+      "subtotalAmount": 65.77,
+      "deliveryFeeName": "Valor da taxa de entrega",
+      "deliveryFeeAmount": 9.99,
+      "feeTotalName": "Valor das taxas e serviços",
+      "feeTotalAmount": 1.99,
+      "benefitsTotalName": "Valor dos benefícios",
+      "benefitsTotalAmount": 0.0,
+      "voucherTotalName": "Valor dos cupons",
+      "voucherTotalAmount": 0.0
+    },
+    "appDeeplink": "ifood://cart?cartId=a2b307ad-c98f-4526-820f-f348490abb9e"
+  }
+}

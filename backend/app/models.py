@@ -113,6 +113,15 @@ class Product(SQLModel, table=True):
     parsed_at: datetime = Field(default_factory=now)
 
 
+class Judgment(SQLModel, table=True):
+    """Veredito do juiz para (pedido, produto): exato, substituto ou não serve, com o motivo."""
+
+    key: str = Field(primary_key=True)  # "<hash do pedido>|<itemId do iFood>"
+    verdict: str
+    reason: str = ""
+    created_at: datetime = Field(default_factory=now)
+
+
 class Plan(SQLModel, table=True):
     id: Optional[int] = Field(default=None, primary_key=True)
     user_id: int = Field(foreign_key="user.id")

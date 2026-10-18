@@ -14,7 +14,7 @@
     },
     "pageSize": 25
   },
-  "recordedAt": "2026-10-18T05:11:01",
+  "recordedAt": "2026-10-18T05:47:23",
   "response": {
     "agentHints": {
       "nextStepWhenUserPicksItem": "Retrieve full item details — option groups and applicable promotions — before presenting it to the user."
@@ -257,11 +257,11 @@
         "unitPrice": 5.79
       },
       {
-        "itemEan": "7898080640635",
-        "itemId": "082975e3-67ca-463a-a546-b6a40b2cc285",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202509051057_vc0zzte3fr9.png",
-        "itemName": "Leite Uht Italac Desnatado Com Tampa 1l",
-        "itemSkuId": "SKU-EPII72329",
+        "itemEan": "7898080643018",
+        "itemId": "8ee0068c-fa76-48e6-9da9-c109afd1c23e",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202302241012_cm47ds0kvdc.jpg",
+        "itemName": "Leite Uht Especial A2 Semidesnatado Italac 1l",
+        "itemSkuId": "SKU-HOKX40139",
         "merchant": {
           "deliveryMethod": {
             "deliveryMethodId": "DEFAULT",
@@ -282,8 +282,8 @@
           "reviewRating": 4.900000095367432,
           "straightLineDistanceKm": 1.43
         },
-        "promotionalUnitPrice": 3.23,
-        "unitPrice": 5.39
+        "promotionalUnitPrice": 7.38,
+        "unitPrice": 8.2
       },
       {
         "itemEan": "7898080640611",
@@ -315,11 +315,11 @@
         "unitPrice": 5.39
       },
       {
-        "itemEan": "7898080643018",
-        "itemId": "8ee0068c-fa76-48e6-9da9-c109afd1c23e",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202302241012_cm47ds0kvdc.jpg",
-        "itemName": "Leite Uht Especial A2 Semidesnatado Italac 1l",
-        "itemSkuId": "SKU-HOKX40139",
+        "itemEan": "7898080640635",
+        "itemId": "082975e3-67ca-463a-a546-b6a40b2cc285",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202509051057_vc0zzte3fr9.png",
+        "itemName": "Leite Uht Italac Desnatado Com Tampa 1l",
+        "itemSkuId": "SKU-EPII72329",
         "merchant": {
           "deliveryMethod": {
             "deliveryMethodId": "DEFAULT",
@@ -340,8 +340,8 @@
           "reviewRating": 4.900000095367432,
           "straightLineDistanceKm": 1.43
         },
-        "promotionalUnitPrice": 7.38,
-        "unitPrice": 8.2
+        "promotionalUnitPrice": 3.23,
+        "unitPrice": 5.39
       },
       {
         "itemEan": "7898080643018",
@@ -518,6 +518,35 @@
         "unitPrice": 7.75
       },
       {
+        "itemEan": "7898080640635",
+        "itemId": "9489731c-dfc5-4347-9fac-1438c8fe62d2",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202509051057_vc0zzte3fr9.png",
+        "itemName": "Leite Uht Italac Desnatado Com Tampa 1l",
+        "itemSkuId": "SKU-EPII72329",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 240,
+              "min": 230
+            },
+            "fee": 18.49,
+            "promotionalFee": 0
+          },
+          "isOpen": false,
+          "merchantId": "9d6b46da-7347-4d8a-8fde-cda8ca3adef8",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/3901056/202607311821_FR9A.png",
+          "merchantName": "Paulistão Av. Luiz Brandão - São Carlos Lj 13",
+          "minimumOrderAmount": 30,
+          "ratingCount": 173,
+          "reviewRating": 4.800000190734863,
+          "straightLineDistanceKm": 3.08
+        },
+        "promotionalUnitPrice": 5.69,
+        "unitPrice": 5.69
+      },
+      {
         "itemEan": "7898080643148",
         "itemId": "adc18401-f6c5-47c5-a42b-aa935aa2ee5f",
         "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202408150044_ghx4tz0o696.jpeg",
@@ -548,35 +577,6 @@
       },
       {
         "itemEan": "7898080640635",
-        "itemId": "9489731c-dfc5-4347-9fac-1438c8fe62d2",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202509051057_vc0zzte3fr9.png",
-        "itemName": "Leite Uht Italac Desnatado Com Tampa 1l",
-        "itemSkuId": "SKU-EPII72329",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 240,
-              "min": 230
-            },
-            "fee": 18.49,
-            "promotionalFee": 0
-          },
-          "isOpen": false,
-          "merchantId": "9d6b46da-7347-4d8a-8fde-cda8ca3adef8",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/3901056/202607311821_FR9A.png",
-          "merchantName": "Paulistão Av. Luiz Brandão - São Carlos Lj 13",
-          "minimumOrderAmount": 30,
-          "ratingCount": 173,
-          "reviewRating": 4.800000190734863,
-          "straightLineDistanceKm": 3.08
-        },
-        "promotionalUnitPrice": 5.69,
-        "unitPrice": 5.69
-      },
-      {
-        "itemEan": "7898080640635",
         "itemId": "def3b7b2-03a5-4cf0-8df3-339609d711f7",
         "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202509051057_vc0zzte3fr9.png",
         "itemName": "Leite Uht Italac Desnatado Com Tampa 1l",
@@ -603,35 +603,6 @@
         },
         "promotionalUnitPrice": 6.17,
         "unitPrice": 6.49
-      },
-      {
-        "itemEan": "7898080640628",
-        "itemId": "8e03e6f4-d31d-48c5-b3e8-ec4ea58b398a",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202512161619_5a2y2y7em8a.jpeg",
-        "itemName": "Leite Uht Semidesnatado com Tampa Italac 1l",
-        "itemSkuId": "SKU-ABKD50770",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 172,
-              "min": 142
-            },
-            "fee": 21.99,
-            "promotionalFee": 21.99
-          },
-          "isOpen": false,
-          "merchantId": "2454a662-ab7d-4cb8-91c9-c69720983886",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/2454a662-ab7d-4cb8-91c9-c69720983886/202509011622_2TXL.png",
-          "merchantName": "Atacadão São Carlos",
-          "minimumOrderAmount": 90,
-          "ratingCount": 212,
-          "reviewRating": 4.800000190734863,
-          "straightLineDistanceKm": 5.1
-        },
-        "promotionalUnitPrice": 6.2,
-        "unitPrice": 6.2
       },
       {
         "itemEan": "7898080640611",
@@ -668,6 +639,35 @@
         "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202509051057_vc0zzte3fr9.png",
         "itemName": "Leite Uht Italac Desnatado Com Tampa 1l",
         "itemSkuId": "SKU-EPII72329",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 172,
+              "min": 142
+            },
+            "fee": 21.99,
+            "promotionalFee": 21.99
+          },
+          "isOpen": false,
+          "merchantId": "2454a662-ab7d-4cb8-91c9-c69720983886",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/2454a662-ab7d-4cb8-91c9-c69720983886/202509011622_2TXL.png",
+          "merchantName": "Atacadão São Carlos",
+          "minimumOrderAmount": 90,
+          "ratingCount": 212,
+          "reviewRating": 4.800000190734863,
+          "straightLineDistanceKm": 5.1
+        },
+        "promotionalUnitPrice": 6.2,
+        "unitPrice": 6.2
+      },
+      {
+        "itemEan": "7898080640628",
+        "itemId": "8e03e6f4-d31d-48c5-b3e8-ec4ea58b398a",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202512161619_5a2y2y7em8a.jpeg",
+        "itemName": "Leite Uht Semidesnatado com Tampa Italac 1l",
+        "itemSkuId": "SKU-ABKD50770",
         "merchant": {
           "deliveryMethod": {
             "deliveryMethodId": "DEFAULT",

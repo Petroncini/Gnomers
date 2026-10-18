@@ -14,7 +14,7 @@
     },
     "pageSize": 25
   },
-  "recordedAt": "2026-10-18T05:11:00",
+  "recordedAt": "2026-10-18T05:47:22",
   "response": {
     "agentHints": {
       "nextStepWhenUserPicksItem": "Retrieve full item details — option groups and applicable promotions — before presenting it to the user."
@@ -721,11 +721,11 @@
         "unitPrice": 5.79
       },
       {
-        "itemEan": "7896051111030",
-        "itemId": "9ad84bd9-5203-48af-91f2-027a295ed2f0",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202305050920_5dc1jqspihn.jpg",
-        "itemName": "Leite Uht Integral Natural Milk Itambé 1l",
-        "itemSkuId": "SKU-XMCB90226",
+        "itemEan": "7898080641328",
+        "itemId": "fe82a51f-d6c5-45c2-9dd3-0e06601c9099",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210180154_2of3mnr10j7.jpg",
+        "itemName": "Leite Integral Nilza Caixa 1l",
+        "itemSkuId": "SKU-IPSE93406",
         "merchant": {
           "deliveryMethod": {
             "deliveryMethodId": "DEFAULT",
@@ -746,8 +746,8 @@
           "reviewRating": 4.900000095367432,
           "straightLineDistanceKm": 1.26
         },
-        "promotionalUnitPrice": 7.99,
-        "unitPrice": 7.99
+        "promotionalUnitPrice": 5.99,
+        "unitPrice": 5.99
       }
     ]
   }
