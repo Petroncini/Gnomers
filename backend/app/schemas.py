@@ -444,8 +444,11 @@ class TrackingView(BaseModel):
 # ------------------------------------------------------------ proatividade
 
 class SuggestionView(BaseModel):
+    # promo: um item em promoção (data.action: "advance" adiantar | "stock" estocar)
+    # list_promo: dois ou mais itens da lista em promoção (data.savings, data.items)
+    # list_due: a lista vence nos próximos dias
     id: int
-    kind: Literal["promo", "list_due"]
+    kind: Literal["promo", "list_due", "list_promo"]
     text: str
     list_id: Optional[int]
     list_item_id: Optional[int]
@@ -456,6 +459,53 @@ class SuggestionView(BaseModel):
 class SimulateResult(BaseModel):
     today: date
     created: list[SuggestionView]
+
+
+class PromoOffer(BaseModel):
+    sku_id: str
+    name: str
+    merchant_id: Optional[str]
+    merchant: Optional[str]
+    unit_price: float  # preço cheio
+    price: float  # preço promocional
+    simulated: bool  # true fora do simulador: o carrinho real não terá esse preço
+
+
+class PurchasePattern(BaseModel):
+    interval_days: Optional[int]
+    progress: Optional[float]  # fração do ciclo passada; 0 = acabou de comprar, 1 = vence hoje
+    days_to_due: Optional[int]
+    regularity: float
+    source: Literal["history", "item_recurrence", "list_recurrence", "list_due", "none"]
+    purchases: int
+
+
+class OfferEvaluation(BaseModel):
+    item_id: int
+    list_id: int
+    raw_text: str
+    offer: Optional[str]
+    discount_pct: Optional[int]
+    action: Optional[Literal["advance", "stock"]]  # None: não sugeriu (veja reason)
+    reason: str
+    suggestion_id: Optional[int]
+    pattern: PurchasePattern
+
+
+class PromotionResult(BaseModel):
+    offers: list[PromoOffer]
+    evaluations: list[OfferEvaluation]
+    suggestions: list[SuggestionView]  # criadas ou atualizadas pelo evento
+
+
+class ItemPatternView(BaseModel):
+    item_id: int
+    list_id: int
+    list_name: str
+    raw_text: str
+    last_purchase: Optional[date]
+    next_due: Optional[date]
+    pattern: PurchasePattern
 
 
 class Health(BaseModel):

@@ -22,6 +22,46 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/admin/patterns": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Purchase Patterns
+         * @description Padrão de compra de cada item, para conferir por que a proatividade sugeriu ou não.
+         */
+        get: operations["purchase_patterns_admin_patterns_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/admin/promotions": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Publish Promotion
+         * @description Simula uma promoção nova e dispara a reavaliação das listas (evento PromotionsPublished).
+         */
+        post: operations["publish_promotion_admin_promotions_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/admin/simulate-days": {
         parameters: {
             query?: never;
@@ -896,6 +936,22 @@ export interface components {
             /** Variety Terms */
             variety_terms?: string[] | null;
         };
+        /** ItemPatternView */
+        ItemPatternView: {
+            /** Item Id */
+            item_id: number;
+            /** Last Purchase */
+            last_purchase: string | null;
+            /** List Id */
+            list_id: number;
+            /** List Name */
+            list_name: string;
+            /** Next Due */
+            next_due: string | null;
+            pattern: components["schemas"]["PurchasePattern"];
+            /** Raw Text */
+            raw_text: string;
+        };
         /** ListIn */
         ListIn: {
             /** Max Merchants */
@@ -1011,6 +1067,26 @@ export interface components {
             formatted: string;
             /** Id */
             id: number;
+        };
+        /** OfferEvaluation */
+        OfferEvaluation: {
+            /** Action */
+            action: ("advance" | "stock") | null;
+            /** Discount Pct */
+            discount_pct: number | null;
+            /** Item Id */
+            item_id: number;
+            /** List Id */
+            list_id: number;
+            /** Offer */
+            offer: string | null;
+            pattern: components["schemas"]["PurchasePattern"];
+            /** Raw Text */
+            raw_text: string;
+            /** Reason */
+            reason: string;
+            /** Suggestion Id */
+            suggestion_id: number | null;
         };
         /** Ok */
         Ok: {
@@ -1237,6 +1313,44 @@ export interface components {
             /** T */
             t: number;
         };
+        /** PromoOffer */
+        PromoOffer: {
+            /** Merchant */
+            merchant: string | null;
+            /** Merchant Id */
+            merchant_id: string | null;
+            /** Name */
+            name: string;
+            /** Price */
+            price: number;
+            /** Simulated */
+            simulated: boolean;
+            /** Sku Id */
+            sku_id: string;
+            /** Unit Price */
+            unit_price: number;
+        };
+        /** PromotionIn */
+        PromotionIn: {
+            /**
+             * Discount Pct
+             * @default 25
+             */
+            discount_pct: number;
+            /** Merchant Id */
+            merchant_id?: string | null;
+            /** Query */
+            query: string;
+        };
+        /** PromotionResult */
+        PromotionResult: {
+            /** Evaluations */
+            evaluations: components["schemas"]["OfferEvaluation"][];
+            /** Offers */
+            offers: components["schemas"]["PromoOffer"][];
+            /** Suggestions */
+            suggestions: components["schemas"]["SuggestionView"][];
+        };
         /** ProposedRule */
         ProposedRule: {
             /** Category */
@@ -1259,6 +1373,24 @@ export interface components {
             scope_options: string[];
             /** Text */
             text: string;
+        };
+        /** PurchasePattern */
+        PurchasePattern: {
+            /** Days To Due */
+            days_to_due: number | null;
+            /** Interval Days */
+            interval_days: number | null;
+            /** Progress */
+            progress: number | null;
+            /** Purchases */
+            purchases: number;
+            /** Regularity */
+            regularity: number;
+            /**
+             * Source
+             * @enum {string}
+             */
+            source: "history" | "item_recurrence" | "list_recurrence" | "list_due" | "none";
         };
         /** RuleIn */
         RuleIn: {
@@ -1414,7 +1546,7 @@ export interface components {
              * Kind
              * @enum {string}
              */
-            kind: "promo" | "list_due";
+            kind: "promo" | "list_due" | "list_promo";
             /** List Id */
             list_id: number | null;
             /** List Item Id */
@@ -1542,6 +1674,59 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["CreateAddressResult"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    purchase_patterns_admin_patterns_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ItemPatternView"][];
+                };
+            };
+        };
+    };
+    publish_promotion_admin_promotions_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PromotionIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PromotionResult"];
                 };
             };
             /** @description Validation Error */

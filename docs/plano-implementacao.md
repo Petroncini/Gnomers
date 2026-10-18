@@ -37,6 +37,7 @@ backend/
       decisions.py       geração dos cartões de decisão
     learning.py          sinais implícitos e regras aprendidas
     scheduler.py         recorrência e promoções
+    proactive.py         eventos de promoção e padrão de compra
   fixtures/              respostas gravadas do MCP
   tests/                 testes do solver e da resolução de regras
 frontend/
@@ -217,6 +218,8 @@ O job diário do `scheduler.py` pega itens e listas com `next_due` nos próximos
 
 As sugestões aparecem como cartões no topo da tela inicial. Na demo, `POST /admin/simulate-days` avança o relógio e dispara o job.
 
+Além do job, a proatividade reage a eventos. Quando uma promoção é publicada (hoje mockada por `POST /admin/promotions`), `proactive.py` reavalia todas as listas. Para cada item, decide entre adiantar, estocar ou não sugerir, pelo desconto e pelo padrão de frequência de compra (histórico ou recorrência declarada). Com dois ou mais itens em promoção na mesma lista, oferece montar o carrinho. Detalhes, limiares e roteiro de teste manual em `docs/proatividade.md`.
+
 ## 11. Compras em grupo (opcional)
 
 O modelo já tem `ListMember` e `ListItem.requested_by`. A divisão da conta é cada um pagando os próprios itens e uma fatia proporcional do frete e do cupom. O pagamento antecipado por Pix via PSP, desenhado no `HANDOFF.md`, encaixa aqui. Fica para depois do fluxo principal e, se não der tempo, entra no pitch como próximo passo.
@@ -235,7 +238,7 @@ O modelo já tem `ListMember` e `ListItem.requested_by`. A divisão da conta é 
 | `POST /plans/{id}/decisions/{d}` | resposta a um cartão, com regra opcional |
 | `POST /plans/{id}/chat` | chat ancorado |
 | `POST /plans/{id}/checkout`, `GET /orders/{id}/track` | pedido e rastreio |
-| `GET /suggestions`, `POST /admin/simulate-days` | proatividade |
+| `GET /suggestions`, `POST /admin/simulate-days`, `POST /admin/promotions`, `GET /admin/patterns` | proatividade |
 
 ## 13. Telas
 
@@ -307,7 +310,7 @@ Antes do pitch, vale passar para a Zapia uma lista de uns 20 itens com uma restr
 4. Criar o carrinho, mostrando as etapas do pipeline e o resultado com total real, a divisão entre dois mercados com a economia e um cartão de substituição.
 5. Responder o cartão no chat e salvar como regra, mostrando a regra nova na tela de preferências.
 6. Fechar o pedido com Pix e mostrar o rastreio.
-7. Simular uma semana e mostrar a sugestão de leite em promoção.
+7. Publicar uma promoção (`POST /admin/promotions`) e mostrar a sugestão chegando: o café, que vence hoje, sugere adiantar; o sabão, comprado há 5 dias, só aparece com desconto grande (estocar). Alternativa: simular uma semana.
 8. Comparar com a mesma tarefa na Zapia.
 
 ## 18. Entregáveis

@@ -1324,6 +1324,64 @@
         "title": "ItemIn",
         "type": "object"
       },
+      "ItemPatternView": {
+        "properties": {
+          "item_id": {
+            "title": "Item Id",
+            "type": "integer"
+          },
+          "last_purchase": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Purchase"
+          },
+          "list_id": {
+            "title": "List Id",
+            "type": "integer"
+          },
+          "list_name": {
+            "title": "List Name",
+            "type": "string"
+          },
+          "next_due": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Next Due"
+          },
+          "pattern": {
+            "$ref": "#/components/schemas/PurchasePattern"
+          },
+          "raw_text": {
+            "title": "Raw Text",
+            "type": "string"
+          }
+        },
+        "required": [
+          "item_id",
+          "list_id",
+          "list_name",
+          "raw_text",
+          "last_purchase",
+          "next_due",
+          "pattern"
+        ],
+        "title": "ItemPatternView",
+        "type": "object"
+      },
       "ListIn": {
         "properties": {
           "max_merchants": {
@@ -1744,6 +1802,90 @@
           "distance_m"
         ],
         "title": "NearbyAddress",
+        "type": "object"
+      },
+      "OfferEvaluation": {
+        "properties": {
+          "action": {
+            "anyOf": [
+              {
+                "enum": [
+                  "advance",
+                  "stock"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Action"
+          },
+          "discount_pct": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Discount Pct"
+          },
+          "item_id": {
+            "title": "Item Id",
+            "type": "integer"
+          },
+          "list_id": {
+            "title": "List Id",
+            "type": "integer"
+          },
+          "offer": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Offer"
+          },
+          "pattern": {
+            "$ref": "#/components/schemas/PurchasePattern"
+          },
+          "raw_text": {
+            "title": "Raw Text",
+            "type": "string"
+          },
+          "reason": {
+            "title": "Reason",
+            "type": "string"
+          },
+          "suggestion_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Suggestion Id"
+          }
+        },
+        "required": [
+          "item_id",
+          "list_id",
+          "raw_text",
+          "offer",
+          "discount_pct",
+          "action",
+          "reason",
+          "suggestion_id",
+          "pattern"
+        ],
+        "title": "OfferEvaluation",
         "type": "object"
       },
       "Ok": {
@@ -2427,6 +2569,124 @@
         "title": "ProgressEvent",
         "type": "object"
       },
+      "PromoOffer": {
+        "properties": {
+          "merchant": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Merchant"
+          },
+          "merchant_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Merchant Id"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "price": {
+            "title": "Price",
+            "type": "number"
+          },
+          "simulated": {
+            "title": "Simulated",
+            "type": "boolean"
+          },
+          "sku_id": {
+            "title": "Sku Id",
+            "type": "string"
+          },
+          "unit_price": {
+            "title": "Unit Price",
+            "type": "number"
+          }
+        },
+        "required": [
+          "sku_id",
+          "name",
+          "merchant_id",
+          "merchant",
+          "unit_price",
+          "price",
+          "simulated"
+        ],
+        "title": "PromoOffer",
+        "type": "object"
+      },
+      "PromotionIn": {
+        "properties": {
+          "discount_pct": {
+            "default": 25,
+            "title": "Discount Pct",
+            "type": "number"
+          },
+          "merchant_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Merchant Id"
+          },
+          "query": {
+            "title": "Query",
+            "type": "string"
+          }
+        },
+        "required": [
+          "query"
+        ],
+        "title": "PromotionIn",
+        "type": "object"
+      },
+      "PromotionResult": {
+        "properties": {
+          "evaluations": {
+            "items": {
+              "$ref": "#/components/schemas/OfferEvaluation"
+            },
+            "title": "Evaluations",
+            "type": "array"
+          },
+          "offers": {
+            "items": {
+              "$ref": "#/components/schemas/PromoOffer"
+            },
+            "title": "Offers",
+            "type": "array"
+          },
+          "suggestions": {
+            "items": {
+              "$ref": "#/components/schemas/SuggestionView"
+            },
+            "title": "Suggestions",
+            "type": "array"
+          }
+        },
+        "required": [
+          "offers",
+          "evaluations",
+          "suggestions"
+        ],
+        "title": "PromotionResult",
+        "type": "object"
+      },
       "ProposedRule": {
         "properties": {
           "category": {
@@ -2488,6 +2748,72 @@
           "scope_options"
         ],
         "title": "ProposedRule",
+        "type": "object"
+      },
+      "PurchasePattern": {
+        "properties": {
+          "days_to_due": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Days To Due"
+          },
+          "interval_days": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Interval Days"
+          },
+          "progress": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Progress"
+          },
+          "purchases": {
+            "title": "Purchases",
+            "type": "integer"
+          },
+          "regularity": {
+            "title": "Regularity",
+            "type": "number"
+          },
+          "source": {
+            "enum": [
+              "history",
+              "item_recurrence",
+              "list_recurrence",
+              "list_due",
+              "none"
+            ],
+            "title": "Source",
+            "type": "string"
+          }
+        },
+        "required": [
+          "interval_days",
+          "progress",
+          "days_to_due",
+          "regularity",
+          "source",
+          "purchases"
+        ],
+        "title": "PurchasePattern",
         "type": "object"
       },
       "RuleIn": {
@@ -2944,7 +3270,8 @@
           "kind": {
             "enum": [
               "promo",
-              "list_due"
+              "list_due",
+              "list_promo"
             ],
             "title": "Kind",
             "type": "string"
@@ -3286,6 +3613,68 @@
           }
         },
         "summary": "Create Address"
+      }
+    },
+    "/admin/patterns": {
+      "get": {
+        "description": "Padrão de compra de cada item, para conferir por que a proatividade sugeriu ou não.",
+        "operationId": "purchase_patterns_admin_patterns_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/ItemPatternView"
+                  },
+                  "title": "Response Purchase Patterns Admin Patterns Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Purchase Patterns"
+      }
+    },
+    "/admin/promotions": {
+      "post": {
+        "description": "Simula uma promoção nova e dispara a reavaliação das listas (evento PromotionsPublished).",
+        "operationId": "publish_promotion_admin_promotions_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PromotionIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PromotionResult"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Publish Promotion"
       }
     },
     "/admin/simulate-days": {

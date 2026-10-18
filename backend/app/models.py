@@ -170,7 +170,7 @@ class Suggestion(SQLModel, table=True):
     user_id: int = Field(foreign_key="user.id")
     list_id: Optional[int] = None
     list_item_id: Optional[int] = None
-    kind: str  # "promo" | "list_due"
+    kind: str  # "promo" | "list_promo" | "list_due"
     text: str
     data: dict = _json({})
     dismissed: bool = False

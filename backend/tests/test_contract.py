@@ -66,6 +66,9 @@ def test_every_route_matches_its_response_model(client):
     order_id = done.json()["orders"][0]["id"]
     assert ok(client.get(f"/orders/{order_id}/track"))[0]
     assert ok(client.post("/admin/simulate-days", json={"days": 7}))[0]
+    assert ok(client.get("/admin/patterns"))[0]
+    promo = client.post("/admin/promotions", json={"query": "café", "discount_pct": 30})
+    assert ok(promo)[0] and promo.json()["offers"]
     sugs = client.get("/suggestions")
     assert ok(sugs)[0]
     for sg in sugs.json():

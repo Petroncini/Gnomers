@@ -1,8 +1,9 @@
 """Recorrência e proatividade (seção 10 do plano).
 
 O job diário olha os itens e listas que vencem nos próximos sete dias. Para cada
-item, roda a query salva só com promoções e compara o preço promocional com o preço
-médio que o usuário pagou. Desconto acima do limiar vira sugestão na tela inicial.
+item, roda a query salva só com promoções e passa as ofertas para
+`proactive.evaluate_item`, que decide pelo desconto e pelo padrão de compra. A
+proatividade por evento (promoção publicada) está em `proactive.py`.
 """
 
 from __future__ import annotations
@@ -13,21 +14,15 @@ from datetime import timedelta
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from sqlmodel import Session, select
 
+from app import proactive
 from app.db import engine, today
 from app.mcp.client import McpToolError, NotAuthenticated
 from app.mcp.ifood import Ifood, ifood
-from app.models import Address, ListItem, OrderLine, ShoppingList, Suggestion, User
+from app.models import Address, ListItem, ShoppingList, Suggestion, User
 from app.pipeline.address import sync_addresses
-from app.rules import norm
 
 log = logging.getLogger(__name__)
-DISCOUNT_THRESHOLD = 0.15
 HORIZON_DAYS = 7
-
-
-def _avg_paid(s: Session, item_id: int) -> float | None:
-    prices = s.exec(select(OrderLine.unit_price).where(OrderLine.list_item_id == item_id)).all()
-    return sum(prices) / len(prices) if prices else None
 
 
 def _location(s: Session, user_id: int) -> tuple[float, float] | None:
@@ -75,42 +70,16 @@ async def run_daily(api: Ifood | None = None) -> list[Suggestion]:
                 except (McpToolError, NotAuthenticated, ValueError) as exc:
                     log.info("busca de promoção falhou para %s: %s", item.raw_text, exc)
                     continue
-                best = _best_deal(body, item, _avg_paid(s, item.id))
-                if best:
-                    days = (due - today()).days
-                    sg = Suggestion(user_id=user.id, list_id=lst.id, list_item_id=item.id, kind="promo",
-                                    text=(f"{best['name']} está {best['pct']}% mais barato hoje no "
-                                          f"{best['merchant']}, e ele vence {'hoje' if days <= 0 else f'em {days} dias'} "
-                                          f"na sua lista. Adiantar?"),
-                                    data=best)
-                    s.add(sg)
-                    created.append(sg)
+                ev = proactive.evaluate_item(s, user.id, lst, item, proactive.offers_from_search(body))
+                if ev.changed:
+                    created.append(s.get(Suggestion, ev.suggestion_id))
+            agg = proactive.aggregate_list(s, user.id, lst)
+            if agg:
+                created.append(agg)
         s.commit()
         for sg in created:
             s.refresh(sg)
     return created
-
-
-def _best_deal(body: dict, item: ListItem, avg_paid: float | None) -> dict | None:
-    from app.heuristics import normalize_product
-
-    best = None
-    for r in body.get("results", []):
-        promo, price = r.get("promotionalUnitPrice"), r.get("unitPrice")
-        if not promo or not price:
-            continue
-        if not normalize_product(item.category, r.get("itemName", ""), item.query)["matches"]:
-            continue
-        if item.brand and norm(item.brand) not in norm(r.get("itemName")):
-            continue
-        reference = avg_paid or price
-        discount = 1 - promo / reference
-        if discount >= DISCOUNT_THRESHOLD and (best is None or discount > best["discount"]):
-            m = r.get("merchant") or {}
-            best = {"discount": round(discount, 3), "pct": round(discount * 100), "price": promo, "reference": round(reference, 2),
-                    "name": r.get("itemName"), "sku_id": r.get("itemId"), "merchant_id": m.get("merchantId"),
-                    "merchant": m.get("merchantName"), "vs": "histórico" if avg_paid else "preço cheio"}
-    return best
 
 
 _scheduler: AsyncIOScheduler | None = None

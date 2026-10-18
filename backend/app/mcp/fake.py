@@ -306,6 +306,23 @@ class FakeIfood:
              "fee": fee, "estimatedMinutes": {"min": 120, "max": 180}, "timeslots": self._timeslots(m_id)},
         ]
 
+    def add_promotion(self, query: str, factor: float, merchant_id: str | None = None) -> list[dict]:
+        """Põe em promoção (preço cheio x `factor`) os itens que a busca por `query` acharia.
+
+        Usado por `POST /admin/promotions` para disparar a proatividade na demo. A
+        promoção dura até o back-end reiniciar.
+        """
+        found = self.t_searchOffers({"query": query, "resultKind": "ITEM", "pageSize": 25,
+                                     "refinements": {"merchantId": merchant_id} if merchant_id else {}})
+        out = []
+        for r in found["results"]:
+            it = self.by_id[r["itemId"]]
+            it["promotionalUnitPrice"] = min(it["promotionalUnitPrice"], round(it["unitPrice"] * factor, 2))
+            m = self.merchants[it["merchantId"]]
+            out.append({"sku_id": it["itemId"], "name": it["itemName"], "merchant_id": it["merchantId"],
+                        "merchant": m[1], "unit_price": it["unitPrice"], "price": it["promotionalUnitPrice"]})
+        return out
+
     # --------------------------------------------------------------- tools
 
     async def __call__(self, tool: str, args: dict) -> Any:

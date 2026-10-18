@@ -38,6 +38,10 @@ HISTORY = [
     (60, "cafe", "Pilão", 25.9), (45, "cafe", "Pilão", 26.5), (30, "cafe", "Pilão", 24.9), (15, "cafe", "Pilão", 25.4),
     (60, "leite", "Italac", 6.1), (45, "leite", "Italac", 6.2), (30, "leite", "Piracanjuba", 6.3),
     (15, "leite", "Italac", 6.4),
+    # proatividade: sabão comprado há 5 dias (promoção pequena não sugere, grande sugere estocar);
+    # arroz com uma compra só usa a recorrência da lista como intervalo
+    (35, "sabao po", "Omo", 27.5), (5, "sabao po", "Omo", 27.9),
+    (25, "arroz", "Camil", 27.9),
 ]
 
 

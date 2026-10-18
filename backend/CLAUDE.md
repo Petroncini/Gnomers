@@ -13,6 +13,7 @@ FastAPI + SQLModel (SQLite) + PuLP 2.9/CBC + SDK `mcp`. Visão geral no `CLAUDE.
 
 - `uv run pytest`: rápido, roda no simulador e sem LLM.
 - `GNOMERS_MCP_MODE`: `live` (padrão), `record` (grava em `fixtures/`), `replay` (só lê `fixtures/`), `fake` (simulador em `app/mcp/fake.py`).
+- Proatividade sem cadastrar compras nem esperar: depois do seed, `POST /admin/promotions {"query": "café", "discount_pct": 25}` dispara o evento e devolve, item a item, o que foi sugerido e por quê. `GET /admin/patterns` mostra o padrão de cada item. Roteiro em `docs/proatividade.md`.
 - `GNOMERS_ONLY_OPEN=0` inclui mercados fechados na busca. Com `deliver_at` no plano isso já acontece, porque o iFood agenda a entrega.
 - O token do iFood fica em `gnomers.db` (fora do git). O login é em http://localhost:8080/auth/login.
 
@@ -20,7 +21,7 @@ FastAPI + SQLModel (SQLite) + PuLP 2.9/CBC + SDK `mcp`. Visão geral no `CLAUDE.
 
 - `app/mcp/`: `client.py` (sessão, OAuth, erros normalizados, envelope `{success, data}`), `recorder.py`, `ifood.py` (wrappers tipados; toda chamada passa por eles), `fake.py`.
 - `app/pipeline/`: `address`, `discovery` (duas fases), `normalize`, `optimize` (MILP puro, sem I/O), `materialize` (carrinhos reais, cupom, entrega e horário, Pix), `decisions`, `runner` (orquestra e emite SSE).
-- `app/rules.py` (regras tipadas e resolução por escopo), `app/llm.py` (tarefas com esquema via OpenRouter ou API da Anthropic, cai em `app/heuristics.py`), `app/actions.py` (cartões, chat, checkout, rastreio), `app/learning.py`, `app/scheduler.py`.
+- `app/rules.py` (regras tipadas e resolução por escopo), `app/llm.py` (tarefas com esquema via OpenRouter ou API da Anthropic, cai em `app/heuristics.py`), `app/actions.py` (cartões, chat, checkout, rastreio), `app/learning.py`, `app/scheduler.py` (job diário), `app/proactive.py` (eventos de promoção, padrão de compra e decisão de sugerir; veja `docs/proatividade.md`).
 
 ## Cuidados
 
