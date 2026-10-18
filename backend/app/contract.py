@@ -1,6 +1,6 @@
 """Gera o contrato da API em contract/openapi.json.
 
-Uso: `uv run python -m app.contract` depois de mudar `app/schemas.py` ou uma rota.
+Uso: `uv run python -m app.contract` depois de mudar `app/api/schemas.py` ou uma rota em `app/api/`.
 O teste `tests/test_contract.py` falha se o arquivo commitado estiver desatualizado,
 e o front gera os tipos TypeScript a partir dele (`npm run gen:api`).
 """
@@ -9,7 +9,7 @@ from __future__ import annotations
 
 import json
 
-from app.config import ROOT
+from app.core.config import ROOT
 
 CONTRACT = ROOT / "contract" / "openapi.json"
 

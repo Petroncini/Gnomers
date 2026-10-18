@@ -8,12 +8,12 @@ import pytest
 from fastapi.testclient import TestClient
 from sqlmodel import Session
 
-from app import actions
-from app.db import engine, fail_interrupted_plans
+from app.cart import changes
+from app.core.db import engine, fail_interrupted_plans
+from app.core.models import Plan
 from app.main import app
 from app.mcp.fake import ICMC
 from app.mcp.ifood import Ifood, RateLimiter
-from app.models import Plan
 
 
 @pytest.fixture(scope="module")
@@ -82,7 +82,7 @@ async def test_without_the_lock_one_change_is_lost(client, monkeypatch):
     async def no_lock():
         yield
 
-    monkeypatch.setattr(actions, "plan_lock", lambda plan_id: no_lock())
+    monkeypatch.setattr(changes, "plan_lock", lambda plan_id: no_lock())
     assert len(await _remove_two_at_once(plan, monkeypatch)) == 1
 
 

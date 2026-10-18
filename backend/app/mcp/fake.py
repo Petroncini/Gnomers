@@ -15,9 +15,9 @@ import time
 import uuid
 from typing import Any
 
-from app.heuristics import singular
+from app.ai.heuristics import singular
 from app.mcp.client import McpToolError
-from app.rules import brl, norm
+from app.preferences.rules import brl, norm
 
 ICMC = {"latitude": -22.0068, "longitude": -47.8954}
 

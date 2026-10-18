@@ -4,13 +4,14 @@ import pytest
 from fastapi.testclient import TestClient
 from sqlmodel import Session
 
-from app import actions, llm
-from app.db import engine
+from app.ai import llm
+from app.cart import changes
+from app.core.db import engine
+from app.core.models import Plan
 from app.main import app
-from app.models import Plan
 from app.pipeline import normalize
 from app.pipeline.discovery import Offer
-from app.rules import Resolved
+from app.preferences.rules import Resolved
 
 A, B = "aaaaaaaa-0000-4000-8000-000000000001", "bbbbbbbb-0000-4000-8000-000000000002"
 
@@ -52,10 +53,10 @@ def test_swap_that_kills_the_split_suggests_replan(client):
         s.add(plan)
         s.commit()
         s.refresh(plan)
-        assert actions.pins_from(result) == {"1": {"size": 250}}
-        best = actions.estimate_replan(s, plan, result)
+        assert changes.pins_from(result) == {"1": {"size": 250}}
+        best = changes.estimate_replan(s, plan, result)
         assert best.merchants == [B]  # 2 x 250 g no Savegnago, tudo num mercado só
-        actions._update_replan_card(s, plan, result)
+        changes._update_replan_card(s, plan, result)
     cards = {c["type"]: c for c in result["decisions"]}
     assert cards["replan"]["status"] == "open" and cards["replan"]["saving"] > 50
     assert "Savegnago" in cards["replan"]["text"]
@@ -64,14 +65,14 @@ def test_swap_that_kills_the_split_suggests_replan(client):
 
 async def _build(monkeypatch, names_sizes, spec_kw, llm_matches=True):
     async def fake_normalize(category, query, names):
-        from app.heuristics import normalize_product
+        from app.ai.heuristics import normalize_product
         out = [normalize_product(category, n, query) for n in names]
         for o in out:
             o["matches"] = llm_matches  # o LLM às vezes aceita qualquer coisa
         return out
 
     monkeypatch.setattr(llm, "normalize_products", fake_normalize)
-    from app.db import init_db
+    from app.core.db import init_db
     init_db()
     spec = normalize.ItemSpec(id=99, raw_text="x", query=spec_kw["query"], category=spec_kw["category"], brand=None,
                               variety_terms=[], pack_size=spec_kw.get("pack_size"), pack_unit=spec_kw.get("pack_unit"),
@@ -107,7 +108,7 @@ async def test_exact_quantity_rule_drops_bigger_pack(monkeypatch):
 
 
 def test_note_about_exact_quantity_counts_as_rule():
-    from app.rules import resolve
+    from app.preferences.rules import resolve
 
     class R:
         id, scope, category, kind, hardness, source, confidence, active = 1, "global", "granola", "note", "soft", "chat", 1, True

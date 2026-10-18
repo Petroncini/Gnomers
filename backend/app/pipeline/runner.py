@@ -10,15 +10,16 @@ from dataclasses import dataclass, field
 
 from sqlmodel import Session, select
 
-from app import heuristics, llm, metrics
-from app.heuristics import PARSER_VERSION
-from app.db import engine
+from app.ai import heuristics, llm
+from app.ai.heuristics import PARSER_VERSION
+from app.core import metrics
+from app.core.db import engine
+from app.core.models import Address, ListItem, Plan, Rule, ShoppingList, User
 from app.mcp.client import McpToolError, NotAuthenticated
 from app.mcp.ifood import Ifood, ifood
-from app.models import Address, ListItem, Plan, Rule, ShoppingList, User
 from app.pipeline import address as address_mod
 from app.pipeline import decisions, discovery, materialize, normalize, optimize
-from app.rules import brl, norm, resolve
+from app.preferences.rules import brl, norm, resolve
 
 log = logging.getLogger(__name__)
 

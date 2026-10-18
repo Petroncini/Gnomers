@@ -4,7 +4,7 @@ FastAPI + SQLModel (SQLite) + PuLP 2.9/CBC + SDK `mcp`. Visão geral no `CLAUDE.
 
 ## Contrato com o front-end
 
-- Todo formato de resposta está em `app/schemas.py`, e cada rota em `app/main.py` declara `response_model`. O FastAPI valida a saída: campo fora do schema é descartado, campo faltando vira erro 500.
+- Todo formato de resposta está em `app/api/schemas.py`, e cada rota em `app/api/` declara `response_model`. O FastAPI valida a saída: campo fora do schema é descartado, campo faltando vira erro 500.
 - Mudou `schemas.py` ou uma rota? Rode `uv run python -m app.contract` para regenerar `contract/openapi.json`, commite junto e avise quem cuida do front (ele roda `npm run gen:api`).
 - `tests/test_contract.py` falha se o contrato commitado estiver desatualizado e passa por todas as rotas no simulador validando as respostas. Rota nova entra nesse teste.
 - Mudança que quebra o front (renomear ou remover campo, mudar tipo) é combinada antes. Acrescentar campo opcional é seguro.
@@ -19,9 +19,16 @@ FastAPI + SQLModel (SQLite) + PuLP 2.9/CBC + SDK `mcp`. Visão geral no `CLAUDE.
 
 ## Mapa
 
+Cada pasta de `app/` é uma caixa do diagrama em `docs/documento-tecnico.md`. Na raiz de `app/` ficam só os pontos de entrada: `main.py` (monta o FastAPI e inclui os routers), `contract.py` e `seed.py`.
+
+- `app/api/`: um router por recurso (`auth`, `profile`, `lists`, `rules`, `addresses`, `plans`, `suggestions`, `admin`) e `schemas.py` (o contrato). A ordem dos routers em `main.py` é a ordem das rotas no `openapi.json`.
+- `app/core/`: `config.py` (lê o `.env`), `db.py`, `models.py` (tabelas), `metrics.py`.
 - `app/mcp/`: `client.py` (sessão, OAuth, erros normalizados, envelope `{success, data}`), `recorder.py`, `ifood.py` (wrappers tipados; toda chamada passa por eles), `fake.py`.
 - `app/pipeline/`: `address`, `discovery` (duas fases), `normalize`, `optimize` (MILP puro, sem I/O), `materialize` (carrinhos reais, cupom, entrega e horário, Pix), `decisions`, `runner` (orquestra e emite SSE).
-- `app/rules.py` (regras tipadas e resolução por escopo), `app/llm.py` (tarefas com esquema via OpenRouter ou API da Anthropic, cai em `app/heuristics.py`), `app/actions.py` (cartões, chat, checkout, rastreio), `app/learning.py`, `app/scheduler.py` (job diário), `app/proactive.py` (eventos de promoção, padrão de compra e decisão de sugerir; veja `docs/proatividade.md`).
+- `app/cart/`: o carrinho depois de montado. `changes.py` (cartões de decisão, trocas, recálculo e a trava `plan_lock`) e `checkout.py` (pedido, Pix e rastreio).
+- `app/ai/`: `llm.py` (tarefas com esquema via OpenRouter ou API da Anthropic, cai em `heuristics.py`), `chat.py` (chat do carrinho) e `agent.py` (loop com tools que o chat usa para mensagens livres).
+- `app/preferences/`: `rules.py` (regras tipadas e resolução por escopo, sem banco), `store.py` (gravar e descrever regras), `learning.py` (marcas e periodicidade aprendidas), `onboarding.py` (importa o histórico do iFood).
+- `app/proactive/`: `promotions.py` (eventos de promoção, padrão de compra e decisão de sugerir; veja `docs/proatividade.md`) e `scheduler.py` (job diário).
 
 ## Cuidados
 

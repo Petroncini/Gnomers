@@ -11,11 +11,11 @@ import asyncio
 import logging
 from datetime import datetime
 
-from app.rules import brl
 from app.mcp.client import McpToolError
 from app.mcp.ifood import Ifood
 from app.pipeline.normalize import SkuInfo, sku_key
 from app.pipeline.optimize import Solution
+from app.preferences.rules import brl
 
 log = logging.getLogger(__name__)
 ALT_MARGIN = 1.15

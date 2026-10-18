@@ -7,8 +7,8 @@ from datetime import timedelta
 
 from sqlmodel import Session, select
 
+from app.core.models import Address, now
 from app.mcp.ifood import Ifood
-from app.models import Address, now
 
 NEAR_METERS = 200
 CACHE_MINUTES = 5

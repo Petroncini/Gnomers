@@ -18,7 +18,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from app import llm, metrics  # noqa: E402
+from app.ai import llm  # noqa: E402
+from app.core import metrics  # noqa: E402
 
 HERE = Path(__file__).parent
 CLASSES = ("exato", "substituto", "nao_serve")

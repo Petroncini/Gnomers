@@ -20,10 +20,15 @@ import mcp.client.auth.oauth2 as _oauth2
 from mcp import ClientSession
 from mcp.client.auth import OAuthClientProvider
 from mcp.client.streamable_http import streamable_http_client
-from mcp.shared.auth import AuthorizationCodeResult, OAuthClientInformationFull, OAuthClientMetadata, OAuthToken
+from mcp.shared.auth import (
+    AuthorizationCodeResult,
+    OAuthClientInformationFull,
+    OAuthClientMetadata,
+    OAuthToken,
+)
 from sqlmodel import Session
 
-from app.config import settings
+from app.core.config import settings
 
 log = logging.getLogger(__name__)
 
@@ -150,7 +155,7 @@ class DbTokenStorage:
         self.user_id = user_id
 
     async def get_tokens(self) -> OAuthToken | None:
-        from app.models import User
+        from app.core.models import User
 
         with Session(self.engine) as s:
             user = s.get(User, self.user_id)
@@ -159,7 +164,7 @@ class DbTokenStorage:
         return OAuthToken.model_validate(tokens) if tokens else None
 
     async def set_tokens(self, tokens: OAuthToken) -> None:
-        from app.models import User
+        from app.core.models import User
 
         with Session(self.engine) as s:
             user = s.get(User, self.user_id)
@@ -191,7 +196,7 @@ class DbTokenStorage:
         return None
 
     def _data(self) -> dict:
-        from app.models import User
+        from app.core.models import User
 
         with Session(self.engine) as s:
             user = s.get(User, self.user_id)
@@ -213,7 +218,7 @@ class DbTokenStorage:
         return (self._data().get("tokens") or {}).get("refresh_token")
 
     def mark_needs_login(self) -> None:
-        from app.models import User
+        from app.core.models import User
 
         with Session(self.engine) as s:
             user = s.get(User, self.user_id)
@@ -223,7 +228,7 @@ class DbTokenStorage:
                 s.commit()
 
     def clear(self) -> None:
-        from app.models import User
+        from app.core.models import User
 
         with Session(self.engine) as s:
             user = s.get(User, self.user_id)

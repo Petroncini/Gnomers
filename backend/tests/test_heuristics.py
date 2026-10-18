@@ -1,6 +1,6 @@
 import pytest
 
-from app.heuristics import normalize_product, parse_item, parse_pack
+from app.ai.heuristics import normalize_product, parse_item, parse_pack
 from app.mcp.client import normalize_error
 
 
@@ -77,7 +77,7 @@ def test_kilo_is_a_size():
     ("Café Torrado e Moído Pilão 500g", False),
 ])
 def test_coffee_derivatives(name, derivative):
-    from app.heuristics import is_derivative
+    from app.ai.heuristics import is_derivative
 
     assert is_derivative("cafe", name) is derivative
 
@@ -105,7 +105,7 @@ def test_upstream_internal_error_keeps_its_message():
 
 
 def test_search_text_helpers():
-    from app.heuristics import clean_query, core_query, has_term, query_variants
+    from app.ai.heuristics import clean_query, core_query, has_term, query_variants
 
     # casos reais de 18/10
     assert clean_query("feijão cru em grão") == "feijão"

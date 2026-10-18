@@ -2,7 +2,7 @@ from dataclasses import dataclass, field
 
 import pytest
 
-from app.rules import describe, resolve, validate_payload
+from app.preferences.rules import describe, resolve, validate_payload
 
 
 @dataclass

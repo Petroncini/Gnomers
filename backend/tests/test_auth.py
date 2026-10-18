@@ -6,10 +6,15 @@ import httpx2
 import pytest
 from sqlmodel import Session
 
-from app.db import engine, init_db
+from app.core.db import engine, init_db
+from app.core.models import User
 from app.mcp import client as mcp_client
-from app.mcp.client import DbTokenStorage, NotAuthenticated, _auth_error_in, refresh_tokens
-from app.models import User
+from app.mcp.client import (
+    DbTokenStorage,
+    NotAuthenticated,
+    _auth_error_in,
+    refresh_tokens,
+)
 
 
 @pytest.fixture

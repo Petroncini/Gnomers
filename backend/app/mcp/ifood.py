@@ -16,10 +16,15 @@ import re
 import time
 from typing import Any
 
-from app import metrics
-from app.config import settings
-from app.db import engine
-from app.mcp.client import DbTokenStorage, IfoodConnection, McpToolError, TRANSIENT_CODES
+from app.core import metrics
+from app.core.config import settings
+from app.core.db import engine
+from app.mcp.client import (
+    TRANSIENT_CODES,
+    DbTokenStorage,
+    IfoodConnection,
+    McpToolError,
+)
 from app.mcp.recorder import Recorder
 
 log = logging.getLogger(__name__)

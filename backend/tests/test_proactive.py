@@ -6,11 +6,11 @@ import pytest
 from fastapi.testclient import TestClient
 from sqlmodel import Session
 
-from app import proactive
-from app.db import engine, today
+from app.core.db import engine, today
+from app.core.models import ListItem, Order, OrderLine, Plan, Rule, ShoppingList
 from app.main import app
 from app.mcp import ifood as ifood_mod
-from app.models import ListItem, Order, OrderLine, Plan, Rule, ShoppingList
+from app.proactive import promotions
 
 
 @pytest.fixture(scope="module")
@@ -70,13 +70,13 @@ def test_patterns_from_two_purchases_or_list_recurrence(client, setup):
 
 
 def test_decide_by_cycle_progress():
-    p = proactive.Pattern(item_id=1, list_id=1, purchases=2, last_purchase=today(), interval_days=30,
+    p = promotions.Pattern(item_id=1, list_id=1, purchases=2, last_purchase=today(), interval_days=30,
                           next_due=today() + timedelta(days=25), regularity=0.5, source="history")
-    assert proactive.decide(p, 0.2)[0] is None
-    assert proactive.decide(p, 0.35)[0] == "stock"
+    assert promotions.decide(p, 0.2)[0] is None
+    assert promotions.decide(p, 0.35)[0] == "stock"
     p.next_due = today() + timedelta(days=10)
-    assert proactive.decide(p, 0.2)[0] == "advance"
-    assert proactive.decide(p, 0.1)[0] is None
+    assert promotions.decide(p, 0.2)[0] == "advance"
+    assert promotions.decide(p, 0.1)[0] is None
 
 
 def test_recent_purchase_needs_big_discount(client, setup):

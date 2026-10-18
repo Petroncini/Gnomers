@@ -6,7 +6,7 @@ import json
 import httpx
 import pytest
 
-from app import llm
+from app.ai import llm
 
 
 @pytest.fixture

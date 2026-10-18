@@ -6,14 +6,13 @@ import json
 import httpx
 import pytest
 from fastapi.testclient import TestClient
-
 from sqlmodel import Session
 
-from app import llm
-from app.db import engine
+from app.ai import llm
+from app.core.db import engine
+from app.core.models import Plan
 from app.main import app
 from app.mcp.fake import ICMC
-from app.models import Plan
 
 
 @pytest.fixture(scope="module")

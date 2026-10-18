@@ -15,7 +15,7 @@ from typing import Any, Awaitable, Callable
 
 from app.mcp.client import McpToolError
 from app.mcp.ifood import Ifood
-from app.rules import Resolved, norm
+from app.preferences.rules import Resolved, norm
 
 log = logging.getLogger(__name__)
 

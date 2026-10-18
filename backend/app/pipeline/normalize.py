@@ -10,11 +10,11 @@ from dataclasses import dataclass, field
 
 from sqlmodel import Session, select
 
-from app import heuristics, llm
-from app.models import Judgment, Product, now
+from app.ai import heuristics, llm
+from app.core.models import Judgment, Product, now
 from app.pipeline.discovery import Offer
 from app.pipeline.optimize import Candidate, Item, packs_for
-from app.rules import Resolved, norm
+from app.preferences.rules import Resolved, norm
 
 TOP_PER_MERCHANT = 5
 UNDERSIZE = 0.1  # embalagem com menos de 10% do pedido (sachê de 10 g para "café 500 g") só sem alternativa

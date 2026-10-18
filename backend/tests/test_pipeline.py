@@ -161,8 +161,8 @@ def test_stale_items_are_reparsed_and_bad_taxonomy_dropped(client):
     """Caso real de 18/10: itens salvos pelo parser antigo e leite preso em LEITE_CONDENSADO."""
     from sqlmodel import Session
 
-    from app.db import engine
-    from app.models import ListItem
+    from app.core.db import engine
+    from app.core.models import ListItem
 
     lst = client.post("/lists", json={"name": "Itens antigos"}).json()
     leite = client.post(f"/lists/{lst['id']}/items", json={"raw_text": "2 leites integral italac"}).json()
@@ -202,8 +202,8 @@ def test_stale_items_are_reparsed_and_bad_taxonomy_dropped(client):
 def test_stored_taxonomy_no_longer_filters_search(client):
     from sqlmodel import Session
 
-    from app.db import engine
-    from app.models import ListItem
+    from app.core.db import engine
+    from app.core.models import ListItem
 
     lst = client.post("/lists", json={"name": "Taxonomia ruim"}).json()
     item = client.post(f"/lists/{lst['id']}/items", json={"raw_text": "café 500g"}).json()

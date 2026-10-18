@@ -8,7 +8,7 @@ marcas que o próprio usuário definiu aparecem só como informação.
 from __future__ import annotations
 
 from app.pipeline.normalize import ItemSpec, SkuInfo, required_amount, sku_key
-from app.rules import brl, norm
+from app.preferences.rules import brl, norm
 
 QTY_DRIFT = 0.25  # comprar 25% a mais do que o pedido já merece aviso
 

@@ -32,10 +32,11 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from sqlmodel import Session  # noqa: E402
 
-from app import llm, metrics  # noqa: E402
-from app.db import engine, init_db  # noqa: E402
+from app.ai import llm  # noqa: E402
+from app.core import metrics  # noqa: E402
+from app.core.db import engine, init_db  # noqa: E402
 from app.pipeline import discovery, normalize, optimize  # noqa: E402
-from app.rules import Resolved  # noqa: E402
+from app.preferences.rules import Resolved  # noqa: E402
 
 HERE = Path(__file__).parent
 FIXTURES = HERE.parent / "fixtures" / "searchOffers"

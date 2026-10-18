@@ -10,10 +10,21 @@ from datetime import datetime, timedelta, timezone
 
 from sqlmodel import Session, delete, select
 
-from app import learning, llm
-from app.heuristics import PARSER_VERSION
-from app.db import engine, init_db, today
-from app.models import ListItem, Order, OrderLine, Plan, Rule, ShoppingList, Signal, Suggestion, User
+from app.ai import llm
+from app.ai.heuristics import PARSER_VERSION
+from app.core.db import engine, init_db, today
+from app.core.models import (
+    ListItem,
+    Order,
+    OrderLine,
+    Plan,
+    Rule,
+    ShoppingList,
+    Signal,
+    Suggestion,
+    User,
+)
+from app.preferences import learning
 
 DEMO_ITEMS = [
     "2 leite integral 1L",
