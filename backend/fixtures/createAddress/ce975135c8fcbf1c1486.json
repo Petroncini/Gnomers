@@ -1,0 +1,95 @@
+{
+  "tool": "createAddress",
+  "args": {
+    "address": "Rua São Sebastião 1455"
+  },
+  "recordedAt": "2026-10-17T23:36:30",
+  "response": {
+    "matchConfidence": "MULTIPLE",
+    "candidates": [
+      {
+        "candidateId": "3228fdb0-c30d-4b09-b4fa-af003ff3350a",
+        "formattedAddress": "Rua São Sebastião, 1455, Centro, São Carlos, SP, CEP 13560-230",
+        "location": {
+          "street": "Rua São Sebastião",
+          "number": "1455",
+          "neighborhood": "Centro",
+          "city": "São Carlos",
+          "state": "SP"
+        },
+        "postalCode": "13560-230",
+        "coordinates": {
+          "latitude": -22.01318,
+          "longitude": -47.89623
+        }
+      },
+      {
+        "candidateId": "8a04fd56-daf5-4597-a57c-b8a6f6d777e8",
+        "formattedAddress": "Rua São Sebastião, 1455, Vera Cruz, Passo Fundo, RS, CEP 99042-010",
+        "location": {
+          "street": "Rua São Sebastião",
+          "number": "1455",
+          "neighborhood": "Vera Cruz",
+          "city": "Passo Fundo",
+          "state": "RS"
+        },
+        "postalCode": "99042-010",
+        "coordinates": {
+          "latitude": -28.24352,
+          "longitude": -52.43721
+        }
+      },
+      {
+        "candidateId": "18d6becf-b18f-43ee-a9bf-c2ce8eca610a",
+        "formattedAddress": "Rua São Sebastião, 1455, Codó, Codó, MA, CEP 65400-000",
+        "location": {
+          "street": "Rua São Sebastião",
+          "number": "1455",
+          "neighborhood": "Codó",
+          "city": "Codó",
+          "state": "MA"
+        },
+        "postalCode": "65400-000",
+        "coordinates": {
+          "latitude": -4.46188,
+          "longitude": -43.89329
+        }
+      },
+      {
+        "candidateId": "016b098b-4a97-431d-8f93-21a9e222eb73",
+        "formattedAddress": "Rua São Sebastião, 1455, Boa Vista, São José do Rio Preto, SP, CEP 15030-520",
+        "location": {
+          "street": "Rua São Sebastião",
+          "number": "1455",
+          "neighborhood": "Boa Vista",
+          "city": "São José do Rio Preto",
+          "state": "SP"
+        },
+        "postalCode": "15030-520",
+        "coordinates": {
+          "latitude": -20.79609,
+          "longitude": -49.38572
+        }
+      },
+      {
+        "candidateId": "ee6dad69-3c6d-4a3c-ac20-bafc5bf356bb",
+        "formattedAddress": "Rua São Sebastião, 1455, Setor Central, Ribeirão Preto, SP, CEP 14015-040",
+        "location": {
+          "street": "Rua São Sebastião",
+          "number": "1455",
+          "neighborhood": "Setor Central",
+          "city": "Ribeirão Preto",
+          "state": "SP"
+        },
+        "postalCode": "14015-040",
+        "coordinates": {
+          "latitude": -21.18107,
+          "longitude": -47.80283
+        }
+      }
+    ],
+    "agentHints": {
+      "confirmAddressGuidance": "The address matched multiple locations. Present the candidates to the user by formattedAddress and ask them to choose, then ask for complement, alias, and reference. Then re-submit with the same address, the chosen candidateId, and the user's answers to create the address."
+    }
+  }
+}

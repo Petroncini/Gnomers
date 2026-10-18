@@ -1,0 +1,27 @@
+# Segredos
+.env
+.env.*
+!.env.example
+*.pem
+
+# Claude Code (configuração pessoal)
+.claude/settings.local.json
+
+# Node / Python
+node_modules/
+dist/
+build/
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Sistema
+.DS_Store
+
+# Handoff local (contexto da conversa, não versionar)
+HANDOFF.md
+handoff/
+
+# Bancos locais do back-end (o token do iFood fica no banco)
+*.db

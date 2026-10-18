@@ -1,0 +1,137 @@
+{
+  "tool": "getMerchant",
+  "args": {
+    "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
+    "userLocation": {
+      "latitude": -22.01318,
+      "longitude": -47.89623
+    }
+  },
+  "recordedAt": "2026-10-17T23:47:20",
+  "response": {
+    "address": "Avenida Francisco Pereira Lopes, 1701, Parque Santa Mônica, SAO CARLOS - SP, 13561250, BR",
+    "agentHints": {
+      "nextStepForItemsNavigation": "Follow `catalogSummary.navigationHint` to browse or search items in this merchant's catalog.",
+      "nextStepWhenUserPicksItem": "Retrieve full item details — option groups, nutrition, and applicable promotions — for the chosen item before adding it to the cart."
+    },
+    "appDeeplink": "ifood://catalog-hub/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/GROCERIES",
+    "catalogSummary": {
+      "navigationHint": "Call `browseOffers` with `resultKind=ITEM`, the matching `merchantType`, and `refinements.merchantId=8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2` to browse items. Use `searchOffers` with `refinements.merchantId=8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2` for keyword search within this merchant.",
+      "totalItems": 11672
+    },
+    "deliveryMethods": [],
+    "featuredItems": [
+      {
+        "itemEan": "7896098904305",
+        "itemId": "84c910f9-e01f-4db5-9e1b-90b8f722a6ab",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202608041709_rnocfniy50e.jpeg",
+        "itemName": "Limpador Perfumado Doce Vida Ypê 2l",
+        "itemSkuId": "SKU-GRHZ97970",
+        "menuSection": "Limpeza",
+        "promotionalUnitPrice": 11.64,
+        "unitPrice": 14.55
+      },
+      {
+        "itemEan": "7896098904282",
+        "itemId": "89e1a1f8-5dc8-42de-84ed-2018dd008484",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202608041712_xj9za9pyv9.jpeg",
+        "itemName": "Limpador Perfumado Jardim Secreto Ypê 2l",
+        "itemSkuId": "SKU-XYOH49648",
+        "menuSection": "Limpeza",
+        "promotionalUnitPrice": 11.64,
+        "unitPrice": 14.55
+      },
+      {
+        "itemEan": "7891000457467",
+        "itemId": "0e7fce15-fdc6-44e9-8d5c-c2c293e7b8a0",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202603172159_ymxtjai7v2h.jpeg",
+        "itemName": "Bombom Especialidades Nestlé 220g",
+        "itemSkuId": "SKU-NAPA92807",
+        "menuSection": "Doces e Sobremesas",
+        "promotionalUnitPrice": 9.31,
+        "unitPrice": 10.95
+      },
+      {
+        "itemEan": "7896098904350",
+        "itemId": "b10ebd4c-4942-4ca1-afc6-9a78590d7285",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202608050824_9bff21e5tyk.jpeg",
+        "itemName": "Saponáceo Multiuso Cremoso Lavanda Ypê 300ml",
+        "itemSkuId": "SKU-OTJG46874",
+        "menuSection": "Limpeza",
+        "promotionalUnitPrice": 7.99,
+        "unitPrice": 9.99
+      },
+      {
+        "itemEan": "7896098904336",
+        "itemId": "3481c0d1-d47e-469b-b595-db6e29b70fe1",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202608050825_dpucxjb4msd.jpeg",
+        "itemName": "Saponáceo Multiuso Cremoso Original Ypê 300ml",
+        "itemSkuId": "SKU-LSPD51351",
+        "menuSection": "Limpeza",
+        "promotionalUnitPrice": 7.99,
+        "unitPrice": 9.99
+      }
+    ],
+    "isOpen": false,
+    "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
+    "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
+    "merchantName": "Savegnago - Shopping Passeio - LJ 33",
+    "merchantType": "GROCERIES",
+    "minimumOrderAmount": 60,
+    "operatingHours": {
+      "today": [
+        {
+          "closeLocal": "18:10",
+          "openLocal": "08:00"
+        }
+      ],
+      "weekly": {
+        "fri": [
+          {
+            "closeLocal": "18:10",
+            "openLocal": "08:00"
+          }
+        ],
+        "mon": [
+          {
+            "closeLocal": "18:10",
+            "openLocal": "08:00"
+          }
+        ],
+        "sat": [
+          {
+            "closeLocal": "18:10",
+            "openLocal": "08:00"
+          }
+        ],
+        "sun": [
+          {
+            "closeLocal": "16:10",
+            "openLocal": "08:00"
+          }
+        ],
+        "thu": [
+          {
+            "closeLocal": "18:10",
+            "openLocal": "08:00"
+          }
+        ],
+        "tue": [
+          {
+            "closeLocal": "18:10",
+            "openLocal": "08:00"
+          }
+        ],
+        "wed": [
+          {
+            "closeLocal": "18:10",
+            "openLocal": "08:00"
+          }
+        ]
+      }
+    },
+    "ratingCount": 1867,
+    "reviewRating": 4.900000095367432,
+    "straightLineDistanceKm": 1.26
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "tool": "getMerchant",
+  "args": {
+    "merchantId": "32549526-5a03-4af1-a9ed-f4e8875828bf",
+    "userLocation": {
+      "latitude": -22.01318,
+      "longitude": -47.89623
+    }
+  },
+  "recordedAt": "2026-10-17T23:47:18",
+  "response": {
+    "address": "Avenida Bruno Ruggiero Filho, 101, Parque Santa Felícia Jardim, SAO CARLOS - SP, 13562420, BR",
+    "agentHints": {
+      "nextStepForItemsNavigation": "Follow `catalogSummary.navigationHint` to browse or search items in this merchant's catalog.",
+      "nextStepWhenUserPicksItem": "Retrieve full item details — option groups, nutrition, and applicable promotions — for the chosen item before adding it to the cart."
+    },
+    "appDeeplink": "ifood://catalog-hub/32549526-5a03-4af1-a9ed-f4e8875828bf/GROCERIES",
+    "catalogSummary": {
+      "navigationHint": "Call `browseOffers` with `resultKind=ITEM`, the matching `merchantType`, and `refinements.merchantId=32549526-5a03-4af1-a9ed-f4e8875828bf` to browse items. Use `searchOffers` with `refinements.merchantId=32549526-5a03-4af1-a9ed-f4e8875828bf` for keyword search within this merchant.",
+      "totalItems": 3077
+    },
+    "deliveryMethods": [],
+    "featuredItems": [
+      {
+        "itemEan": "7891107101621",
+        "itemId": "fdbccfcb-f635-46d9-9a9c-2ed26580e943",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202608111441_tcn5r7pfez.png",
+        "itemName": "Óleo de Soja Soya 900ml",
+        "itemSkuId": "SKU-AEPI48079",
+        "menuSection": "Alimentos Básicos",
+        "promotionalUnitPrice": 5.39,
+        "unitPrice": 8.99
+      },
+      {
+        "itemEan": "7896098900208",
+        "itemId": "57a55e15-830f-453e-bdd1-649997f476c1",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202608041626_xxm08lcvu7.jpeg",
+        "itemName": "Detergente Neutro Ypê 500ml",
+        "itemSkuId": "01a0f422-24d8-7252-b182-7c986187945d",
+        "menuSection": "Limpeza",
+        "promotionalUnitPrice": 1.97,
+        "unitPrice": 3.29
+      },
+      {
+        "itemEan": "7896098900239",
+        "itemId": "32f32498-f57d-4f53-8064-89521122c67c",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202608041622_8b4io3scd4e.jpeg",
+        "itemName": "Detergente Coco Ypê 500ml",
+        "itemSkuId": "SKU-PZQI34861",
+        "menuSection": "Limpeza",
+        "promotionalUnitPrice": 1.97,
+        "unitPrice": 3.29
+      },
+      {
+        "itemEan": "7898215152002",
+        "itemId": "e9180041-5613-478b-a489-df9a7be21e15",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202604281106_s170dlie2ar.jpeg",
+        "itemName": "Leite Condensado Semidesnatado Piracanjuba 395g",
+        "itemSkuId": "SKU-LEUX09878",
+        "menuSection": "Doces e Sobremesas",
+        "promotionalUnitPrice": 5.39,
+        "unitPrice": 8.99
+      },
+      {
+        "itemEan": "7894900337501",
+        "itemId": "5e631016-88c2-4e11-acb3-0badcfc94e6d",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202606011438_jyhqwabxrrp.jpeg",
+        "itemName": "Drink Pronto Absolut Sprite Frutas Vermelhas Lt 269ml",
+        "menuSection": "Bebidas Alcoólicas",
+        "promotionalUnitPrice": 5.99,
+        "unitPrice": 9.99
+      }
+    ],
+    "isOpen": false,
+    "merchantId": "32549526-5a03-4af1-a9ed-f4e8875828bf",
+    "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/32549526-5a03-4af1-a9ed-f4e8875828bf/202605131411_woyX_l.jpg",
+    "merchantName": "Oba Hortifruti - São Carlos",
+    "merchantType": "GROCERIES",
+    "minimumOrderAmount": 30,
+    "operatingHours": {
+      "today": [
+        {
+          "closeLocal": "18:50",
+          "openLocal": "07:30"
+        }
+      ],
+      "weekly": {
+        "fri": [
+          {
+            "closeLocal": "18:50",
+            "openLocal": "07:30"
+          }
+        ],
+        "mon": [
+          {
+            "closeLocal": "18:50",
+            "openLocal": "07:30"
+          }
+        ],
+        "sat": [
+          {
+            "closeLocal": "18:50",
+            "openLocal": "07:30"
+          }
+        ],
+        "sun": [
+          {
+            "closeLocal": "18:50",
+            "openLocal": "07:30"
+          }
+        ],
+        "thu": [
+          {
+            "closeLocal": "18:50",
+            "openLocal": "07:30"
+          }
+        ],
+        "tue": [
+          {
+            "closeLocal": "18:50",
+            "openLocal": "07:30"
+          }
+        ],
+        "wed": [
+          {
+            "closeLocal": "18:50",
+            "openLocal": "07:30"
+          }
+        ]
+      }
+    },
+    "ratingCount": 272,
+    "reviewRating": 4.900000095367432,
+    "straightLineDistanceKm": 1.96
+  }
+}

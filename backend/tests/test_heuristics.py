@@ -1,0 +1,87 @@
+import pytest
+
+from app.heuristics import normalize_product, parse_item, parse_pack, pick_taxonomy
+from app.mcp.client import normalize_error
+
+
+@pytest.mark.parametrize("text,expected", [
+    ("Leite Uht Integral com Tampa Italac 1l", (1000.0, "ml")),
+    ("Arroz Branco Tipo 1 Camil 5kg", (5000.0, "g")),
+    ("Sabão em Pó Omo 1,6kg", (1600.0, "g")),
+    ("Papel Higiênico Neve 12 Rolos", (12.0, "un")),
+    ("Iogurte 6x170g", (1020.0, "g")),
+    ("Banana Prata", (None, None)),
+])
+def test_parse_pack(text, expected):
+    assert parse_pack(text) == expected
+
+
+def test_parse_item_fields():
+    out = parse_item("2 leite integral Italac 1L")
+    assert out["quantity"] == 2 and out["brand"] == "Italac" and out["intention"] == "product_exact"
+    assert out["category"] == "leite" and out["pack_size"] == 1000 and "integral" in out["variety_terms"]
+    assert "1L" not in out["query"]
+
+
+def test_parse_item_size_is_not_quantity():
+    out = parse_item("1kg de feijão carioca")
+    assert out["quantity"] == 1 and out["pack_size"] == 1000 and out["category"] == "feijao"
+    assert out["query"] == "feijão carioca"
+
+
+def test_derivatives_do_not_match():
+    assert normalize_product("leite", "Leite Uht Integral Italac 1l")["matches"]
+    assert not normalize_product("leite", "Leite de Coco Integral Cocomix 200ml")["matches"]
+    assert not normalize_product("leite", "Biscoito Integral Sabor Leite e Aveia Belvita 75g")["matches"]
+    assert normalize_product("papel higienico", "Papel Higiênico Folha Dupla Neve 12 Rolos")["matches"]
+
+
+def test_store_brand_is_tier_one():
+    assert normalize_product("leite", "Leite Longa Vida Qualitá Integral Caixa 1l")["quality_tier"] == 1
+
+
+def test_pick_taxonomy_uses_real_facets():
+    facets = [{"count": 123, "id": "LEITE_TRADICIONAL", "name": "LEITE_TRADICIONAL"},
+              {"count": 91, "id": "LEITE_EM_PO", "name": "LEITE_EM_PO"},
+              {"count": 1, "id": "BISCOITOS/BISCOITO_SAUDAVEL", "name": "BISCOITO_SAUDAVEL"}]
+    assert pick_taxonomy("leite", facets) == "LEITE_TRADICIONAL"
+    assert pick_taxonomy("cafe", facets) is None
+
+
+def test_three_error_shapes():
+    od = normalize_error("searchOffers", {"errors": {"code": "INVALID_QUERY", "message": "m", "retryable": True}})
+    cart = normalize_error("createCart", {"error": {"code": "MERCHANT_CLOSED", "message": "m",
+                                                    "userFriendlyMessage": "fechado"}})
+    track = normalize_error("trackOrder", {"errorType": "ResourceNotFoundError", "code": "ORDER_NOT_FOUND",
+                                           "message": "m", "retryable": False})
+    assert (od.code, od.retryable) == ("INVALID_QUERY", True)
+    assert (cart.code, cart.user_message) == ("MERCHANT_CLOSED", "fechado")
+    assert track.code == "ORDER_NOT_FOUND" and not track.retryable
+    assert normalize_error("getCart", {"cartId": "x", "summary": {}}) is None
+
+
+def test_unwrap_success_data_envelope():
+    from app.mcp.client import McpToolError, unwrap
+
+    # formato real do createAddress no sandbox (17/10), diferente da doc
+    real = {"success": True, "data": {"matchConfidence": "MULTIPLE", "candidates": [{"candidateId": "b3262b4d"}]},
+            "agentHints": {"confirmAddressGuidance": "..."}}
+    out = unwrap("createAddress", real)
+    assert out["candidates"][0]["candidateId"] == "b3262b4d"
+    assert out["agentHints"]["confirmAddressGuidance"] == "..."
+    # respostas sem envelope passam intactas
+    plain = {"results": [], "agentHints": {}}
+    assert unwrap("listAddresses", plain) is plain
+    with pytest.raises(McpToolError):
+        unwrap("createAddress", {"success": False, "data": None, "message": "falhou"})
+
+
+def test_kilo_is_a_size():
+    out = parse_item("1 kilo de arroz branco")
+    assert out["category"] == "arroz" and out["pack_size"] == 1000 and out["quantity"] == 1
+
+
+def test_taxonomy_never_picks_a_derivative():
+    # caso real: a busca "leites integral italac" trouxe LEITE_CONDENSADO e a heurística antiga escolheu ele
+    assert pick_taxonomy("leite", [{"count": 7, "id": "LEITE_CONDENSADO"}, {"count": 5, "id": "LEITE_EM_PO"}]) is None
+    assert pick_taxonomy("leite", [{"count": 91, "id": "LEITE_EM_PO"}, {"count": 123, "id": "LEITE_TRADICIONAL"}]) == "LEITE_TRADICIONAL"

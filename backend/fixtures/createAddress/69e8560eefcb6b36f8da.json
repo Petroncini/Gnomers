@@ -1,0 +1,98 @@
+{
+  "tool": "createAddress",
+  "args": {
+    "address": "Rua São Sebastião 1455, Apto 32"
+  },
+  "recordedAt": "2026-10-17T23:30:57",
+  "response": {
+    "success": true,
+    "data": {
+      "matchConfidence": "MULTIPLE",
+      "candidates": [
+        {
+          "candidateId": "b3262b4d-6adf-4ec7-90d7-c92855710971",
+          "formattedAddress": "Rua São Sebastião, 1455, Centro, São Carlos, SP, CEP 13560-230",
+          "location": {
+            "street": "Rua São Sebastião",
+            "number": "1455",
+            "neighborhood": "Centro",
+            "city": "São Carlos",
+            "state": "SP"
+          },
+          "postalCode": "13560-230",
+          "coordinates": {
+            "latitude": -22.01318,
+            "longitude": -47.89623
+          }
+        },
+        {
+          "candidateId": "eeaca0c4-150f-4894-9fbb-8c1f83043a93",
+          "formattedAddress": "Rua São Sebastião, 1455, Vera Cruz, Passo Fundo, RS, CEP 99042-010",
+          "location": {
+            "street": "Rua São Sebastião",
+            "number": "1455",
+            "neighborhood": "Vera Cruz",
+            "city": "Passo Fundo",
+            "state": "RS"
+          },
+          "postalCode": "99042-010",
+          "coordinates": {
+            "latitude": -28.24352,
+            "longitude": -52.43721
+          }
+        },
+        {
+          "candidateId": "6b98e7a8-7197-4a28-939e-043df430623a",
+          "formattedAddress": "Rua São Sebastião, 1455, Codó, Codó, MA, CEP 65400-000",
+          "location": {
+            "street": "Rua São Sebastião",
+            "number": "1455",
+            "neighborhood": "Codó",
+            "city": "Codó",
+            "state": "MA"
+          },
+          "postalCode": "65400-000",
+          "coordinates": {
+            "latitude": -4.46188,
+            "longitude": -43.89329
+          }
+        },
+        {
+          "candidateId": "9f0e8343-d2a1-4111-aa8f-8eb8aa8c9c5a",
+          "formattedAddress": "Rua São Sebastião, 1455, Setor Central, Ribeirão Preto, SP, CEP 14015-040",
+          "location": {
+            "street": "Rua São Sebastião",
+            "number": "1455",
+            "neighborhood": "Setor Central",
+            "city": "Ribeirão Preto",
+            "state": "SP"
+          },
+          "postalCode": "14015-040",
+          "coordinates": {
+            "latitude": -21.18107,
+            "longitude": -47.80283
+          }
+        },
+        {
+          "candidateId": "1c182eff-8049-4019-af42-f47d53724581",
+          "formattedAddress": "Rua São Sebastião, 1455, Raposa, Raposa, MA, CEP 65138-000",
+          "location": {
+            "street": "Rua São Sebastião",
+            "number": "1455",
+            "neighborhood": "Raposa",
+            "city": "Raposa",
+            "state": "MA"
+          },
+          "postalCode": "65138-000",
+          "coordinates": {
+            "latitude": -2.44994,
+            "longitude": -44.1049
+          }
+        }
+      ]
+    },
+    "agentHints": {
+      "confirmAddressGuidance": "The address matched multiple locations. Present the candidates to the user by formattedAddress and ask them to choose, then ask for complement, alias, and reference. Then re-submit with the same address, the chosen candidateId, and the user's answers to create the address."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "tool": "createAddress",
+  "args": {
+    "address": "Onovolab"
+  },
+  "recordedAt": "2026-10-17T23:38:51",
+  "response": {
+    "matchConfidence": "SINGLE",
+    "candidates": [
+      {
+        "candidateId": "9f377043-33f2-49a9-b1c2-b09f20ff5850",
+        "formattedAddress": "R. Aquidaban, 1, Centro, São Carlos, SP, CEP 13560-120",
+        "location": {
+          "street": "R. Aquidaban",
+          "number": "1",
+          "neighborhood": "Centro",
+          "city": "São Carlos",
+          "state": "SP"
+        },
+        "postalCode": "13560-120",
+        "coordinates": {
+          "latitude": -22.0241604,
+          "longitude": -47.8944943
+        }
+      }
+    ],
+    "agentHints": {
+      "confirmAddressGuidance": "The address matched a single location. Confirm with the user and ask for complement, alias, and reference. Then re-submit with the same address, the chosen candidateId, and the user's answers to create the address."
+    }
+  }
+}
