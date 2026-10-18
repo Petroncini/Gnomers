@@ -1,0 +1,94 @@
+{
+  "tool": "searchOffers",
+  "args": {
+    "query": "feijão cru em grão",
+    "userLocation": {
+      "latitude": -22.01318,
+      "longitude": -47.89623
+    },
+    "resultKind": "ITEM",
+    "merchantType": "GROCERIES",
+    "intention": "product",
+    "refinements": {
+      "maxDistanceKm": 8.0
+    },
+    "pageSize": 25,
+    "includeFacets": true
+  },
+  "recordedAt": "2026-10-18T04:47:25",
+  "response": {
+    "agentHints": {
+      "nextStepWhenUserPicksItem": "Retrieve full item details — option groups and applicable promotions — before presenting it to the user."
+    },
+    "facets": {
+      "itemTaxonomy": [
+        {
+          "count": 1,
+          "id": "CORTES_BOVINOS",
+          "name": "CORTES_BOVINOS"
+        },
+        {
+          "count": 1,
+          "id": "CORTES_BOVINOS/CARNE_DE_PANELA",
+          "name": "CARNE_DE_PANELA"
+        }
+      ],
+      "maxDistanceKm": [
+        {
+          "count": 1,
+          "from": 0,
+          "to": 3
+        }
+      ],
+      "maxItemPrice": [
+        {
+          "count": 1,
+          "from": 20,
+          "to": 50
+        }
+      ],
+      "merchantType": [
+        "GROCERIES"
+      ],
+      "onlyOpen": {
+        "closed": 1,
+        "open": 0
+      }
+    },
+    "hasMore": false,
+    "interpretedQuery": "feijão cru em grão",
+    "nextPageToken": null,
+    "resultKind": "ITEM",
+    "results": [
+      {
+        "itemEan": "618341285040",
+        "itemId": "9df4029e-9fce-450e-a15f-e93b68c486e9",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202505271053_n64w6fjd9xf.png",
+        "itemName": "Brasileirinho - Carne Cozida, Arroz Sete Grãos E Feijão Greentable 350g",
+        "itemSkuId": "SKU-OEQD68363",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 100,
+              "min": 90
+            },
+            "fee": 9.9,
+            "promotionalFee": 9.9
+          },
+          "isOpen": false,
+          "merchantId": "becdb3b1-b307-418b-a650-9103bc03b501",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/becdb3b1-b307-418b-a650-9103bc03b501/202505211748_79Jm_s.png",
+          "merchantName": "Shopper | São Carlos",
+          "minimumOrderAmount": 149.9,
+          "ratingCount": 6,
+          "reviewRating": 5,
+          "straightLineDistanceKm": 0.62
+        },
+        "promotionalUnitPrice": 29.9,
+        "unitPrice": 29.9
+      }
+    ]
+  }
+}

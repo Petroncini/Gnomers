@@ -18,7 +18,8 @@ from pydantic import BaseModel, ConfigDict, Field
 
 Unit = Literal["g", "ml", "un"]
 PlanStatus = Literal["pending", "running", "ready", "failed", "ordered", "needs_address"]
-RuleKind = Literal["dietary", "variety", "brand_chain", "brand_block", "merchant", "delivery", "quantity", "note"]
+RuleKind = Literal["dietary", "variety", "brand_chain", "brand_block", "merchant", "delivery", "quantity", "product",
+                  "note"]
 DecisionType = Literal["missing", "brand_chain_info", "brand_substitution", "brand_choice", "variety", "quantity", "split",
                        "replan"]
 

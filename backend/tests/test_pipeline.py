@@ -196,10 +196,10 @@ def test_stale_items_are_reparsed_and_bad_taxonomy_dropped(client):
     assert all("5kg" not in n for n in lines if n.startswith("Arroz")), lines
     items = {i["id"]: i for i in client.get(f"/lists/{lst['id']}").json()["items"]}
     assert items[arroz["id"]]["category"] == "arroz" and items[arroz["id"]]["pack_size"] == 1000
-    assert items[leite["id"]]["taxonomy_id"] != "LEITE_CONDENSADO"
+    # a categoria gravada errada não filtra mais a busca: o leite de verdade foi encontrado acima
 
 
-def test_search_falls_back_when_taxonomy_returns_nothing(client):
+def test_stored_taxonomy_no_longer_filters_search(client):
     from sqlmodel import Session
 
     from app.db import engine
@@ -216,7 +216,6 @@ def test_search_falls_back_when_taxonomy_returns_nothing(client):
     plan = client.get(f"/plans/{r.json()['id']}").json()
     names = [ln["name"] for c in (plan["result"].get("chosen") or {"carts": []})["carts"] for ln in c["lines"]]
     assert any("Café" in n for n in names) or plan["status"] == "failed" and "mínimo" in plan["error"]
-    assert client.get(f"/lists/{lst['id']}").json()["items"][0]["taxonomy_id"] != "OVOS"
 
 
 def test_chat_turns_exact_weight_into_quantity_rule(client, ready_plan):
@@ -228,3 +227,59 @@ def test_chat_turns_exact_weight_into_quantity_rule(client, ready_plan):
                       json={"card_id": card["id"], "message": "não, quero o peso exato mesmo que fique mais caro"}).json()
     assert out["proposed_rule"]["kind"] == "quantity"
     assert "quantidade exata" in out["proposed_rule"]["text"]
+
+
+def test_chat_correction_proposes_product_rule_that_changes_search(client, ready_plan):
+    """'na verdade quero X' vira preferência (sem editar o item) e o carrinho refeito busca X."""
+    lst, _ = ready_plan
+    r = client.post(f"/lists/{lst['id']}/plan", json={"lat": ICMC["latitude"], "lng": ICMC["longitude"]})
+    plan = client.get(f"/plans/{r.json()['id']}").json()
+    before = next(i for i in client.get(f"/lists/{lst['id']}").json()["items"] if i["category"] == "cafe")
+    out = client.post(f"/plans/{plan['id']}/chat",
+                      json={"message": "você colocou o café errado, na verdade eu quero café extraforte"}).json()
+    rule = out["proposed_rule"]
+    assert rule["kind"] == "product" and rule["category"] == "cafe"
+    assert rule["payload"] == {"description": "café extraforte"}
+    assert len(out["reply"].split()) <= 12  # resposta curta
+    after = next(i for i in client.get(f"/lists/{lst['id']}").json()["items"] if i["id"] == before["id"])
+    assert after["raw_text"] == before["raw_text"]  # o item da lista não foi mexido
+
+    saved = client.post("/rules", json={**{k: rule[k] for k in ("kind", "category", "payload", "hardness")},
+                                        "scope": "global", "source": "chat"}).json()
+    again = client.post(f"/plans/{plan['id']}/replan").json()
+    new = client.get(f"/plans/{again['id']}").json()
+    names = [ln["name"] for c in new["result"]["chosen"]["carts"] for ln in c["lines"]]
+    assert any("Extraforte" in n for n in names), names
+    client.delete(f"/rules/{saved['id']}")
+
+
+def test_cart_survives_set_delivery_failure(client, ready_plan, monkeypatch):
+    """setCartDelivery com falha de upstream: o carrinho segue com a entrega que o createCart já trouxe."""
+    from app.mcp.client import McpToolError
+    from app.mcp.ifood import ifood
+
+    api = ifood()
+
+    async def broken(*a, **kw):
+        raise McpToolError("setCartDelivery", "INTERNAL", "An internal failure at an upstream service")
+
+    original_create = api.fake.t_createCart
+
+    def create_with_delivery(args):
+        body = original_create(args)
+        body["deliveryMethod"] = {"deliveryMethodId": "DEFAULT", "deliveryMethodMode": "DELIVERY",
+                                  "deliveryMethodName": "Padrão", "fee": 0.0, "estimatedMinutes": {"min": 90, "max": 110},
+                                  "timeSlot": {"from": "2026-10-19T09:00:00", "to": "2026-10-19T11:00:00"}}
+        api.fake.carts[body["cartId"]]["deliveryMethod"] = body["deliveryMethod"]
+        return body
+
+    monkeypatch.setattr(api, "set_delivery", broken)
+    monkeypatch.setattr(api.fake, "t_createCart", create_with_delivery)
+    lst, _ = ready_plan
+    r = client.post(f"/lists/{lst['id']}/plan", json={"lat": ICMC["latitude"], "lng": ICMC["longitude"],
+                                                      "deliver_at": "2026-10-19T11:00"})
+    plan = client.get(f"/plans/{r.json()['id']}").json()
+    assert plan["status"] == "ready", plan.get("error")
+    cart = plan["result"]["chosen"]["carts"][0]
+    assert cart["delivery"]["slot"]["from"] == "2026-10-19T09:00:00"
+    assert "horário" in cart["delivery_problem"]

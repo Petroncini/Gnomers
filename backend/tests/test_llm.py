@@ -75,3 +75,20 @@ def test_strict_schema_keeps_field_named_title():
 
     schema = llm.strict_schema(Card)
     assert set(schema["properties"]) == {"title", "default"} and schema["required"] == ["title", "default"]
+
+
+async def test_search_plan_output_is_validated(openrouter):
+    """O LLM decide as buscas, mas o código impõe o formato: alternativa com o produto, sem tamanho nas exigências."""
+    _, replies = openrouter
+    replies.append(json.dumps({"specific": "café moído", "broad": "café", "alternatives": ["torrado e moído", "café torrado e moído"],
+                               "must_have": ["moído", "mais de 500g"]}))
+    plan = await llm.plan_searches("500g café moído de filtro", "cafe")
+    assert plan["alternatives"] == ["café torrado e moído"]  # "torrado e moído" sem o produto é descartada
+    assert plan["must_have"] == ["moído"]
+
+
+async def test_variety_check_uses_common_sense(openrouter):
+    _, replies = openrouter
+    replies.append(json.dumps({"products": [{"index": 0, "missing": []}, {"index": 1, "missing": ["sem açúcar"]}]}))
+    out = await llm.check_variety(["sem açúcar"], ["Granola Zero Açúcares Mãe Terra 250g", "Granola Kobber Tradicional"])
+    assert out == [[], ["sem açúcar"]]

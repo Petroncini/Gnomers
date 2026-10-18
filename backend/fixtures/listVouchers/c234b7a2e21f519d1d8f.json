@@ -1,0 +1,74 @@
+{
+  "tool": "listVouchers",
+  "args": {
+    "cartId": "c043b2e3-562f-4152-a4de-5a84356b4ace"
+  },
+  "recordedAt": "2026-10-18T04:36:42",
+  "response": {
+    "vouchers": [
+      {
+        "code": "13d0b23c-c27e-4969-97c5-1dca1c6903bf",
+        "campaignId": "13d0b23c-c27e-4969-97c5-1dca1c6903bf",
+        "effectType": "PERCENTAGE",
+        "effectValue": 52.0,
+        "maxDiscountValue": 14.9,
+        "description": "52% OFF EM MERCADOS! 🛒",
+        "available": true
+      },
+      {
+        "code": "a49f22dd-6fc4-42e8-8468-c729e89695d5",
+        "campaignId": "a49f22dd-6fc4-42e8-8468-c729e89695d5",
+        "effectType": "FIXED",
+        "effectValue": 51.0,
+        "maxDiscountValue": 0.0,
+        "description": "R$ 51 para seu pedido em Mercados",
+        "available": true
+      },
+      {
+        "code": "3a7cb45a-b842-42d8-be78-1dc67baa6b0c",
+        "campaignId": "3a7cb45a-b842-42d8-be78-1dc67baa6b0c",
+        "effectType": "FIXED",
+        "effectValue": 21.0,
+        "maxDiscountValue": 0.0,
+        "description": "R$ 21 para seu pedido em Mercados",
+        "available": true
+      },
+      {
+        "code": "e4fc7d2f-0f3b-4d56-ad4a-6cf19853d770",
+        "campaignId": "e4fc7d2f-0f3b-4d56-ad4a-6cf19853d770",
+        "effectType": "FIXED",
+        "effectValue": 30.0,
+        "maxDiscountValue": 0.0,
+        "description": "R$ 30 para seu pedido em Mercados",
+        "available": true
+      },
+      {
+        "code": "2d5f1a94-e5ae-4307-bb6d-94867b0776ff",
+        "campaignId": "2d5f1a94-e5ae-4307-bb6d-94867b0776ff",
+        "effectType": "FIXED",
+        "effectValue": 7.0,
+        "maxDiscountValue": 0.0,
+        "description": "R$ 7 para seu pedido em Mercados",
+        "available": true
+      },
+      {
+        "code": "e4b60d0e-84a0-44f9-a7b3-e944f5c743be",
+        "campaignId": "e4b60d0e-84a0-44f9-a7b3-e944f5c743be",
+        "effectType": "FIXED",
+        "effectValue": 17.0,
+        "maxDiscountValue": 0.0,
+        "description": "R$ 17 para seu pedido em Mercados",
+        "available": true
+      },
+      {
+        "code": "042d8ee0-b56e-48cc-88b5-3a8e4545ec87",
+        "campaignId": "042d8ee0-b56e-48cc-88b5-3a8e4545ec87",
+        "effectType": "FIXED",
+        "effectValue": 7.0,
+        "maxDiscountValue": 0.0,
+        "description": "R$ 7 para seu pedido em Mercados",
+        "available": true
+      }
+    ]
+  }
+}

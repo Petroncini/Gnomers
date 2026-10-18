@@ -16,7 +16,7 @@
     "pageSize": 25,
     "includeFacets": true
   },
-  "recordedAt": "2026-10-18T01:01:02",
+  "recordedAt": "2026-10-18T01:51:05",
   "response": {
     "agentHints": {
       "nextStepWhenUserPicksItem": "Retrieve full item details — option groups and applicable promotions — before presenting it to the user."
@@ -34,7 +34,7 @@
           "name": "CAFE_MOIDO"
         },
         {
-          "count": 83,
+          "count": 78,
           "id": "CAFE_CAPSULA",
           "name": "CAFE_CAPSULA"
         },
@@ -44,9 +44,19 @@
           "name": "CAFES"
         },
         {
-          "count": 7,
+          "count": 6,
           "id": "BEBIDA_PROTEICA",
           "name": "BEBIDA_PROTEICA"
+        },
+        {
+          "count": 5,
+          "id": "UTENSILIOS_PREPARACAO",
+          "name": "UTENSILIOS_PREPARACAO"
+        },
+        {
+          "count": 5,
+          "id": "FUNCIONAIS",
+          "name": "FUNCIONAIS"
         },
         {
           "count": 4,
@@ -54,24 +64,49 @@
           "name": "REFRIGERANTE_COLA"
         },
         {
-          "count": 3,
+          "count": 4,
           "id": "UTENSILIOS_PREPARACAO/PENEIRA",
           "name": "PENEIRA"
         },
         {
-          "count": 3,
-          "id": "UTENSILIOS_PREPARACAO",
-          "name": "UTENSILIOS_PREPARACAO"
-        },
-        {
-          "count": 3,
-          "id": "FUNCIONAIS",
-          "name": "FUNCIONAIS"
+          "count": 2,
+          "id": "EMBALAGENS_DESCARTAVEIS",
+          "name": "EMBALAGENS_DESCARTAVEIS"
         },
         {
           "count": 2,
           "id": "SABONETES",
           "name": "SABONETES"
+        },
+        {
+          "count": 2,
+          "id": "BALAS",
+          "name": "BALAS"
+        },
+        {
+          "count": 2,
+          "id": "BEBIDA_SABORES",
+          "name": "BEBIDA_SABORES"
+        },
+        {
+          "count": 1,
+          "id": "BOLOS",
+          "name": "BOLOS"
+        },
+        {
+          "count": 1,
+          "id": "LOUCA_E_ARTIGOS_PARA_SERVIR",
+          "name": "LOUCA_E_ARTIGOS_PARA_SERVIR"
+        },
+        {
+          "count": 1,
+          "id": "LOUCA_E_ARTIGOS_PARA_SERVIR/CANECAS_E_XICARAS",
+          "name": "CANECAS_E_XICARAS"
+        },
+        {
+          "count": 1,
+          "id": "CEREBRO_E_NERVOS",
+          "name": "CEREBRO_E_NERVOS"
         },
         {
           "count": 1,
@@ -82,36 +117,6 @@
           "count": 1,
           "id": "BARRAS",
           "name": "BARRAS"
-        },
-        {
-          "count": 1,
-          "id": "BALAS",
-          "name": "BALAS"
-        },
-        {
-          "count": 1,
-          "id": "ACHOCOLATADO",
-          "name": "ACHOCOLATADO"
-        },
-        {
-          "count": 1,
-          "id": "CEREBRO_E_NERVOS",
-          "name": "CEREBRO_E_NERVOS"
-        },
-        {
-          "count": 1,
-          "id": "EMBALAGENS_DESCARTAVEIS",
-          "name": "EMBALAGENS_DESCARTAVEIS"
-        },
-        {
-          "count": 1,
-          "id": "BOLOS",
-          "name": "BOLOS"
-        },
-        {
-          "count": 1,
-          "id": "BEBIDA_SABORES",
-          "name": "BEBIDA_SABORES"
         }
       ],
       "maxDistanceKm": [
@@ -128,12 +133,12 @@
       ],
       "maxItemPrice": [
         {
-          "count": 369,
+          "count": 373,
           "from": 0,
           "to": 20
         },
         {
-          "count": 31,
+          "count": 27,
           "from": 20,
           "to": 50
         }
@@ -315,10 +320,11 @@
         "unitPrice": 2.79
       },
       {
-        "itemEan": "7896089015096",
-        "itemId": "95f432df-8110-420f-b260-5e55553585c3",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202607141842_uokonmd67ma.png",
-        "itemName": "Café Cappuccino Lor Premium Avelã Sachet 17,8g",
+        "itemEan": "7896089051056",
+        "itemId": "b16757b5-a57e-4891-8328-08c933ffc3df",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202607141558_9kwnptlgfs6.png",
+        "itemName": "Café Cappuccino Lor Baunilha 20,3g",
+        "itemSkuId": "SKU-OSXK49721",
         "merchant": {
           "deliveryMethod": {
             "deliveryMethodId": "DEFAULT",
@@ -343,11 +349,10 @@
         "unitPrice": 2.85
       },
       {
-        "itemEan": "7896089051056",
-        "itemId": "b16757b5-a57e-4891-8328-08c933ffc3df",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202607141558_9kwnptlgfs6.png",
-        "itemName": "Café Cappuccino Lor Baunilha 20,3g",
-        "itemSkuId": "SKU-OSXK49721",
+        "itemEan": "7896089015096",
+        "itemId": "95f432df-8110-420f-b260-5e55553585c3",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202607141842_uokonmd67ma.png",
+        "itemName": "Café Cappuccino Lor Premium Avelã Sachet 17,8g",
         "merchant": {
           "deliveryMethod": {
             "deliveryMethodId": "DEFAULT",

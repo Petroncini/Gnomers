@@ -1,0 +1,21 @@
+{
+  "tool": "setVoucher",
+  "args": {
+    "cartId": "bc6ca454-6af9-4e85-8701-e6038b2c5b23",
+    "code": "3a7cb45a-b842-42d8-be78-1dc67baa6b0c",
+    "campaignId": "3a7cb45a-b842-42d8-be78-1dc67baa6b0c"
+  },
+  "recordedAt": "2026-10-18T02:06:06",
+  "error": {
+    "tool": "setVoucher",
+    "code": "TOOL_ERROR",
+    "message": "erro sem mensagem",
+    "retryable": false,
+    "userMessage": "erro sem mensagem"
+  },
+  "raw": {
+    "code": "INTERNAL",
+    "message": "An internal failure at an upstream service prevented the request from completing.",
+    "agent_instruction": "Do not retry immediately. Report the failure and continue without this tool."
+  }
+}

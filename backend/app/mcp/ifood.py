@@ -8,10 +8,14 @@ repassam ao recorder, que decide entre MCP real, gravação e reprodução.
 from __future__ import annotations
 
 import asyncio
+import copy
+import json
 import logging
 import re
+import time
 from typing import Any
 
+from app import metrics
 from app.config import settings
 from app.db import engine
 from app.mcp.client import DbTokenStorage, IfoodConnection, McpToolError, TRANSIENT_CODES
@@ -20,6 +24,12 @@ from app.mcp.recorder import Recorder
 log = logging.getLogger(__name__)
 
 UUID_RE = re.compile(r"^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$", re.I)
+# O sandbox limita chamadas por token: depois de ~60 em 1-2 min, tudo volta INTERNAL por um tempo
+# (observado em 18/10, em duas contas). Leituras que mudam pouco ficam em cache por alguns minutos;
+# refazer o carrinho da mesma lista quase não repete chamadas. Fora no simulador (promoções mudam o catálogo).
+CACHE_TTL_S = {"searchOffers": 600, "browseOffers": 600, "getMerchant": 600, "getItem": 600,
+               "listPaymentMethods": 1800, "getRecommendations": 600}
+
 QUALIFIERS = re.compile(r"\b(barat[oa]s?|perto|rápid[oa]|rapid[oa]|em conta|promo[cç][aã]o|mais em conta)\b", re.I)
 
 
@@ -50,19 +60,43 @@ class Ifood:
             recorder_mode = self.mode
         self.recorder = Recorder(recorder_mode, settings.fixtures_dir, caller if self.mode != "replay" else None)
         self._sem = asyncio.Semaphore(settings.mcp_concurrency)
+        self._cache: dict[str, tuple[float, Any]] = {}
 
     async def call(self, tool: str, args: dict) -> Any:
         # remove campos vazios: o MCP trata ausência e null de jeitos diferentes
         args = {k: v for k, v in args.items() if v is not None}
+        ttl = CACHE_TTL_S.get(tool) if self.mode in ("live", "record") else None
+        key = f"{tool}|{json.dumps(args, sort_keys=True, ensure_ascii=False)}"
+        if ttl:
+            hit = self._cache.get(key)
+            if hit and time.monotonic() - hit[0] < ttl:
+                metrics.record_mcp(tool, 0, True, "CACHE")
+                return copy.deepcopy(hit[1])
+        out = await self._call_uncached(tool, args)
+        if ttl:
+            self._cache[key] = (time.monotonic(), copy.deepcopy(out))
+        return out
+
+    async def _call_uncached(self, tool: str, args: dict) -> Any:
         async with self._sem:
             try:
-                return await self.recorder.call(tool, args)
+                return await self._timed(tool, args)
             except McpToolError as exc:
                 if exc.code in TRANSIENT_CODES and self.mode != "replay":
                     log.info("repetindo %s depois de %s", tool, exc.code)
                     await asyncio.sleep(1.0)
-                    return await self.recorder.call(tool, args)
+                    return await self._timed(tool, args)
                 raise
+
+    async def _timed(self, tool: str, args: dict) -> Any:
+        started = time.perf_counter()
+        try:
+            out = await self.recorder.call(tool, args)
+        except McpToolError as exc:
+            metrics.record_mcp(tool, (time.perf_counter() - started) * 1000, False, exc.code)
+            raise
+        metrics.record_mcp(tool, (time.perf_counter() - started) * 1000, True)
+        return out
 
     # ------------------------------------------------------------------ user
 

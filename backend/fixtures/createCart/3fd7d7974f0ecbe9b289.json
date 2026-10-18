@@ -1,0 +1,98 @@
+{
+  "tool": "createCart",
+  "args": {
+    "merchantId": "32549526-5a03-4af1-a9ed-f4e8875828bf",
+    "addressId": "0b512c09-789f-41f5-8db8-d4c82954cf23",
+    "items": [
+      {
+        "itemId": "da0542d6-02b1-4ca3-ad5c-7b4825dd2ab8",
+        "quantity": 1,
+        "options": []
+      },
+      {
+        "itemId": "0a692205-16ff-4757-b169-364f5c9544e2",
+        "quantity": 2,
+        "options": []
+      },
+      {
+        "itemId": "b1329db9-0d8e-42ae-adcc-dd9b67ff1aca",
+        "quantity": 2,
+        "options": []
+      }
+    ]
+  },
+  "recordedAt": "2026-10-18T04:36:26",
+  "response": {
+    "cartId": "c043b2e3-562f-4152-a4de-5a84356b4ace",
+    "merchant": {
+      "merchantId": "32549526-5a03-4af1-a9ed-f4e8875828bf",
+      "merchantName": "Oba Hortifruti - São Carlos",
+      "orderMinimumPrice": 30.0,
+      "formattedAddress": "Avenida Bruno Ruggiero Filho, 101 — Parque Santa Felícia Jardim, SAO CARLOS, SP"
+    },
+    "items": [
+      {
+        "itemId": "da0542d6-02b1-4ca3-ad5c-7b4825dd2ab8",
+        "cartItemId": "da0cedc9-1087-4ceb-81b6-99f6f50a657b",
+        "quantity": 1,
+        "unitPrice": 13.99,
+        "name": "Arroz Branco Tipo 1 Prato Fino 2kg"
+      },
+      {
+        "itemId": "0a692205-16ff-4757-b169-364f5c9544e2",
+        "cartItemId": "e1bd5470-4937-433b-adda-82acbeaddf6e",
+        "quantity": 2,
+        "unitPrice": 8.69,
+        "name": "Leite Tp Italac 1L A2 Integral"
+      },
+      {
+        "itemId": "b1329db9-0d8e-42ae-adcc-dd9b67ff1aca",
+        "cartItemId": "348160d9-246b-4c73-8567-24e1c16f1668",
+        "quantity": 2,
+        "unitPrice": 32.39,
+        "name": "Café Moído Delta Vietnam 250g"
+      }
+    ],
+    "deliveryAddress": {
+      "streetName": "Rua São Sebastião",
+      "streetNumber": "1455",
+      "neighborhood": "Centro"
+    },
+    "deliveryMethod": {
+      "deliveryMethodId": "DEFAULT",
+      "deliveryMethodMode": "DELIVERY",
+      "deliveryMethodName": "Padrão",
+      "fee": 0.0,
+      "estimatedMinutes": {
+        "min": 82,
+        "max": 92
+      },
+      "timeSlot": {
+        "from": "2026-10-18T09:00:00",
+        "to": "2026-10-18T11:00:00"
+      }
+    },
+    "fees": [
+      {
+        "name": "Taxa de serviço",
+        "description": "Cobramos uma taxa que nos ajuda a cobrir custos operacionais, inclusive de segurança, e a manter os investimentos contínuos na plataforma.",
+        "amount": 2.4
+      }
+    ],
+    "summary": {
+      "totalName": "Valor total",
+      "totalAmount": 98.55,
+      "subtotalName": "Valor dos itens",
+      "subtotalAmount": 96.15,
+      "deliveryFeeName": "Valor da taxa de entrega",
+      "deliveryFeeAmount": 0.0,
+      "feeTotalName": "Valor das taxas e serviços",
+      "feeTotalAmount": 2.4,
+      "benefitsTotalName": "Valor dos benefícios",
+      "benefitsTotalAmount": 9.99,
+      "voucherTotalName": "Valor dos cupons",
+      "voucherTotalAmount": 0.0
+    },
+    "appDeeplink": "ifood://cart?cartId=c043b2e3-562f-4152-a4de-5a84356b4ace"
+  }
+}

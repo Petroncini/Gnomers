@@ -1,0 +1,28 @@
+{
+  "tool": "listPaymentMethods",
+  "args": {
+    "merchantId": "8a1da42a-5d58-489b-9697-b92bf9ada902"
+  },
+  "recordedAt": "2026-10-18T02:30:21",
+  "response": {
+    "paymentMethods": [
+      {
+        "paymentMethodId": "75354fd8-e916-41db-9286-93be2232efe2",
+        "kind": "PIX",
+        "displayName": "Pix",
+        "brand": "PIX"
+      },
+      {
+        "paymentMethodId": "a42d588a-1961-4eeb-b9a3-8c279a5fa49d",
+        "kind": "CREDIT_CARD",
+        "displayName": "Cartão de Crédito Cartão de Teste 1111",
+        "cardTokenId": "4780acbc-b4aa-454b-b8c5-69c0346a26d1",
+        "brand": "VISA",
+        "issuerBank": "Informação não disponivel"
+      }
+    ],
+    "agentHints": {
+      "nextStepBeforeCheckout": "Call tool setCartPayment with the payment data selected by the user"
+    }
+  }
+}

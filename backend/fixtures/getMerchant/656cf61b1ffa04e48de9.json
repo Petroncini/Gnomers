@@ -7,7 +7,7 @@
       "longitude": -47.89623
     }
   },
-  "recordedAt": "2026-10-18T01:01:12",
+  "recordedAt": "2026-10-18T05:11:22",
   "response": {
     "address": "Av São Carlos, 3594, Vila Costa do Sol, SAO CARLOS - SP, 13566330, BR",
     "agentHints": {
@@ -17,7 +17,7 @@
     "appDeeplink": "ifood://catalog-hub/782805bb-66e0-4d8d-8e86-5befa3b5d7f8/GROCERIES",
     "catalogSummary": {
       "navigationHint": "Call `browseOffers` with `resultKind=ITEM`, the matching `merchantType`, and `refinements.merchantId=782805bb-66e0-4d8d-8e86-5befa3b5d7f8` to browse items. Use `searchOffers` with `refinements.merchantId=782805bb-66e0-4d8d-8e86-5befa3b5d7f8` for keyword search within this merchant.",
-      "totalItems": 5318
+      "totalItems": 5401
     },
     "deliveryMethods": [],
     "featuredItems": [
@@ -52,24 +52,24 @@
         "unitPrice": 3.44
       },
       {
-        "itemEan": "7899970402814",
-        "itemId": "69147da8-ac48-4c42-b18d-ec1845390579",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202604111000_420q5x9zxl2.png",
-        "itemName": "Chocolate Ao Leite Hersheys Pacote 82g",
-        "itemSkuId": "SKU-CBPD40894",
-        "menuSection": "Doces e Sobremesas",
-        "promotionalUnitPrice": 3.44,
-        "unitPrice": 5.74
+        "itemEan": "7898080640611",
+        "itemId": "95677537-1f0e-4d67-9d7b-caf1d5b19bdd",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202511101418_n60rlk0rlbk.jpeg",
+        "itemName": "Leite Uht Integral com Tampa Italac 1l",
+        "itemSkuId": "SKU-SBIP32711",
+        "menuSection": "Leites",
+        "promotionalUnitPrice": 3.23,
+        "unitPrice": 5.39
       },
       {
-        "itemEan": "7896098900253",
-        "itemId": "d5f57d04-b20e-4cde-9f49-675b35d7429c",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202608041619_0bd7k2vm5yi.jpeg",
-        "itemName": "Detergente Líquido Clear Ypê 500ml",
-        "itemSkuId": "SKU-MKVN75871",
-        "menuSection": "Limpeza",
-        "promotionalUnitPrice": 2.26,
-        "unitPrice": 3.77
+        "itemEan": "7898080640635",
+        "itemId": "082975e3-67ca-463a-a546-b6a40b2cc285",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202509051057_vc0zzte3fr9.png",
+        "itemName": "Leite Uht Italac Desnatado Com Tampa 1l",
+        "itemSkuId": "SKU-EPII72329",
+        "menuSection": "Leites",
+        "promotionalUnitPrice": 3.23,
+        "unitPrice": 5.39
       }
     ],
     "isOpen": false,

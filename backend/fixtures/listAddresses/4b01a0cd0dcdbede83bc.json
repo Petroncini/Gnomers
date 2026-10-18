@@ -1,11 +1,11 @@
 {
   "tool": "listAddresses",
   "args": {},
-  "recordedAt": "2026-10-18T01:00:35",
+  "recordedAt": "2026-10-18T05:10:43",
   "response": {
     "results": [
       {
-        "addressId": "9b5da88f-85e8-4985-b682-9263951f9445",
+        "addressId": "0b512c09-789f-41f5-8db8-d4c82954cf23",
         "formattedAddress": "Rua São Sebastião, 1455, Apto 32, Centro, São Carlos, SP",
         "alias": "Casa",
         "location": {
@@ -23,30 +23,12 @@
         },
         "isLastUsedAddress": false,
         "isMostUsedAddress30d": false
-      },
-      {
-        "addressId": "740e524a-cadd-4c44-9354-f1672601141b",
-        "formattedAddress": "Rua São Sebastião, 1455, Centro, São Carlos, SP",
-        "location": {
-          "street": "Rua São Sebastião",
-          "number": "1455",
-          "neighborhood": "Centro",
-          "city": "São Carlos",
-          "state": "SP"
-        },
-        "postalCode": "13560230",
-        "coordinates": {
-          "latitude": -22.01318,
-          "longitude": -47.89623
-        },
-        "isLastUsedAddress": false,
-        "isMostUsedAddress30d": false
       }
     ],
     "agentHints": {
-      "suggestedNextAction": "Do not list all saved addresses by default. Use behavioral fields to infer the most likely address: (1) match the user's intent (category + day/shift) against ordersByMerchantTypeWeekdayAndShift; (2) isLastUsedAddress; (3) isMostUsedAddress30d. Confirm in one short question using the alias when available (e.g., 'Entregar na Casa?'). Only list all options if the user rejects, asks for alternatives, or signals are ambiguous.",
-      "nextStepWhenUserPicksAddress": "After the user confirms the delivery address (whether inferred or explicitly chosen), use its coordinates (latitude/longitude) to find nearby restaurants and items. If you inferred the address from behavioral data, you must get confirmation before proceeding. If the user wants a different address, collect it as a free-form string and save it on the user's account.",
-      "addressCount": 2
+      "suggestedNextAction": "Single saved address — use it as the delivery address without waiting for confirmation. Inform the user which address is being used (prefer the alias when available). Let them know they can provide a new address if it is not correct. Do not ask the user to choose among options.",
+      "nextStepWhenUserPicksAddress": "Use the coordinates (latitude/longitude) from this address immediately to find nearby restaurants and items. Inform the user which address is being used (prefer the alias). Tell them they can provide a new address if it is not correct.",
+      "addressCount": 1
     }
   }
 }

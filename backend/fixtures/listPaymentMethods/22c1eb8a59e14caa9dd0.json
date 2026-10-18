@@ -1,0 +1,19 @@
+{
+  "tool": "listPaymentMethods",
+  "args": {
+    "merchantId": "32549526-5a03-4af1-a9ed-f4e8875828bf"
+  },
+  "recordedAt": "2026-10-18T02:21:14",
+  "error": {
+    "tool": "listPaymentMethods",
+    "code": "INTERNAL",
+    "message": "An internal failure at an upstream service prevented the request from completing.",
+    "retryable": false,
+    "userMessage": "Do not retry immediately. Report the failure and continue without this tool."
+  },
+  "raw": {
+    "code": "INTERNAL",
+    "message": "An internal failure at an upstream service prevented the request from completing.",
+    "agent_instruction": "Do not retry immediately. Report the failure and continue without this tool."
+  }
+}

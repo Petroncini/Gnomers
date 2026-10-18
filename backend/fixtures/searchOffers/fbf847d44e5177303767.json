@@ -18,7 +18,7 @@
     },
     "pageSize": 25
   },
-  "recordedAt": "2026-10-18T01:00:53",
+  "recordedAt": "2026-10-18T04:35:22",
   "response": {
     "agentHints": {
       "nextStepWhenUserPicksItem": "Retrieve full item details — option groups and applicable promotions — before presenting it to the user."
@@ -50,7 +50,7 @@
           "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
           "merchantName": "Extra - São Carlos",
           "minimumOrderAmount": 60,
-          "ratingCount": 1364,
+          "ratingCount": 1354,
           "reviewRating": 4.900000095367432,
           "straightLineDistanceKm": 0.27
         },
@@ -71,7 +71,7 @@
               "max": 70,
               "min": 50
             },
-            "fee": 6.49,
+            "fee": 7.49,
             "promotionalFee": 0
           },
           "isOpen": false,
@@ -79,7 +79,7 @@
           "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/fdc30d9c-4a05-4e5a-b1de-421b2df23eb0/202601271313_QN9O.png",
           "merchantName": "Minuto Pão - XV de Novembro",
           "minimumOrderAmount": 30,
-          "ratingCount": 692,
+          "ratingCount": 688,
           "reviewRating": 4.900000095367432,
           "straightLineDistanceKm": 0.41
         },
@@ -100,7 +100,7 @@
               "max": 234,
               "min": 224
             },
-            "fee": 13.99,
+            "fee": 11.99,
             "promotionalFee": 0
           },
           "isOpen": false,
@@ -108,7 +108,7 @@
           "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/3974223/202607281734_5AGE.png",
           "merchantName": "Pão de Açúcar - Shopping Iguatemi São Carlos",
           "minimumOrderAmount": 30,
-          "ratingCount": 99,
+          "ratingCount": 102,
           "reviewRating": 4.900000095367432,
           "straightLineDistanceKm": 2.09
         },
@@ -158,8 +158,8 @@
               "max": 102,
               "min": 92
             },
-            "fee": 10.99,
-            "promotionalFee": 10.99
+            "fee": 9.99,
+            "promotionalFee": 9.99
           },
           "isOpen": false,
           "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
@@ -232,33 +232,33 @@
         "unitPrice": 5.69
       },
       {
-        "itemEan": "7893500020110",
-        "itemId": "f22271b2-0c83-481e-a3d8-3f327dbb5c76",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510031303_4gc1lsdzn1o.jpeg",
-        "itemName": "Arroz Branco Tipo 1 Tio João 1kg",
-        "itemSkuId": "SKU-SQEU18750",
+        "itemEan": "7897165800025",
+        "itemId": "5f368fbd-3971-44f5-b73c-a085d8eca582",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202407231033_vcqtd08c00r.png",
+        "itemName": "Arroz Branco Rei do Prato 1kg",
+        "itemSkuId": "SKU-VJSI56333",
         "merchant": {
           "deliveryMethod": {
             "deliveryMethodId": "DEFAULT",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 118,
-              "min": 98
+              "max": 129,
+              "min": 119
             },
-            "fee": 9.99,
-            "promotionalFee": 0
+            "fee": 11.49,
+            "promotionalFee": 11.49
           },
           "isOpen": false,
-          "merchantId": "782805bb-66e0-4d8d-8e86-5befa3b5d7f8",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/782805bb-66e0-4d8d-8e86-5befa3b5d7f8/202603111724_A6N4.png",
-          "merchantName": "Carrefour Bairro - São Carlos 2",
+          "merchantId": "635de4f5-f3f7-40cf-b618-47be55c6dd6d",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/635de4f5-f3f7-40cf-b618-47be55c6dd6d/202308181613_luJT_i.jpg",
+          "merchantName": "França Supermercados - Loja Zavaglia",
           "minimumOrderAmount": 30,
-          "ratingCount": 584,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 1.43
+          "ratingCount": 6,
+          "reviewRating": 5,
+          "straightLineDistanceKm": 4.35
         },
-        "promotionalUnitPrice": 5.88,
-        "unitPrice": 8.09
+        "promotionalUnitPrice": 6.59,
+        "unitPrice": 6.59
       },
       {
         "itemEan": "7893500020110",
@@ -282,11 +282,11 @@
           "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
           "merchantName": "Extra - São Carlos",
           "minimumOrderAmount": 60,
-          "ratingCount": 1364,
+          "ratingCount": 1354,
           "reviewRating": 4.900000095367432,
           "straightLineDistanceKm": 0.27
         },
-        "promotionalUnitPrice": 5.88,
+        "promotionalUnitPrice": 6.64,
         "unitPrice": 6.99
       },
       {
@@ -303,7 +303,7 @@
               "max": 234,
               "min": 224
             },
-            "fee": 13.99,
+            "fee": 11.99,
             "promotionalFee": 0
           },
           "isOpen": false,
@@ -311,11 +311,11 @@
           "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/3974223/202607281734_5AGE.png",
           "merchantName": "Pão de Açúcar - Shopping Iguatemi São Carlos",
           "minimumOrderAmount": 30,
-          "ratingCount": 99,
+          "ratingCount": 102,
           "reviewRating": 4.900000095367432,
           "straightLineDistanceKm": 2.09
         },
-        "promotionalUnitPrice": 5.88,
+        "promotionalUnitPrice": 6.93,
         "unitPrice": 7.29
       },
       {
@@ -344,37 +344,8 @@
           "reviewRating": 5,
           "straightLineDistanceKm": 0.62
         },
-        "promotionalUnitPrice": 5.88,
+        "promotionalUnitPrice": 6.99,
         "unitPrice": 6.99
-      },
-      {
-        "itemEan": "7897165800025",
-        "itemId": "5f368fbd-3971-44f5-b73c-a085d8eca582",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202407231033_vcqtd08c00r.png",
-        "itemName": "Arroz Branco Rei do Prato 1kg",
-        "itemSkuId": "SKU-VJSI56333",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 129,
-              "min": 119
-            },
-            "fee": 11.49,
-            "promotionalFee": 11.49
-          },
-          "isOpen": false,
-          "merchantId": "635de4f5-f3f7-40cf-b618-47be55c6dd6d",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/635de4f5-f3f7-40cf-b618-47be55c6dd6d/202308181613_luJT_i.jpg",
-          "merchantName": "França Supermercados - Loja Zavaglia",
-          "minimumOrderAmount": 30,
-          "ratingCount": 5,
-          "reviewRating": 5,
-          "straightLineDistanceKm": 4.36
-        },
-        "promotionalUnitPrice": 6.59,
-        "unitPrice": 6.59
       },
       {
         "itemEan": "7893500020110",
@@ -390,7 +361,7 @@
               "max": 70,
               "min": 50
             },
-            "fee": 6.49,
+            "fee": 7.49,
             "promotionalFee": 0
           },
           "isOpen": false,
@@ -398,12 +369,41 @@
           "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/fdc30d9c-4a05-4e5a-b1de-421b2df23eb0/202601271313_QN9O.png",
           "merchantName": "Minuto Pão - XV de Novembro",
           "minimumOrderAmount": 30,
-          "ratingCount": 692,
+          "ratingCount": 688,
           "reviewRating": 4.900000095367432,
           "straightLineDistanceKm": 0.41
         },
         "promotionalUnitPrice": 7.4,
         "unitPrice": 7.79
+      },
+      {
+        "itemEan": "7893500020110",
+        "itemId": "f22271b2-0c83-481e-a3d8-3f327dbb5c76",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510031303_4gc1lsdzn1o.jpeg",
+        "itemName": "Arroz Branco Tipo 1 Tio João 1kg",
+        "itemSkuId": "SKU-SQEU18750",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 118,
+              "min": 98
+            },
+            "fee": 9.99,
+            "promotionalFee": 0
+          },
+          "isOpen": false,
+          "merchantId": "782805bb-66e0-4d8d-8e86-5befa3b5d7f8",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/782805bb-66e0-4d8d-8e86-5befa3b5d7f8/202603111724_A6N4.png",
+          "merchantName": "Carrefour Bairro - São Carlos 2",
+          "minimumOrderAmount": 30,
+          "ratingCount": 584,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.43
+        },
+        "promotionalUnitPrice": 7.69,
+        "unitPrice": 8.09
       },
       {
         "itemEan": "7893500020110",
@@ -428,7 +428,7 @@
           "merchantName": "Lalo Supermercado",
           "minimumOrderAmount": 30,
           "reviewRating": 0,
-          "straightLineDistanceKm": 2.73
+          "straightLineDistanceKm": 2.72
         },
         "promotionalUnitPrice": 8.91,
         "unitPrice": 8.91
@@ -455,7 +455,7 @@
           "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/3901056/202607311821_FR9A.png",
           "merchantName": "Paulistão Av. Luiz Brandão - São Carlos Lj 13",
           "minimumOrderAmount": 30,
-          "ratingCount": 172,
+          "ratingCount": 173,
           "reviewRating": 4.800000190734863,
           "straightLineDistanceKm": 3.08
         },
@@ -476,7 +476,7 @@
               "max": 92,
               "min": 82
             },
-            "fee": 11.99,
+            "fee": 9.99,
             "promotionalFee": 0
           },
           "isOpen": false,
@@ -484,7 +484,7 @@
           "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/32549526-5a03-4af1-a9ed-f4e8875828bf/202605131411_woyX_l.jpg",
           "merchantName": "Oba Hortifruti - São Carlos",
           "minimumOrderAmount": 30,
-          "ratingCount": 272,
+          "ratingCount": 276,
           "reviewRating": 4.900000095367432,
           "straightLineDistanceKm": 1.96
         },
@@ -505,7 +505,7 @@
               "max": 234,
               "min": 224
             },
-            "fee": 13.99,
+            "fee": 11.99,
             "promotionalFee": 0
           },
           "isOpen": false,
@@ -513,7 +513,7 @@
           "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/3974223/202607281734_5AGE.png",
           "merchantName": "Pão de Açúcar - Shopping Iguatemi São Carlos",
           "minimumOrderAmount": 30,
-          "ratingCount": 99,
+          "ratingCount": 102,
           "reviewRating": 4.900000095367432,
           "straightLineDistanceKm": 2.09
         },
@@ -542,7 +542,7 @@
           "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/3901056/202607311821_FR9A.png",
           "merchantName": "Paulistão Av. Luiz Brandão - São Carlos Lj 13",
           "minimumOrderAmount": 30,
-          "ratingCount": 172,
+          "ratingCount": 173,
           "reviewRating": 4.800000190734863,
           "straightLineDistanceKm": 3.08
         },
@@ -592,7 +592,7 @@
               "max": 234,
               "min": 224
             },
-            "fee": 13.99,
+            "fee": 11.99,
             "promotionalFee": 0
           },
           "isOpen": false,
@@ -600,7 +600,7 @@
           "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/3974223/202607281734_5AGE.png",
           "merchantName": "Pão de Açúcar - Shopping Iguatemi São Carlos",
           "minimumOrderAmount": 30,
-          "ratingCount": 99,
+          "ratingCount": 102,
           "reviewRating": 4.900000095367432,
           "straightLineDistanceKm": 2.09
         },
@@ -619,15 +619,15 @@
               "max": 172,
               "min": 142
             },
-            "fee": 19.99,
-            "promotionalFee": 19.99
+            "fee": 21.99,
+            "promotionalFee": 21.99
           },
           "isOpen": false,
           "merchantId": "2454a662-ab7d-4cb8-91c9-c69720983886",
           "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/2454a662-ab7d-4cb8-91c9-c69720983886/202509011622_2TXL.png",
           "merchantName": "Atacadão São Carlos",
           "minimumOrderAmount": 90,
-          "ratingCount": 211,
+          "ratingCount": 212,
           "reviewRating": 4.800000190734863,
           "straightLineDistanceKm": 5.1
         },
@@ -648,15 +648,15 @@
               "max": 172,
               "min": 142
             },
-            "fee": 19.99,
-            "promotionalFee": 19.99
+            "fee": 21.99,
+            "promotionalFee": 21.99
           },
           "isOpen": false,
           "merchantId": "2454a662-ab7d-4cb8-91c9-c69720983886",
           "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/2454a662-ab7d-4cb8-91c9-c69720983886/202509011622_2TXL.png",
           "merchantName": "Atacadão São Carlos",
           "minimumOrderAmount": 90,
-          "ratingCount": 211,
+          "ratingCount": 212,
           "reviewRating": 4.800000190734863,
           "straightLineDistanceKm": 5.1
         },
@@ -685,7 +685,7 @@
           "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
           "merchantName": "Extra - São Carlos",
           "minimumOrderAmount": 60,
-          "ratingCount": 1364,
+          "ratingCount": 1354,
           "reviewRating": 4.900000095367432,
           "straightLineDistanceKm": 0.27
         },
@@ -706,7 +706,7 @@
               "max": 70,
               "min": 50
             },
-            "fee": 6.49,
+            "fee": 7.49,
             "promotionalFee": 0
           },
           "isOpen": false,
@@ -714,7 +714,7 @@
           "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/fdc30d9c-4a05-4e5a-b1de-421b2df23eb0/202601271313_QN9O.png",
           "merchantName": "Minuto Pão - XV de Novembro",
           "minimumOrderAmount": 30,
-          "ratingCount": 692,
+          "ratingCount": 688,
           "reviewRating": 4.900000095367432,
           "straightLineDistanceKm": 0.41
         },
@@ -733,8 +733,8 @@
               "max": 102,
               "min": 92
             },
-            "fee": 10.99,
-            "promotionalFee": 10.99
+            "fee": 9.99,
+            "promotionalFee": 9.99
           },
           "isOpen": false,
           "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",

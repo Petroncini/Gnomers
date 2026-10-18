@@ -447,6 +447,26 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/plans/{plan_id}/metrics": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Plan Metrics
+         * @description Diagnóstico: tempo por etapa, chamadas ao MCP e ao LLM, e custo em USD deste carrinho.
+         */
+        get: operations["plan_metrics_plans__plan_id__metrics_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/plans/{plan_id}/replan": {
         parameters: {
             query?: never;
@@ -1364,7 +1384,7 @@ export interface components {
              * Kind
              * @enum {string}
              */
-            kind: "dietary" | "variety" | "brand_chain" | "brand_block" | "merchant" | "delivery" | "quantity" | "note";
+            kind: "dietary" | "variety" | "brand_chain" | "brand_block" | "merchant" | "delivery" | "quantity" | "product" | "note";
             /** Payload */
             payload: {
                 [key: string]: unknown;
@@ -1438,7 +1458,7 @@ export interface components {
              * Kind
              * @enum {string}
              */
-            kind: "dietary" | "variety" | "brand_chain" | "brand_block" | "merchant" | "delivery" | "quantity" | "note";
+            kind: "dietary" | "variety" | "brand_chain" | "brand_block" | "merchant" | "delivery" | "quantity" | "product" | "note";
             /** Payload */
             payload: {
                 [key: string]: unknown;
@@ -2533,6 +2553,39 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["ProgressEvent"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    plan_metrics_plans__plan_id__metrics_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                plan_id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        [key: string]: unknown;
+                    };
                 };
             };
             /** @description Validation Error */

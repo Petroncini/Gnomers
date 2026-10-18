@@ -75,7 +75,7 @@ async def auth_status(s: Session = Depends(get_session)):
     api = ifood()
     user = current_user(s)
     connected = api.connection.connected if api.connection else True
-    return {"mode": api.mode, "connected": connected, "has_token": bool(user.ifood_token) or api.mode != "live",
+    return {"mode": api.mode, "connected": connected, "has_token": (api.connection.storage.has_tokens() if api.connection else True),
             "llm": llm.enabled(), "imported_history": user.imported_history}
 
 
@@ -281,10 +281,12 @@ async def patch_item(list_id: int, item_id: int, body: ItemIn, s: Session = Depe
             setattr(item, k, v)
         item.taxonomy_id = None
         item.parser_version = PARSER_VERSION
+        item.search_plan = None
     for k, v in changes.items():
         setattr(item, k, v)
     if "brand" in changes:
         item.intention = "product_exact" if item.brand else "product"
+        item.search_plan = None
     s.add(item)
     s.commit()
     s.refresh(item)
@@ -477,6 +479,13 @@ async def get_plan(plan_id: int, s: Session = Depends(get_session)):
     data = actions.plan_view(plan)
     data["orders"] = [o.model_dump(mode="json") for o in s.exec(select(Order).where(Order.plan_id == plan_id)).all()]
     return data
+
+
+@app.get("/plans/{plan_id}/metrics", response_model=dict[str, Any])
+async def plan_metrics(plan_id: int, s: Session = Depends(get_session)):
+    """Diagnóstico: tempo por etapa, chamadas ao MCP e ao LLM, e custo em USD deste carrinho."""
+    plan = _get_plan(s, plan_id)
+    return (plan.result or {}).get("metrics") or {}
 
 
 @app.get("/plans/{plan_id}/events", response_class=EventSourceResponse, responses={200: {

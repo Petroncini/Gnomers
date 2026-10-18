@@ -77,6 +77,8 @@ class ListItem(SQLModel, table=True):
     next_due: Optional[date] = None
     requested_by: Optional[int] = None
     parser_version: Optional[int] = None  # itens de um parser antigo são reinterpretados no próximo carrinho
+    # buscas do item no catálogo ({specific, broad, alternatives, must_have}); refeitas quando o texto muda
+    search_plan: Optional[dict] = Field(default=None, sa_column=Column(JSON))
 
 
 class Rule(SQLModel, table=True):

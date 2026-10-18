@@ -1,0 +1,98 @@
+{
+  "tool": "createCart",
+  "args": {
+    "merchantId": "e6067614-d8f3-4108-8b6e-c72fd364ae2c",
+    "addressId": "0b512c09-789f-41f5-8db8-d4c82954cf23",
+    "items": [
+      {
+        "itemId": "db4929b2-3cdc-4210-b55c-d05135a64e34",
+        "quantity": 1,
+        "options": []
+      },
+      {
+        "itemId": "17735d55-314c-43ec-bc93-e625f6673b5b",
+        "quantity": 2,
+        "options": []
+      },
+      {
+        "itemId": "e0eeb33e-6419-4ffe-bfc8-2e41d95fa2a6",
+        "quantity": 1,
+        "options": []
+      }
+    ]
+  },
+  "recordedAt": "2026-10-18T04:48:31",
+  "response": {
+    "cartId": "8fd37788-cfad-4262-8ef5-38fc7b68b21c",
+    "merchant": {
+      "merchantId": "e6067614-d8f3-4108-8b6e-c72fd364ae2c",
+      "merchantName": "Pão de Açúcar - Shopping Iguatemi São Carlos",
+      "orderMinimumPrice": 30.0,
+      "formattedAddress": "RUA PASSEIO DOS FLAMBOYANTS, 200 — PQ FABER, SAO CARLOS, SP"
+    },
+    "items": [
+      {
+        "itemId": "db4929b2-3cdc-4210-b55c-d05135a64e34",
+        "cartItemId": "551c892f-cc0a-472c-8eda-9084c9e53c3d",
+        "quantity": 1,
+        "unitPrice": 4.4,
+        "name": "Arroz Branco Tipo 1 Qualitá 1kg"
+      },
+      {
+        "itemId": "e0eeb33e-6419-4ffe-bfc8-2e41d95fa2a6",
+        "cartItemId": "ab2f9f5e-cb41-4e07-96e4-1af780269670",
+        "quantity": 1,
+        "unitPrice": 24.04,
+        "name": "Café Torrado E Moído Coado Pilão Cafeteria Especialidades 500g"
+      },
+      {
+        "itemId": "17735d55-314c-43ec-bc93-e625f6673b5b",
+        "cartItemId": "1d9fda3d-36c7-4646-b318-3a1af019bf1c",
+        "quantity": 2,
+        "unitPrice": 4.79,
+        "name": "Leite Uht Integral com Tampa Italac 1l"
+      }
+    ],
+    "deliveryAddress": {
+      "streetName": "Rua São Sebastião",
+      "streetNumber": "1455",
+      "neighborhood": "Centro"
+    },
+    "deliveryMethod": {
+      "deliveryMethodId": "DEFAULT",
+      "deliveryMethodMode": "DELIVERY",
+      "deliveryMethodName": "Padrão",
+      "fee": 0.0,
+      "estimatedMinutes": {
+        "min": 224,
+        "max": 234
+      },
+      "timeSlot": {
+        "from": "2026-10-18T09:00:00",
+        "to": "2026-10-18T11:00:00"
+      }
+    },
+    "fees": [
+      {
+        "name": "Taxa de serviço",
+        "description": "Cobramos uma taxa que nos ajuda a cobrir custos operacionais, inclusive de segurança, e a manter os investimentos contínuos na plataforma.",
+        "amount": 1.99
+      }
+    ],
+    "summary": {
+      "totalName": "Valor total",
+      "totalAmount": 40.01,
+      "subtotalName": "Valor dos itens",
+      "subtotalAmount": 38.02,
+      "deliveryFeeName": "Valor da taxa de entrega",
+      "deliveryFeeAmount": 0.0,
+      "feeTotalName": "Valor das taxas e serviços",
+      "feeTotalAmount": 1.99,
+      "benefitsTotalName": "Valor dos benefícios",
+      "benefitsTotalAmount": 27.83,
+      "voucherTotalName": "Valor dos cupons",
+      "voucherTotalAmount": 0.0
+    },
+    "appDeeplink": "ifood://cart?cartId=8fd37788-cfad-4262-8ef5-38fc7b68b21c"
+  }
+}

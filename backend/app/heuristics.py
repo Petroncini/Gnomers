@@ -239,39 +239,76 @@ def normalize_product(category: str, name: str, item_query: str = "") -> dict:
     }
 
 
-def taxonomy_changes_product(category: str, taxonomy_id: str | None) -> bool:
-    """True se a taxonomia transforma o item em outro produto ("LEITE_CONDENSADO" para "leite")."""
-    if not taxonomy_id:
-        return False
-    cat_words = {singular(w) for w in norm(category).split()}
-    leaf = {singular(w) for w in norm(taxonomy_id.split("/")[-1]).replace("_", " ").split()}
-    return bool((leaf - cat_words) & {singular(c) for c in CATEGORY_CHANGERS})
+# Sinônimos de rótulo: a busca do iFood exige todas as palavras e não conhece sinônimo
+# ("granola sem açúcar" não acha "Granola Zero Açúcar"; sandbox, 18/10).
+LABEL_SYNONYMS = [
+    ["sem açúcar", "zero açúcar", "zero açúcares", "0% açúcar"],
+    ["sem lactose", "zero lactose"],
+    ["sem glúten", "gluten free"],
+    ["desnatado", "0% gordura"],
+    ["moído", "torrado e moído"],
+]
+
+# Palavras que descrevem o produto mas não aparecem em rótulo; na busca, só eliminam resultados.
+_NON_LABEL = re.compile(
+    r"\((?:[^)]*)\)|[<>]=?\s*\d+\S*|\b(?:cru[ao]?s?|em gr[aã]os?|(?:pra|para|de) filtro|kilos?|quilos?|"
+    r"pacotes? de|unidades? de|do bom|bem)\b",
+    re.I,
+)
 
 
-def pick_taxonomy(category: str, facets: list[dict]) -> str | None:
-    """Escolhe o ID de taxonomia que corresponde à categoria do item, ou None.
+def term_variants(term: str) -> list[str]:
+    """O termo e seus sinônimos de rótulo, normalizados."""
+    t = norm(term)
+    for group in LABEL_SYNONYMS:
+        if t in (norm(g) for g in group):
+            return [norm(g) for g in group]
+    return [t]
 
-    Descarta facets que viram outro produto ("LEITE_CONDENSADO" para "leite") e os
-    marginais (menos de 30% do maior facet que casa), porque o ID fica gravado no
-    item e passa a restringir todas as buscas seguintes.
-    """
-    cat_words = {singular(w) for w in norm(category).split()}
-    matching = []
-    for f in facets:
-        fid = str(f.get("id", ""))
-        leaf = fid.split("/")[-1]
-        words = {singular(w) for w in norm(leaf).replace("_", " ").split()}
-        if not cat_words <= words:
-            continue
-        if (words - cat_words) & {singular(c) for c in CATEGORY_CHANGERS}:
-            continue
-        matching.append((f.get("count", 0) or 0, fid))
-    if not matching:
-        return None
-    matching.sort(reverse=True)
-    top_any = max((f.get("count", 0) or 0) for f in facets)
-    count, fid = matching[0]
-    return fid if count >= 0.3 * top_any else None
+
+_ACCENTS = {"a": "aáàâã", "e": "eéê", "i": "ií", "o": "oóôõ", "u": "uúü", "c": "cç"}
+
+
+def _loose(text: str) -> str:
+    """Regex que casa o texto com ou sem acento."""
+    return "".join(f"[{_ACCENTS[ch]}]" if ch in _ACCENTS else re.escape(ch) for ch in norm(text))
+
+
+def has_term(text: str, term: str) -> bool:
+    """O texto (nome do SKU) traz o termo ou um sinônimo dele."""
+    t = f" {norm(text)} "
+    return any(f" {v} " in t or (len(v) > 4 and v in t) for v in term_variants(term))
+
+
+def clean_query(text: str) -> str:
+    """Tira da busca o que não vai em rótulo ("feijão cru em grão (>500g)" -> "feijão")."""
+    out = _NON_LABEL.sub(" ", text)
+    out = _PACK_RE.sub(" ", out)
+    out = re.sub(r"\b\d+(?:[.,]\d+)?\b", " ", out)
+    out = re.sub(r"\s+", " ", out).strip(" -,.")
+    return out or text.strip()
+
+
+def core_query(category: str, query: str, brand: str | None = None) -> str:
+    """Busca curta: só as palavras do produto (e a marca), a rede de segurança da busca."""
+    cat = {singular(w) for w in norm(category).split()}
+    words = [w for w in query.split() if singular(norm(w)) in cat]
+    core = " ".join(dict.fromkeys(words)) or category
+    if brand and norm(brand) not in norm(core):
+        core = f"{core} {brand}"
+    return core
+
+
+def query_variants(query: str) -> list[str]:
+    """A mesma busca com o sinônimo de rótulo trocado ("granola sem açúcar" -> "granola zero açúcar")."""
+    out = []
+    for group in LABEL_SYNONYMS:
+        for v in group:
+            pattern = re.compile(rf"(?<!\w){_loose(v)}(?!\w)", re.I)
+            if pattern.search(query):
+                out += [pattern.sub(alt, query) for alt in group if alt != v and "%" not in alt]
+                break
+    return out
 
 
 def score_notes(notes: list[str], names: list[str]) -> list[float]:

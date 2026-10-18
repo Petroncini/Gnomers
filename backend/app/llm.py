@@ -16,13 +16,15 @@ import copy
 import json
 import logging
 import os
+import re
+import time
 from typing import Any, Literal, TypeVar
 
 import anthropic
 import httpx
 from pydantic import BaseModel, Field, ValidationError
 
-from app import heuristics
+from app import heuristics, metrics
 from app.config import settings
 
 log = logging.getLogger(__name__)
@@ -97,9 +99,11 @@ async def _openrouter(schema: type[T], system: str, messages: list[dict], model:
             "name": schema.__name__, "strict": True, "schema": strict_schema(schema)}},
         # só provedores que respeitam o response_format
         "provider": {"require_parameters": True},
+        "usage": {"include": True},  # devolve tokens e custo em USD, para medir o custo por carrinho
     }
     headers = {"Authorization": f"Bearer {settings.openrouter_api_key}",
                "HTTP-Referer": "https://github.com/Petroncini/Gnomers", "X-Title": "Gnomers"}
+    started = time.perf_counter()
     try:
         res = await _http.post(OPENROUTER_URL, json=body, headers=headers)
     except httpx.HTTPError as exc:
@@ -109,6 +113,9 @@ async def _openrouter(schema: type[T], system: str, messages: list[dict], model:
     data = res.json()
     if data.get("error"):
         raise LLMError(f"OpenRouter: {data['error']}")
+    usage = data.get("usage") or {}
+    metrics.record_llm(model, (time.perf_counter() - started) * 1000, int(usage.get("prompt_tokens") or 0),
+                       int(usage.get("completion_tokens") or 0), usage.get("cost"))
     choice = (data.get("choices") or [{}])[0]
     if choice.get("finish_reason") in ("content_filter", "refusal"):
         raise LLMError("LLM recusou a tarefa")
@@ -125,6 +132,7 @@ async def _anthropic_call(schema: type[T], system: str, messages: list[dict], mo
     global _anthropic
     if _anthropic is None:
         _anthropic = anthropic.AsyncAnthropic(api_key=settings.anthropic_api_key or None, max_retries=2)
+    started = time.perf_counter()
     try:
         response = await _anthropic.messages.parse(
             model=model, max_tokens=max_tokens, system=system, messages=messages, output_format=schema,
@@ -132,6 +140,8 @@ async def _anthropic_call(schema: type[T], system: str, messages: list[dict], mo
         )
     except (anthropic.APIConnectionError, anthropic.RateLimitError, anthropic.APIStatusError) as exc:
         raise LLMError(f"Anthropic: {exc}") from exc
+    metrics.record_llm(model, (time.perf_counter() - started) * 1000, response.usage.input_tokens,
+                       response.usage.output_tokens, None)
     if response.stop_reason == "refusal":
         raise LLMError("LLM recusou a tarefa")
     return "".join(b.text for b in response.content if b.type == "text")
@@ -159,12 +169,17 @@ async def _run(schema: type[T], system: str, user: str, *, strong: bool = False,
 
 async def _with_fallback(task: str, coro_factory, fallback):
     if not enabled():
+        metrics.record_fallback(task)
         return fallback()
+    token = metrics.current_task.set(task)
     try:
         return await coro_factory()
     except (LLMError, RuntimeError) as exc:
         log.warning("tarefa %s caiu na heurística: %s", task, exc)
+        metrics.record_fallback(task)
         return fallback()
+    finally:
+        metrics.current_task.reset(token)
 
 
 # ---------------------------------------------------------------- parse_item
@@ -236,23 +251,87 @@ async def normalize_products(category: str, item_query: str, names: list[str]) -
     return await _with_fallback("normalize_products", call, fallback)
 
 
-# --------------------------------------------------------------- pick_taxonomy
+# --------------------------------------------------------------- plan_searches
 
-class TaxonomyPick(BaseModel):
-    taxonomy_id: str | None
+class SearchPlan(BaseModel):
+    specific: str = Field(description="a busca principal: o produto como aparece no rótulo, com a variedade pedida")
+    broad: str = Field(description="só o nome do produto (e a marca, se pedida): a rede de segurança")
+    alternatives: list[str] = Field(description="no máximo 1 outra forma de escrever a específica no rótulo; [] se não houver")
+    must_have: list[str] = Field(description="características que o produto precisa ter (ex.: 'sem açúcar'); [] se nenhuma")
 
 
-async def pick_taxonomy(category: str, facets: list[dict]) -> str | None:
-    ids = {str(f.get("id")) for f in facets}
+PLAN_SEARCHES_SYSTEM = """Você monta as buscas de um item de lista de compras no catálogo de mercados do iFood.
+A busca do iFood é por palavras: exige TODAS as palavras da busca no nome do produto, tolera plural e
+acento, e não conhece sinônimos ("granola sem açúcar" não acha "Granola Zero Açúcar").
+Devolva:
+- specific: 2 a 4 palavras como estariam no rótulo (produto + variedade/marca pedida). Tire quantidade,
+  tamanho, e palavras que não vão em rótulo ("cru", "em grão", "pra filtro", "do bom").
+- broad: só o produto (1 ou 2 palavras) e a marca, se o usuário pediu marca.
+- alternatives: no máximo 1 busca completa alternativa (produto + variedade) para quando a variedade
+  costuma aparecer escrita de outro jeito no rótulo ("granola zero açúcar" para "granola sem açúcar",
+  "café torrado e moído" para "café moído"). [] se não houver.
+- must_have: só características que aparecem escritas no rótulo e que o usuário pediu ("sem açúcar",
+  "integral", "sem lactose"). Nunca tamanho, peso, quantidade ou modo de uso ("filtro", "pra bolo").
+Não invente variedade que o usuário não pediu (para "feijão", não escolha "carioca").
+Nunca coloque "barato", "perto", "rápido" ou preço nas buscas."""
+
+
+def _heuristic_plan(text: str, category: str, brand: str | None) -> dict:
+    """Plano B sem LLM: limpeza de palavras que não vão em rótulo e a tabela fixa de sinônimos."""
+    parsed = heuristics.parse_item(text)
+    specific = heuristics.clean_query(parsed["query"] or text)
+    return {"specific": specific, "broad": heuristics.core_query(category, specific, brand),
+            "alternatives": heuristics.query_variants(specific)[:1], "must_have": list(parsed["variety_terms"])}
+
+
+async def plan_searches(text: str, category: str, brand: str | None = None) -> dict:
+    """Buscas de um item no vocabulário de rótulo; sem LLM, a limpeza e os sinônimos fixos."""
+    async def call():
+        out = await _run(SearchPlan, PLAN_SEARCHES_SYSTEM,
+                         f"Item: {text}\nProduto: {category}\nMarca pedida: {brand or 'nenhuma'}", max_tokens=600)
+        plan = out.model_dump()
+        # o modelo não manda no formato: no máximo 3 buscas, todas com o produto, e nada de tamanho nas exigências
+        head = heuristics.norm(plan["broad"]).split()[:1]
+        plan["alternatives"] = [a for a in plan["alternatives"]
+                                if a.strip() and (not head or head[0] in heuristics.norm(a))][:1]
+        plan["must_have"] = [t for t in plan["must_have"] if not re.search(r"\d", t)][:3]
+        for key in ("specific", "broad"):
+            if not plan[key].strip():
+                raise LLMError(f"plan_searches devolveu {key} vazio")
+        return plan
+
+    return await _with_fallback("plan_searches", call, lambda: _heuristic_plan(text, category, brand))
+
+
+# ---------------------------------------------------------------- check_variety
+
+class VarietyCheck(BaseModel):
+    index: int
+    missing: list[str] = Field(description="das características pedidas, as que o produto NÃO tem")
+
+
+class VarietyBatch(BaseModel):
+    products: list[VarietyCheck]
+
+
+async def check_variety(terms: list[str], names: list[str]) -> list[list[str]]:
+    """Para cada nome, as características pedidas que faltam, com bom senso ("Zero Açúcar" atende "sem açúcar")."""
+    def fallback():
+        return [[t for t in terms if not heuristics.has_term(n, t)] for n in names]
 
     async def call():
-        out = await _run(TaxonomyPick,
-                         "Escolha o ID de taxonomia que corresponde exatamente à categoria do produto, ou null.",
-                         f"Categoria: {category}\nFacets: {json.dumps(facets, ensure_ascii=False)}", max_tokens=500)
-        # nunca usar um ID que não veio nos facets
-        return out.taxonomy_id if out.taxonomy_id in ids else None
+        lines = "\n".join(f"{i}. {n}" for i, n in enumerate(names))
+        out = await _run(VarietyBatch,
+                         "Você confere se produtos de supermercado têm as características pedidas pelo cliente. "
+                         "Considere sinônimos e formas de rótulo ('Zero Açúcar' atende 'sem açúcar'; 'Torrado e "
+                         "Moído' atende 'moído'). Na dúvida, considere que falta. Responda um objeto por produto.",
+                         f"Características pedidas: {terms}\nProdutos:\n{lines}", max_tokens=2000)
+        by_index = {c.index: c.missing for c in out.products}
+        if set(by_index) != set(range(len(names))):
+            raise LLMError("check_variety não respondeu todos os produtos")
+        return [[t for t in by_index[i] if t in terms] for i in range(len(names))]
 
-    return await _with_fallback("pick_taxonomy", call, lambda: heuristics.pick_taxonomy(category, facets))
+    return await _with_fallback("check_variety", call, fallback)
 
 
 # ----------------------------------------------------------------- score_notes
@@ -284,7 +363,8 @@ class CartAction(BaseModel):
 
 
 class ProposedRule(BaseModel):
-    kind: Literal["dietary", "variety", "brand_chain", "brand_block", "merchant", "delivery", "quantity", "note"]
+    kind: Literal["dietary", "variety", "brand_chain", "brand_block", "merchant", "delivery", "quantity", "product",
+                  "note"]
     category: str | None
     hardness: Literal["hard", "soft"]
     payload_json: str = Field(description="payload da regra como JSON, no formato do tipo")
@@ -293,13 +373,19 @@ class ProposedRule(BaseModel):
 class ExtractedRule(BaseModel):
     action: CartAction
     rule: ProposedRule | None
-    reply: str = Field(description="resposta curta ao usuário, em português")
+    reply: str = Field(description="uma frase curta ao usuário, em português, sem jargão técnico")
     is_question: bool = Field(description="true se a mensagem é uma pergunta aberta e não um pedido de mudança")
 
 
 EXTRACT_SYSTEM = """Você ajuda num app de compras de mercado. O usuário responde a um cartão de
-decisão sobre um item do carrinho. Transforme a mensagem em (1) uma ação no carrinho e (2) uma
-regra de preferência para as próximas compras, quando a mensagem expressar uma preferência durável.
+decisão sobre um item do carrinho (ou fala do carrinho em geral). Transforme a mensagem em (1) uma
+ação no carrinho e (2) uma regra de preferência para as próximas compras, quando a mensagem
+expressar uma preferência durável.
+Se o usuário disser que o produto escolhido não é o que ele quer e descrever o que quer de verdade
+("na verdade quero café em pó pra filtro"), proponha a regra product com a descrição do produto
+como ela aparece no rótulo de mercado, em 2 a 4 palavras ("café torrado e moído", "feijão carioca"),
+sem quantidade, tamanho ou palavras que não vão no nome do produto ("cru", "em grão", "pra filtro"),
+e com a categoria do item. Use a ação none.
 Tipos de regra e payload:
 - dietary {"tags": [LAC_FREE|SUGAR_FREE|VEGAN|VEGETARIAN|ORGANIC|GLUTEN_FREE]}
 - variety {"terms": ["integral"]}
@@ -307,6 +393,7 @@ Tipos de regra e payload:
 - brand_block {"brands": ["X"]}
 - merchant {"prefer": [merchantId], "block": [merchantId]}
 - delivery {"max_fee": número, "max_minutes": inteiro}
+- product {"description": "café em pó para filtro"} quando o usuário diz que tipo de produto quer para a categoria
 - quantity {"exact": true, "max_overbuy": 1.1} quando o usuário quer a quantidade pedida e não uma embalagem maior
   ("peso exato", "não quero 1 kg se pedi 500 g"); max_overbuy é o quanto pode passar (1.1 = 10%)
 - note {"text": "..."} para o que não encaixa em nenhum tipo
@@ -337,6 +424,37 @@ async def extract_rule(message: str, card: dict) -> dict:
     return await _with_fallback("extract_rule", call, fallback)
 
 
+_REFINE = re.compile(r"\b(?:na verdade|eu quero|queria|quero|preciso de|era pra ser|era para ser)\s+(?:um |uma |o |a )?", re.I)
+
+
+def _refine_target(text: str, card: dict) -> tuple[int | None, str | None]:
+    """'na verdade eu quero café em pó pra filtro' -> (item, 'café em pó pra filtro')."""
+    from app.rules import norm
+
+    marks = list(_REFINE.finditer(text))
+    if not marks:
+        return None, None
+    # depois da última expressão: "na verdade eu quero café em pó" -> "café em pó"
+    new_text = text[marks[-1].end():].strip(" .!")
+    if len(new_text.split()) < 2:
+        return None, None
+    # só é correção do item se o texto novo ainda fala do produto ("café torrado e moído" para café);
+    # "quero o peso exato" ou "quero Pilão" são preferências e seguem para as regras
+    words = set(norm(new_text).split())
+    words |= {heuristics.singular(w) for w in words}
+
+    def mentions(category: str | None) -> bool:
+        cat = norm(category)
+        return bool(cat) and set(cat.split()) <= words
+
+    if card.get("item_id") is not None:
+        return (card["item_id"], new_text) if mentions(card.get("category")) else (None, None)
+    for item in card.get("items", []):
+        if mentions(item.get("category")):
+            return item["id"], new_text
+    return None, None
+
+
 def _extract_rule_heuristic(message: str, card: dict) -> dict:
     from app.rules import norm
 
@@ -344,6 +462,12 @@ def _extract_rule_heuristic(message: str, card: dict) -> dict:
     category = card.get("category")
     action: dict = {"type": "none", "candidate_index": None, "quantity": None}
     rule = None
+    item_id, new_text = _refine_target(message, card)
+    if new_text and not text.endswith("?"):
+        item_category = category or next((i["category"] for i in card.get("items", []) if i["id"] == item_id), None)
+        return {"action": action, "rule": {"kind": "product", "category": item_category, "hardness": "soft",
+                                           "payload": {"description": new_text}},
+                "reply": "", "is_question": False}
     if text.endswith("?") or text.startswith(("por que", "porque", "pq")):
         return {"action": action, "rule": None, "reply": "", "is_question": True}
     alternatives = card.get("alternatives", [])
@@ -374,26 +498,6 @@ def _extract_rule_heuristic(message: str, card: dict) -> dict:
     return {"action": action, "rule": rule, "reply": "", "is_question": False}
 
 
-# ------------------------------------------------------------- phrase_decision
-
-class Phrase(BaseModel):
-    text: str
-
-
-async def phrase_decision(decision: dict) -> str:
-    def fallback():
-        return decision.get("default_text", "")
-
-    async def call():
-        out = await _run(Phrase,
-                         "Escreva uma frase curta (até 25 palavras), em português, explicando a escolha já aplicada no "
-                         "carrinho. Use os números exatamente como vieram; não invente nada.",
-                         json.dumps(decision, ensure_ascii=False), max_tokens=400)
-        return out.text
-
-    return await _with_fallback("phrase_decision", call, fallback)
-
-
 # ---------------------------------------------------------------------- explain
 
 class Explanation(BaseModel):
@@ -406,8 +510,9 @@ async def explain(question: str, plan_result: dict) -> str:
 
     async def call():
         out = await _run(Explanation,
-                         "Explique, em português e em poucas frases, a decisão do otimizador de compras usando só os "
-                         "dados do plano. Não refaça contas nem invente valores.",
+                         "Responda ao cliente de um app de compras em no máximo 2 frases curtas (até 40 palavras), "
+                         "em português, usando só os dados do carrinho. Não fale em 'otimizador', 'plano' ou "
+                         "'solver'; não refaça contas nem invente valores.",
                          f"Plano: {json.dumps(plan_result, ensure_ascii=False)[:60000]}\nPergunta: {question}",
                          strong=True)
         return out.answer

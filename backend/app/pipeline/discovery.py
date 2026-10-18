@@ -13,7 +13,6 @@ import logging
 from dataclasses import dataclass, field
 from typing import Any, Awaitable, Callable
 
-from app import llm
 from app.mcp.client import McpToolError
 from app.mcp.ifood import Ifood
 from app.rules import Resolved, norm
@@ -21,6 +20,7 @@ from app.rules import Resolved, norm
 log = logging.getLogger(__name__)
 
 MAX_MERCHANTS = 5
+GAP_MERCHANTS = 3
 DEFAULT_MAX_DISTANCE_KM = 8.0
 
 
@@ -32,8 +32,22 @@ class ItemQuery:
     intention: str
     category: str
     brand: str | None
-    taxonomy_id: str | None
     rules: Resolved
+    core: str = ""  # busca curta: só o produto e a marca ("feijão", "leite Italac")
+    variants: list[str] = field(default_factory=list)  # a busca com sinônimo de rótulo
+
+    def searches(self) -> list[tuple[str, str]]:
+        """(texto, intention) de cada busca do item, sem repetição."""
+        out = [(self.query, self.intention)]
+        if self.core and self.core != self.query:
+            out.append((self.core, "product_exact" if self.brand else "product"))
+        out += [(v, self.intention) for v in self.variants[:1]]
+        seen, unique = set(), []
+        for text, intention in out:
+            if text.lower() not in seen:
+                seen.add(text.lower())
+                unique.append((text, intention))
+        return unique
 
 
 @dataclass
@@ -67,7 +81,6 @@ class DiscoveryResult:
     offers: list[Offer]
     merchants: dict[str, MerchantInfo]
     coverage: dict[str, int]
-    taxonomy_updates: dict[int, str | None]
     errors: list[dict]
 
 
@@ -77,7 +90,9 @@ Emit = Callable[[str, dict], Awaitable[None]]
 def _refinements(q: ItemQuery, *, only_open: bool, max_distance_km: float | None,
                  max_minimum: float | None, merchant_id: str | None = None) -> dict:
     r = q.rules
-    ref: dict[str, Any] = {"sort": "PRICE"}
+    # Ordenação por relevância (o padrão). Com sort PRICE, "feijão" traz tempero, lámen e macarrão
+    # instantâneo antes de qualquer pacote de feijão (sandbox, 18/10); quem compara preço é o solver.
+    ref: dict[str, Any] = {}
     if only_open:
         ref["onlyOpen"] = True
     if max_distance_km and not merchant_id:
@@ -86,8 +101,8 @@ def _refinements(q: ItemQuery, *, only_open: bool, max_distance_km: float | None
         ref["maxMinimumOrderAmount"] = max_minimum
     if r.dietary:
         ref["itemRestrictions"] = r.dietary
-    if q.taxonomy_id:
-        ref["itemTaxonomy"] = [q.taxonomy_id]
+    # sem itemTaxonomy: a busca não mostra a categoria de cada produto e um filtro errado
+    # esconde tudo (LEITE_CONDENSADO para leite, 18/10); quem decide o que é o produto é o app
     if r.max_delivery_fee is not None:
         ref["maxDeliveryFee"] = r.max_delivery_fee
     if r.max_delivery_minutes is not None:
@@ -151,48 +166,27 @@ async def discover(api: Ifood, queries: list[ItemQuery], lat: float, lng: float,
     errors: list[dict] = []
     offers: list[Offer] = []
     merchants: dict[str, MerchantInfo] = {}
-    taxonomy_updates: dict[int, str | None] = {}
-    dropped_taxonomy: set[int] = set()
 
     # ---------------------------------------------------------- fase 1
-    async def phase1(q: ItemQuery):
-        # sem resultado: tenta sem a taxonomia e depois com intention "product"
-        attempts = [(q.taxonomy_id, q.intention)]
-        if q.taxonomy_id:
-            attempts.append((None, q.intention))
-        if q.intention != "product":
-            attempts.append((None, "product"))
-        body: dict = {}
-        for taxonomy, intention in attempts:
-            tq = ItemQuery(**{**q.__dict__, "taxonomy_id": taxonomy, "intention": intention})
-            try:
-                body = await api.search_items(q.query, lat, lng, intention=intention, include_facets=taxonomy is None,
-                                              refinements=_refinements(tq, only_open=only_open,
-                                                                       max_distance_km=max_distance_km, max_minimum=None))
-            except (McpToolError, ValueError) as exc:
-                errors.append({"item_id": q.item_id, "stage": "fase1", "error": str(exc)})
-                body = {}
-                continue
-            if body.get("results"):
-                if taxonomy != q.taxonomy_id:
-                    dropped_taxonomy.add(q.item_id)
-                break
-        return q, body
+    # A busca do iFood é por palavras e exige todas: o texto do item sozinho perde produtos
+    # ("sem açúcar" não acha "Zero Açúcar"). Por item: a busca específica, a curta e um sinônimo.
+    async def search(q: ItemQuery, text: str, intention: str):
+        try:
+            body = await api.search_items(text, lat, lng, intention=intention,
+                                          refinements=_refinements(q, only_open=only_open,
+                                                                   max_distance_km=max_distance_km, max_minimum=None))
+        except (McpToolError, ValueError) as exc:
+            errors.append({"item_id": q.item_id, "stage": "fase1", "query": text, "error": str(exc)})
+            return q, text, {}
+        return q, text, body
 
-    await say("discovery", {"message": f"Buscando {len(queries)} itens nos mercados próximos"})
-    results = await asyncio.gather(*(phase1(q) for q in queries))
-    for q, body in results:
-        o, m = _offers_from(body, q.item_id, "fase1")
+    jobs = [(q, text, intention) for q in queries for text, intention in q.searches()]
+    await say("discovery", {"message": f"Buscando {len(queries)} itens nos mercados próximos ({len(jobs)} buscas)"})
+    for q, text, body in await asyncio.gather(*(search(q, t, i) for q, t, i in jobs)):
+        o, m = _offers_from(body, q.item_id, f"fase1:{text}")
         offers.extend(o)
         for k, v in m.items():
             merchants.setdefault(k, v)
-        if q.item_id in dropped_taxonomy:
-            taxonomy_updates[q.item_id] = None  # a taxonomia gravada zerava a busca
-        facets = (body.get("facets") or {}).get("itemTaxonomy") or []
-        if facets and (not q.taxonomy_id or q.item_id in dropped_taxonomy):
-            tax = await llm.pick_taxonomy(q.category, facets)
-            if tax:
-                taxonomy_updates[q.item_id] = tax
 
     # cobertura: quantos itens distintos cada mercado tem
     coverage: dict[str, set[int]] = {}
@@ -247,8 +241,10 @@ async def discover(api: Ifood, queries: list[ItemQuery], lat: float, lng: float,
         by_item_brand.setdefault(o.item_id, set()).add(norm(o.name))
 
     async def fill(q: ItemQuery, m_id: str):
+        # dentro de um mercado, a busca curta traz as opções dele; o app confere a variedade depois
         try:
-            body = await api.search_items(q.query, lat, lng, intention=q.intention, page_size=10,
+            body = await api.search_items(q.core or q.query, lat, lng,
+                                          intention="product_exact" if q.brand else "product", page_size=10,
                                           refinements=_refinements(q, only_open=False, max_distance_km=None,
                                                                    max_minimum=None, merchant_id=m_id))
         except (McpToolError, ValueError) as exc:
@@ -256,7 +252,9 @@ async def discover(api: Ifood, queries: list[ItemQuery], lat: float, lng: float,
             return []
         return _offers_from(body, q.item_id, "fase2")[0]
 
-    gaps = [(q, m) for q in queries for m in candidates if (q.item_id, m) not in have]
+    # lacunas só nos mercados que mais cobrem a lista: são os que o solver acaba escolhendo
+    gap_merchants = candidates[:GAP_MERCHANTS]
+    gaps = [(q, m) for q in queries for m in gap_merchants if (q.item_id, m) not in have]
     await say("gaps", {"message": f"Completando {len(gaps)} lacunas nos mercados candidatos"})
     for found in await asyncio.gather(*(fill(q, m) for q, m in gaps)):
         offers.extend(found)
@@ -268,7 +266,7 @@ async def discover(api: Ifood, queries: list[ItemQuery], lat: float, lng: float,
         for brand in q.rules.brand_chain:
             if any(norm(brand) in n for n in names) or norm(brand) in norm(q.query):
                 continue
-            query = f"{q.category} {brand}"
+            query = f"{q.core.replace(q.brand or '', '').strip() or q.category} {brand}"
             try:
                 body = await api.search_items(query, lat, lng, intention="product_exact",
                                               refinements=_refinements(q, only_open=only_open,
@@ -300,5 +298,4 @@ async def discover(api: Ifood, queries: list[ItemQuery], lat: float, lng: float,
         seen.add(key)
         unique.append(o)
     return DiscoveryResult(offers=unique, merchants={m: merchants[m] for m in candidates if m in merchants},
-                           coverage={m: len(v) for m, v in coverage.items()}, taxonomy_updates=taxonomy_updates,
-                           errors=errors)
+                           coverage={m: len(v) for m, v in coverage.items()}, errors=errors)

@@ -1,0 +1,19 @@
+{
+  "tool": "listVouchers",
+  "args": {
+    "cartId": "f234c527-292d-41bc-8c34-f41482747a42"
+  },
+  "recordedAt": "2026-10-18T02:20:53",
+  "error": {
+    "tool": "listVouchers",
+    "code": "INTERNAL",
+    "message": "An internal failure at an upstream service prevented the request from completing.",
+    "retryable": false,
+    "userMessage": "Do not retry immediately. Report the failure and continue without this tool."
+  },
+  "raw": {
+    "code": "INTERNAL",
+    "message": "An internal failure at an upstream service prevented the request from completing.",
+    "agent_instruction": "Do not retry immediately. Report the failure and continue without this tool."
+  }
+}

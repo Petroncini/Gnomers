@@ -1,0 +1,31 @@
+{
+  "tool": "createAddress",
+  "args": {
+    "address": "Rua São Sebastião 1455",
+    "candidateId": "e981045d-d5ad-4da3-8dad-ba05d6ee2456",
+    "alias": "CASA",
+    "complement": "Apto 32"
+  },
+  "recordedAt": "2026-10-18T04:35:03",
+  "response": {
+    "addressId": "0b512c09-789f-41f5-8db8-d4c82954cf23",
+    "formattedAddress": "Rua São Sebastião, 1455, Centro, São Carlos, SP, CEP 13560-230",
+    "alias": "CASA",
+    "location": {
+      "street": "Rua São Sebastião",
+      "number": "1455",
+      "neighborhood": "Centro",
+      "city": "São Carlos",
+      "state": "SP"
+    },
+    "postalCode": "13560-230",
+    "complement": "Apto 32",
+    "coordinates": {
+      "latitude": -22.01318,
+      "longitude": -47.89623
+    },
+    "agentHints": {
+      "nextStepWhenUserPicksAddress": "Address saved. Use the coordinates (latitude/longitude) from this address to find nearby restaurants and items."
+    }
+  }
+}

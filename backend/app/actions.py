@@ -260,11 +260,17 @@ async def answer_decision(s: Session, api: Ifood, plan: Plan, card_id: int, acti
 async def chat(s: Session, api: Ifood, plan: Plan, card_id: int | None, message: str) -> dict:
     card = next((c for c in plan.result.get("decisions", []) if c["id"] == card_id), None) if card_id is not None else None
     if card is None:
-        answer = await llm.explain(message, _plan_brief(plan.result))
-        return {"reply": answer, "proposed_rule": None, "plan": plan_view(plan)}
-
-    extracted = await llm.extract_rule(message, {k: card.get(k) for k in ("type", "category", "chosen", "alternatives", "text")})
-    if extracted.get("is_question"):
+        # sem cartão: pode ser pergunta ou correção de um item ("na verdade quero café em pó")
+        items = [{"id": i["id"], "raw_text": i["raw_text"], "category": i["category"]} for i in plan.result.get("items", [])]
+        context = {"type": "geral", "items": items, "alternatives": []}
+    else:
+        context = {k: card.get(k) for k in ("type", "item_id", "category", "chosen", "alternatives", "text")}
+    extracted = await llm.extract_rule(message, context)
+    if card is None and extracted.get("rule") and not extracted.get("is_question"):
+        # sem cartão, uma preferência dita no chat vira proposta de regra (a tela oferece refazer o carrinho)
+        return {"reply": "Entendi. Quer guardar isso e refazer o carrinho?",
+                "proposed_rule": _proposal(extracted["rule"], None, plan), "plan": plan_view(plan)}
+    if card is None or extracted.get("is_question"):
         answer = await llm.explain(message, _plan_brief(plan.result))
         return {"reply": answer, "proposed_rule": None, "plan": plan_view(plan)}
 
@@ -295,18 +301,21 @@ async def chat(s: Session, api: Ifood, plan: Plan, card_id: int | None, message:
         reply = reply or {"swap": "Troquei.", "remove": "Tirei do carrinho.", "set_quantity": "Ajustei a quantidade.",
                           "accept": "Combinado, mantive."}[act["type"]]
 
-    proposal = None
-    if extracted.get("rule"):
-        r = extracted["rule"]
-        try:
-            payload = validate_payload(r["kind"], r["payload"])
-            proposal = {"kind": r["kind"], "category": r.get("category") or card.get("category"),
-                        "hardness": r.get("hardness", "soft"), "payload": payload,
-                        "text": describe(r["kind"], payload, r.get("category") or card.get("category")),
-                        "scope_options": ["global", str(plan.list_id)]}
-        except ValueError:
-            proposal = None
+    proposal = _proposal(extracted["rule"], card, plan) if extracted.get("rule") else None
+    if proposal and proposal["kind"] == "product" and act["type"] == "none":
+        reply = "Entendi. Quer guardar isso e refazer o carrinho?"
     return {"reply": reply or "Anotado.", "proposed_rule": proposal, "plan": plan_view(plan)}
+
+
+def _proposal(rule: dict, card: dict | None, plan: Plan) -> dict | None:
+    """Regra que o chat propõe; a tela confirma o escopo e pode refazer o carrinho com ela."""
+    category = rule.get("category") or (card or {}).get("category")
+    try:
+        payload = validate_payload(rule["kind"], rule["payload"])
+    except ValueError:
+        return None
+    return {"kind": rule["kind"], "category": category, "hardness": rule.get("hardness", "soft"), "payload": payload,
+            "text": describe(rule["kind"], payload, category), "scope_options": ["global", str(plan.list_id)]}
 
 
 def _plan_brief(result: dict) -> dict:

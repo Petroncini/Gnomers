@@ -3,7 +3,7 @@
   "args": {
     "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894"
   },
-  "recordedAt": "2026-10-18T01:01:59",
+  "recordedAt": "2026-10-18T05:11:56",
   "response": {
     "paymentMethods": [
       {
@@ -16,7 +16,7 @@
         "paymentMethodId": "a42d588a-1961-4eeb-b9a3-8c279a5fa49d",
         "kind": "CREDIT_CARD",
         "displayName": "Cartão de Crédito Cartão de Teste 1111",
-        "cardTokenId": "ab8ead00-e973-4ddb-98b9-95d0d123e604",
+        "cardTokenId": "4780acbc-b4aa-454b-b8c5-69c0346a26d1",
         "brand": "VISA",
         "issuerBank": "Informação não disponivel"
       }

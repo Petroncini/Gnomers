@@ -7,7 +7,6 @@ marcas que o próprio usuário definiu aparecem só como informação.
 
 from __future__ import annotations
 
-from app import llm
 from app.pipeline.normalize import ItemSpec, SkuInfo, required_amount, sku_key
 from app.rules import norm
 
@@ -84,10 +83,15 @@ async def build_cards(specs: list[ItemSpec], winner: dict, skus: dict[str, SkuIn
                                           f"por R$ {ln['unit_price']:.2f}, o melhor custo-benefício."})
 
         missing_terms = [x for x in info.reasons if x.startswith("variedade")]
-        if missing_terms and not r.variety_hard:
+        # só pergunta se há, nos mercados da compra, uma opção com a variedade pedida; senão não há escolha
+        with_variety = [a for a in alts if not any(x.startswith("variedade") for x in a["reasons"])]
+        if missing_terms and not r.variety_hard and with_variety:
+            wanted = missing_terms[0].split("falta ", 1)[-1]
             cards.append({**base, "type": "variety", "question": True,
-                          "title": f"{label}: variedade diferente",
-                          "default_text": f"Coloquei {info.name}; {missing_terms[0]}."})
+                          "title": f"{label}: sem {wanted} pelo melhor preço",
+                          "default_text": f"Coloquei {info.name} (R$ {ln['unit_price']:.2f}), que não é {wanted}. "
+                                          f"Com {wanted}, a opção mais em conta é {with_variety[0]['name']} "
+                                          f"(R$ {with_variety[0]['price']:.2f})."})
 
         required, unit = required_amount(spec)
         bought = ln["quantity"] * info.size
@@ -109,6 +113,7 @@ async def build_cards(specs: list[ItemSpec], winner: dict, skus: dict[str, SkuIn
     for i, card in enumerate(cards):
         card["id"] = i
         card["status"] = "open" if card["question"] else "info"
-        card["text"] = await llm.phrase_decision({k: v for k, v in card.items() if k != "alternatives"})
-        card["text"] = card["text"] or card["default_text"]
+        # o texto montado aqui já traz o motivo; reescrever com o LLM perdia o motivo ("por ser uma
+        # variedade diferente") e custava uma chamada por cartão
+        card["text"] = card["default_text"]
     return cards

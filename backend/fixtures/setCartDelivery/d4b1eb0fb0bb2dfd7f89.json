@@ -1,0 +1,96 @@
+{
+  "tool": "setCartDelivery",
+  "args": {
+    "cartId": "9b04ba3d-6d39-47d5-9532-9606c3f2ab78",
+    "deliveryMethodId": "DEFAULT",
+    "selectedTimeSlotId": "117fd702-dd62-5991-94a0-0854f835f3af"
+  },
+  "recordedAt": "2026-10-18T02:02:44",
+  "response": {
+    "cartId": "9b04ba3d-6d39-47d5-9532-9606c3f2ab78",
+    "merchant": {
+      "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
+      "merchantName": "Savegnago - Shopping Passeio - LJ 33",
+      "orderMinimumPrice": 60.0,
+      "formattedAddress": "Avenida Francisco Pereira Lopes, 1701 — Parque Santa Mônica, SAO CARLOS, SP"
+    },
+    "items": [
+      {
+        "itemId": "e958400f-06c1-428f-83b9-d70edb9379e2",
+        "cartItemId": "a9d7ab70-a853-4899-b021-936954b4e230",
+        "quantity": 1,
+        "unitPrice": 5.15,
+        "name": "Arroz Branco Tipo 1 Tio João 1kg"
+      },
+      {
+        "itemId": "bbf35701-96c1-4a78-8f24-c47d004baca7",
+        "cartItemId": "8f74b023-7b6e-4e3b-849a-04d245d7f481",
+        "quantity": 2,
+        "unitPrice": 5.79,
+        "name": "Leite Uht Integral com Tampa Italac 1l"
+      },
+      {
+        "itemId": "7cffe184-2857-471a-8b08-6f953ec7ee49",
+        "cartItemId": "cc63d158-a0d9-41f2-83a2-439d24e6c614",
+        "quantity": 1,
+        "unitPrice": 6.19,
+        "name": "Feijão Preto Serra Azul Embalagem 1kg"
+      },
+      {
+        "itemId": "f25d686d-2f80-438f-98e2-dffe1f78091a",
+        "cartItemId": "2ca5b5ff-7ed2-4e57-861b-54b2c5ff3e52",
+        "quantity": 2,
+        "unitPrice": 16.4,
+        "name": "Granola Tradicional Zero Açúcares Mãe Terra 250g"
+      },
+      {
+        "itemId": "554ac084-4791-474c-ac9e-d629eaa570e6",
+        "cartItemId": "c769e1ab-e934-43fb-a263-d8ab93c0ff23",
+        "quantity": 1,
+        "unitPrice": 34.9,
+        "name": "Cápsula De Café Espresso Roast Starbucks"
+      }
+    ],
+    "deliveryAddress": {
+      "streetName": "Rua São Sebastião",
+      "streetNumber": "1455",
+      "neighborhood": "Centro"
+    },
+    "deliveryMethod": {
+      "deliveryMethodId": "DEFAULT",
+      "deliveryMethodMode": "DELIVERY",
+      "deliveryMethodName": "Padrão",
+      "fee": 10.99,
+      "estimatedMinutes": {
+        "min": 92,
+        "max": 102
+      },
+      "timeSlot": {
+        "from": "2026-10-19T11:00:00",
+        "to": "2026-10-19T13:00:00"
+      }
+    },
+    "fees": [
+      {
+        "name": "Taxa de serviço",
+        "description": "Cobramos uma taxa que nos ajuda a cobrir custos operacionais, inclusive de segurança, e a manter os investimentos contínuos na plataforma.",
+        "amount": 2.27
+      }
+    ],
+    "summary": {
+      "totalName": "Valor total",
+      "totalAmount": 103.88,
+      "subtotalName": "Valor dos itens",
+      "subtotalAmount": 90.62,
+      "deliveryFeeName": "Valor da taxa de entrega",
+      "deliveryFeeAmount": 10.99,
+      "feeTotalName": "Valor das taxas e serviços",
+      "feeTotalAmount": 2.27,
+      "benefitsTotalName": "Valor dos benefícios",
+      "benefitsTotalAmount": 0.0,
+      "voucherTotalName": "Valor dos cupons",
+      "voucherTotalAmount": 0.0
+    },
+    "appDeeplink": "ifood://cart?cartId=9b04ba3d-6d39-47d5-9532-9606c3f2ab78"
+  }
+}

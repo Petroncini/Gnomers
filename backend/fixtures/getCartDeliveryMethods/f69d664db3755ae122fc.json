@@ -1,0 +1,84 @@
+{
+  "tool": "getCartDeliveryMethods",
+  "args": {
+    "cartId": "5028379e-80e6-4342-92fd-35d9066adf96"
+  },
+  "recordedAt": "2026-10-18T02:29:59",
+  "response": {
+    "cartId": "5028379e-80e6-4342-92fd-35d9066adf96",
+    "deliveryMethods": [
+      {
+        "deliveryMethodId": "DEFAULT",
+        "deliveryMethodMode": "DELIVERY",
+        "deliveryMethodName": "Padrão",
+        "fee": 0.0,
+        "estimatedMinutes": {
+          "min": 49,
+          "max": 59
+        },
+        "timeslots": [
+          {
+            "timeslotId": "124eb622-e703-5415-911b-d4820f7946be",
+            "from": "2026-10-19T11:00:00",
+            "to": "2026-10-19T13:00:00"
+          },
+          {
+            "timeslotId": "d795af1b-d71e-5f06-91d1-aa6bc295eb49",
+            "from": "2026-10-19T12:00:00",
+            "to": "2026-10-19T14:00:00"
+          },
+          {
+            "timeslotId": "34366a3b-b34d-52d8-ba02-3f08bd395645",
+            "from": "2026-10-19T13:00:00",
+            "to": "2026-10-19T15:00:00"
+          },
+          {
+            "timeslotId": "3bb1b5e0-f8be-5c45-ae8f-90bb9226d2f3",
+            "from": "2026-10-19T14:00:00",
+            "to": "2026-10-19T16:00:00"
+          },
+          {
+            "timeslotId": "d94a6ded-c250-5d41-a3c1-ffa2ff7a7145",
+            "from": "2026-10-19T15:00:00",
+            "to": "2026-10-19T17:00:00"
+          },
+          {
+            "timeslotId": "beb0f2d6-0dab-54db-b8f5-adbf6326fa26",
+            "from": "2026-10-19T16:00:00",
+            "to": "2026-10-19T18:00:00"
+          },
+          {
+            "timeslotId": "32f37143-9590-59eb-b3db-370f2ee35c24",
+            "from": "2026-10-20T11:00:00",
+            "to": "2026-10-20T13:00:00"
+          },
+          {
+            "timeslotId": "caefb937-b009-5f11-b81a-2711f85f6251",
+            "from": "2026-10-20T12:00:00",
+            "to": "2026-10-20T14:00:00"
+          },
+          {
+            "timeslotId": "9e5b13c8-81d7-5088-82bf-68caca796380",
+            "from": "2026-10-20T13:00:00",
+            "to": "2026-10-20T15:00:00"
+          },
+          {
+            "timeslotId": "ed64aab5-9758-522e-8f67-40bd759905a7",
+            "from": "2026-10-20T14:00:00",
+            "to": "2026-10-20T16:00:00"
+          },
+          {
+            "timeslotId": "57cad2f9-b01e-5b71-94fc-04e26fd37fea",
+            "from": "2026-10-20T15:00:00",
+            "to": "2026-10-20T17:00:00"
+          },
+          {
+            "timeslotId": "b9e716db-9945-5d54-a53e-4e21b276ffa7",
+            "from": "2026-10-20T16:00:00",
+            "to": "2026-10-20T18:00:00"
+          }
+        ]
+      }
+    ]
+  }
+}

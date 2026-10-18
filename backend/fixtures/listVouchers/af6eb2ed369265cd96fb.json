@@ -1,0 +1,20 @@
+{
+  "tool": "listVouchers",
+  "args": {
+    "cartId": "66a63b53-bdf8-4802-9d79-698cceeac851"
+  },
+  "recordedAt": "2026-10-18T02:30:12",
+  "response": {
+    "vouchers": [
+      {
+        "code": "37683e6e-cd18-4ed3-b691-7506d62f28b2",
+        "campaignId": "37683e6e-cd18-4ed3-b691-7506d62f28b2",
+        "effectType": "PERCENTAGE",
+        "effectValue": 52.0,
+        "maxDiscountValue": 24.9,
+        "description": "52% OFF EM MERCADOS! 🛒",
+        "available": true
+      }
+    ]
+  }
+}

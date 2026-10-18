@@ -1,0 +1,62 @@
+{
+  "tool": "searchOffers",
+  "args": {
+    "query": "granola sem açúcar",
+    "userLocation": {
+      "latitude": -22.01318,
+      "longitude": -47.89623
+    },
+    "resultKind": "ITEM",
+    "merchantType": "GROCERIES",
+    "intention": "product",
+    "refinements": {
+      "sort": "PRICE",
+      "itemTaxonomy": [
+        "GRANOLA"
+      ],
+      "merchantId": "becdb3b1-b307-418b-a650-9103bc03b501"
+    },
+    "pageSize": 10
+  },
+  "recordedAt": "2026-10-18T04:35:59",
+  "response": {
+    "agentHints": {
+      "nextStepWhenUserPicksItem": "Retrieve full item details — option groups and applicable promotions — before presenting it to the user."
+    },
+    "hasMore": false,
+    "interpretedQuery": "granola sem açúcar",
+    "nextPageToken": null,
+    "resultKind": "ITEM",
+    "results": [
+      {
+        "itemEan": "7898115759004",
+        "itemId": "3570ca94-258f-4e47-98b6-cfa0a1aac6f5",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202609221322_w712fndmw6.jpeg",
+        "itemName": "Granola Tradicional Zero Açúcar Tia Sônia 200g",
+        "itemSkuId": "SKU-BKIF45498",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 100,
+              "min": 90
+            },
+            "fee": 9.9,
+            "promotionalFee": 9.9
+          },
+          "isOpen": false,
+          "merchantId": "becdb3b1-b307-418b-a650-9103bc03b501",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/becdb3b1-b307-418b-a650-9103bc03b501/202505211748_79Jm_s.png",
+          "merchantName": "Shopper | São Carlos",
+          "minimumOrderAmount": 149.9,
+          "ratingCount": 6,
+          "reviewRating": 5,
+          "straightLineDistanceKm": 0.62
+        },
+        "promotionalUnitPrice": 23.09,
+        "unitPrice": 23.09
+      }
+    ]
+  }
+}

@@ -31,9 +31,9 @@
       }
     ]
   },
-  "recordedAt": "2026-10-18T01:01:38",
+  "recordedAt": "2026-10-18T01:51:39",
   "response": {
-    "cartId": "ec3c6932-f4dd-4d67-9d87-08ffe9fb9f38",
+    "cartId": "5a91c514-76b1-407a-87cf-d1e363710b64",
     "merchant": {
       "merchantId": "e6067614-d8f3-4108-8b6e-c72fd364ae2c",
       "merchantName": "Pão de Açúcar - Shopping Iguatemi São Carlos",
@@ -43,77 +43,77 @@
     "items": [
       {
         "itemId": "1010c2d5-f7d5-4103-8f3b-42a6b42cfa1a",
-        "cartItemId": "fff11f2a-1d85-47c4-a17b-2967a666a10d",
+        "cartItemId": "f362114d-9bb0-4616-9933-50a57197837f",
         "quantity": 2,
         "unitPrice": 4.09,
         "name": "Feijão Fradinho Tipo 1 Qualitá Pacote 500g"
       },
       {
         "itemId": "1e97c3dd-48e4-44a9-b1a9-0126042320e7",
-        "cartItemId": "ed18cfa5-a6d3-4d15-aeb8-cfd749fcb29e",
+        "cartItemId": "f12cc596-cf24-49b6-9786-346f72915fd4",
         "quantity": 2,
         "unitPrice": 15.99,
         "name": "Granola Jasmine Frutas Tropicais Zero Açúcar 250g"
       },
       {
         "itemId": "d0262daf-0576-44da-ada4-f20601cba7fc",
-        "cartItemId": "1fbebfee-edfe-4123-bd6a-563d698e56b1",
+        "cartItemId": "3c20f367-c3e3-4af3-b51b-644bf423e754",
         "quantity": 3,
         "unitPrice": 1.93,
         "name": "Café Cappuccino Lor Premium Avelã Sachet 17,8g"
       },
       {
         "itemId": "d0262daf-0576-44da-ada4-f20601cba7fc",
-        "cartItemId": "768b61ba-79fe-4b0e-92bf-cbd7310e1693",
+        "cartItemId": "c371b25a-cac2-4fd6-a6ef-b800f739546f",
         "quantity": 3,
         "unitPrice": 1.93,
         "name": "Café Cappuccino Lor Premium Avelã Sachet 17,8g"
       },
       {
         "itemId": "d0262daf-0576-44da-ada4-f20601cba7fc",
-        "cartItemId": "3ce448b2-01c1-4545-93ac-931acae605f4",
+        "cartItemId": "e73a45b7-9ba6-4388-a599-81bed63a8a93",
         "quantity": 3,
         "unitPrice": 1.93,
         "name": "Café Cappuccino Lor Premium Avelã Sachet 17,8g"
       },
       {
         "itemId": "d0262daf-0576-44da-ada4-f20601cba7fc",
-        "cartItemId": "48b77770-aa6e-45e6-b689-d785aba60d64",
+        "cartItemId": "5a04fbdf-7a8a-4b68-bc5e-d9c44797eb1f",
         "quantity": 3,
         "unitPrice": 1.93,
         "name": "Café Cappuccino Lor Premium Avelã Sachet 17,8g"
       },
       {
         "itemId": "d0262daf-0576-44da-ada4-f20601cba7fc",
-        "cartItemId": "8a398506-3cb8-4ef3-9ff5-440d217cc7ed",
+        "cartItemId": "12c7cc5b-dafb-4665-b972-70d946e3fd06",
         "quantity": 3,
         "unitPrice": 1.93,
         "name": "Café Cappuccino Lor Premium Avelã Sachet 17,8g"
       },
       {
         "itemId": "d0262daf-0576-44da-ada4-f20601cba7fc",
-        "cartItemId": "51423d20-9cfb-491e-9621-81db4f353b0a",
+        "cartItemId": "5a321c2d-3d5f-4a21-b4b0-2e0071b6d60a",
         "quantity": 3,
         "unitPrice": 1.93,
         "name": "Café Cappuccino Lor Premium Avelã Sachet 17,8g"
       },
       {
         "itemId": "d0262daf-0576-44da-ada4-f20601cba7fc",
-        "cartItemId": "d8abdf2b-6afa-458b-a41c-0dd03d9aaa1b",
+        "cartItemId": "21f5eee5-2414-4c21-98b6-3977d7a6e2e7",
         "quantity": 11,
         "unitPrice": 2.89,
         "name": "Café Cappuccino Lor Premium Avelã Sachet 17,8g"
       },
       {
         "itemId": "db4929b2-3cdc-4210-b55c-d05135a64e34",
-        "cartItemId": "3be352a5-783a-4610-b2c2-5d808d094371",
+        "cartItemId": "ce0d7b6b-175b-4c3d-a3b8-f421289881c7",
         "quantity": 1,
         "unitPrice": 4.4,
         "name": "Arroz Branco Tipo 1 Qualitá 1kg"
       },
       {
         "itemId": "17735d55-314c-43ec-bc93-e625f6673b5b",
-        "cartItemId": "f5cc3cae-b59d-44fd-92cd-3fa002bbaaf1",
+        "cartItemId": "a4ab77d6-2875-4ac6-b7fd-f34343ff0ab7",
         "quantity": 2,
         "unitPrice": 4.79,
         "name": "Leite Uht Integral com Tampa Italac 1l"
@@ -160,8 +160,8 @@
       "voucherTotalAmount": 0.0
     },
     "agentHints": {
-      "reviewCartAfterDiscountRemoved": "Call tool `getCartDeliveryMethods` with cartId=ec3c6932-f4dd-4d67-9d87-08ffe9fb9f38 to review the updated cart value since the discount became unavailable."
+      "reviewCartAfterDiscountRemoved": "Call tool `getCartDeliveryMethods` with cartId=5a91c514-76b1-407a-87cf-d1e363710b64 to review the updated cart value since the discount became unavailable."
     },
-    "appDeeplink": "ifood://cart?cartId=ec3c6932-f4dd-4d67-9d87-08ffe9fb9f38"
+    "appDeeplink": "ifood://cart?cartId=5a91c514-76b1-407a-87cf-d1e363710b64"
   }
 }

@@ -1,0 +1,62 @@
+{
+  "tool": "searchOffers",
+  "args": {
+    "query": "granola sem açúcar",
+    "userLocation": {
+      "latitude": -22.01318,
+      "longitude": -47.89623
+    },
+    "resultKind": "ITEM",
+    "merchantType": "GROCERIES",
+    "intention": "product",
+    "refinements": {
+      "sort": "PRICE",
+      "itemTaxonomy": [
+        "GRANOLA"
+      ],
+      "merchantId": "32549526-5a03-4af1-a9ed-f4e8875828bf"
+    },
+    "pageSize": 10
+  },
+  "recordedAt": "2026-10-18T04:35:57",
+  "response": {
+    "agentHints": {
+      "nextStepWhenUserPicksItem": "Retrieve full item details — option groups and applicable promotions — before presenting it to the user."
+    },
+    "hasMore": false,
+    "interpretedQuery": "granola sem açúcar",
+    "nextPageToken": null,
+    "resultKind": "ITEM",
+    "results": [
+      {
+        "itemEan": "7898994481348",
+        "itemId": "06716962-7327-4a66-9217-575e2d217faa",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202410151447_mo7clmqffs9.jpeg",
+        "itemName": "Granola Vegana Zero Açúcar Grano Square 200g",
+        "itemSkuId": "SKU-VNOL43546",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 92,
+              "min": 82
+            },
+            "fee": 9.99,
+            "promotionalFee": 0
+          },
+          "isOpen": false,
+          "merchantId": "32549526-5a03-4af1-a9ed-f4e8875828bf",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/32549526-5a03-4af1-a9ed-f4e8875828bf/202605131411_woyX_l.jpg",
+          "merchantName": "Oba Hortifruti - São Carlos",
+          "minimumOrderAmount": 30,
+          "ratingCount": 276,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.96
+        },
+        "promotionalUnitPrice": 49.99,
+        "unitPrice": 49.99
+      }
+    ]
+  }
+}

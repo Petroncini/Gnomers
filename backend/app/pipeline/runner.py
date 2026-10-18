@@ -10,7 +10,7 @@ from dataclasses import dataclass, field
 
 from sqlmodel import Session, select
 
-from app import heuristics, learning, llm
+from app import heuristics, learning, llm, metrics
 from app.heuristics import PARSER_VERSION
 from app.db import engine
 from app.mcp.client import McpToolError, NotAuthenticated
@@ -73,7 +73,11 @@ async def run_plan(plan_id: int, api: Ifood | None = None, *, only_open: bool | 
             scheduled = bool(s0.get(Plan, plan_id).deliver_at)
         only_open = _env_only_open() and not scheduled
 
+    m = metrics.Metrics()
+    metrics.current.set(m)
+
     async def say(stage: str, data: dict) -> None:
+        m.stage(stage)
         await emit(plan_id, stage, data)
 
     with Session(engine) as s:
@@ -83,17 +87,30 @@ async def run_plan(plan_id: int, api: Ifood | None = None, *, only_open: bool | 
             s.add(plan)
             s.commit()
             await _run(s, api, plan, say, only_open)
+            _save_metrics(s, plan, m)
             await emit(plan_id, "done", {"message": "Carrinho pronto", "status": plan.status}, final=True)
         except NotAuthenticated as exc:
             _fail(s, plan, "auth", str(exc))
+            _save_metrics(s, plan, m)
             await emit(plan_id, "error", {"message": str(exc), "code": "AUTH"}, final=True)
         except McpToolError as exc:
             _fail(s, plan, exc.code, exc.user_message or exc.message)
+            _save_metrics(s, plan, m)
             await emit(plan_id, "error", {"message": exc.user_message or exc.message, "code": exc.code}, final=True)
         except Exception as exc:  # noqa: BLE001 - a tela precisa saber que falhou
             log.error("pipeline falhou: %s", traceback.format_exc())
             _fail(s, plan, "internal", f"{type(exc).__name__}: {exc}")
+            _save_metrics(s, plan, m)
             await emit(plan_id, "error", {"message": str(exc), "code": "INTERNAL"}, final=True)
+
+
+def _save_metrics(s: Session, plan: Plan, m: metrics.Metrics) -> None:
+    summary = m.summary()
+    plan.result = {**(plan.result or {}), "metrics": summary}
+    s.add(plan)
+    s.commit()
+    log.info("plano %s: %.1f s, %d chamadas MCP, %d chamadas LLM, US$ %.4f", plan.id, summary["total_s"],
+             summary["mcp"]["calls"], summary["llm"]["calls"], summary["llm"]["cost_usd"])
 
 
 def _env_only_open() -> bool:
@@ -111,7 +128,7 @@ def _fail(s: Session, plan: Plan, code: str, message: str) -> None:
 
 
 async def _refresh_stale_items(s: Session, items: list[ListItem]) -> None:
-    """Reinterpreta itens salvos por um parser antigo e descarta taxonomias que viram outro produto."""
+    """Reinterpreta itens salvos por um parser antigo."""
     changed = False
     for it in items:
         before = (it.query, it.category, it.taxonomy_id, it.parser_version)
@@ -125,12 +142,22 @@ async def _refresh_stale_items(s: Session, items: list[ListItem]) -> None:
                 it.brand, it.intention = user_brand, "product_exact"
             it.taxonomy_id = None
             it.parser_version = PARSER_VERSION
-        elif heuristics.taxonomy_changes_product(it.category, it.taxonomy_id):
-            it.taxonomy_id = None
+            it.search_plan = None
         if (it.query, it.category, it.taxonomy_id, it.parser_version) != before:
             s.add(it)
             changed = True
     if changed:
+        s.commit()
+
+
+async def _ensure_search_plans(s: Session, items: list[ListItem]) -> None:
+    """Buscas de cada item no vocabulário de rótulo, decididas pelo LLM uma vez e guardadas no item."""
+    missing = [it for it in items if not it.search_plan]
+    plans = await asyncio.gather(*(llm.plan_searches(it.raw_text, it.category or it.query, it.brand) for it in missing))
+    for it, plan in zip(missing, plans):
+        it.search_plan = plan
+        s.add(it)
+    if missing:
         s.commit()
 
 
@@ -159,34 +186,49 @@ async def _run(s: Session, api: Ifood, plan: Plan, say, only_open: bool) -> None
     await say("address", {"message": f"Entregando em {addr.alias or addr.formatted}", "address": addr.alias or addr.formatted})
 
     await _refresh_stale_items(s, items)
+    await _ensure_search_plans(s, items)
 
     specs: list[normalize.ItemSpec] = []
     queries: list[discovery.ItemQuery] = []
     for it in items:
         resolved = resolve(rules, it.category, lst.id)
-        query = it.query or it.raw_text
-        # variedade obrigatória vai para a query; a suave vira penalidade no solver
+        search = dict(it.search_plan or {})
+        # o plano do LLM separa característica de rótulo de modo de uso ("filtro" não vem no rótulo);
+        # a lista crua do parser só vale quando não há plano
+        variety = list(search["must_have"]) if "must_have" in search else list(it.variety_terms or [])
+        required_terms: list[str] = []
+        if resolved.product_description:
+            # preferência "o que eu quero de verdade" para a categoria: as buscas saem da descrição dela
+            search = await llm.plan_searches(resolved.product_description, it.category, it.brand)
+            required_terms = list(search.get("must_have") or [])
+            variety = list(dict.fromkeys(variety + required_terms))
+        query = search.get("specific") or it.query or it.raw_text
+        core = search.get("broad") or heuristics.core_query(it.category or norm(query), query, it.brand)
+        # variedade obrigatória (regra dura) entra na busca específica
         if resolved.variety_hard:
             missing = [t for t in resolved.variety_terms if norm(t) not in norm(query)]
             query = " ".join([query] + missing)
         specs.append(normalize.ItemSpec(id=it.id, raw_text=it.raw_text, query=query, category=it.category or norm(query),
-                                        brand=it.brand, variety_terms=list(it.variety_terms or []),
+                                        brand=it.brand, variety_terms=variety,
                                         pack_size=it.pack_size, pack_unit=it.pack_unit, quantity=it.quantity or 1,
-                                        rules=resolved, pin_size=pins.get(str(it.id), {}).get("size")))
+                                        rules=resolved, pin_size=pins.get(str(it.id), {}).get("size"),
+                                        required_terms=required_terms))
         queries.append(discovery.ItemQuery(item_id=it.id, raw_text=it.raw_text, query=query,
                                            intention=it.intention or "product", category=it.category or norm(query),
-                                           brand=it.brand, taxonomy_id=it.taxonomy_id, rules=resolved))
+                                           brand=it.brand, rules=resolved, core=core,
+                                           variants=list(search.get("alternatives") or [])))
 
     # 7.2 descoberta
     found = await discovery.discover(api, queries, lat, lng, only_open=only_open, emit=say)
-    for item_id, tax in found.taxonomy_updates.items():
-        it = s.get(ListItem, item_id)
-        it.taxonomy_id = tax
-        s.add(it)
-    s.commit()
     if not found.merchants:
+        searches = sum(len(q.searches()) for q in queries)
+        failed = sum(1 for e in found.errors if e.get("stage") == "fase1")
+        if failed and failed >= searches:
+            raise McpToolError("searchOffers", "SEARCH_FAILED",
+                               "O iFood não respondeu à busca agora. Tente de novo em instantes.")
         raise McpToolError("searchOffers", "NO_MERCHANTS",
-                           "Nenhum mercado aberto perto de você tem esses itens agora.")
+                           "Nenhum mercado perto de você tem esses itens agora."
+                           + (" Escolha um horário de entrega para incluir os mercados fechados." if only_open else ""))
 
     # 7.3 normalização
     await say("normalize", {"message": f"Comparando {len(found.offers)} produtos"})

@@ -3,12 +3,12 @@
   "args": {
     "address": "Rua São Sebastião 1455"
   },
-  "recordedAt": "2026-10-17T23:36:30",
+  "recordedAt": "2026-10-18T04:34:53",
   "response": {
     "matchConfidence": "MULTIPLE",
     "candidates": [
       {
-        "candidateId": "3228fdb0-c30d-4b09-b4fa-af003ff3350a",
+        "candidateId": "e981045d-d5ad-4da3-8dad-ba05d6ee2456",
         "formattedAddress": "Rua São Sebastião, 1455, Centro, São Carlos, SP, CEP 13560-230",
         "location": {
           "street": "Rua São Sebastião",
@@ -24,7 +24,7 @@
         }
       },
       {
-        "candidateId": "8a04fd56-daf5-4597-a57c-b8a6f6d777e8",
+        "candidateId": "ef8e8f1d-454f-494c-a552-ad4b3df7a26b",
         "formattedAddress": "Rua São Sebastião, 1455, Vera Cruz, Passo Fundo, RS, CEP 99042-010",
         "location": {
           "street": "Rua São Sebastião",
@@ -40,7 +40,7 @@
         }
       },
       {
-        "candidateId": "18d6becf-b18f-43ee-a9bf-c2ce8eca610a",
+        "candidateId": "6e75dd2c-20cc-49b0-8803-9fb60656789c",
         "formattedAddress": "Rua São Sebastião, 1455, Codó, Codó, MA, CEP 65400-000",
         "location": {
           "street": "Rua São Sebastião",
@@ -56,7 +56,7 @@
         }
       },
       {
-        "candidateId": "016b098b-4a97-431d-8f93-21a9e222eb73",
+        "candidateId": "712954bc-d7d1-4590-b54a-3d2a8cc923f1",
         "formattedAddress": "Rua São Sebastião, 1455, Boa Vista, São José do Rio Preto, SP, CEP 15030-520",
         "location": {
           "street": "Rua São Sebastião",
@@ -72,7 +72,7 @@
         }
       },
       {
-        "candidateId": "ee6dad69-3c6d-4a3c-ac20-bafc5bf356bb",
+        "candidateId": "40f34502-a2a7-4f3a-8efd-615b50f87c1a",
         "formattedAddress": "Rua São Sebastião, 1455, Setor Central, Ribeirão Preto, SP, CEP 14015-040",
         "location": {
           "street": "Rua São Sebastião",

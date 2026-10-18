@@ -1,0 +1,138 @@
+{
+  "tool": "setCartDelivery",
+  "args": {
+    "cartId": "7994d3af-7aaa-47a0-ac13-0077c15c36a1",
+    "deliveryMethodId": "DEFAULT",
+    "selectedTimeSlotId": "88b50806-d626-5e3f-a8aa-2e9ddca52660"
+  },
+  "recordedAt": "2026-10-18T01:17:19",
+  "response": {
+    "cartId": "7994d3af-7aaa-47a0-ac13-0077c15c36a1",
+    "merchant": {
+      "merchantId": "e6067614-d8f3-4108-8b6e-c72fd364ae2c",
+      "merchantName": "Pão de Açúcar - Shopping Iguatemi São Carlos",
+      "orderMinimumPrice": 30.0,
+      "formattedAddress": "RUA PASSEIO DOS FLAMBOYANTS, 200 — PQ FABER, SAO CARLOS, SP"
+    },
+    "items": [
+      {
+        "itemId": "1010c2d5-f7d5-4103-8f3b-42a6b42cfa1a",
+        "cartItemId": "9669d48d-1756-4cdb-a632-066bb15cede6",
+        "quantity": 2,
+        "unitPrice": 4.09,
+        "name": "Feijão Fradinho Tipo 1 Qualitá Pacote 500g"
+      },
+      {
+        "itemId": "1e97c3dd-48e4-44a9-b1a9-0126042320e7",
+        "cartItemId": "133b1c20-1a87-4789-b519-e6f17d477cf0",
+        "quantity": 2,
+        "unitPrice": 15.99,
+        "name": "Granola Jasmine Frutas Tropicais Zero Açúcar 250g"
+      },
+      {
+        "itemId": "d0262daf-0576-44da-ada4-f20601cba7fc",
+        "cartItemId": "966fda0c-1df8-4010-bb11-bc0c6632f036",
+        "quantity": 3,
+        "unitPrice": 1.93,
+        "name": "Café Cappuccino Lor Premium Avelã Sachet 17,8g"
+      },
+      {
+        "itemId": "d0262daf-0576-44da-ada4-f20601cba7fc",
+        "cartItemId": "a52bce54-74c3-4337-85b6-6b4e90f927f4",
+        "quantity": 3,
+        "unitPrice": 1.93,
+        "name": "Café Cappuccino Lor Premium Avelã Sachet 17,8g"
+      },
+      {
+        "itemId": "d0262daf-0576-44da-ada4-f20601cba7fc",
+        "cartItemId": "a2f192cf-02e6-4f1f-bc67-a061c5c5c845",
+        "quantity": 3,
+        "unitPrice": 1.93,
+        "name": "Café Cappuccino Lor Premium Avelã Sachet 17,8g"
+      },
+      {
+        "itemId": "d0262daf-0576-44da-ada4-f20601cba7fc",
+        "cartItemId": "8253d74e-9618-4999-85b8-db7f10ed5ae6",
+        "quantity": 3,
+        "unitPrice": 1.93,
+        "name": "Café Cappuccino Lor Premium Avelã Sachet 17,8g"
+      },
+      {
+        "itemId": "d0262daf-0576-44da-ada4-f20601cba7fc",
+        "cartItemId": "1e0aa0c6-26f0-4071-8fe8-ae30d905c09f",
+        "quantity": 3,
+        "unitPrice": 1.93,
+        "name": "Café Cappuccino Lor Premium Avelã Sachet 17,8g"
+      },
+      {
+        "itemId": "d0262daf-0576-44da-ada4-f20601cba7fc",
+        "cartItemId": "b809d2df-3688-45c3-b6f4-104f56358395",
+        "quantity": 3,
+        "unitPrice": 1.93,
+        "name": "Café Cappuccino Lor Premium Avelã Sachet 17,8g"
+      },
+      {
+        "itemId": "d0262daf-0576-44da-ada4-f20601cba7fc",
+        "cartItemId": "742cde57-d259-49de-a151-60d1677808a7",
+        "quantity": 11,
+        "unitPrice": 2.89,
+        "name": "Café Cappuccino Lor Premium Avelã Sachet 17,8g"
+      },
+      {
+        "itemId": "db4929b2-3cdc-4210-b55c-d05135a64e34",
+        "cartItemId": "289db03a-48a3-4f89-a33e-68a44a10831d",
+        "quantity": 1,
+        "unitPrice": 4.4,
+        "name": "Arroz Branco Tipo 1 Qualitá 1kg"
+      },
+      {
+        "itemId": "17735d55-314c-43ec-bc93-e625f6673b5b",
+        "cartItemId": "a80b5946-40be-4f1c-b374-29c138c6b5a0",
+        "quantity": 2,
+        "unitPrice": 4.79,
+        "name": "Leite Uht Integral com Tampa Italac 1l"
+      }
+    ],
+    "deliveryAddress": {
+      "streetName": "Rua São Sebastião",
+      "streetNumber": "1455",
+      "neighborhood": "Centro"
+    },
+    "deliveryMethod": {
+      "deliveryMethodId": "DEFAULT",
+      "deliveryMethodMode": "DELIVERY",
+      "deliveryMethodName": "Padrão",
+      "fee": 0.0,
+      "estimatedMinutes": {
+        "min": 224,
+        "max": 234
+      },
+      "timeSlot": {
+        "from": "2026-10-19T11:00:00",
+        "to": "2026-10-19T13:00:00"
+      }
+    },
+    "fees": [
+      {
+        "name": "Taxa de serviço",
+        "description": "Cobramos uma taxa que nos ajuda a cobrir custos operacionais, inclusive de segurança, e a manter os investimentos contínuos na plataforma.",
+        "amount": 3.02
+      }
+    ],
+    "summary": {
+      "totalName": "Valor total",
+      "totalAmount": 123.63,
+      "subtotalName": "Valor dos itens",
+      "subtotalAmount": 120.61,
+      "deliveryFeeName": "Valor da taxa de entrega",
+      "deliveryFeeAmount": 0.0,
+      "feeTotalName": "Valor das taxas e serviços",
+      "feeTotalAmount": 3.02,
+      "benefitsTotalName": "Valor dos benefícios",
+      "benefitsTotalAmount": 34.22,
+      "voucherTotalName": "Valor dos cupons",
+      "voucherTotalAmount": 0.0
+    },
+    "appDeeplink": "ifood://cart?cartId=7994d3af-7aaa-47a0-ac13-0077c15c36a1"
+  }
+}

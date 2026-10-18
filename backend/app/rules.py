@@ -43,6 +43,10 @@ class DeliveryPayload(BaseModel):
     max_minutes: int | None = None
 
 
+class ProductPayload(BaseModel):
+    description: str = Field(min_length=2)  # "café em pó para filtro": o que buscar no lugar do texto do item
+
+
 class QuantityPayload(BaseModel):
     exact: bool = True
     max_overbuy: float = Field(1.1, ge=1.0, le=3.0)  # 1.1 = no máximo 10% acima do pedido
@@ -60,6 +64,7 @@ PAYLOADS: dict[str, type[BaseModel]] = {
     "merchant": MerchantPayload,
     "delivery": DeliveryPayload,
     "quantity": QuantityPayload,
+    "product": ProductPayload,
     "note": NotePayload,
 }
 
@@ -114,6 +119,7 @@ class Resolved:
     notes: list[str] = field(default_factory=list)
     quantity_exact: bool = False
     max_overbuy: float = 1.1
+    product_description: str | None = None
     applied_rule_ids: list[int] = field(default_factory=list)
 
     def brand_position(self, brand: str | None) -> int | None:
@@ -177,6 +183,8 @@ def resolve(rules: list[RuleLike], category: str, list_id: int | None) -> Resolv
         elif kind == "delivery":
             out.max_delivery_fee = p.get("max_fee")
             out.max_delivery_minutes = p.get("max_minutes")
+        elif kind == "product":
+            out.product_description = p.get("description")
         elif kind == "quantity":
             out.quantity_exact = bool(p.get("exact", True))
             out.max_overbuy = float(p.get("max_overbuy", 1.1))
@@ -229,6 +237,8 @@ def describe(kind: str, payload: dict, category: str | None) -> str:
         if payload.get("max_minutes") is not None:
             parts.append(f"entrega em até {payload['max_minutes']} min")
         return prefix + ", ".join(parts)
+    if kind == "product":
+        return prefix + payload["description"]
     if kind == "quantity":
         if not payload.get("exact", True):
             return prefix + "pode levar embalagem maior"

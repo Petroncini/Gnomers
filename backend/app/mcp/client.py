@@ -28,7 +28,10 @@ from app.config import settings
 log = logging.getLogger(__name__)
 
 # Códigos que indicam falha passageira; vale repetir a mesma chamada uma vez.
-TRANSIENT_CODES = {"TIMEOUT", "INTERNAL_ERROR", "SERVICE_UNAVAILABLE", "RATE_LIMITED", "UPSTREAM_ERROR", "TRANSPORT"}
+# Códigos que indicam falha passageira; vale repetir a mesma chamada uma vez. TOOL_ERROR é o
+# isError sem mensagem que o sandbox devolveu em 18/10 para buscas que funcionavam minutos depois.
+TRANSIENT_CODES = {"TIMEOUT", "INTERNAL_ERROR", "SERVICE_UNAVAILABLE", "RATE_LIMITED", "UPSTREAM_ERROR", "TRANSPORT",
+                   "AUTH_RETRY", "TOOL_ERROR"}
 
 
 # O servidor de autorização do iFood anuncia `issuer: https://id.ifood.com.br/3p`, mas os
@@ -94,6 +97,11 @@ def normalize_error(tool: str, body: Any) -> McpToolError | None:
         return McpToolError(tool, e.get("code") or "UNKNOWN", e.get("message", ""),
                             retryable=e.get("code") in TRANSIENT_CODES,
                             user_message=e.get("userFriendlyMessage"), raw=body)
+    if "code" in body and "message" in body and ("agent_instruction" in body or "errorType" not in body) \
+            and not any(k in body for k in ("results", "cartId", "orderId", "status")):
+        # falha de upstream do sandbox (18/10): {"code": "INTERNAL", "message": ..., "agent_instruction": ...}
+        return McpToolError(tool, body["code"], body["message"], retryable=body["code"] in TRANSIENT_CODES,
+                            user_message=body.get("agent_instruction") or body["message"], raw=body)
     if "errorType" in body and "code" in body:  # Order Tracking, campos na raiz
         return McpToolError(tool, body["code"], body.get("message", ""),
                             retryable=bool(body.get("retryable")), user_message=body.get("suggestion"), raw=body)
@@ -156,8 +164,13 @@ class DbTokenStorage:
         with Session(self.engine) as s:
             user = s.get(User, self.user_id)
             data = dict(user.ifood_token or {})
+            previous = data.get("tokens") or {}
             data["tokens"] = tokens.model_dump(mode="json")
+            # o servidor pode não rodar o refresh_token na renovação: mantém o anterior
+            if not data["tokens"].get("refresh_token") and previous.get("refresh_token"):
+                data["tokens"]["refresh_token"] = previous["refresh_token"]
             data["saved_at"] = time.time()
+            data.pop("needs_login", None)
             user.ifood_token = data
             s.add(user)
             s.commit()
@@ -177,12 +190,37 @@ class DbTokenStorage:
     async def set_client_info(self, client_info: OAuthClientInformationFull) -> None:
         return None
 
-    def has_tokens(self) -> bool:
+    def _data(self) -> dict:
         from app.models import User
 
         with Session(self.engine) as s:
             user = s.get(User, self.user_id)
-            return bool(user and user.ifood_token and user.ifood_token.get("tokens"))
+            return dict(user.ifood_token or {}) if user else {}
+
+    def has_tokens(self) -> bool:
+        data = self._data()
+        return bool(data.get("tokens")) and not data.get("needs_login")
+
+    def expires_in(self) -> float | None:
+        """Segundos até o access token vencer, calculados pela hora em que foi salvo."""
+        data = self._data()
+        tokens = data.get("tokens") or {}
+        if not tokens.get("expires_in") or not data.get("saved_at"):
+            return None
+        return data["saved_at"] + float(tokens["expires_in"]) - time.time()
+
+    def refresh_token(self) -> str | None:
+        return (self._data().get("tokens") or {}).get("refresh_token")
+
+    def mark_needs_login(self) -> None:
+        from app.models import User
+
+        with Session(self.engine) as s:
+            user = s.get(User, self.user_id)
+            if user and user.ifood_token:
+                user.ifood_token = {**user.ifood_token, "needs_login": True}
+                s.add(user)
+                s.commit()
 
     def clear(self) -> None:
         from app.models import User
@@ -192,6 +230,66 @@ class DbTokenStorage:
             user.ifood_token = None
             s.add(user)
             s.commit()
+
+
+REFRESH_MARGIN_S = 300
+_token_endpoint: str | None = None
+
+
+async def _discover_token_endpoint() -> str:
+    """Endpoint de token do servidor de autorização do MCP (https://id.ifood.com.br/token no sandbox)."""
+    global _token_endpoint
+    if _token_endpoint:
+        return _token_endpoint
+    from urllib.parse import urlparse
+
+    url = urlparse(settings.mcp_url)
+    async with httpx2.AsyncClient(timeout=15) as http:
+        prm = (await http.get(f"{url.scheme}://{url.netloc}/.well-known/oauth-protected-resource{url.path}")).json()
+        auth_server = (prm.get("authorization_servers") or ["https://id.ifood.com.br"])[0].rstrip("/")
+        meta = (await http.get(f"{auth_server}/.well-known/openid-configuration")).json()
+    _token_endpoint = meta.get("token_endpoint") or f"{auth_server}/token"
+    return _token_endpoint
+
+
+async def refresh_tokens(storage: "DbTokenStorage") -> None:
+    """Renova o access token com o refresh_token salvo.
+
+    O SDK não sabe quando um token carregado do banco vence (só guarda `expires_in`
+    relativo) e, logo depois de reiniciar, ainda não descobriu o endpoint de token: ele
+    mandaria o token vencido, levaria 401 e iria direto para o login completo. Por isso o
+    back-end renova antes de abrir a sessão.
+    """
+    refresh = storage.refresh_token()
+    if not refresh:
+        storage.mark_needs_login()
+        raise NotAuthenticated("o token do iFood expirou; faça login de novo em /auth/login")
+    data = {"grant_type": "refresh_token", "refresh_token": refresh, "client_id": settings.client_id,
+            "resource": settings.mcp_url}
+    if settings.client_secret:
+        data["client_secret"] = settings.client_secret
+    try:
+        async with httpx2.AsyncClient(timeout=20) as http:
+            res = await http.post(await _discover_token_endpoint(), data=data)
+    except Exception as exc:  # noqa: BLE001 - rede fora: tenta de novo na próxima chamada
+        raise McpToolError("connect", "TRANSPORT", f"renovação do token falhou: {exc!r}", retryable=True) from exc
+    if res.status_code != 200:
+        log.warning("renovação do token recusada: %s %s", res.status_code, res.text[:200])
+        storage.mark_needs_login()
+        raise NotAuthenticated("o token do iFood expirou e não pôde ser renovado; faça login de novo em /auth/login")
+    await storage.set_tokens(OAuthToken.model_validate_json(res.content))
+    log.info("token do iFood renovado")
+
+
+def _auth_error_in(exc: BaseException | None) -> bool:
+    """Acha um NotAuthenticated mesmo dentro de ExceptionGroup (o transporte do SDK embrulha os erros)."""
+    if exc is None:
+        return False
+    if isinstance(exc, NotAuthenticated):
+        return True
+    if isinstance(exc, BaseExceptionGroup):
+        return any(_auth_error_in(e) for e in exc.exceptions)
+    return _auth_error_in(exc.__cause__) if exc.__cause__ else False
 
 
 class IfoodConnection:
@@ -208,6 +306,9 @@ class IfoodConnection:
         self._code: asyncio.Future[AuthorizationCodeResult] | None = None
         self._interactive = False
         self._lock = asyncio.Lock()
+        # a sessão caiu por autenticação: na próxima chamada, renova antes de reabrir. Só a recusa
+        # da renovação marca "precisa logar"; um 401 passageiro não pode travar o app
+        self._force_refresh = False
 
     # ---------------------------------------------------------------- OAuth
 
@@ -255,9 +356,15 @@ class IfoodConnection:
                         await self._stop.wait()
         except BaseException as exc:  # noqa: BLE001 - qualquer falha precisa chegar a quem espera
             self._error = exc
-            log.warning("sessão MCP encerrada: %r", exc)
+            if _auth_error_in(exc):
+                log.warning("sessão MCP encerrada: login no iFood necessário")
+            else:
+                log.warning("sessão MCP encerrada: %r", exc)
             if self._auth_url and not self._auth_url.done():
-                self._auth_url.set_exception(exc if isinstance(exc, Exception) else RuntimeError(str(exc)))
+                if self._interactive:
+                    self._auth_url.set_exception(exc if isinstance(exc, Exception) else RuntimeError(str(exc)))
+                else:
+                    self._auth_url.cancel()
         finally:
             self._session = None
             self._ready.set()
@@ -299,12 +406,19 @@ class IfoodConnection:
 
     async def ensure(self) -> ClientSession:
         async with self._lock:
-            if self._session is not None:
+            remaining = self.storage.expires_in()
+            stale = (remaining is not None and remaining < REFRESH_MARGIN_S) or self._force_refresh
+            if self._session is not None and not (stale and not self._interactive):
                 return self._session
-            starting = self._task is not None and not self._task.done()
+            starting = self._task is not None and not self._task.done() and self._session is None
             if not starting:
                 if not self.storage.has_tokens():
                     raise NotAuthenticated("faça login no iFood em /auth/login")
+                if stale:
+                    # a sessão aberta usa o token vencido: renova e reabre
+                    await self.close()
+                    await refresh_tokens(self.storage)
+                    self._force_refresh = False
                 self._start(interactive=False)
             # captura o evento desta tentativa; outra chamada não pode trocá-lo no meio da espera
             ready = self._ready
@@ -314,8 +428,9 @@ class IfoodConnection:
             await self.close()
             raise McpToolError("connect", "TIMEOUT", "o MCP do iFood não respondeu ao conectar", retryable=True) from exc
         if self._session is None:
-            if isinstance(self._error, NotAuthenticated) or _is_auth_failure(self._error):
-                raise NotAuthenticated("o token do iFood expirou; faça login de novo")
+            if _auth_error_in(self._error) or _is_auth_failure(self._error):
+                self._force_refresh = True
+                raise McpToolError("connect", "AUTH_RETRY", "o iFood recusou o token; renovando", retryable=True)
             raise McpToolError("connect", "TRANSPORT", repr(self._error), retryable=True)
         return self._session
 
@@ -342,6 +457,9 @@ class IfoodConnection:
             raise
         except Exception as exc:  # noqa: BLE001 - erro de transporte; a sessão é refeita na próxima
             await self.close()
+            if _auth_error_in(exc) or _auth_error_in(self._error):
+                self._force_refresh = True
+                raise McpToolError(tool, "AUTH_RETRY", "o iFood recusou o token; renovando", retryable=True) from exc
             raise McpToolError(tool, "TRANSPORT", repr(exc), retryable=True) from exc
         return parse_result(tool, result)
 

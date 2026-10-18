@@ -1,6 +1,6 @@
 import pytest
 
-from app.heuristics import normalize_product, parse_item, parse_pack, pick_taxonomy
+from app.heuristics import normalize_product, parse_item, parse_pack
 from app.mcp.client import normalize_error
 
 
@@ -40,14 +40,6 @@ def test_store_brand_is_tier_one():
     assert normalize_product("leite", "Leite Longa Vida Qualitá Integral Caixa 1l")["quality_tier"] == 1
 
 
-def test_pick_taxonomy_uses_real_facets():
-    facets = [{"count": 123, "id": "LEITE_TRADICIONAL", "name": "LEITE_TRADICIONAL"},
-              {"count": 91, "id": "LEITE_EM_PO", "name": "LEITE_EM_PO"},
-              {"count": 1, "id": "BISCOITOS/BISCOITO_SAUDAVEL", "name": "BISCOITO_SAUDAVEL"}]
-    assert pick_taxonomy("leite", facets) == "LEITE_TRADICIONAL"
-    assert pick_taxonomy("cafe", facets) is None
-
-
 def test_three_error_shapes():
     od = normalize_error("searchOffers", {"errors": {"code": "INVALID_QUERY", "message": "m", "retryable": True}})
     cart = normalize_error("createCart", {"error": {"code": "MERCHANT_CLOSED", "message": "m",
@@ -81,12 +73,6 @@ def test_kilo_is_a_size():
     assert out["category"] == "arroz" and out["pack_size"] == 1000 and out["quantity"] == 1
 
 
-def test_taxonomy_never_picks_a_derivative():
-    # caso real: a busca "leites integral italac" trouxe LEITE_CONDENSADO e a heurística antiga escolheu ele
-    assert pick_taxonomy("leite", [{"count": 7, "id": "LEITE_CONDENSADO"}, {"count": 5, "id": "LEITE_EM_PO"}]) is None
-    assert pick_taxonomy("leite", [{"count": 91, "id": "LEITE_EM_PO"}, {"count": 123, "id": "LEITE_TRADICIONAL"}]) == "LEITE_TRADICIONAL"
-
-
 @pytest.mark.parametrize("name,derivative", [
     ("Café Com Leite Solúvel 3 Corações Sache 20g", True),        # caso real, Extra, 18/10
     ("Café Cappuccino Lor Premium Avelã Sachet 17,8g", True),     # caso real, Pão de Açúcar
@@ -107,3 +93,30 @@ def test_effective_fee_uses_promotional_fee():
     assert effective_fee({"deliveryMethodId": "DEFAULT", "fee": 6.49, "promotionalFee": 0}) == 0
     assert effective_fee({"deliveryMethodId": "DEFAULT", "fee": 10.99, "promotionalFee": 10.99}) == 10.99
     assert effective_fee({"deliveryMethodId": "DEFAULT", "fee": 8.0, "promotionalFee": None}) == 8.0
+
+
+def test_upstream_internal_error_keeps_its_message():
+    from app.mcp.client import normalize_error
+
+    # resposta real do setCartDelivery no sandbox em 18/10, com isError
+    body = {"code": "INTERNAL", "message": "An internal failure at an upstream service prevented the request from completing.",
+            "agent_instruction": "Do not retry immediately. Report the failure and continue without this tool."}
+    err = normalize_error("setCartDelivery", body)
+    assert err.code == "INTERNAL" and "upstream" in err.message and "continue without" in err.user_message
+    assert normalize_error("trackOrder", {"status": {"code": "DELIVERED", "description": "x"}, "statusHistory": []}) is None
+
+
+
+
+def test_search_text_helpers():
+    from app.heuristics import clean_query, core_query, has_term, query_variants
+
+    # casos reais de 18/10
+    assert clean_query("feijão cru em grão") == "feijão"
+    assert clean_query("granola sem açúcar (>500g)") == "granola sem açúcar"
+    assert core_query("feijao", "feijão cru em grão") == "feijão"
+    assert core_query("leite", "leite italac integral", "Italac") == "leite Italac"
+    assert query_variants("granola sem açúcar")[0] == "granola zero açúcar"
+    assert query_variants("leite italac integral") == []
+    assert has_term("Granola Tradicional Zero Açúcares Mãe Terra 250g", "sem açúcar")
+    assert not has_term("Granola Kobber 250g Tradicional", "sem açúcar")

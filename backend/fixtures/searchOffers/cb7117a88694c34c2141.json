@@ -16,7 +16,7 @@
     "pageSize": 25,
     "includeFacets": true
   },
-  "recordedAt": "2026-10-18T00:09:57",
+  "recordedAt": "2026-10-18T04:46:47",
   "response": {
     "agentHints": {
       "nextStepWhenUserPicksItem": "Retrieve full item details — option groups and applicable promotions — before presenting it to the user."
@@ -45,6 +45,16 @@
         },
         {
           "count": 1,
+          "id": "HIDRATANTE_MAOS_E_PES",
+          "name": "HIDRATANTE_MAOS_E_PES"
+        },
+        {
+          "count": 1,
+          "id": "CORTES_BOVINOS",
+          "name": "CORTES_BOVINOS"
+        },
+        {
+          "count": 1,
           "id": "CORTES_BOVINOS/CARNE_MOIDA",
           "name": "CARNE_MOIDA"
         },
@@ -55,23 +65,13 @@
         },
         {
           "count": 1,
-          "id": "UTENSILIOS_PREPARACAO",
-          "name": "UTENSILIOS_PREPARACAO"
-        },
-        {
-          "count": 1,
           "id": "PEIXES_FRUTOS_DO_MAR",
           "name": "PEIXES_FRUTOS_DO_MAR"
         },
         {
           "count": 1,
-          "id": "HIDRATANTE_MAOS_E_PES",
-          "name": "HIDRATANTE_MAOS_E_PES"
-        },
-        {
-          "count": 1,
-          "id": "CORTES_BOVINOS",
-          "name": "CORTES_BOVINOS"
+          "id": "UTENSILIOS_PREPARACAO",
+          "name": "UTENSILIOS_PREPARACAO"
         }
       ],
       "maxDistanceKm": [
@@ -146,8 +146,8 @@
               "max": 122,
               "min": 112
             },
-            "fee": 24.99,
-            "promotionalFee": 24.99
+            "fee": 22.99,
+            "promotionalFee": 22.99
           },
           "isOpen": false,
           "merchantId": "f7f279d5-80fc-4085-885f-6bf90c738787",
@@ -156,7 +156,7 @@
           "minimumOrderAmount": 30,
           "ratingCount": 3,
           "reviewRating": 3.700000047683716,
-          "straightLineDistanceKm": 5.21
+          "straightLineDistanceKm": 5.19
         },
         "promotionalUnitPrice": 3.29,
         "unitPrice": 3.29
@@ -175,8 +175,8 @@
               "max": 60,
               "min": 50
             },
-            "fee": 14.99,
-            "promotionalFee": 14.99
+            "fee": 13.99,
+            "promotionalFee": 13.99
           },
           "isOpen": false,
           "merchantId": "c5c86308-ba52-44f6-b425-40ac26a03df0",
@@ -212,7 +212,7 @@
           "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
           "merchantName": "Extra - São Carlos",
           "minimumOrderAmount": 60,
-          "ratingCount": 1364,
+          "ratingCount": 1354,
           "reviewRating": 4.900000095367432,
           "straightLineDistanceKm": 0.27
         },
@@ -233,7 +233,7 @@
               "max": 70,
               "min": 50
             },
-            "fee": 6.49,
+            "fee": 7.49,
             "promotionalFee": 0
           },
           "isOpen": false,
@@ -241,7 +241,7 @@
           "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/fdc30d9c-4a05-4e5a-b1de-421b2df23eb0/202601271313_QN9O.png",
           "merchantName": "Minuto Pão - XV de Novembro",
           "minimumOrderAmount": 30,
-          "ratingCount": 692,
+          "ratingCount": 688,
           "reviewRating": 4.900000095367432,
           "straightLineDistanceKm": 0.41
         },
@@ -262,7 +262,7 @@
               "max": 234,
               "min": 224
             },
-            "fee": 13.99,
+            "fee": 11.99,
             "promotionalFee": 0
           },
           "isOpen": false,
@@ -270,7 +270,7 @@
           "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/3974223/202607281734_5AGE.png",
           "merchantName": "Pão de Açúcar - Shopping Iguatemi São Carlos",
           "minimumOrderAmount": 30,
-          "ratingCount": 99,
+          "ratingCount": 102,
           "reviewRating": 4.900000095367432,
           "straightLineDistanceKm": 2.09
         },
@@ -291,8 +291,8 @@
               "max": 122,
               "min": 112
             },
-            "fee": 24.99,
-            "promotionalFee": 24.99
+            "fee": 22.99,
+            "promotionalFee": 22.99
           },
           "isOpen": false,
           "merchantId": "f7f279d5-80fc-4085-885f-6bf90c738787",
@@ -301,7 +301,7 @@
           "minimumOrderAmount": 30,
           "ratingCount": 3,
           "reviewRating": 3.700000047683716,
-          "straightLineDistanceKm": 5.21
+          "straightLineDistanceKm": 5.19
         },
         "promotionalUnitPrice": 4.59,
         "unitPrice": 4.59
@@ -349,8 +349,8 @@
               "max": 102,
               "min": 92
             },
-            "fee": 10.99,
-            "promotionalFee": 10.99
+            "fee": 9.99,
+            "promotionalFee": 9.99
           },
           "isOpen": false,
           "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
@@ -444,128 +444,12 @@
           "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/3901056/202607311821_FR9A.png",
           "merchantName": "Paulistão Av. Luiz Brandão - São Carlos Lj 13",
           "minimumOrderAmount": 30,
-          "ratingCount": 172,
+          "ratingCount": 173,
           "reviewRating": 4.800000190734863,
           "straightLineDistanceKm": 3.08
         },
         "promotionalUnitPrice": 5.69,
         "unitPrice": 5.69
-      },
-      {
-        "itemEan": "7893500020110",
-        "itemId": "f22271b2-0c83-481e-a3d8-3f327dbb5c76",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510031303_4gc1lsdzn1o.jpeg",
-        "itemName": "Arroz Branco Tipo 1 Tio João 1kg",
-        "itemSkuId": "SKU-SQEU18750",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 118,
-              "min": 98
-            },
-            "fee": 9.99,
-            "promotionalFee": 0
-          },
-          "isOpen": false,
-          "merchantId": "782805bb-66e0-4d8d-8e86-5befa3b5d7f8",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/782805bb-66e0-4d8d-8e86-5befa3b5d7f8/202603111724_A6N4.png",
-          "merchantName": "Carrefour Bairro - São Carlos 2",
-          "minimumOrderAmount": 30,
-          "ratingCount": 584,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 1.43
-        },
-        "promotionalUnitPrice": 5.88,
-        "unitPrice": 8.09
-      },
-      {
-        "itemEan": "7893500020110",
-        "itemId": "c51f721b-d3dd-4829-ad22-d7c9bf035f1d",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510031303_4gc1lsdzn1o.jpeg",
-        "itemName": "Arroz Branco Tipo 1 Tio João 1kg",
-        "itemSkuId": "SKU-SQEU18750",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 120,
-              "min": 110
-            },
-            "fee": 6.49,
-            "promotionalFee": 0
-          },
-          "isOpen": false,
-          "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
-          "merchantName": "Extra - São Carlos",
-          "minimumOrderAmount": 60,
-          "ratingCount": 1364,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 0.27
-        },
-        "promotionalUnitPrice": 5.88,
-        "unitPrice": 6.99
-      },
-      {
-        "itemEan": "7893500020110",
-        "itemId": "c2a782b9-39a9-41f3-9a1d-ab31b0c94601",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510031303_4gc1lsdzn1o.jpeg",
-        "itemName": "Arroz Branco Tipo 1 Tio João 1kg",
-        "itemSkuId": "SKU-SQEU18750",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 234,
-              "min": 224
-            },
-            "fee": 13.99,
-            "promotionalFee": 0
-          },
-          "isOpen": false,
-          "merchantId": "e6067614-d8f3-4108-8b6e-c72fd364ae2c",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/3974223/202607281734_5AGE.png",
-          "merchantName": "Pão de Açúcar - Shopping Iguatemi São Carlos",
-          "minimumOrderAmount": 30,
-          "ratingCount": 99,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 2.09
-        },
-        "promotionalUnitPrice": 5.88,
-        "unitPrice": 7.29
-      },
-      {
-        "itemEan": "7893500020110",
-        "itemId": "5d19d15a-758d-4e12-90f2-7a8da1fa41c8",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510031303_4gc1lsdzn1o.jpeg",
-        "itemName": "Arroz Branco Tipo 1 Tio João 1kg",
-        "itemSkuId": "SKU-SQEU18750",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 100,
-              "min": 90
-            },
-            "fee": 9.9,
-            "promotionalFee": 9.9
-          },
-          "isOpen": false,
-          "merchantId": "becdb3b1-b307-418b-a650-9103bc03b501",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/becdb3b1-b307-418b-a650-9103bc03b501/202505211748_79Jm_s.png",
-          "merchantName": "Shopper | São Carlos",
-          "minimumOrderAmount": 149.9,
-          "ratingCount": 6,
-          "reviewRating": 5,
-          "straightLineDistanceKm": 0.62
-        },
-        "promotionalUnitPrice": 5.88,
-        "unitPrice": 6.99
       },
       {
         "itemEan": "7891132000449",
@@ -581,8 +465,8 @@
               "max": 122,
               "min": 112
             },
-            "fee": 24.99,
-            "promotionalFee": 24.99
+            "fee": 22.99,
+            "promotionalFee": 22.99
           },
           "isOpen": false,
           "merchantId": "f7f279d5-80fc-4085-885f-6bf90c738787",
@@ -591,7 +475,7 @@
           "minimumOrderAmount": 30,
           "ratingCount": 3,
           "reviewRating": 3.700000047683716,
-          "straightLineDistanceKm": 5.21
+          "straightLineDistanceKm": 5.19
         },
         "promotionalUnitPrice": 5.99,
         "unitPrice": 5.99
@@ -618,7 +502,7 @@
           "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/75a8e0a0-2766-48e7-990f-5d551d441dbb/201909191637_C7AP_i.png",
           "merchantName": "Supermercados Arco Íris Express",
           "minimumOrderAmount": 30,
-          "ratingCount": 90,
+          "ratingCount": 89,
           "reviewRating": 4.900000095367432,
           "straightLineDistanceKm": 1.32
         },
@@ -647,12 +531,70 @@
           "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/635de4f5-f3f7-40cf-b618-47be55c6dd6d/202308181613_luJT_i.jpg",
           "merchantName": "França Supermercados - Loja Zavaglia",
           "minimumOrderAmount": 30,
-          "ratingCount": 5,
+          "ratingCount": 6,
           "reviewRating": 5,
-          "straightLineDistanceKm": 4.36
+          "straightLineDistanceKm": 4.35
         },
         "promotionalUnitPrice": 6.59,
         "unitPrice": 6.59
+      },
+      {
+        "itemEan": "7893500020110",
+        "itemId": "c51f721b-d3dd-4829-ad22-d7c9bf035f1d",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510031303_4gc1lsdzn1o.jpeg",
+        "itemName": "Arroz Branco Tipo 1 Tio João 1kg",
+        "itemSkuId": "SKU-SQEU18750",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 120,
+              "min": 110
+            },
+            "fee": 6.49,
+            "promotionalFee": 0
+          },
+          "isOpen": false,
+          "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
+          "merchantName": "Extra - São Carlos",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1354,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 0.27
+        },
+        "promotionalUnitPrice": 6.64,
+        "unitPrice": 6.99
+      },
+      {
+        "itemEan": "7893500020110",
+        "itemId": "c2a782b9-39a9-41f3-9a1d-ab31b0c94601",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510031303_4gc1lsdzn1o.jpeg",
+        "itemName": "Arroz Branco Tipo 1 Tio João 1kg",
+        "itemSkuId": "SKU-SQEU18750",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 234,
+              "min": 224
+            },
+            "fee": 11.99,
+            "promotionalFee": 0
+          },
+          "isOpen": false,
+          "merchantId": "e6067614-d8f3-4108-8b6e-c72fd364ae2c",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/3974223/202607281734_5AGE.png",
+          "merchantName": "Pão de Açúcar - Shopping Iguatemi São Carlos",
+          "minimumOrderAmount": 30,
+          "ratingCount": 102,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 2.09
+        },
+        "promotionalUnitPrice": 6.93,
+        "unitPrice": 7.29
       },
       {
         "itemEan": "7891132000449",
@@ -668,20 +610,49 @@
               "max": 172,
               "min": 142
             },
-            "fee": 19.99,
-            "promotionalFee": 19.99
+            "fee": 21.99,
+            "promotionalFee": 21.99
           },
           "isOpen": false,
           "merchantId": "2454a662-ab7d-4cb8-91c9-c69720983886",
           "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/2454a662-ab7d-4cb8-91c9-c69720983886/202509011622_2TXL.png",
           "merchantName": "Atacadão São Carlos",
           "minimumOrderAmount": 90,
-          "ratingCount": 211,
+          "ratingCount": 212,
           "reviewRating": 4.800000190734863,
           "straightLineDistanceKm": 5.1
         },
         "promotionalUnitPrice": 6.98,
         "unitPrice": 6.98
+      },
+      {
+        "itemEan": "7893500020110",
+        "itemId": "5d19d15a-758d-4e12-90f2-7a8da1fa41c8",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510031303_4gc1lsdzn1o.jpeg",
+        "itemName": "Arroz Branco Tipo 1 Tio João 1kg",
+        "itemSkuId": "SKU-SQEU18750",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 100,
+              "min": 90
+            },
+            "fee": 9.9,
+            "promotionalFee": 9.9
+          },
+          "isOpen": false,
+          "merchantId": "becdb3b1-b307-418b-a650-9103bc03b501",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/becdb3b1-b307-418b-a650-9103bc03b501/202505211748_79Jm_s.png",
+          "merchantName": "Shopper | São Carlos",
+          "minimumOrderAmount": 149.9,
+          "ratingCount": 6,
+          "reviewRating": 5,
+          "straightLineDistanceKm": 0.62
+        },
+        "promotionalUnitPrice": 6.99,
+        "unitPrice": 6.99
       },
       {
         "itemEan": "7891132000449",
@@ -697,7 +668,7 @@
               "max": 234,
               "min": 224
             },
-            "fee": 13.99,
+            "fee": 11.99,
             "promotionalFee": 0
           },
           "isOpen": false,
@@ -705,7 +676,7 @@
           "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/3974223/202607281734_5AGE.png",
           "merchantName": "Pão de Açúcar - Shopping Iguatemi São Carlos",
           "minimumOrderAmount": 30,
-          "ratingCount": 99,
+          "ratingCount": 102,
           "reviewRating": 4.900000095367432,
           "straightLineDistanceKm": 2.09
         },
@@ -726,15 +697,15 @@
               "max": 63,
               "min": 53
             },
-            "fee": 15.99,
-            "promotionalFee": 15.99
+            "fee": 14.49,
+            "promotionalFee": 14.49
           },
           "isOpen": false,
           "merchantId": "b58df102-3ffe-45a3-9f60-1c1188f59d11",
           "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/3757582/202605141336_CWTO.jpeg",
           "merchantName": "Tonin - São Carlos",
           "minimumOrderAmount": 60,
-          "ratingCount": 55,
+          "ratingCount": 53,
           "reviewRating": 4.800000190734863,
           "straightLineDistanceKm": 3.53
         },
@@ -755,8 +726,8 @@
               "max": 102,
               "min": 92
             },
-            "fee": 10.99,
-            "promotionalFee": 10.99
+            "fee": 9.99,
+            "promotionalFee": 9.99
           },
           "isOpen": false,
           "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
@@ -792,7 +763,7 @@
           "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
           "merchantName": "Extra - São Carlos",
           "minimumOrderAmount": 60,
-          "ratingCount": 1364,
+          "ratingCount": 1354,
           "reviewRating": 4.900000095367432,
           "straightLineDistanceKm": 0.27
         },
@@ -813,7 +784,7 @@
               "max": 70,
               "min": 50
             },
-            "fee": 6.49,
+            "fee": 7.49,
             "promotionalFee": 0
           },
           "isOpen": false,
@@ -821,7 +792,7 @@
           "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/fdc30d9c-4a05-4e5a-b1de-421b2df23eb0/202601271313_QN9O.png",
           "merchantName": "Minuto Pão - XV de Novembro",
           "minimumOrderAmount": 30,
-          "ratingCount": 692,
+          "ratingCount": 688,
           "reviewRating": 4.900000095367432,
           "straightLineDistanceKm": 0.41
         },
@@ -842,8 +813,8 @@
               "max": 60,
               "min": 50
             },
-            "fee": 14.99,
-            "promotionalFee": 14.99
+            "fee": 13.99,
+            "promotionalFee": 13.99
           },
           "isOpen": false,
           "merchantId": "c5c86308-ba52-44f6-b425-40ac26a03df0",
@@ -856,6 +827,35 @@
         },
         "promotionalUnitPrice": 7.47,
         "unitPrice": 7.47
+      },
+      {
+        "itemEan": "7891132000449",
+        "itemId": "36fbf996-dd1b-4d5e-b021-cd6da0a59205",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202404031712_c9ddlzdppsf.png",
+        "itemName": "Tempero Branco Para Arroz Sazón 60g",
+        "itemSkuId": "SKU-NFEH96955",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 67,
+              "min": 57
+            },
+            "fee": 7.49,
+            "promotionalFee": 7.49
+          },
+          "isOpen": false,
+          "merchantId": "75a8e0a0-2766-48e7-990f-5d551d441dbb",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/75a8e0a0-2766-48e7-990f-5d551d441dbb/201909191637_C7AP_i.png",
+          "merchantName": "Supermercados Arco Íris Express",
+          "minimumOrderAmount": 30,
+          "ratingCount": 89,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.32
+        },
+        "promotionalUnitPrice": 7.64,
+        "unitPrice": 7.64
       }
     ]
   }

@@ -1,0 +1,75 @@
+{
+  "tool": "setCartDelivery",
+  "args": {
+    "cartId": "e4c06f2d-f10c-4c08-aa23-da5fd357229d",
+    "deliveryMethodId": "DEFAULT",
+    "selectedTimeSlotId": "6419c8ab-03a8-5584-bdb8-10bbd2171823"
+  },
+  "recordedAt": "2026-10-18T04:48:41",
+  "response": {
+    "cartId": "e4c06f2d-f10c-4c08-aa23-da5fd357229d",
+    "merchant": {
+      "merchantId": "fdc30d9c-4a05-4e5a-b1de-421b2df23eb0",
+      "merchantName": "Minuto Pão - XV de Novembro",
+      "orderMinimumPrice": 30.0,
+      "formattedAddress": "Rua Quinze De Novembro, 1070 — Parque Santa Mônica, SAO CARLOS, SP"
+    },
+    "items": [
+      {
+        "itemId": "f03a106f-7c1e-49b2-bd4d-d28f6b9d6515",
+        "cartItemId": "782763b3-a9a9-4850-8f29-6baf7a346852",
+        "quantity": 1,
+        "unitPrice": 4.4,
+        "name": "Arroz Branco Tipo 1 Qualitá 1kg"
+      },
+      {
+        "itemId": "ffdc1c39-8502-43dc-8f4c-050c29b91853",
+        "cartItemId": "3893f409-93a6-4c2e-afd9-77fdfc8437c9",
+        "quantity": 1,
+        "unitPrice": 27.19,
+        "name": "Café Torrado E Moído Tradicional A Vácuo 3 Corações 500g"
+      }
+    ],
+    "deliveryAddress": {
+      "streetName": "Rua São Sebastião",
+      "streetNumber": "1455",
+      "neighborhood": "Centro"
+    },
+    "deliveryMethod": {
+      "deliveryMethodId": "DEFAULT",
+      "deliveryMethodMode": "DELIVERY",
+      "deliveryMethodName": "Padrão",
+      "fee": 0.0,
+      "estimatedMinutes": {
+        "min": 50,
+        "max": 70
+      },
+      "timeSlot": {
+        "from": "2026-10-19T11:00:00",
+        "to": "2026-10-19T13:00:00"
+      }
+    },
+    "fees": [
+      {
+        "name": "Taxa de serviço",
+        "description": "Cobramos uma taxa que nos ajuda a cobrir custos operacionais, inclusive de segurança, e a manter os investimentos contínuos na plataforma.",
+        "amount": 1.99
+      }
+    ],
+    "summary": {
+      "totalName": "Valor total",
+      "totalAmount": 18.68,
+      "subtotalName": "Valor dos itens",
+      "subtotalAmount": 31.59,
+      "deliveryFeeName": "Valor da taxa de entrega",
+      "deliveryFeeAmount": 0.0,
+      "feeTotalName": "Valor das taxas e serviços",
+      "feeTotalAmount": 1.99,
+      "benefitsTotalName": "Valor dos benefícios",
+      "benefitsTotalAmount": 29.68,
+      "voucherTotalName": "Valor dos cupons",
+      "voucherTotalAmount": 0.0
+    },
+    "appDeeplink": "ifood://cart?cartId=e4c06f2d-f10c-4c08-aa23-da5fd357229d"
+  }
+}

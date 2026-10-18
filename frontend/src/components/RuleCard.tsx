@@ -1,5 +1,7 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Trash2 } from "lucide-react";
-import { api, ProposedRule, Rule } from "../api";
+import { api, PlanCreated, ProposedRule, Rule } from "../api";
 import { IconButton, Selo, ruleBody, ruleSelos } from "../ui";
 
 const SOURCE_LABEL: Record<string, string> = { user: "Você", chat: "Pelo chat", learned: "Aprendido" };
@@ -35,15 +37,29 @@ export default function RuleCard({ rule, onChange }: { rule: Rule; onChange: () 
 }
 
 // Proposta de regra vinda do chat ou do texto livre, com o seletor de escopo.
-export function RuleProposal({ proposal, listId, onSaved, onDiscard }: {
-  proposal: ProposedRule; listId?: number; onSaved: (r: Rule) => void; onDiscard: () => void;
+// No chat de um carrinho (planId), salvar também refaz o carrinho com a regra nova, se o usuário quiser.
+export function RuleProposal({ proposal, listId, planId, onSaved, onDiscard }: {
+  proposal: ProposedRule; listId?: number; planId?: number; onSaved: (r: Rule) => void; onDiscard: () => void;
 }) {
+  const [replan, setReplan] = useState(true);
+  const [busy, setBusy] = useState(false);
+  const navigate = useNavigate();
+
   const save = async (scope: string) => {
-    const saved = await api.post<Rule>("/rules", {
-      kind: proposal.kind, category: proposal.category, payload: proposal.payload, hardness: proposal.hardness,
-      scope, source: "chat",
-    });
-    onSaved(saved);
+    setBusy(true);
+    try {
+      const saved = await api.post<Rule>("/rules", {
+        kind: proposal.kind, category: proposal.category, payload: proposal.payload, hardness: proposal.hardness,
+        scope, source: "chat",
+      });
+      onSaved(saved);
+      if (planId && replan) {
+        const next = await api.post<PlanCreated>(`/plans/${planId}/replan`);
+        navigate(`/carrinho/${next.id}`, { state: { chat: true } });
+      }
+    } finally {
+      setBusy(false);
+    }
   };
   return (
     <div className="rule-proposal">
@@ -52,10 +68,16 @@ export function RuleProposal({ proposal, listId, onSaved, onDiscard }: {
         {ruleSelos(proposal).slice(0, 1).map((u, i) => <Selo key={i} kind={u.kind} />)}
         <strong className="t-body-strong">{proposal.text}</strong>
       </span>
+      {planId && (
+        <label className="row t-small" style={{ gap: 8 }}>
+          <input type="checkbox" checked={replan} onChange={(e) => setReplan(e.target.checked)} />
+          e refazer o carrinho agora
+        </label>
+      )}
       <div className="row wrap">
-        <button type="button" className="btn-secondary" onClick={() => save("global")}>Todas as listas</button>
-        {listId && <button type="button" className="btn-secondary" onClick={() => save(String(listId))}>Só esta lista</button>}
-        <button type="button" className="btn-text" onClick={onDiscard}>Não salvar</button>
+        <button type="button" className="btn-secondary" disabled={busy} onClick={() => save("global")}>Todas as listas</button>
+        {listId && <button type="button" className="btn-secondary" disabled={busy} onClick={() => save(String(listId))}>Só esta lista</button>}
+        <button type="button" className="btn-text" disabled={busy} onClick={onDiscard}>Não salvar</button>
       </div>
     </div>
   );

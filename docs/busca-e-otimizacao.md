@@ -87,33 +87,45 @@ No `User` (e, se definido, sobrescrito na `ShoppingList`):
 
 ## 3. Busca, fase 1
 
-Uma chamada `searchOffers` por item, em paralelo (até 6 ao mesmo tempo):
+**Como a busca do iFood se comporta** (testado no sandbox em 18/10): é por palavras, não semântica, e **exige todas as palavras** da busca. Tolera plural e acento ("Açúcares" casa com "açúcar", "Grãos" com "grão"), parece olhar também a descrição do produto e não conhece sinônimos: "granola sem açúcar" não traz as granolas "Zero Açúcar". Cada palavra a mais na busca elimina resultados.
+
+Por isso cada item gera até três buscas, em paralelo. Quem decide as buscas é o LLM (tarefa
+`plan_searches`, uma vez por item, guardada em `ListItem.search_plan` e refeita quando o texto ou a marca
+mudam), porque traduzir "1 granola sem açucar (>500g)" para o vocabulário de rótulo é bom senso:
+
+| Busca | Exemplo ("1 granola sem açucar (>500g)") | Para quê |
+|---|---|---|
+| específica | `granola sem açúcar` | o produto como está no rótulo, com a variedade pedida, sem quantidade nem palavras de uso |
+| curta | `granola` | só o produto, mais a marca se houver ("leite Italac"); rede de segurança |
+| alternativa | `granola zero açúcar` | outra forma de rótulo para a mesma variedade, quando existe |
+
+O LLM também devolve as características exigidas (`must_have`, ex.: "sem açúcar"). O código impõe o
+formato: no máximo uma alternativa, sempre com o nome do produto, e nada de tamanho ou número nas
+exigências. Sem LLM, um plano B faz a limpeza com uma lista fixa de palavras e uma tabela pequena de
+sinônimos (`app/heuristics.py`).
+
+**Conferência da variedade:** a comparação literal ("sem açúcar" no nome) é o primeiro filtro. Para os
+produtos em que ela diz que falta algo, o LLM confere em lote (`check_variety`) com bom senso: "Granola
+Zero Açúcares" atende "sem açúcar"; "Granola Kobber Tradicional" não.
 
 ```json
 {
-  "query": "leite integral Italac",
-  "intention": "product_exact",
+  "query": "granola sem açúcar",
+  "intention": "product",
   "resultKind": "ITEM",
   "merchantType": "GROCERIES",
   "userLocation": {"latitude": -22.01318, "longitude": -47.89623},
   "pageSize": 25,
-  "includeFacets": true,
-  "refinements": {
-    "sort": "PRICE",
-    "onlyOpen": true,
-    "maxDistanceKm": 8,
-    "itemRestrictions": ["LAC_FREE"],
-    "itemTaxonomy": ["LEITE_TRADICIONAL"],
-    "maxDeliveryFee": 8
-  }
+  "refinements": {"onlyOpen": true, "maxDistanceKm": 8, "itemRestrictions": ["SUGAR_FREE"], "maxDeliveryFee": 8}
 }
 ```
 
+- **Ordenação por relevância** (o padrão; o app não manda `sort`). Com `sort: PRICE`, "feijão" trazia tempero, lámen e macarrão instantâneo antes de qualquer pacote de feijão. Quem compara preço é o solver.
+- **Sem `itemTaxonomy`.** A busca não mostra a categoria de cada produto, então não dá para saber quantos estão sem categoria ou na errada, e um filtro errado esconde tudo (aconteceu com `LEITE_CONDENSADO` para leite). Quem decide o que é o produto é o app, pelo nome.
 - **Qualificadores nunca vão na `query`.** O wrapper (`app/mcp/ifood.py`) recusa "barato", "perto" e afins.
 - **`onlyOpen`:** desligado quando o carrinho tem horário de entrega (`deliver_at`), porque o iFood aceita carrinho em mercado fechado e agenda a entrega. Também desliga com `GNOMERS_ONLY_OPEN=0`.
-- **Campos opcionais:** `itemRestrictions`, `maxDeliveryFee` e `maxDeliveryTimeMinutes` só entram se houver regra. `itemTaxonomy` só entra se o item já tiver taxonomia.
-- **Taxonomia:** sem `itemTaxonomy`, a busca pede `includeFacets`, e a taxonomia do item é escolhida entre os facets e gravada. A escolha descarta categorias que viram outro produto (`LEITE_CONDENSADO` para "leite") e as marginais (menos de 30% do maior facet).
-- **Busca sem resultado tenta de novo,** primeiro sem a taxonomia e depois com `intention: product`. Se a taxonomia gravada era a culpada, ela é apagada do item.
+- **Campos opcionais:** `itemRestrictions`, `maxDeliveryFee` e `maxDeliveryTimeMinutes` só entram se houver regra.
+- **Preferência "product":** quando há uma regra de produto para a categoria (criada pelo chat, como "café torrado e moído"), a descrição dela vira a busca específica.
 
 **O que se aproveita da resposta:** de cada resultado, `itemId`, `itemName`, `itemEan`, `unitPrice`, `promotionalUnitPrice` (o preço efetivo; no sandbox ele vem sempre, igual ao `unitPrice` quando não há promoção) e o resumo do `merchant` (`merchantId`, nome, `minimumOrderAmount`, distância, `deliveryMethod`). Algumas tools embrulham a resposta em `{"success": true, "data": {...}}`, e o cliente desembrulha.
 
@@ -127,8 +139,8 @@ Para cada candidato há um `getMerchant`, que traz o pedido mínimo e os método
 
 ## 5. Busca, fase 2
 
-- **Lacunas:** para cada par (item, mercado candidato) sem resultado, um `searchOffers` restrito ao mercado (`refinements.merchantId`, `pageSize: 10`, sem `onlyOpen`).
-- **Marcas preferidas:** para itens com `brand_chain`, se uma marca da cadeia não apareceu, busca `"<categoria> <marca>"` com `product_exact`, na ordem da cadeia, até achar.
+- **Lacunas:** para cada par (item, mercado) sem resultado, nos 3 mercados que mais cobrem a lista, um `searchOffers` com a **busca curta** restrito ao mercado (`refinements.merchantId`, `pageSize: 10`, sem `onlyOpen`). A busca curta traz as opções daquele mercado, e o app confere a variedade depois.
+- **Marcas preferidas:** para itens com `brand_chain`, se uma marca da cadeia não apareceu, busca `"<produto> <marca>"` com `product_exact`, na ordem da cadeia, até achar.
 
 No fim, as ofertas são deduplicadas e só ficam as dos mercados candidatos.
 
@@ -219,6 +231,6 @@ A estimativa não conhece cupons, taxas de serviço nem o frete final. Por isso 
 
 - **Variedade comparada por texto literal.** "sem açúcar" pedido contra "Zero Açúcar" no rótulo conta como variedade ausente: gera cartão e penalidade sem motivo. Falta uma tabela de sinônimos ou a conferência pelo LLM.
 - **Embalagens minúsculas.** 25 sachês de 20 g cobrem 500 g de café e passam pelos filtros.
-- **Lista de derivados mantida à mão.** Um derivado com palavra nova passa. A taxonomia do iFood seria um filtro mais sólido.
+- **Lista de derivados e de sinônimos mantida à mão.** Um derivado com palavra nova passa, e um sinônimo fora da tabela (`LABEL_SYNONYMS` em `app/heuristics.py`) não é reconhecido. Com o LLM ligado, a normalização cobre parte disso.
 - **Só 3 soluções viram carrinho.** Uma combinação em 4º lugar na estimativa nunca tem cupons testados.
 - **Frete de mercado fechado desconhecido** até o `getMerchant` ou o carrinho.

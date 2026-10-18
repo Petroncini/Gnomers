@@ -7,7 +7,7 @@
       "longitude": -47.89623
     }
   },
-  "recordedAt": "2026-10-18T00:02:04",
+  "recordedAt": "2026-10-18T04:47:46",
   "response": {
     "address": "Avenida Bruno Ruggiero Filho, 101, Parque Santa Felícia Jardim, SAO CARLOS - SP, 13562420, BR",
     "agentHints": {
@@ -17,7 +17,7 @@
     "appDeeplink": "ifood://catalog-hub/32549526-5a03-4af1-a9ed-f4e8875828bf/GROCERIES",
     "catalogSummary": {
       "navigationHint": "Call `browseOffers` with `resultKind=ITEM`, the matching `merchantType`, and `refinements.merchantId=32549526-5a03-4af1-a9ed-f4e8875828bf` to browse items. Use `searchOffers` with `refinements.merchantId=32549526-5a03-4af1-a9ed-f4e8875828bf` for keyword search within this merchant.",
-      "totalItems": 3077
+      "totalItems": 3082
     },
     "deliveryMethods": [],
     "featuredItems": [
@@ -129,7 +129,7 @@
         ]
       }
     },
-    "ratingCount": 272,
+    "ratingCount": 276,
     "reviewRating": 4.900000095367432,
     "straightLineDistanceKm": 1.96
   }

@@ -16,7 +16,7 @@
     "pageSize": 25,
     "includeFacets": true
   },
-  "recordedAt": "2026-10-18T00:10:03",
+  "recordedAt": "2026-10-18T04:46:53",
   "response": {
     "agentHints": {
       "nextStepWhenUserPicksItem": "Retrieve full item details — option groups and applicable promotions — before presenting it to the user."
@@ -94,7 +94,7 @@
           "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/75a8e0a0-2766-48e7-990f-5d551d441dbb/201909191637_C7AP_i.png",
           "merchantName": "Supermercados Arco Íris Express",
           "minimumOrderAmount": 30,
-          "ratingCount": 90,
+          "ratingCount": 89,
           "reviewRating": 4.900000095367432,
           "straightLineDistanceKm": 1.32
         },
@@ -115,8 +115,8 @@
               "max": 102,
               "min": 92
             },
-            "fee": 10.99,
-            "promotionalFee": 10.99
+            "fee": 9.99,
+            "promotionalFee": 9.99
           },
           "isOpen": false,
           "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
@@ -144,7 +144,7 @@
               "max": 234,
               "min": 224
             },
-            "fee": 13.99,
+            "fee": 11.99,
             "promotionalFee": 0
           },
           "isOpen": false,
@@ -152,7 +152,7 @@
           "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/3974223/202607281734_5AGE.png",
           "merchantName": "Pão de Açúcar - Shopping Iguatemi São Carlos",
           "minimumOrderAmount": 30,
-          "ratingCount": 99,
+          "ratingCount": 102,
           "reviewRating": 4.900000095367432,
           "straightLineDistanceKm": 2.09
         },
@@ -173,7 +173,7 @@
               "max": 92,
               "min": 82
             },
-            "fee": 11.99,
+            "fee": 9.99,
             "promotionalFee": 0
           },
           "isOpen": false,
@@ -181,7 +181,7 @@
           "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/32549526-5a03-4af1-a9ed-f4e8875828bf/202605131411_woyX_l.jpg",
           "merchantName": "Oba Hortifruti - São Carlos",
           "minimumOrderAmount": 30,
-          "ratingCount": 272,
+          "ratingCount": 276,
           "reviewRating": 4.900000095367432,
           "straightLineDistanceKm": 1.96
         },
@@ -209,7 +209,7 @@
           "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/75a8e0a0-2766-48e7-990f-5d551d441dbb/201909191637_C7AP_i.png",
           "merchantName": "Supermercados Arco Íris Express",
           "minimumOrderAmount": 30,
-          "ratingCount": 90,
+          "ratingCount": 89,
           "reviewRating": 4.900000095367432,
           "straightLineDistanceKm": 1.32
         },
@@ -238,7 +238,7 @@
           "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/75a8e0a0-2766-48e7-990f-5d551d441dbb/201909191637_C7AP_i.png",
           "merchantName": "Supermercados Arco Íris Express",
           "minimumOrderAmount": 30,
-          "ratingCount": 90,
+          "ratingCount": 89,
           "reviewRating": 4.900000095367432,
           "straightLineDistanceKm": 1.32
         },

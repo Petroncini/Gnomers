@@ -100,7 +100,7 @@ export default function AssistantPage() {
     <div key={`m${i}`} className={`bubble ${m.from}`}>
       <p>{m.text}</p>
       {m.proposal && plan && (
-        <RuleProposal proposal={m.proposal} listId={plan.list_id}
+        <RuleProposal proposal={m.proposal} listId={plan.list_id} planId={plan.id}
                       onSaved={(r) => dropProposal(i, { from: "agent", text: `Regra salva: ${r.text}`, cardId })}
                       onDiscard={() => dropProposal(i)} />
       )}

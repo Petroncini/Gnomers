@@ -18,7 +18,7 @@
     },
     "pageSize": 25
   },
-  "recordedAt": "2026-10-18T01:00:57",
+  "recordedAt": "2026-10-18T02:29:04",
   "response": {
     "agentHints": {
       "nextStepWhenUserPicksItem": "Retrieve full item details — option groups and applicable promotions — before presenting it to the user."
@@ -461,93 +461,6 @@
         "unitPrice": 5.69
       },
       {
-        "itemEan": "7896116900647",
-        "itemId": "a477a47a-7c56-4464-850e-617af1b3c286",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202307262036_spekx6uxn1d.jpg",
-        "itemName": "Feijão Preto Tipo 1 Kicaldo 1kg",
-        "itemSkuId": "SKU-LRDI23465",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 172,
-              "min": 142
-            },
-            "fee": 19.99,
-            "promotionalFee": 19.99
-          },
-          "isOpen": false,
-          "merchantId": "2454a662-ab7d-4cb8-91c9-c69720983886",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/2454a662-ab7d-4cb8-91c9-c69720983886/202509011622_2TXL.png",
-          "merchantName": "Atacadão São Carlos",
-          "minimumOrderAmount": 90,
-          "ratingCount": 211,
-          "reviewRating": 4.800000190734863,
-          "straightLineDistanceKm": 5.1
-        },
-        "promotionalUnitPrice": 5.78,
-        "unitPrice": 7.29
-      },
-      {
-        "itemEan": "7896116900647",
-        "itemId": "5dbe07c0-fbad-48e0-89b4-3052e4558c43",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202307262036_spekx6uxn1d.jpg",
-        "itemName": "Feijão Preto Tipo 1 Kicaldo 1kg",
-        "itemSkuId": "SKU-LRDI23465",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 118,
-              "min": 98
-            },
-            "fee": 9.99,
-            "promotionalFee": 0
-          },
-          "isOpen": false,
-          "merchantId": "782805bb-66e0-4d8d-8e86-5befa3b5d7f8",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/782805bb-66e0-4d8d-8e86-5befa3b5d7f8/202603111724_A6N4.png",
-          "merchantName": "Carrefour Bairro - São Carlos 2",
-          "minimumOrderAmount": 30,
-          "ratingCount": 584,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 1.43
-        },
-        "promotionalUnitPrice": 5.78,
-        "unitPrice": 9.42
-      },
-      {
-        "itemEan": "7896116900647",
-        "itemId": "231bed3d-cccb-4780-8ec7-b2a16190710d",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202307262036_spekx6uxn1d.jpg",
-        "itemName": "Feijão Preto Tipo 1 Kicaldo 1kg",
-        "itemSkuId": "SKU-LRDI23465",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 100,
-              "min": 90
-            },
-            "fee": 9.9,
-            "promotionalFee": 9.9
-          },
-          "isOpen": false,
-          "merchantId": "becdb3b1-b307-418b-a650-9103bc03b501",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/becdb3b1-b307-418b-a650-9103bc03b501/202505211748_79Jm_s.png",
-          "merchantName": "Shopper | São Carlos",
-          "minimumOrderAmount": 149.9,
-          "ratingCount": 6,
-          "reviewRating": 5,
-          "straightLineDistanceKm": 0.62
-        },
-        "promotionalUnitPrice": 5.78,
-        "unitPrice": 7.99
-      },
-      {
         "itemEan": "7896006751113",
         "itemId": "a5bbc5b1-9a6a-4630-a645-a9accfa69d94",
         "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510042121_zyazzsrq4w.jpeg",
@@ -720,6 +633,35 @@
         "unitPrice": 6.35
       },
       {
+        "itemEan": "7896086422217",
+        "itemId": "a1371481-ce1b-4e32-9aca-6e28615813b6",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210182352_3nqceu1s5tt.jpg",
+        "itemName": "Feijão Preto Empório São João 1kg",
+        "itemSkuId": "SKU-INQZ13475",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 102,
+              "min": 92
+            },
+            "fee": 10.99,
+            "promotionalFee": 10.99
+          },
+          "isOpen": false,
+          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
+          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1867,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.26
+        },
+        "promotionalUnitPrice": 6.45,
+        "unitPrice": 6.45
+      },
+      {
         "itemEan": "7895000319008",
         "itemId": "2ee53d10-5c5b-4df5-8f17-763cedbe8cfc",
         "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210180321_rzxaa54ut2f.jpg",
@@ -747,6 +689,64 @@
         },
         "promotionalUnitPrice": 6.45,
         "unitPrice": 6.79
+      },
+      {
+        "itemEan": "7898053200040",
+        "itemId": "26afc74f-53dc-4f68-9942-bdebaa454cd4",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210180149_2gz7fub2w97.jpg",
+        "itemName": "Feijão Carioca Maravilha Tipo 1 Embalagem 1kg",
+        "itemSkuId": "SKU-IVSS90274",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 240,
+              "min": 230
+            },
+            "fee": 18.49,
+            "promotionalFee": 0
+          },
+          "isOpen": false,
+          "merchantId": "9d6b46da-7347-4d8a-8fde-cda8ca3adef8",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/3901056/202607311821_FR9A.png",
+          "merchantName": "Paulistão Av. Luiz Brandão - São Carlos Lj 13",
+          "minimumOrderAmount": 30,
+          "ratingCount": 172,
+          "reviewRating": 4.800000190734863,
+          "straightLineDistanceKm": 3.08
+        },
+        "promotionalUnitPrice": 6.45,
+        "unitPrice": 6.45
+      },
+      {
+        "itemEan": "7896006749295",
+        "itemId": "c77b9a91-68ea-4309-aa28-d6a2419ccc51",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210182332_4a7sgs8zsic.jpg",
+        "itemName": "Feijão Fradinho Tipo 1 Camil Pacote 500g",
+        "itemSkuId": "SKU-DUXA72059",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 92,
+              "min": 82
+            },
+            "fee": 11.99,
+            "promotionalFee": 0
+          },
+          "isOpen": false,
+          "merchantId": "32549526-5a03-4af1-a9ed-f4e8875828bf",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/32549526-5a03-4af1-a9ed-f4e8875828bf/202605131411_woyX_l.jpg",
+          "merchantName": "Oba Hortifruti - São Carlos",
+          "minimumOrderAmount": 30,
+          "ratingCount": 276,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.96
+        },
+        "promotionalUnitPrice": 6.49,
+        "unitPrice": 6.49
       }
     ]
   }

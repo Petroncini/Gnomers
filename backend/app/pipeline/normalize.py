@@ -31,6 +31,7 @@ class ItemSpec:
     quantity: float
     rules: Resolved
     pin_size: float | None = None  # escolha do usuário num carrinho anterior: só embalagens deste tamanho
+    required_terms: list[str] = field(default_factory=list)  # da regra "product": o que o usuário disse querer
 
 
 @dataclass
@@ -153,9 +154,9 @@ async def _ensure_products(s: Session, specs: dict[int, ItemSpec], offers: list[
 
 
 def _variety_ok(terms: list[str], product: Product) -> list[str]:
-    """Termos pedidos que faltam no SKU."""
-    have = norm(" ".join(product.variety_terms or []) + " " + product.name)
-    return [t for t in terms if norm(t) not in have]
+    """Termos pedidos que faltam no SKU; sinônimo de rótulo conta ("Zero Açúcar" atende "sem açúcar")."""
+    have = " ".join(product.variety_terms or []) + " " + product.name
+    return [t for t in terms if not heuristics.has_term(have, t)]
 
 
 async def build(s: Session, specs: list[ItemSpec], offers: list[Offer], *,
@@ -170,11 +171,30 @@ async def build(s: Session, specs: list[ItemSpec], offers: list[Offer], *,
     def reject(item_id: int, why: str) -> None:
         rejected[item_id][why] = rejected[item_id].get(why, 0) + 1
 
+    # Conferência literal da variedade erra com sinônimos ("Zero Açúcar" para "sem açúcar"). Para os
+    # produtos em que ela diz que falta algo, o LLM decide com bom senso, em lote por item.
+    variety_override: dict[tuple[int, str], list[str]] = {}
+    doubtful: dict[int, list[str]] = {}
+    for o in offers:
+        spec = spec_by_id[o.item_id]
+        p = products.get(o.sku_id)
+        terms = list(dict.fromkeys(list(spec.variety_terms) + list(spec.rules.variety_terms) + list(spec.required_terms)))
+        if p is not None and p.matched and terms and _variety_ok(terms, p):
+            doubtful.setdefault(o.item_id, [])
+            if o.name not in doubtful[o.item_id]:
+                doubtful[o.item_id].append(o.name)
+    for item_id, names in doubtful.items():
+        spec = spec_by_id[item_id]
+        terms = list(dict.fromkeys(list(spec.variety_terms) + list(spec.rules.variety_terms) + list(spec.required_terms)))
+        for name, missing in zip(names, await llm.check_variety(terms, names)):
+            variety_override[(item_id, name)] = missing
+
     for o in offers:
         spec = spec_by_id[o.item_id]
         p = products.get(o.sku_id)
         r = spec.rules
-        if p is None or not p.matched:
+        # a trava de derivado vale também para o que veio do cache (normalizado antes dela existir)
+        if p is None or not p.matched or heuristics.is_derivative(spec.category, o.name, spec.query):
             reject(o.item_id, "não é o produto")
             continue
         if r.is_blocked_brand(p.brand):
@@ -184,7 +204,8 @@ async def build(s: Session, specs: list[ItemSpec], offers: list[Offer], *,
             reject(o.item_id, "mercado bloqueado")
             continue
         wanted_terms = list(dict.fromkeys(list(spec.variety_terms) + list(r.variety_terms)))
-        missing_terms = _variety_ok(wanted_terms, p)
+        missing_terms = variety_override.get((o.item_id, o.name), _variety_ok(wanted_terms, p))
+        missing_terms = [t for t in missing_terms if t in wanted_terms]
         hard_terms = r.variety_terms if r.variety_hard else []
         if any(t in missing_terms for t in hard_terms):
             reject(o.item_id, "variedade obrigatória ausente")
@@ -246,6 +267,14 @@ async def build(s: Session, specs: list[ItemSpec], offers: list[Offer], *,
         if spec.pin_size:
             entries = keep(entries, lambda i: abs(i.size - spec.pin_size) <= 0.02 * spec.pin_size,
                            "tamanho diferente do escolhido")
+        if spec.required_terms:
+            def has_terms(i: SkuInfo) -> bool:
+                missing = variety_override.get((spec.id, i.name))
+                if missing is not None:
+                    return not any(t in missing for t in spec.required_terms)
+                text = " ".join(i.variety_terms) + " " + i.name
+                return all(heuristics.has_term(text, t) for t in spec.required_terms)
+            entries = keep(entries, has_terms, "fora da preferência declarada")
         if unit_mode != "pack":
             # sem tamanho no nome, o SKU seria tratado como se tivesse o tamanho pedido
             entries = keep(entries, lambda i: i.size_known, "tamanho desconhecido")

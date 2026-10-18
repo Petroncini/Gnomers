@@ -17,6 +17,7 @@ from app.pipeline.normalize import SkuInfo, sku_key
 from app.pipeline.optimize import Solution
 
 log = logging.getLogger(__name__)
+ALT_MARGIN = 1.15
 
 
 def _summary(cart: dict) -> dict:
@@ -61,6 +62,17 @@ def choose_delivery(methods: list[dict], deliver_at: str | None) -> tuple[dict |
     return method, slot, None
 
 
+def voucher_value(v: dict, subtotal: float) -> float:
+    """Desconto estimado de um cupom do listVouchers, para escolher qual aplicar sem testar todos."""
+    value = float(v.get("effectValue") or 0)
+    if v.get("effectType") == "PERCENTAGE":
+        value = subtotal * value / 100
+        cap = v.get("maxDiscountValue")
+        if cap:  # o sandbox manda 0 quando não há teto
+            value = min(value, float(cap))
+    return min(value, subtotal)
+
+
 def _blocking(warning: dict | None) -> bool:
     if not warning:
         return False
@@ -99,38 +111,71 @@ async def build_cart(api: Ifood, merchant_id: str, merchant_name: str, address_i
     # entrega: método e horário (agendado quando o mercado está fechado ou quando pedido)
     methods = await api.delivery_methods(cart_id)
     delivery, slot, delivery_problem = choose_delivery(methods, deliver_at)
-    if delivery:
-        cart = await api.set_delivery(cart_id, delivery["deliveryMethodId"], slot.get("timeslotId") if slot else None)
+    current = cart.get("deliveryMethod") or {}
+    already = (delivery is not None and current.get("deliveryMethodId") == delivery["deliveryMethodId"]
+               and (current.get("timeSlot") or {}).get("from") == (slot or {}).get("from"))
+    if delivery and not already:
+        try:
+            cart = await api.set_delivery(cart_id, delivery["deliveryMethodId"], slot.get("timeslotId") if slot else None)
+        except McpToolError as exc:
+            # o createCart já vem com a entrega preenchida (o primeiro horário); se trocar falhar, fica com ela
+            current = cart.get("deliveryMethod")
+            if not current:
+                raise
+            log.warning("setCartDelivery falhou (%s); mantendo a entrega que o carrinho já tem", exc.code)
+            delivery = {"deliveryMethodId": current.get("deliveryMethodId") or delivery["deliveryMethodId"],
+                        "deliveryMethodName": current.get("deliveryMethodName"), "fee": current.get("fee"),
+                        "estimatedMinutes": current.get("estimatedMinutes")}
+            slot = current.get("timeSlot")
+            if deliver_at:
+                delivery_problem = "o iFood não deixou escolher o horário; ficou o primeiro disponível"
 
-    # cupom: testa cada um e fica com o menor total
-    vouchers = await api.list_vouchers(cart_id)
+    # cupom: o listVouchers já diz o desconto de cada um; aplica só o melhor (e o próximo, se ele falhar)
+    try:
+        vouchers = await api.list_vouchers(cart_id)
+    except McpToolError as exc:
+        log.warning("listVouchers falhou (%s); seguindo sem cupom", exc.code)
+        vouchers = []
     base_total = _summary(cart)["total"]
-    best, best_total, tested, applied = None, base_total, [], None
-    for v in vouchers:
+    subtotal = _summary(cart)["subtotal"]
+    best, tested, applied = None, [], False
+    for v in sorted(vouchers, key=lambda v: -voucher_value(v, subtotal))[:2]:
+        if voucher_value(v, subtotal) <= 0:
+            break
         try:
             trial = await api.set_voucher(cart_id, v["code"], v["campaignId"])
         except McpToolError as exc:
             tested.append({"code": v["code"], "error": exc.code})
             continue
-        applied = v["code"]
+        applied = True
         total = _summary(trial)["total"]
         tested.append({"code": v["code"], "total": total})
-        if total < best_total - 0.001:
-            best, best_total, cart = v, total, trial
+        if total < base_total - 0.001:
+            best, cart = v, trial
+            break
     if best is None and applied:
-        cart = await api.remove_voucher(cart_id)
-    elif best is not None and applied != best["code"]:
-        cart = await api.set_voucher(cart_id, best["code"], best["campaignId"])
+        # cupom que não baixou o total não pode ficar no carrinho (o checkout reclama de cupom inaplicável)
+        try:
+            cart = await api.remove_voucher(cart_id)
+        except McpToolError as exc:
+            log.warning("removeVoucher falhou (%s)", exc.code)
+    best_total = _summary(cart)["total"]
 
-    # pagamento: Pix pré-selecionado (o cartão exige cardTokenId, que o MCP não expõe)
+    # pagamento: Pix pré-selecionado (o cartão exige cardTokenId, que o MCP não expõe).
+    # A resposta do setCartPayment já é o carrinho completo: não precisa de getCart no fim.
     payment = None
-    methods = await api.payment_methods(merchant_id)
+    try:
+        methods = await api.payment_methods(merchant_id)
+    except McpToolError as exc:
+        log.warning("listPaymentMethods falhou (%s)", exc.code)
+        methods = []
     pix = next((p for p in methods if p.get("kind") == "PIX"), None)
     if pix:
         cart = await api.set_payment(cart_id, pix["paymentMethodId"])
         payment = {"kind": "PIX", "paymentMethodId": pix["paymentMethodId"]}
+    else:
+        cart = await api.get_cart(cart_id)
 
-    cart = await api.get_cart(cart_id)
     by_sku = {}
     for ci in cart.get("items", []):
         by_sku.setdefault(ci["itemId"], ci)
@@ -181,6 +226,9 @@ async def materialize(api: Ifood, solutions: list[Solution], skus: dict[str, Sku
                 build_cart(api, m_id, merchants[m_id].name, address_id, lines, lat, lng, emit, deliver_at))
         return cache[key]
 
+    # alternativa com estimativa muito pior que a melhor não vira carrinho (cada uma custa ~6 chamadas)
+    best_estimate = solutions[0].estimated_total if solutions else 0
+    solutions = [sol for i, sol in enumerate(solutions) if i == 0 or sol.estimated_total <= ALT_MARGIN * best_estimate]
     plans = []
     for idx, sol in enumerate(solutions):
         tasks = [(m, cart_task(m, _lines_for(sol, m, skus))) for m in sol.merchants]

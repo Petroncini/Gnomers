@@ -1,0 +1,32 @@
+{
+  "tool": "searchOffers",
+  "args": {
+    "query": "granola sem açúcar",
+    "userLocation": {
+      "latitude": -22.01318,
+      "longitude": -47.89623
+    },
+    "resultKind": "ITEM",
+    "merchantType": "GROCERIES",
+    "intention": "product",
+    "refinements": {
+      "sort": "PRICE",
+      "itemTaxonomy": [
+        "GRANOLA"
+      ],
+      "merchantId": "8a1da42a-5d58-489b-9697-b92bf9ada902"
+    },
+    "pageSize": 10
+  },
+  "recordedAt": "2026-10-18T04:36:05",
+  "response": {
+    "agentHints": {
+      "noResultsGuidance": "No results found for \"granola sem açúcar\" with the active filters in this area. Suggest the user try a broader term, remove price or distance filters, or try a different neighborhood."
+    },
+    "hasMore": false,
+    "interpretedQuery": "granola sem açúcar",
+    "nextPageToken": null,
+    "resultKind": "ITEM",
+    "results": []
+  }
+}

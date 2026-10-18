@@ -2717,6 +2717,7 @@
               "merchant",
               "delivery",
               "quantity",
+              "product",
               "note"
             ],
             "title": "Kind",
@@ -2956,6 +2957,7 @@
               "merchant",
               "delivery",
               "quantity",
+              "product",
               "note"
             ],
             "title": "Kind",
@@ -4726,6 +4728,48 @@
           }
         },
         "summary": "Plan Events"
+      }
+    },
+    "/plans/{plan_id}/metrics": {
+      "get": {
+        "description": "Diagnóstico: tempo por etapa, chamadas ao MCP e ao LLM, e custo em USD deste carrinho.",
+        "operationId": "plan_metrics_plans__plan_id__metrics_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "plan_id",
+            "required": true,
+            "schema": {
+              "title": "Plan Id",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "title": "Response Plan Metrics Plans  Plan Id  Metrics Get",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Plan Metrics"
       }
     },
     "/plans/{plan_id}/replan": {
