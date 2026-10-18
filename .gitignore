@@ -28,3 +28,6 @@ handoff/
 
 # Artefatos de build do TypeScript
 *.tsbuildinfo
+
+# respostas gravadas do iFood (modo record): ficam só na máquina de quem gravou
+backend/fixtures/
