@@ -7,7 +7,7 @@
       "longitude": -47.89623
     }
   },
-  "recordedAt": "2026-10-18T07:33:59",
+  "recordedAt": "2026-10-18T09:11:05",
   "response": {
     "address": "RUA PASSEIO DOS FLAMBOYANTS, 200, S C IGUATEMI LJ AN 1, PQ FABER, SAO CARLOS - SP, 13560970, BR",
     "agentHints": {
@@ -17,9 +17,30 @@
     "appDeeplink": "ifood://catalog-hub/e6067614-d8f3-4108-8b6e-c72fd364ae2c/GROCERIES",
     "catalogSummary": {
       "navigationHint": "Call `browseOffers` with `resultKind=ITEM`, the matching `merchantType`, and `refinements.merchantId=e6067614-d8f3-4108-8b6e-c72fd364ae2c` to browse items. Use `searchOffers` with `refinements.merchantId=e6067614-d8f3-4108-8b6e-c72fd364ae2c` for keyword search within this merchant.",
-      "totalItems": 10075
+      "totalItems": 10074
     },
-    "deliveryMethods": [],
+    "deliveryMethods": [
+      {
+        "deliveryMethodId": "DEFAULT",
+        "deliveryMethodMode": "DELIVERY",
+        "estimatedMinutes": {
+          "max": 234,
+          "min": 224
+        },
+        "fee": 11.99,
+        "promotionalFee": 0
+      },
+      {
+        "deliveryMethodId": "TAKEOUT",
+        "deliveryMethodMode": "TAKEOUT",
+        "estimatedMinutes": {
+          "max": 70,
+          "min": 60
+        },
+        "fee": 0,
+        "promotionalFee": 0
+      }
+    ],
     "featuredItems": [
       {
         "itemEan": "7895000342198",
@@ -72,7 +93,7 @@
         "unitPrice": 75.9
       }
     ],
-    "isOpen": false,
+    "isOpen": true,
     "merchantId": "e6067614-d8f3-4108-8b6e-c72fd364ae2c",
     "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/3974223/202607281734_5AGE.png",
     "merchantName": "Pão de Açúcar - Shopping Iguatemi São Carlos",

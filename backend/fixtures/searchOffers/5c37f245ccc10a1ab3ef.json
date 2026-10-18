@@ -14,7 +14,7 @@
     },
     "pageSize": 25
   },
-  "recordedAt": "2026-10-18T05:45:23",
+  "recordedAt": "2026-10-18T09:10:39",
   "response": {
     "agentHints": {
       "nextStepWhenUserPicksItem": "Retrieve full item details — option groups and applicable promotions — before presenting it to the user."
@@ -26,51 +26,22 @@
     "results": [
       {
         "itemEan": "7896006744115",
-        "itemId": "57f14b19-01a5-4b51-aaf0-d30c5d8563c6",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202408211735_xipbxuwhca.jpeg",
-        "itemName": "Feijão Carioca Tipo 1 Camil 1kg",
-        "itemSkuId": "SKU-OQLG92859",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 70,
-              "min": 50
-            },
-            "fee": 7.49,
-            "promotionalFee": 0
-          },
-          "isOpen": false,
-          "merchantId": "fdc30d9c-4a05-4e5a-b1de-421b2df23eb0",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/fdc30d9c-4a05-4e5a-b1de-421b2df23eb0/202601271313_QN9O.png",
-          "merchantName": "Minuto Pão - XV de Novembro",
-          "minimumOrderAmount": 30,
-          "ratingCount": 688,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 0.41
-        },
-        "promotionalUnitPrice": 9.99,
-        "unitPrice": 9.99
-      },
-      {
-        "itemEan": "7896006744115",
         "itemId": "288fcb74-29ac-4116-b0a4-738852f2bcab",
         "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202408211735_xipbxuwhca.jpeg",
         "itemName": "Feijão Carioca Tipo 1 Camil 1kg",
         "itemSkuId": "SKU-OQLG92859",
         "merchant": {
           "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodId": "FAST_DELIVERY",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 120,
-              "min": 110
+              "max": 54,
+              "min": 44
             },
-            "fee": 6.49,
-            "promotionalFee": 0
+            "fee": 10.49,
+            "promotionalFee": 4
           },
-          "isOpen": false,
+          "isOpen": true,
           "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
           "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
           "merchantName": "Extra - São Carlos",
@@ -83,237 +54,6 @@
         "unitPrice": 9.99
       },
       {
-        "itemEan": "7898957777037",
-        "itemId": "80047b30-1f18-4dc5-abec-a367ac6f79cd",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210180158_1bfyude03ho.jpg",
-        "itemName": "Feijão Bolinha de Luci Embalagem 1kg",
-        "itemSkuId": "SKU-LQZQ99724",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 102,
-              "min": 92
-            },
-            "fee": 9.99,
-            "promotionalFee": 9.99
-          },
-          "isOpen": false,
-          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
-          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
-          "minimumOrderAmount": 60,
-          "ratingCount": 1867,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 1.26
-        },
-        "promotionalUnitPrice": 9.85,
-        "unitPrice": 9.85
-      },
-      {
-        "itemEan": "7896006751113",
-        "itemId": "f6bf8f9c-a00e-4c9d-af66-e108cbe55750",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510042121_zyazzsrq4w.jpeg",
-        "itemName": "Feijão Preto Tipo 1 Camil 1kg",
-        "itemSkuId": "SKU-BGOQ28002",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 70,
-              "min": 50
-            },
-            "fee": 7.49,
-            "promotionalFee": 0
-          },
-          "isOpen": false,
-          "merchantId": "fdc30d9c-4a05-4e5a-b1de-421b2df23eb0",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/fdc30d9c-4a05-4e5a-b1de-421b2df23eb0/202601271313_QN9O.png",
-          "merchantName": "Minuto Pão - XV de Novembro",
-          "minimumOrderAmount": 30,
-          "ratingCount": 688,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 0.41
-        },
-        "promotionalUnitPrice": 8.79,
-        "unitPrice": 8.79
-      },
-      {
-        "itemEan": "7896200115032",
-        "itemId": "1717686e-c99b-4a33-ae55-a9dbf9929a19",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510031951_t790vuqbere.png",
-        "itemName": "Feijão Bolinha Broto Legal 500g",
-        "itemSkuId": "SKU-WVTW40457",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 102,
-              "min": 92
-            },
-            "fee": 9.99,
-            "promotionalFee": 9.99
-          },
-          "isOpen": false,
-          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
-          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
-          "minimumOrderAmount": 60,
-          "ratingCount": 1867,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 1.26
-        },
-        "promotionalUnitPrice": 6.35,
-        "unitPrice": 6.35
-      },
-      {
-        "itemEan": "7896200116398",
-        "itemId": "7cffe184-2857-471a-8b08-6f953ec7ee49",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210180204_cy2ns2lrka5.jpg",
-        "itemName": "Feijão Preto Serra Azul Embalagem 1kg",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 102,
-              "min": 92
-            },
-            "fee": 9.99,
-            "promotionalFee": 9.99
-          },
-          "isOpen": false,
-          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
-          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
-          "minimumOrderAmount": 60,
-          "ratingCount": 1867,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 1.26
-        },
-        "promotionalUnitPrice": 6.19,
-        "unitPrice": 6.19
-      },
-      {
-        "itemEan": "7896200115346",
-        "itemId": "ee869224-c591-4288-9b1d-e84617f1280d",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202306021024_q46gznvn7cc.jpg",
-        "itemName": "Feijao Carioca Broto Legal 1kg",
-        "itemSkuId": "SKU-DASY48894",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 102,
-              "min": 92
-            },
-            "fee": 9.99,
-            "promotionalFee": 9.99
-          },
-          "isOpen": false,
-          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
-          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
-          "minimumOrderAmount": 60,
-          "ratingCount": 1867,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 1.26
-        },
-        "promotionalUnitPrice": 9.49,
-        "unitPrice": 9.49
-      },
-      {
-        "itemEan": "7896200115360",
-        "itemId": "7dec62e5-c49b-4f41-b364-eac9d1bd01ec",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510031803_0o7h9ppailb.jpeg",
-        "itemName": "Feijão Preto Broto Legal 1kg",
-        "itemSkuId": "SKU-QNLE28659",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 102,
-              "min": 92
-            },
-            "fee": 9.99,
-            "promotionalFee": 9.99
-          },
-          "isOpen": false,
-          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
-          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
-          "minimumOrderAmount": 60,
-          "ratingCount": 1867,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 1.26
-        },
-        "promotionalUnitPrice": 7.49,
-        "unitPrice": 7.49
-      },
-      {
-        "itemEan": "7896086422217",
-        "itemId": "a1371481-ce1b-4e32-9aca-6e28615813b6",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210182352_3nqceu1s5tt.jpg",
-        "itemName": "Feijão Preto Empório São João 1kg",
-        "itemSkuId": "SKU-INQZ13475",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 102,
-              "min": 92
-            },
-            "fee": 9.99,
-            "promotionalFee": 9.99
-          },
-          "isOpen": false,
-          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
-          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
-          "minimumOrderAmount": 60,
-          "ratingCount": 1867,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 1.26
-        },
-        "promotionalUnitPrice": 6.45,
-        "unitPrice": 6.45
-      },
-      {
-        "itemEan": "7898957777013",
-        "itemId": "ef5f3ab3-2b6c-4bb9-bc1d-2ff466afc615",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210180118_856ekrpw2n5.jpg",
-        "itemName": "Feijão Carioca de Luci Embalagem 1kg",
-        "itemSkuId": "SKU-LVVU17760",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 102,
-              "min": 92
-            },
-            "fee": 9.99,
-            "promotionalFee": 9.99
-          },
-          "isOpen": false,
-          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
-          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
-          "minimumOrderAmount": 60,
-          "ratingCount": 1867,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 1.26
-        },
-        "promotionalUnitPrice": 9.59,
-        "unitPrice": 9.59
-      },
-      {
         "itemEan": "7896086421982",
         "itemId": "954ac44a-4f14-4340-ad81-bdb54f67e5c5",
         "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202605291932_cg263s1613u.png",
@@ -321,16 +61,16 @@
         "itemSkuId": "SKU-DLAC56541",
         "merchant": {
           "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodId": "FAST_DELIVERY",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 102,
-              "min": 92
+              "max": 57,
+              "min": 47
             },
-            "fee": 9.99,
-            "promotionalFee": 9.99
+            "fee": 12.99,
+            "promotionalFee": 12.99
           },
-          "isOpen": false,
+          "isOpen": true,
           "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
           "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
           "merchantName": "Savegnago - Shopping Passeio - LJ 33",
@@ -343,149 +83,33 @@
         "unitPrice": 8.25
       },
       {
-        "itemEan": "7896200115773",
-        "itemId": "843edd40-47aa-4885-b2ea-34571f557e32",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210182226_3fr1i1bqhia.jpg",
-        "itemName": "Feijão Carioca Serra Azul Pacote 1kg",
-        "itemSkuId": "SKU-CIPK94004",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 102,
-              "min": 92
-            },
-            "fee": 9.99,
-            "promotionalFee": 9.99
-          },
-          "isOpen": false,
-          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
-          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
-          "minimumOrderAmount": 60,
-          "ratingCount": 1867,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 1.26
-        },
-        "promotionalUnitPrice": 7.95,
-        "unitPrice": 7.95
-      },
-      {
         "itemEan": "7896006744115",
-        "itemId": "9c15f0bd-8cf4-4daf-bfd7-ab5b8defd8a7",
+        "itemId": "57f14b19-01a5-4b51-aaf0-d30c5d8563c6",
         "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202408211735_xipbxuwhca.jpeg",
         "itemName": "Feijão Carioca Tipo 1 Camil 1kg",
         "itemSkuId": "SKU-OQLG92859",
         "merchant": {
           "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodId": "FAST_DELIVERY",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 102,
-              "min": 92
+              "max": 35,
+              "min": 25
             },
-            "fee": 9.99,
-            "promotionalFee": 9.99
+            "fee": 10.49,
+            "promotionalFee": 3
           },
-          "isOpen": false,
-          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
-          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
-          "minimumOrderAmount": 60,
-          "ratingCount": 1867,
+          "isOpen": true,
+          "merchantId": "fdc30d9c-4a05-4e5a-b1de-421b2df23eb0",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/fdc30d9c-4a05-4e5a-b1de-421b2df23eb0/202601271313_QN9O.png",
+          "merchantName": "Minuto Pão - XV de Novembro",
+          "minimumOrderAmount": 30,
+          "ratingCount": 688,
           "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 1.26
+          "straightLineDistanceKm": 0.41
         },
-        "promotionalUnitPrice": 8.99,
-        "unitPrice": 8.99
-      },
-      {
-        "itemEan": "7893500005919",
-        "itemId": "1aaa66b8-41bf-4b2d-811d-8fae50d86057",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210182226_515v5h5vzva.jpg",
-        "itemName": "Feijão Vermelho Meu Biju Tipo 1 Pacote 500g",
-        "itemSkuId": "SKU-EGBV17759",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 102,
-              "min": 92
-            },
-            "fee": 9.99,
-            "promotionalFee": 9.99
-          },
-          "isOpen": false,
-          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
-          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
-          "minimumOrderAmount": 60,
-          "ratingCount": 1867,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 1.26
-        },
-        "promotionalUnitPrice": 7.29,
-        "unitPrice": 7.29
-      },
-      {
-        "itemEan": "7896006751113",
-        "itemId": "04814c62-8660-4b71-9d58-67e675f39991",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510042121_zyazzsrq4w.jpeg",
-        "itemName": "Feijão Preto Tipo 1 Camil 1kg",
-        "itemSkuId": "SKU-BGOQ28002",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 120,
-              "min": 110
-            },
-            "fee": 6.49,
-            "promotionalFee": 0
-          },
-          "isOpen": false,
-          "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
-          "merchantName": "Extra - São Carlos",
-          "minimumOrderAmount": 60,
-          "ratingCount": 1354,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 0.27
-        },
-        "promotionalUnitPrice": 7.79,
-        "unitPrice": 7.79
-      },
-      {
-        "itemEan": "7896006751113",
-        "itemId": "9acae2c0-39b4-4417-a909-b054d48d5efc",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510042121_zyazzsrq4w.jpeg",
-        "itemName": "Feijão Preto Tipo 1 Camil 1kg",
-        "itemSkuId": "SKU-BGOQ28002",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 102,
-              "min": 92
-            },
-            "fee": 9.99,
-            "promotionalFee": 9.99
-          },
-          "isOpen": false,
-          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
-          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
-          "minimumOrderAmount": 60,
-          "ratingCount": 1867,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 1.26
-        },
-        "promotionalUnitPrice": 7.25,
-        "unitPrice": 7.25
+        "promotionalUnitPrice": 9.99,
+        "unitPrice": 9.99
       },
       {
         "itemEan": "7895000318995",
@@ -495,16 +119,16 @@
         "itemSkuId": "SKU-PWIU12328",
         "merchant": {
           "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodId": "FAST_DELIVERY",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 120,
-              "min": 110
+              "max": 54,
+              "min": 44
             },
-            "fee": 6.49,
-            "promotionalFee": 0
+            "fee": 10.49,
+            "promotionalFee": 4
           },
-          "isOpen": false,
+          "isOpen": true,
           "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
           "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
           "merchantName": "Extra - São Carlos",
@@ -517,35 +141,6 @@
         "unitPrice": 9.99
       },
       {
-        "itemEan": "7895000483136",
-        "itemId": "9b485903-ab80-494d-aa20-bc02fe54e334",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202202100248_aym4a91boh4.jpg",
-        "itemName": "Feijão Carioca Enlatado Qualitá 420g",
-        "itemSkuId": "SKU-CTPW25874",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 120,
-              "min": 110
-            },
-            "fee": 6.49,
-            "promotionalFee": 0
-          },
-          "isOpen": false,
-          "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
-          "merchantName": "Extra - São Carlos",
-          "minimumOrderAmount": 60,
-          "ratingCount": 1354,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 0.27
-        },
-        "promotionalUnitPrice": 8.24,
-        "unitPrice": 10.99
-      },
-      {
         "itemEan": "7896070800014",
         "itemId": "c1894538-c4d7-4f1d-b34c-f674dd8d2f0f",
         "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510031854_i24lfssnd5j.jpeg",
@@ -553,16 +148,16 @@
         "itemSkuId": "SKU-GEGX64699",
         "merchant": {
           "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodId": "FAST_DELIVERY",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 120,
-              "min": 110
+              "max": 54,
+              "min": 44
             },
-            "fee": 6.49,
-            "promotionalFee": 0
+            "fee": 10.49,
+            "promotionalFee": 4
           },
-          "isOpen": false,
+          "isOpen": true,
           "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
           "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
           "merchantName": "Extra - São Carlos",
@@ -575,6 +170,35 @@
         "unitPrice": 9.99
       },
       {
+        "itemEan": "7896006751113",
+        "itemId": "04814c62-8660-4b71-9d58-67e675f39991",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510042121_zyazzsrq4w.jpeg",
+        "itemName": "Feijão Preto Tipo 1 Camil 1kg",
+        "itemSkuId": "SKU-BGOQ28002",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "FAST_DELIVERY",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 54,
+              "min": 44
+            },
+            "fee": 10.49,
+            "promotionalFee": 4
+          },
+          "isOpen": true,
+          "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
+          "merchantName": "Extra - São Carlos",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1354,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 0.27
+        },
+        "promotionalUnitPrice": 7.79,
+        "unitPrice": 7.79
+      },
+      {
         "itemEan": "7896086421982",
         "itemId": "8001b304-2969-469e-96b5-f52fccd283db",
         "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202605291932_cg263s1613u.png",
@@ -582,16 +206,16 @@
         "itemSkuId": "SKU-DLAC56541",
         "merchant": {
           "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodId": "FAST_DELIVERY",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 120,
-              "min": 110
+              "max": 54,
+              "min": 44
             },
-            "fee": 6.49,
-            "promotionalFee": 0
+            "fee": 10.49,
+            "promotionalFee": 4
           },
-          "isOpen": false,
+          "isOpen": true,
           "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
           "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
           "merchantName": "Extra - São Carlos",
@@ -605,22 +229,22 @@
       },
       {
         "itemEan": "7895000483136",
-        "itemId": "8d99f863-f05f-4082-862f-2b56210249ef",
+        "itemId": "9b485903-ab80-494d-aa20-bc02fe54e334",
         "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202202100248_aym4a91boh4.jpg",
         "itemName": "Feijão Carioca Enlatado Qualitá 420g",
         "itemSkuId": "SKU-CTPW25874",
         "merchant": {
           "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodId": "FAST_DELIVERY",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 120,
-              "min": 110
+              "max": 54,
+              "min": 44
             },
-            "fee": 6.49,
-            "promotionalFee": 0
+            "fee": 10.49,
+            "promotionalFee": 4
           },
-          "isOpen": false,
+          "isOpen": true,
           "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
           "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
           "merchantName": "Extra - São Carlos",
@@ -640,16 +264,16 @@
         "itemSkuId": "SKU-XPJM36893",
         "merchant": {
           "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodId": "FAST_DELIVERY",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 120,
-              "min": 110
+              "max": 54,
+              "min": 44
             },
-            "fee": 6.49,
-            "promotionalFee": 0
+            "fee": 10.49,
+            "promotionalFee": 4
           },
-          "isOpen": false,
+          "isOpen": true,
           "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
           "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
           "merchantName": "Extra - São Carlos",
@@ -662,23 +286,23 @@
         "unitPrice": 6.79
       },
       {
-        "itemEan": "7898957777013",
-        "itemId": "191b7192-3eab-4ac5-b9db-9f1f633e2c9f",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210180118_856ekrpw2n5.jpg",
-        "itemName": "Feijão Carioca de Luci Embalagem 1kg",
-        "itemSkuId": "SKU-LVVU17760",
+        "itemEan": "7895000483136",
+        "itemId": "8d99f863-f05f-4082-862f-2b56210249ef",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202202100248_aym4a91boh4.jpg",
+        "itemName": "Feijão Carioca Enlatado Qualitá 420g",
+        "itemSkuId": "SKU-CTPW25874",
         "merchant": {
           "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodId": "FAST_DELIVERY",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 120,
-              "min": 110
+              "max": 54,
+              "min": 44
             },
-            "fee": 6.49,
-            "promotionalFee": 0
+            "fee": 10.49,
+            "promotionalFee": 4
           },
-          "isOpen": false,
+          "isOpen": true,
           "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
           "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
           "merchantName": "Extra - São Carlos",
@@ -687,8 +311,37 @@
           "reviewRating": 4.900000095367432,
           "straightLineDistanceKm": 0.27
         },
-        "promotionalUnitPrice": 10.99,
+        "promotionalUnitPrice": 8.24,
         "unitPrice": 10.99
+      },
+      {
+        "itemEan": "7896864400253",
+        "itemId": "9be85ba4-204c-4fa9-a3b9-009a333b0d02",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210182226_jjd6chsahp.jpg",
+        "itemName": "Feijão Preto Picinin Pacote 1kg",
+        "itemSkuId": "SKU-HELZ11811",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "FAST_DELIVERY",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 54,
+              "min": 44
+            },
+            "fee": 10.49,
+            "promotionalFee": 4
+          },
+          "isOpen": true,
+          "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
+          "merchantName": "Extra - São Carlos",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1354,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 0.27
+        },
+        "promotionalUnitPrice": 6.99,
+        "unitPrice": 6.99
       },
       {
         "itemEan": "7898276600108",
@@ -698,16 +351,16 @@
         "itemSkuId": "SKU-CGMB52606",
         "merchant": {
           "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodId": "FAST_DELIVERY",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 120,
-              "min": 110
+              "max": 54,
+              "min": 44
             },
-            "fee": 6.49,
-            "promotionalFee": 0
+            "fee": 10.49,
+            "promotionalFee": 4
           },
-          "isOpen": false,
+          "isOpen": true,
           "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
           "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
           "merchantName": "Extra - São Carlos",
@@ -720,23 +373,23 @@
         "unitPrice": 6.99
       },
       {
-        "itemEan": "7896864400253",
-        "itemId": "9be85ba4-204c-4fa9-a3b9-009a333b0d02",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210182226_jjd6chsahp.jpg",
-        "itemName": "Feijão Preto Picinin Pacote 1kg",
-        "itemSkuId": "SKU-HELZ11811",
+        "itemEan": "7898957777044",
+        "itemId": "68642e33-9620-4069-9b50-bd107cb8f43a",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210180154_ln9j4mmcr9o.jpg",
+        "itemName": "Feijão Preto de Luci Embalagem 1kg",
+        "itemSkuId": "SKU-NYNW06784",
         "merchant": {
           "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodId": "FAST_DELIVERY",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 120,
-              "min": 110
+              "max": 54,
+              "min": 44
             },
-            "fee": 6.49,
-            "promotionalFee": 0
+            "fee": 10.49,
+            "promotionalFee": 4
           },
-          "isOpen": false,
+          "isOpen": true,
           "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
           "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
           "merchantName": "Extra - São Carlos",
@@ -745,8 +398,355 @@
           "reviewRating": 4.900000095367432,
           "straightLineDistanceKm": 0.27
         },
-        "promotionalUnitPrice": 6.99,
-        "unitPrice": 6.99
+        "promotionalUnitPrice": 8.99,
+        "unitPrice": 8.99
+      },
+      {
+        "itemEan": "7898957777013",
+        "itemId": "191b7192-3eab-4ac5-b9db-9f1f633e2c9f",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210180118_856ekrpw2n5.jpg",
+        "itemName": "Feijão Carioca de Luci Embalagem 1kg",
+        "itemSkuId": "SKU-LVVU17760",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "FAST_DELIVERY",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 54,
+              "min": 44
+            },
+            "fee": 10.49,
+            "promotionalFee": 4
+          },
+          "isOpen": true,
+          "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
+          "merchantName": "Extra - São Carlos",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1354,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 0.27
+        },
+        "promotionalUnitPrice": 10.99,
+        "unitPrice": 10.99
+      },
+      {
+        "itemEan": "7896864400178",
+        "itemId": "40f6909e-22dc-44dc-bd3a-3311cd3b596f",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210182226_mxhaezsnolh.jpg",
+        "itemName": "Feijão Carioca Premium Picinin 1kg",
+        "itemSkuId": "SKU-TFDZ73897",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "FAST_DELIVERY",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 54,
+              "min": 44
+            },
+            "fee": 10.49,
+            "promotionalFee": 4
+          },
+          "isOpen": true,
+          "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
+          "merchantName": "Extra - São Carlos",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1354,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 0.27
+        },
+        "promotionalUnitPrice": 9.99,
+        "unitPrice": 9.99
+      },
+      {
+        "itemEan": "7896200115032",
+        "itemId": "1717686e-c99b-4a33-ae55-a9dbf9929a19",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510031951_t790vuqbere.png",
+        "itemName": "Feijão Bolinha Broto Legal 500g",
+        "itemSkuId": "SKU-WVTW40457",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "FAST_DELIVERY",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 57,
+              "min": 47
+            },
+            "fee": 12.99,
+            "promotionalFee": 12.99
+          },
+          "isOpen": true,
+          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
+          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1867,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.26
+        },
+        "promotionalUnitPrice": 6.35,
+        "unitPrice": 6.35
+      },
+      {
+        "itemEan": "7898957777037",
+        "itemId": "80047b30-1f18-4dc5-abec-a367ac6f79cd",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210180158_1bfyude03ho.jpg",
+        "itemName": "Feijão Bolinha de Luci Embalagem 1kg",
+        "itemSkuId": "SKU-LQZQ99724",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "FAST_DELIVERY",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 57,
+              "min": 47
+            },
+            "fee": 12.99,
+            "promotionalFee": 12.99
+          },
+          "isOpen": true,
+          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
+          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1867,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.26
+        },
+        "promotionalUnitPrice": 9.85,
+        "unitPrice": 9.85
+      },
+      {
+        "itemEan": "7896200115360",
+        "itemId": "7dec62e5-c49b-4f41-b364-eac9d1bd01ec",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510031803_0o7h9ppailb.jpeg",
+        "itemName": "Feijão Preto Broto Legal 1kg",
+        "itemSkuId": "SKU-QNLE28659",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "FAST_DELIVERY",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 57,
+              "min": 47
+            },
+            "fee": 12.99,
+            "promotionalFee": 12.99
+          },
+          "isOpen": true,
+          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
+          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1867,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.26
+        },
+        "promotionalUnitPrice": 7.49,
+        "unitPrice": 7.49
+      },
+      {
+        "itemEan": "7896200116398",
+        "itemId": "7cffe184-2857-471a-8b08-6f953ec7ee49",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210180204_cy2ns2lrka5.jpg",
+        "itemName": "Feijão Preto Serra Azul Embalagem 1kg",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "FAST_DELIVERY",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 57,
+              "min": 47
+            },
+            "fee": 12.99,
+            "promotionalFee": 12.99
+          },
+          "isOpen": true,
+          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
+          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1867,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.26
+        },
+        "promotionalUnitPrice": 6.19,
+        "unitPrice": 6.19
+      },
+      {
+        "itemEan": "7896006744115",
+        "itemId": "9c15f0bd-8cf4-4daf-bfd7-ab5b8defd8a7",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202408211735_xipbxuwhca.jpeg",
+        "itemName": "Feijão Carioca Tipo 1 Camil 1kg",
+        "itemSkuId": "SKU-OQLG92859",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "FAST_DELIVERY",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 57,
+              "min": 47
+            },
+            "fee": 12.99,
+            "promotionalFee": 12.99
+          },
+          "isOpen": true,
+          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
+          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1867,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.26
+        },
+        "promotionalUnitPrice": 8.99,
+        "unitPrice": 8.99
+      },
+      {
+        "itemEan": "7898957777013",
+        "itemId": "ef5f3ab3-2b6c-4bb9-bc1d-2ff466afc615",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210180118_856ekrpw2n5.jpg",
+        "itemName": "Feijão Carioca de Luci Embalagem 1kg",
+        "itemSkuId": "SKU-LVVU17760",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "FAST_DELIVERY",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 57,
+              "min": 47
+            },
+            "fee": 12.99,
+            "promotionalFee": 12.99
+          },
+          "isOpen": true,
+          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
+          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1867,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.26
+        },
+        "promotionalUnitPrice": 9.59,
+        "unitPrice": 9.59
+      },
+      {
+        "itemEan": "7896086422217",
+        "itemId": "a1371481-ce1b-4e32-9aca-6e28615813b6",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210182352_3nqceu1s5tt.jpg",
+        "itemName": "Feijão Preto Empório São João 1kg",
+        "itemSkuId": "SKU-INQZ13475",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "FAST_DELIVERY",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 57,
+              "min": 47
+            },
+            "fee": 12.99,
+            "promotionalFee": 12.99
+          },
+          "isOpen": true,
+          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
+          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1867,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.26
+        },
+        "promotionalUnitPrice": 6.45,
+        "unitPrice": 6.45
+      },
+      {
+        "itemEan": "7896200115049",
+        "itemId": "90f01ade-7ddc-4716-b1ff-84f43041fb11",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510031549_tf8mi0in6e.jpeg",
+        "itemName": "Feijão Branco Broto Legal 500g",
+        "itemSkuId": "SKU-XFAA58169",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "FAST_DELIVERY",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 57,
+              "min": 47
+            },
+            "fee": 12.99,
+            "promotionalFee": 12.99
+          },
+          "isOpen": true,
+          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
+          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1867,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.26
+        },
+        "promotionalUnitPrice": 6.35,
+        "unitPrice": 6.35
+      },
+      {
+        "itemEan": "7896006751113",
+        "itemId": "9acae2c0-39b4-4417-a909-b054d48d5efc",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510042121_zyazzsrq4w.jpeg",
+        "itemName": "Feijão Preto Tipo 1 Camil 1kg",
+        "itemSkuId": "SKU-BGOQ28002",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "FAST_DELIVERY",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 57,
+              "min": 47
+            },
+            "fee": 12.99,
+            "promotionalFee": 12.99
+          },
+          "isOpen": true,
+          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
+          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1867,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.26
+        },
+        "promotionalUnitPrice": 7.25,
+        "unitPrice": 7.25
+      },
+      {
+        "itemEan": "7896200115346",
+        "itemId": "ee869224-c591-4288-9b1d-e84617f1280d",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202306021024_q46gznvn7cc.jpg",
+        "itemName": "Feijao Carioca Broto Legal 1kg",
+        "itemSkuId": "SKU-DASY48894",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "FAST_DELIVERY",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 57,
+              "min": 47
+            },
+            "fee": 12.99,
+            "promotionalFee": 12.99
+          },
+          "isOpen": true,
+          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
+          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1867,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.26
+        },
+        "promotionalUnitPrice": 9.49,
+        "unitPrice": 9.49
       }
     ]
   }

@@ -7,7 +7,7 @@
       "longitude": -47.89623
     }
   },
-  "recordedAt": "2026-10-18T07:33:55",
+  "recordedAt": "2026-10-18T09:11:02",
   "response": {
     "address": "Avenida Francisco Pereira Lopes, 1701, Parque Santa Mônica, SAO CARLOS - SP, 13561250, BR",
     "agentHints": {
@@ -17,9 +17,40 @@
     "appDeeplink": "ifood://catalog-hub/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/GROCERIES",
     "catalogSummary": {
       "navigationHint": "Call `browseOffers` with `resultKind=ITEM`, the matching `merchantType`, and `refinements.merchantId=8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2` to browse items. Use `searchOffers` with `refinements.merchantId=8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2` for keyword search within this merchant.",
-      "totalItems": 11671
+      "totalItems": 11670
     },
-    "deliveryMethods": [],
+    "deliveryMethods": [
+      {
+        "deliveryMethodId": "FAST_DELIVERY",
+        "deliveryMethodMode": "DELIVERY",
+        "estimatedMinutes": {
+          "max": 58,
+          "min": 48
+        },
+        "fee": 12.99,
+        "promotionalFee": 12.99
+      },
+      {
+        "deliveryMethodId": "DEFAULT",
+        "deliveryMethodMode": "DELIVERY",
+        "estimatedMinutes": {
+          "max": 130,
+          "min": 120
+        },
+        "fee": 9.99,
+        "promotionalFee": 9.99
+      },
+      {
+        "deliveryMethodId": "TAKEOUT",
+        "deliveryMethodMode": "TAKEOUT",
+        "estimatedMinutes": {
+          "max": 70,
+          "min": 60
+        },
+        "fee": 0,
+        "promotionalFee": 0
+      }
+    ],
     "featuredItems": [
       {
         "itemEan": "7891164005412",
@@ -72,7 +103,7 @@
         "unitPrice": 1.69
       }
     ],
-    "isOpen": false,
+    "isOpen": true,
     "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
     "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
     "merchantName": "Savegnago - Shopping Passeio - LJ 33",

@@ -1,0 +1,25 @@
+{
+  "tool": "submitOrder",
+  "args": {
+    "cartId": "10cf5aae-539e-476f-98a4-f326e885c13a",
+    "userConsent": true
+  },
+  "recordedAt": "2026-10-18T08:26:37",
+  "error": {
+    "tool": "submitOrder",
+    "code": "MERCH-007",
+    "message": "Este restaurante obriga a digitação do CPF.",
+    "retryable": false,
+    "userMessage": "Este restaurante obriga a digitação do CPF."
+  },
+  "raw": {
+    "error": {
+      "code": "MERCH-007",
+      "message": "Este restaurante obriga a digitação do CPF.",
+      "userFriendlyMessage": "Este restaurante obriga a digitação do CPF."
+    },
+    "agentHints": {
+      "askUserForDocument": "The restaurant requires CPF, CNPJ or Passport (foreign accounts) on the invoice. Ask the user to provide their document to proceed."
+    }
+  }
+}

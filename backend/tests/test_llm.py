@@ -113,3 +113,25 @@ def test_product_rule_exclusions_stay_out_of_the_search():
                                "cafe soluvel", None)
     assert plan["specific"] == "café solúvel tradicional" and plan["broad"] == "café solúvel"
     assert llm._heuristic_plan("granola sem açúcar", "granola", None)["specific"] == "granola sem açúcar"
+
+
+@pytest.mark.parametrize("base, expected", [
+    ("", "https://openrouter.ai/api/v1/chat/completions"),
+    ("https://llm.interno.ifood/api/v1/", "https://llm.interno.ifood/api/v1/chat/completions"),
+    ("https://llm.interno.ifood/v1/chat/completions", "https://llm.interno.ifood/v1/chat/completions"),
+])
+async def test_openrouter_url_comes_from_the_environment(monkeypatch, base, expected):
+    """O iFood tem um OpenRouter interno: o endereço vem de OPENROUTER_BASE_URL."""
+    urls: list[str] = []
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        urls.append(str(request.url))
+        return httpx.Response(200, json={"choices": [{"finish_reason": "stop", "message": {"content": json.dumps(PARSED)}}]})
+
+    cfg = dataclasses.replace(llm.settings, openrouter_api_key="sk-or-teste", llm_enabled=True, llm_provider="")
+    if base:
+        cfg = dataclasses.replace(cfg, openrouter_base_url=base)
+    monkeypatch.setattr(llm, "settings", cfg)
+    monkeypatch.setattr(llm, "_http", httpx.AsyncClient(transport=httpx.MockTransport(handler)))
+    await llm.parse_item("2 leites integral italac 1L")
+    assert urls == [expected]

@@ -30,7 +30,6 @@ from app.config import settings
 log = logging.getLogger(__name__)
 T = TypeVar("T", bound=BaseModel)
 
-OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
 DEFAULT_MODELS = {
     "openrouter": ("anthropic/claude-haiku-5.5", "anthropic/claude-opus-5.5"),
     "anthropic": ("claude-haiku-5-5", "claude-opus-5-5"),
@@ -38,6 +37,12 @@ DEFAULT_MODELS = {
 
 _anthropic: anthropic.AsyncAnthropic | None = None
 _http: httpx.AsyncClient | None = None
+
+
+def openrouter_url() -> str:
+    """Endpoint de chat do OpenRouter (ou do gateway em OPENROUTER_BASE_URL)."""
+    base = settings.openrouter_base_url.strip().rstrip("/")
+    return base if base.endswith("/chat/completions") else f"{base}/chat/completions"
 
 
 class LLMError(RuntimeError):
@@ -105,7 +110,7 @@ async def _openrouter(schema: type[T], system: str, messages: list[dict], model:
                "HTTP-Referer": "https://github.com/Petroncini/Gnomers", "X-Title": "Gnomers"}
     started = time.perf_counter()
     try:
-        res = await _http.post(OPENROUTER_URL, json=body, headers=headers)
+        res = await _http.post(openrouter_url(), json=body, headers=headers)
     except httpx.HTTPError as exc:
         raise LLMError(f"OpenRouter inacessível: {exc!r}") from exc
     if res.status_code != 200:
@@ -201,7 +206,7 @@ async def _openrouter_tools(system: str, messages: list[dict], tools: list[dict]
                "HTTP-Referer": "https://github.com/Petroncini/Gnomers", "X-Title": "Gnomers"}
     started = time.perf_counter()
     try:
-        res = await _http.post(OPENROUTER_URL, json=body, headers=headers)
+        res = await _http.post(openrouter_url(), json=body, headers=headers)
     except httpx.HTTPError as exc:
         raise LLMError(f"OpenRouter inacessível: {exc!r}") from exc
     if res.status_code != 200:

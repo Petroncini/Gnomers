@@ -14,7 +14,7 @@
     },
     "pageSize": 25
   },
-  "recordedAt": "2026-10-18T07:33:33",
+  "recordedAt": "2026-10-18T09:10:33",
   "response": {
     "agentHints": {
       "nextStepWhenUserPicksItem": "Retrieve full item details — option groups and applicable promotions — before presenting it to the user."
@@ -24,6 +24,35 @@
     "nextPageToken": "MjU7MQ==",
     "resultKind": "ITEM",
     "results": [
+      {
+        "itemEan": "7893500020110",
+        "itemId": "c51f721b-d3dd-4829-ad22-d7c9bf035f1d",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510031303_4gc1lsdzn1o.jpeg",
+        "itemName": "Arroz Branco Tipo 1 Tio João 1kg",
+        "itemSkuId": "SKU-SQEU18750",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "FAST_DELIVERY",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 54,
+              "min": 44
+            },
+            "fee": 10.49,
+            "promotionalFee": 4
+          },
+          "isOpen": true,
+          "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
+          "merchantName": "Extra - São Carlos",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1354,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 0.27
+        },
+        "promotionalUnitPrice": 6.64,
+        "unitPrice": 6.99
+      },
       {
         "itemEan": "7896290300189",
         "itemId": "5d43c0fc-6b29-4671-b64e-7cf88ca5c417",
@@ -35,8 +64,8 @@
             "deliveryMethodId": "FAST_DELIVERY",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 47,
-              "min": 37
+              "max": 46,
+              "min": 36
             },
             "fee": 13.99,
             "promotionalFee": 13.99
@@ -54,33 +83,352 @@
         "unitPrice": 6.99
       },
       {
-        "itemEan": "7898969895316",
-        "itemId": "15c187fc-9140-43bd-b524-b00c79204a8f",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202605291459_kogztazfxg.jpeg",
-        "itemName": "Papinha Orgânica Carne Arroz E Legumes Papapá 120g",
-        "itemSkuId": "SKU-IFID43691",
+        "itemEan": "7896006751137",
+        "itemId": "cf5f55bc-8e35-4657-97ad-d793438ebeaf",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210180656_2conj81nqtq.jpg",
+        "itemName": "Arroz Tipo 1 Camil 5kg",
+        "itemSkuId": "SKU-ZDLV97808",
         "merchant": {
           "deliveryMethod": {
             "deliveryMethodId": "FAST_DELIVERY",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 37,
-              "min": 27
+              "max": 57,
+              "min": 47
             },
-            "fee": 10.99,
+            "fee": 12.99,
+            "promotionalFee": 12.99
+          },
+          "isOpen": true,
+          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
+          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1867,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.26
+        },
+        "promotionalUnitPrice": 22.9,
+        "unitPrice": 22.9
+      },
+      {
+        "itemEan": "7895000474684",
+        "itemId": "00c700ef-ec74-4a77-bf70-c2fd20ce0904",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210190452_2qgpftnjjfp.jpg",
+        "itemName": "Arroz Qualitá Arbóreo Vácuo 1kg",
+        "itemSkuId": "SKU-LEEU08464",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "FAST_DELIVERY",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 54,
+              "min": 44
+            },
+            "fee": 10.49,
             "promotionalFee": 4
           },
           "isOpen": true,
-          "merchantId": "e8e2e095-f435-4930-b16f-eac7b7d1d880",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/e8e2e095-f435-4930-b16f-eac7b7d1d880/202410151113_23jn_i.jpg",
-          "merchantName": "Nissei Mercado - 431",
+          "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
+          "merchantName": "Extra - São Carlos",
           "minimumOrderAmount": 60,
-          "ratingCount": 39,
-          "reviewRating": 5,
-          "straightLineDistanceKm": 0.5
+          "ratingCount": 1354,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 0.27
         },
-        "promotionalUnitPrice": 14.9,
-        "unitPrice": 14.9
+        "promotionalUnitPrice": 22.79,
+        "unitPrice": 23.99
+      },
+      {
+        "itemEan": "7895000474684",
+        "itemId": "72b1c65a-f43a-4e3e-adac-2739e103f5cc",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210190452_2qgpftnjjfp.jpg",
+        "itemName": "Arroz Qualitá Arbóreo Vácuo 1kg",
+        "itemSkuId": "SKU-LEEU08464",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "FAST_DELIVERY",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 54,
+              "min": 44
+            },
+            "fee": 10.49,
+            "promotionalFee": 4
+          },
+          "isOpen": true,
+          "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
+          "merchantName": "Extra - São Carlos",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1354,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 0.27
+        },
+        "promotionalUnitPrice": 22.79,
+        "unitPrice": 23.99
+      },
+      {
+        "itemEan": "7896006711124",
+        "itemId": "a08b570b-4e4e-48ba-a1f8-e14717fa463d",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210182333_s5g21p8cvwt.jpg",
+        "itemName": "Arroz Tipo 1 Camil Pacote 2kg",
+        "itemSkuId": "SKU-KDML76232",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "FAST_DELIVERY",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 54,
+              "min": 44
+            },
+            "fee": 10.49,
+            "promotionalFee": 4
+          },
+          "isOpen": true,
+          "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
+          "merchantName": "Extra - São Carlos",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1354,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 0.27
+        },
+        "promotionalUnitPrice": 12.49,
+        "unitPrice": 12.49
+      },
+      {
+        "itemEan": "7896006711155",
+        "itemId": "f8e9565b-5fa7-4e37-8113-5a00492524b8",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510042239_gnoj8rq4vo6.jpeg",
+        "itemName": "Arroz Branco Tipo 1 Camil 5kg",
+        "itemSkuId": "SKU-ZDLV97808",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "FAST_DELIVERY",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 54,
+              "min": 44
+            },
+            "fee": 10.49,
+            "promotionalFee": 4
+          },
+          "isOpen": true,
+          "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
+          "merchantName": "Extra - São Carlos",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1354,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 0.27
+        },
+        "promotionalUnitPrice": 22.39,
+        "unitPrice": 27.99
+      },
+      {
+        "itemEan": "7896062699961",
+        "itemId": "98cc3396-c045-42b3-bf1a-19cc697c6462",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202312071416_ub48aoaanye.jpg",
+        "itemName": "Arroz Tipo 1 Solito Pacote 5kg",
+        "itemSkuId": "SKU-DTMO66755",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "FAST_DELIVERY",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 54,
+              "min": 44
+            },
+            "fee": 10.49,
+            "promotionalFee": 4
+          },
+          "isOpen": true,
+          "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
+          "merchantName": "Extra - São Carlos",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1354,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 0.27
+        },
+        "promotionalUnitPrice": 22.79,
+        "unitPrice": 23.99
+      },
+      {
+        "itemEan": "7896086420312",
+        "itemId": "ad95624c-16ab-4afd-bf87-7a8d839ec1d6",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202307052222_4bwltger7qk.jpg",
+        "itemName": "Arroz Branco Polido Longo e Fino Tipo 1 Empório São João 5kg",
+        "itemSkuId": "SKU-VDPE76767",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "FAST_DELIVERY",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 54,
+              "min": 44
+            },
+            "fee": 10.49,
+            "promotionalFee": 4
+          },
+          "isOpen": true,
+          "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
+          "merchantName": "Extra - São Carlos",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1354,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 0.27
+        },
+        "promotionalUnitPrice": 30.99,
+        "unitPrice": 30.99
+      },
+      {
+        "itemEan": "7895000318629",
+        "itemId": "1b20de44-14b0-4dc7-9c5a-a2deb43fb6fd",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202408261322_ec6nhp7hv0g.png",
+        "itemName": "Arroz Branco Tipo 1 Qualitá 1kg",
+        "itemSkuId": "SKU-BOWG13311",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "FAST_DELIVERY",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 54,
+              "min": 44
+            },
+            "fee": 10.49,
+            "promotionalFee": 4
+          },
+          "isOpen": true,
+          "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
+          "merchantName": "Extra - São Carlos",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1354,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 0.27
+        },
+        "promotionalUnitPrice": 4.31,
+        "unitPrice": 4.79
+      },
+      {
+        "itemEan": "7895000318612",
+        "itemId": "5cd8d421-b6bb-467e-a4a6-7ca5cbb7ca41",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202403191135_qzrxo7i6zt.jpeg",
+        "itemName": "Arroz Tipo 1 Qualitá Embalagem 5kg",
+        "itemSkuId": "SKU-NLWG92806",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "FAST_DELIVERY",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 54,
+              "min": 44
+            },
+            "fee": 10.49,
+            "promotionalFee": 4
+          },
+          "isOpen": true,
+          "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
+          "merchantName": "Extra - São Carlos",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1354,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 0.27
+        },
+        "promotionalUnitPrice": 22.79,
+        "unitPrice": 23.99
+      },
+      {
+        "itemEan": "7896290300189",
+        "itemId": "27102091-32bd-4d09-9947-3bdf93bb6412",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202511241640_8te88c37lwx.jpeg",
+        "itemName": "Arroz Tipo 1 Prato Fino 1kg",
+        "itemSkuId": "SKU-YNCO08843",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "FAST_DELIVERY",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 54,
+              "min": 44
+            },
+            "fee": 10.49,
+            "promotionalFee": 4
+          },
+          "isOpen": true,
+          "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
+          "merchantName": "Extra - São Carlos",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1354,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 0.27
+        },
+        "promotionalUnitPrice": 7.79,
+        "unitPrice": 7.79
+      },
+      {
+        "itemEan": "7896006711117",
+        "itemId": "d7c2d90e-2cb7-4288-b621-2a1145ea1c96",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202511241629_nukzcq3ol6c.jpeg",
+        "itemName": "Arroz Longo Fino Tipo 1 Camil 1kg",
+        "itemSkuId": "SKU-PXME87326",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "FAST_DELIVERY",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 54,
+              "min": 44
+            },
+            "fee": 10.49,
+            "promotionalFee": 4
+          },
+          "isOpen": true,
+          "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
+          "merchantName": "Extra - São Carlos",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1354,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 0.27
+        },
+        "promotionalUnitPrice": 5.03,
+        "unitPrice": 6.29
+      },
+      {
+        "itemEan": "7895000408900",
+        "itemId": "5e7af5b7-e08e-48e2-b73d-39e0122db16f",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210180440_x5gcq3zohbh.jpg",
+        "itemName": "Arroz Tipo 1 Pra Valer 5kg",
+        "itemSkuId": "SKU-GYEA05318",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "FAST_DELIVERY",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 54,
+              "min": 44
+            },
+            "fee": 10.49,
+            "promotionalFee": 4
+          },
+          "isOpen": true,
+          "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
+          "merchantName": "Extra - São Carlos",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1354,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 0.27
+        },
+        "promotionalUnitPrice": 17.84,
+        "unitPrice": 20.99
       },
       {
         "itemEan": "7896290300011",
@@ -92,8 +440,8 @@
             "deliveryMethodId": "FAST_DELIVERY",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 47,
-              "min": 37
+              "max": 46,
+              "min": 36
             },
             "fee": 13.99,
             "promotionalFee": 13.99
@@ -111,635 +459,293 @@
         "unitPrice": 31.99
       },
       {
-        "itemEan": "8001860010019",
-        "itemId": "63ee338b-393f-4426-8cd0-8ae38889af5c",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210180407_t340qse83.jpg",
-        "itemName": "Arroz Carnarolli Italiano Scotti Embalagem 1kg",
-        "itemSkuId": "SKU-YPRX87301",
+        "itemEan": "7896086420336",
+        "itemId": "708d09a6-21cb-4929-88ff-97ef8ee4722b",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210182224_3df5ywuq4t.jpg",
+        "itemName": "Arroz Tipo 1 Empório São João Pacote 1kg",
+        "itemSkuId": "SKU-UMRY47060",
         "merchant": {
           "deliveryMethod": {
             "deliveryMethodId": "FAST_DELIVERY",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 47,
-              "min": 37
+              "max": 57,
+              "min": 47
             },
-            "fee": 13.99,
-            "promotionalFee": 13.99
+            "fee": 12.99,
+            "promotionalFee": 12.99
           },
           "isOpen": true,
-          "merchantId": "32549526-5a03-4af1-a9ed-f4e8875828bf",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/32549526-5a03-4af1-a9ed-f4e8875828bf/202605131411_woyX_l.jpg",
-          "merchantName": "Oba Hortifruti - São Carlos",
-          "minimumOrderAmount": 30,
-          "ratingCount": 276,
+          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
+          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1867,
           "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 1.96
+          "straightLineDistanceKm": 1.26
         },
-        "promotionalUnitPrice": 35.63,
-        "unitPrice": 35.63
+        "promotionalUnitPrice": 5.49,
+        "unitPrice": 5.49
       },
       {
-        "itemEan": "7896006711124",
-        "itemId": "dc5e4121-c484-4267-a23a-404eace2cbec",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210182333_s5g21p8cvwt.jpg",
-        "itemName": "Arroz Tipo 1 Camil Pacote 2kg",
-        "itemSkuId": "SKU-KDML76232",
+        "itemEan": "7896079431158",
+        "itemId": "ead8e246-bb57-4d62-99f5-3a1e6c0c479e",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510031842_c55wmidc8uo.jpeg",
+        "itemName": "Arroz Tipo 1 Namorado 5kg",
+        "itemSkuId": "SKU-PJLB32114",
         "merchant": {
           "deliveryMethod": {
             "deliveryMethodId": "FAST_DELIVERY",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 47,
-              "min": 37
+              "max": 57,
+              "min": 47
             },
-            "fee": 13.99,
-            "promotionalFee": 13.99
+            "fee": 12.99,
+            "promotionalFee": 12.99
           },
           "isOpen": true,
-          "merchantId": "32549526-5a03-4af1-a9ed-f4e8875828bf",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/32549526-5a03-4af1-a9ed-f4e8875828bf/202605131411_woyX_l.jpg",
-          "merchantName": "Oba Hortifruti - São Carlos",
-          "minimumOrderAmount": 30,
-          "ratingCount": 276,
+          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
+          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1867,
           "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 1.96
+          "straightLineDistanceKm": 1.26
         },
-        "promotionalUnitPrice": 11.99,
-        "unitPrice": 11.99
+        "promotionalUnitPrice": 22.95,
+        "unitPrice": 22.95
       },
       {
-        "itemEan": "8001860040016",
-        "itemId": "b9475004-de6f-4d4d-a585-cdab08681867",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202308031335_unvteyevtq.jpg",
-        "itemName": "Arroz Roma Scotti 1kg",
-        "itemSkuId": "SKU-TFQP82568",
+        "itemEan": "7893500020134",
+        "itemId": "d6a91140-381d-4336-aed0-2f61d76bdeaa",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210182226_zivt8y82lm.jpg",
+        "itemName": "Arroz Tipo 1 Tio João 2kg",
+        "itemSkuId": "SKU-PTXL29661",
         "merchant": {
           "deliveryMethod": {
             "deliveryMethodId": "FAST_DELIVERY",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 47,
-              "min": 37
+              "max": 57,
+              "min": 47
             },
-            "fee": 13.99,
-            "promotionalFee": 13.99
+            "fee": 12.99,
+            "promotionalFee": 12.99
           },
           "isOpen": true,
-          "merchantId": "32549526-5a03-4af1-a9ed-f4e8875828bf",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/32549526-5a03-4af1-a9ed-f4e8875828bf/202605131411_woyX_l.jpg",
-          "merchantName": "Oba Hortifruti - São Carlos",
-          "minimumOrderAmount": 30,
-          "ratingCount": 276,
+          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
+          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1867,
           "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 1.96
+          "straightLineDistanceKm": 1.26
         },
-        "promotionalUnitPrice": 29.99,
-        "unitPrice": 29.99
+        "promotionalUnitPrice": 10.35,
+        "unitPrice": 10.35
       },
       {
-        "itemEan": "7896290300141",
-        "itemId": "da0542d6-02b1-4ca3-ad5c-7b4825dd2ab8",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202307050819_3ozzr3h4w7f.jpg",
-        "itemName": "Arroz Branco Tipo 1 Prato Fino 2kg",
-        "itemSkuId": "SKU-LIXO60017",
+        "itemEan": "7898949924333",
+        "itemId": "cd85b7dc-a90f-4547-ac8a-faa4f88b3ffb",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210180428_2w7ph4pcwzw.jpg",
+        "itemName": "Arroz Tipo 1 Vasconcelos Embalagem 1kg",
+        "itemSkuId": "SKU-MKBF79634",
         "merchant": {
           "deliveryMethod": {
             "deliveryMethodId": "FAST_DELIVERY",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 47,
-              "min": 37
+              "max": 57,
+              "min": 47
             },
-            "fee": 13.99,
-            "promotionalFee": 13.99
+            "fee": 12.99,
+            "promotionalFee": 12.99
           },
           "isOpen": true,
-          "merchantId": "32549526-5a03-4af1-a9ed-f4e8875828bf",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/32549526-5a03-4af1-a9ed-f4e8875828bf/202605131411_woyX_l.jpg",
-          "merchantName": "Oba Hortifruti - São Carlos",
-          "minimumOrderAmount": 30,
-          "ratingCount": 276,
+          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
+          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1867,
           "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 1.96
+          "straightLineDistanceKm": 1.26
         },
-        "promotionalUnitPrice": 13.99,
-        "unitPrice": 13.99
+        "promotionalUnitPrice": 5.49,
+        "unitPrice": 5.49
       },
       {
-        "itemEan": "8000193000490",
-        "itemId": "ddb58d59-7bc4-4432-a76f-425eb0a35209",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202301301405_9q1izmpvjsa.jpg",
-        "itemName": "Arroz Carnaroli S.Vuoto Campanini 1 Kg",
-        "itemSkuId": "SKU-GXAS68906",
+        "itemEan": "7896290300196",
+        "itemId": "2cfd4213-294a-46c9-86d4-ce65fdf5aaad",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202307060809_9uduqch8w7i.jpg",
+        "itemName": "Arroz Tipo 1 Prato Fino Pacote 1kg",
+        "itemSkuId": "SKU-YNCO08843",
         "merchant": {
           "deliveryMethod": {
             "deliveryMethodId": "FAST_DELIVERY",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 47,
-              "min": 37
+              "max": 57,
+              "min": 47
             },
-            "fee": 13.99,
-            "promotionalFee": 13.99
+            "fee": 12.99,
+            "promotionalFee": 12.99
           },
           "isOpen": true,
-          "merchantId": "32549526-5a03-4af1-a9ed-f4e8875828bf",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/32549526-5a03-4af1-a9ed-f4e8875828bf/202605131411_woyX_l.jpg",
-          "merchantName": "Oba Hortifruti - São Carlos",
-          "minimumOrderAmount": 30,
-          "ratingCount": 276,
+          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
+          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1867,
           "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 1.96
+          "straightLineDistanceKm": 1.26
         },
-        "promotionalUnitPrice": 39.95,
-        "unitPrice": 39.95
+        "promotionalUnitPrice": 5.29,
+        "unitPrice": 5.29
       },
       {
-        "itemEan": "7896006755517",
-        "itemId": "3248c63b-39c4-4918-a220-a1bf988b8177",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202511121831_rs4kf500sn.jpeg",
-        "itemName": "Arroz Integral Camil 1kg",
-        "itemSkuId": "SKU-VXVA34070",
+        "itemEan": "7896006711155",
+        "itemId": "e89e33c0-888b-4cd7-8380-0cb927cb9e61",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510042239_gnoj8rq4vo6.jpeg",
+        "itemName": "Arroz Branco Tipo 1 Camil 5kg",
+        "itemSkuId": "SKU-ZDLV97808",
         "merchant": {
           "deliveryMethod": {
             "deliveryMethodId": "FAST_DELIVERY",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 47,
-              "min": 37
+              "max": 35,
+              "min": 25
             },
-            "fee": 13.99,
-            "promotionalFee": 13.99
+            "fee": 10.49,
+            "promotionalFee": 3
           },
           "isOpen": true,
-          "merchantId": "32549526-5a03-4af1-a9ed-f4e8875828bf",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/32549526-5a03-4af1-a9ed-f4e8875828bf/202605131411_woyX_l.jpg",
-          "merchantName": "Oba Hortifruti - São Carlos",
+          "merchantId": "fdc30d9c-4a05-4e5a-b1de-421b2df23eb0",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/fdc30d9c-4a05-4e5a-b1de-421b2df23eb0/202601271313_QN9O.png",
+          "merchantName": "Minuto Pão - XV de Novembro",
           "minimumOrderAmount": 30,
-          "ratingCount": 276,
+          "ratingCount": 688,
           "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 1.96
+          "straightLineDistanceKm": 0.41
         },
-        "promotionalUnitPrice": 9.99,
-        "unitPrice": 9.99
+        "promotionalUnitPrice": 22.39,
+        "unitPrice": 27.99
       },
       {
-        "itemEan": "7896006716112",
-        "itemId": "5e9824ae-a9ad-4bd6-a80c-155b7d806f4f",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202307060658_cf3v9dki6w.jpg",
-        "itemName": "Arroz Parbolizado Camil 1kg",
-        "itemSkuId": "SKU-XPIA41567",
+        "itemEan": "7893500020110",
+        "itemId": "e958400f-06c1-428f-83b9-d70edb9379e2",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510031303_4gc1lsdzn1o.jpeg",
+        "itemName": "Arroz Branco Tipo 1 Tio João 1kg",
+        "itemSkuId": "SKU-SQEU18750",
         "merchant": {
           "deliveryMethod": {
             "deliveryMethodId": "FAST_DELIVERY",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 47,
-              "min": 37
+              "max": 57,
+              "min": 47
             },
-            "fee": 13.99,
-            "promotionalFee": 13.99
+            "fee": 12.99,
+            "promotionalFee": 12.99
           },
           "isOpen": true,
-          "merchantId": "32549526-5a03-4af1-a9ed-f4e8875828bf",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/32549526-5a03-4af1-a9ed-f4e8875828bf/202605131411_woyX_l.jpg",
-          "merchantName": "Oba Hortifruti - São Carlos",
-          "minimumOrderAmount": 30,
-          "ratingCount": 276,
+          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
+          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1867,
           "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 1.96
+          "straightLineDistanceKm": 1.26
         },
-        "promotionalUnitPrice": 7.99,
-        "unitPrice": 7.99
+        "promotionalUnitPrice": 5.15,
+        "unitPrice": 5.15
       },
       {
-        "itemEan": "645249993906",
-        "itemId": "8b27b663-491a-471a-91aa-20d98596dd63",
-        "itemName": "Arroz Basmati Parbolizado India Oasis 1kg",
+        "itemEan": "7896006711117",
+        "itemId": "d9ff373a-44f6-4927-b942-4b64f3fe87cb",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202511241629_nukzcq3ol6c.jpeg",
+        "itemName": "Arroz Longo Fino Tipo 1 Camil 1kg",
+        "itemSkuId": "SKU-PXME87326",
         "merchant": {
           "deliveryMethod": {
             "deliveryMethodId": "FAST_DELIVERY",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 47,
-              "min": 37
+              "max": 57,
+              "min": 47
             },
-            "fee": 13.99,
-            "promotionalFee": 13.99
+            "fee": 12.99,
+            "promotionalFee": 12.99
           },
           "isOpen": true,
-          "merchantId": "32549526-5a03-4af1-a9ed-f4e8875828bf",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/32549526-5a03-4af1-a9ed-f4e8875828bf/202605131411_woyX_l.jpg",
-          "merchantName": "Oba Hortifruti - São Carlos",
-          "minimumOrderAmount": 30,
-          "ratingCount": 276,
+          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
+          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1867,
           "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 1.96
+          "straightLineDistanceKm": 1.26
         },
-        "promotionalUnitPrice": 34.99,
-        "unitPrice": 34.99
+        "promotionalUnitPrice": 3.99,
+        "unitPrice": 3.99
       },
       {
-        "itemEan": "7896006701118",
-        "itemId": "50055131-4fa0-427c-b765-0f8c0ec2394c",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510042203_qeni7y6wzc.jpeg",
-        "itemName": "Arroz Momiji Longo 1kg",
-        "itemSkuId": "SKU-NPKG77730",
+        "itemEan": "7896290300011",
+        "itemId": "45015770-630f-4d1b-bdd4-26b9c040bc93",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510031433_ls39feod7t.jpeg",
+        "itemName": "Arroz Branco Tipo 1 Prato Fino 5kg",
         "merchant": {
           "deliveryMethod": {
             "deliveryMethodId": "FAST_DELIVERY",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 47,
-              "min": 37
+              "max": 57,
+              "min": 47
             },
-            "fee": 13.99,
-            "promotionalFee": 13.99
+            "fee": 12.99,
+            "promotionalFee": 12.99
           },
           "isOpen": true,
-          "merchantId": "32549526-5a03-4af1-a9ed-f4e8875828bf",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/32549526-5a03-4af1-a9ed-f4e8875828bf/202605131411_woyX_l.jpg",
-          "merchantName": "Oba Hortifruti - São Carlos",
-          "minimumOrderAmount": 30,
-          "ratingCount": 276,
+          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
+          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1867,
           "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 1.96
+          "straightLineDistanceKm": 1.26
         },
-        "promotionalUnitPrice": 17.99,
-        "unitPrice": 17.99
+        "promotionalUnitPrice": 26.9,
+        "unitPrice": 26.9
       },
       {
-        "itemEan": "8001860260315",
-        "itemId": "a3a2878a-ce7c-4264-9552-9f47cf7a6dca",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202307102127_knumk1gu73.jpg",
-        "itemName": "Arroz Basmati Scotti 500g",
-        "itemSkuId": "SKU-QYDM04076",
+        "itemEan": "7896086420312",
+        "itemId": "953a2e3e-81d2-431f-b816-bcfc0e9147a4",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202307052222_4bwltger7qk.jpg",
+        "itemName": "Arroz Branco Polido Longo e Fino Tipo 1 Empório São João 5kg",
+        "itemSkuId": "SKU-VDPE76767",
         "merchant": {
           "deliveryMethod": {
             "deliveryMethodId": "FAST_DELIVERY",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 47,
-              "min": 37
+              "max": 57,
+              "min": 47
             },
-            "fee": 13.99,
-            "promotionalFee": 13.99
+            "fee": 12.99,
+            "promotionalFee": 12.99
           },
           "isOpen": true,
-          "merchantId": "32549526-5a03-4af1-a9ed-f4e8875828bf",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/32549526-5a03-4af1-a9ed-f4e8875828bf/202605131411_woyX_l.jpg",
-          "merchantName": "Oba Hortifruti - São Carlos",
-          "minimumOrderAmount": 30,
-          "ratingCount": 276,
+          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
+          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1867,
           "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 1.96
+          "straightLineDistanceKm": 1.26
         },
-        "promotionalUnitPrice": 26.99,
-        "unitPrice": 26.99
-      },
-      {
-        "itemEan": "8001860253522",
-        "itemId": "b3d27f23-4f38-4f35-b137-def11c8f784a",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210180143_xejvvs6v4mk.jpg",
-        "itemName": "Arroz Italiano Scotti Hakumaki Sushi Embalagem 500g",
-        "itemSkuId": "SKU-BLUA76403",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "FAST_DELIVERY",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 47,
-              "min": 37
-            },
-            "fee": 13.99,
-            "promotionalFee": 13.99
-          },
-          "isOpen": true,
-          "merchantId": "32549526-5a03-4af1-a9ed-f4e8875828bf",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/32549526-5a03-4af1-a9ed-f4e8875828bf/202605131411_woyX_l.jpg",
-          "merchantName": "Oba Hortifruti - São Carlos",
-          "minimumOrderAmount": 30,
-          "ratingCount": 276,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 1.96
-        },
-        "promotionalUnitPrice": 19.99,
-        "unitPrice": 19.99
-      },
-      {
-        "itemEan": "8001860253218",
-        "itemId": "6dcc5b45-61af-4ba3-b0ba-4560f4875026",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210180713_61wz2sxq9p4.jpg",
-        "itemName": "Arroz Jasmine Scot Embalagem 500g",
-        "itemSkuId": "SKU-GBHY15708",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "FAST_DELIVERY",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 47,
-              "min": 37
-            },
-            "fee": 13.99,
-            "promotionalFee": 13.99
-          },
-          "isOpen": true,
-          "merchantId": "32549526-5a03-4af1-a9ed-f4e8875828bf",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/32549526-5a03-4af1-a9ed-f4e8875828bf/202605131411_woyX_l.jpg",
-          "merchantName": "Oba Hortifruti - São Carlos",
-          "minimumOrderAmount": 30,
-          "ratingCount": 276,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 1.96
-        },
-        "promotionalUnitPrice": 24.99,
-        "unitPrice": 24.99
-      },
-      {
-        "itemEan": "8001860187735",
-        "itemId": "9be97279-8917-4eb1-9442-bbc995ef07c8",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202505212120_hzywqbeg9ij.png",
-        "itemName": "Arroz Negro Venere Riso Scotti 500g",
-        "itemSkuId": "SKU-GYQT52344",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "FAST_DELIVERY",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 47,
-              "min": 37
-            },
-            "fee": 13.99,
-            "promotionalFee": 13.99
-          },
-          "isOpen": true,
-          "merchantId": "32549526-5a03-4af1-a9ed-f4e8875828bf",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/32549526-5a03-4af1-a9ed-f4e8875828bf/202605131411_woyX_l.jpg",
-          "merchantName": "Oba Hortifruti - São Carlos",
-          "minimumOrderAmount": 30,
-          "ratingCount": 276,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 1.96
-        },
-        "promotionalUnitPrice": 24.99,
-        "unitPrice": 24.99
-      },
-      {
-        "itemEan": "8908017738690",
-        "itemId": "6c49bc3d-c3e6-47f1-9a65-c83a1089b57c",
-        "itemName": "Arroz Basmati Indiano India Oasis 1kg",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "FAST_DELIVERY",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 47,
-              "min": 37
-            },
-            "fee": 13.99,
-            "promotionalFee": 13.99
-          },
-          "isOpen": true,
-          "merchantId": "32549526-5a03-4af1-a9ed-f4e8875828bf",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/32549526-5a03-4af1-a9ed-f4e8875828bf/202605131411_woyX_l.jpg",
-          "merchantName": "Oba Hortifruti - São Carlos",
-          "minimumOrderAmount": 30,
-          "ratingCount": 276,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 1.96
-        },
-        "promotionalUnitPrice": 34.99,
-        "unitPrice": 34.99
-      },
-      {
-        "itemEan": "7896256066197",
-        "itemId": "e8c1b802-8d08-4ac4-81a1-3c51cd9bdde4",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202310311831_dpofjdazd3r.jpg",
-        "itemName": "Biscoito de Arroz Integral 7 Grãos sem Glúten Natural Life 80g",
-        "itemSkuId": "SKU-DGMQ63797",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "FAST_DELIVERY",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 47,
-              "min": 37
-            },
-            "fee": 13.99,
-            "promotionalFee": 13.99
-          },
-          "isOpen": true,
-          "merchantId": "32549526-5a03-4af1-a9ed-f4e8875828bf",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/32549526-5a03-4af1-a9ed-f4e8875828bf/202605131411_woyX_l.jpg",
-          "merchantName": "Oba Hortifruti - São Carlos",
-          "minimumOrderAmount": 30,
-          "ratingCount": 276,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 1.96
-        },
-        "promotionalUnitPrice": 8.99,
-        "unitPrice": 8.99
-      },
-      {
-        "itemEan": "7898270962158",
-        "itemId": "cd360122-719a-40c4-824e-8b6509b2fedb",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202304271639_47ckacvlx65.jpg",
-        "itemName": "Macarrão de Carne Lamen Arroz Karui 78g",
-        "itemSkuId": "SKU-DBOC22683",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "FAST_DELIVERY",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 47,
-              "min": 37
-            },
-            "fee": 13.99,
-            "promotionalFee": 13.99
-          },
-          "isOpen": true,
-          "merchantId": "32549526-5a03-4af1-a9ed-f4e8875828bf",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/32549526-5a03-4af1-a9ed-f4e8875828bf/202605131411_woyX_l.jpg",
-          "merchantName": "Oba Hortifruti - São Carlos",
-          "minimumOrderAmount": 30,
-          "ratingCount": 276,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 1.96
-        },
-        "promotionalUnitPrice": 3.98,
-        "unitPrice": 4.63
-      },
-      {
-        "itemEan": "8000193000452",
-        "itemId": "ea8b5e90-cfdf-41ef-9765-a93422a4337b",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210190117_2q1psha8pzv.jpg",
-        "itemName": "Arroz Campanini Arborio 1kg",
-        "itemSkuId": "SKU-LIFH42409",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "FAST_DELIVERY",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 47,
-              "min": 37
-            },
-            "fee": 13.99,
-            "promotionalFee": 13.99
-          },
-          "isOpen": true,
-          "merchantId": "32549526-5a03-4af1-a9ed-f4e8875828bf",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/32549526-5a03-4af1-a9ed-f4e8875828bf/202605131411_woyX_l.jpg",
-          "merchantName": "Oba Hortifruti - São Carlos",
-          "minimumOrderAmount": 30,
-          "ratingCount": 276,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 1.96
-        },
-        "promotionalUnitPrice": 39.95,
-        "unitPrice": 39.95
-      },
-      {
-        "itemEan": "7896639800011",
-        "itemId": "b1422e8c-205a-49da-a7e2-b586a9158c70",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210180023_06ui4rzxdxki.jpg",
-        "itemName": "Flocos de Arroz Tradicinal Okoshi 100g",
-        "itemSkuId": "SKU-FRKE12600",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "FAST_DELIVERY",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 47,
-              "min": 37
-            },
-            "fee": 13.99,
-            "promotionalFee": 13.99
-          },
-          "isOpen": true,
-          "merchantId": "32549526-5a03-4af1-a9ed-f4e8875828bf",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/32549526-5a03-4af1-a9ed-f4e8875828bf/202605131411_woyX_l.jpg",
-          "merchantName": "Oba Hortifruti - São Carlos",
-          "minimumOrderAmount": 30,
-          "ratingCount": 276,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 1.96
-        },
-        "promotionalUnitPrice": 12.99,
-        "unitPrice": 12.99
-      },
-      {
-        "itemEan": "7899934813144",
-        "itemId": "3331a74e-22b8-41c7-a79e-87c4c7c801e3",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202506271450_8yqo8g6xakr.png",
-        "itemName": "Arroz Branco Premium Oba Bem Querer 5 Kg",
-        "itemSkuId": "SKU-FNTD49156",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "FAST_DELIVERY",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 47,
-              "min": 37
-            },
-            "fee": 13.99,
-            "promotionalFee": 13.99
-          },
-          "isOpen": true,
-          "merchantId": "32549526-5a03-4af1-a9ed-f4e8875828bf",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/32549526-5a03-4af1-a9ed-f4e8875828bf/202605131411_woyX_l.jpg",
-          "merchantName": "Oba Hortifruti - São Carlos",
-          "minimumOrderAmount": 30,
-          "ratingCount": 276,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 1.96
-        },
-        "promotionalUnitPrice": 32.39,
-        "unitPrice": 32.39
-      },
-      {
-        "itemEan": "7898965646103",
-        "itemId": "e3885df6-9e84-4def-9dbf-7895aced26d4",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510042128_3gl0ndwwog4.jpeg",
-        "itemName": "Biscoito Mini Veggies de Lentilha Arroz e Brócolis Nhami Mami 18g",
-        "itemSkuId": "01a08d55-6ff2-7170-9d9d-e559a41ab7e5",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "FAST_DELIVERY",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 47,
-              "min": 37
-            },
-            "fee": 13.99,
-            "promotionalFee": 13.99
-          },
-          "isOpen": true,
-          "merchantId": "32549526-5a03-4af1-a9ed-f4e8875828bf",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/32549526-5a03-4af1-a9ed-f4e8875828bf/202605131411_woyX_l.jpg",
-          "merchantName": "Oba Hortifruti - São Carlos",
-          "minimumOrderAmount": 30,
-          "ratingCount": 276,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 1.96
-        },
-        "promotionalUnitPrice": 7.99,
-        "unitPrice": 7.99
-      },
-      {
-        "itemEan": "SM00200356472",
-        "itemId": "d389947f-a23c-46e2-8728-a4d303d235bb",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210311324_grnlxc3e06p.jpg",
-        "itemName": "Arroz com Espinafre Congelado 500g",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "FAST_DELIVERY",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 47,
-              "min": 37
-            },
-            "fee": 13.99,
-            "promotionalFee": 13.99
-          },
-          "isOpen": true,
-          "merchantId": "32549526-5a03-4af1-a9ed-f4e8875828bf",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/32549526-5a03-4af1-a9ed-f4e8875828bf/202605131411_woyX_l.jpg",
-          "merchantName": "Oba Hortifruti - São Carlos",
-          "minimumOrderAmount": 30,
-          "ratingCount": 276,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 1.96
-        },
-        "promotionalUnitPrice": 49.99,
-        "unitPrice": 49.99
-      },
-      {
-        "itemEan": "SM00201130222",
-        "itemId": "b7783013-ca0d-42c6-94f0-0326686c162f",
-        "itemName": "Arroz À Grega Oba Bem Querer",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "FAST_DELIVERY",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 47,
-              "min": 37
-            },
-            "fee": 13.99,
-            "promotionalFee": 13.99
-          },
-          "isOpen": true,
-          "merchantId": "32549526-5a03-4af1-a9ed-f4e8875828bf",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/32549526-5a03-4af1-a9ed-f4e8875828bf/202605131411_woyX_l.jpg",
-          "merchantName": "Oba Hortifruti - São Carlos",
-          "minimumOrderAmount": 30,
-          "ratingCount": 276,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 1.96
-        },
-        "promotionalUnitPrice": 44.99,
-        "unitPrice": 44.99
+        "promotionalUnitPrice": 28.9,
+        "unitPrice": 28.9
       }
     ]
   }

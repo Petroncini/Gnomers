@@ -46,6 +46,9 @@ class Settings:
     database_url: str = field(default_factory=lambda: _get("GNOMERS_DB", f"sqlite:///{BACKEND / 'gnomers.db'}"))
     anthropic_api_key: str = field(default_factory=lambda: _get("ANTHROPIC_API_KEY"))
     openrouter_api_key: str = field(default_factory=lambda: _get("OPENROUTER_API_KEY"))
+    # endereço do OpenRouter, ou de um gateway compatível (ex.: o OpenRouter interno do iFood);
+    # aceita a URL base (.../api/v1) ou o endpoint completo (.../chat/completions)
+    openrouter_base_url: str = field(default_factory=lambda: _get("OPENROUTER_BASE_URL", "https://openrouter.ai/api/v1"))
     # "openrouter", "anthropic" ou vazio (escolhe pela chave presente, OpenRouter primeiro)
     llm_provider: str = field(default_factory=lambda: _get("GNOMERS_LLM_PROVIDER"))
     # tarefas em lote usam o modelo rápido; extração de regra e explicação usam o forte.

@@ -1,14 +1,15 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeftRight } from "lucide-react";
-import { api, brl, Decision, Plan, PlanCreated } from "../api";
-import { RichText } from "../ui";
+import { api, brl, Decision, DecisionResponse, Plan, PlanCreated } from "../api";
+import { RichText, useToast } from "../ui";
 
 // Ações de um cartão de decisão: aceitar, trocar, remover, dispensar ou refazer o carrinho.
 function useDecision(plan: Plan, card: Decision, onPlan: (p: Plan) => void) {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
+  const toast = useToast();
   const merchants = new Set(plan.result.chosen?.carts.map((c) => c.merchant_id));
   const swappable = card.alternatives.filter((a) => merchants.has(a.merchant_id));
 
@@ -16,8 +17,9 @@ function useDecision(plan: Plan, card: Decision, onPlan: (p: Plan) => void) {
     setBusy(true);
     setError(null);
     try {
-      const r = await api.post<{ plan: Plan }>(`/plans/${plan.id}/decisions/${card.id}`, { action, ...extra });
+      const r = await api.post<DecisionResponse>(`/plans/${plan.id}/decisions/${card.id}`, { action, ...extra });
       onPlan(r.plan);
+      if (r.rule) toast(`Preferência salva: ${r.rule.text}`);
     } catch (e) {
       setError((e as Error).message);
     } finally {
@@ -44,7 +46,14 @@ function useDecision(plan: Plan, card: Decision, onPlan: (p: Plan) => void) {
     send("swap", { sku_id: skuId, rule });
   };
 
-  return { busy, error, swappable, send, replan, swap };
+  // "Sempre esta marca": mantém a escolha atual e guarda a marca para as próximas compras
+  const keepBrand = card.item_id != null && card.category && card.chosen?.brand
+    && (card.type === "brand_choice" || card.type === "brand_substitution") ? card.chosen.brand : null;
+  const rememberCurrent = () => keepBrand && send("accept", {
+    rule: { kind: "brand_chain", category: card.category, payload: { order: [keepBrand], allow_others: true }, scope: "global" },
+  });
+
+  return { busy, error, swappable, send, replan, swap, keepBrand, rememberCurrent };
 }
 
 function SwapOptions({ card, busy, swappable, onSwap }: {
@@ -65,7 +74,7 @@ function SwapOptions({ card, busy, swappable, onSwap }: {
       {card.category && (
         <label className="check-row">
           <input type="checkbox" checked={remember} onChange={(e) => setRemember(e.target.checked)} />
-          Lembrar esta marca nas próximas compras
+          Lembrar a marca que eu escolher nas próximas compras
         </label>
       )}
     </div>
@@ -82,7 +91,7 @@ export const resolutionLabel = (card: Decision) => RESOLUTION[card.resolution ??
 export function DecisionBubble({ plan, card, index, total, onPlan }: {
   plan: Plan; card: Decision; index: number; total: number; onPlan: (p: Plan) => void;
 }) {
-  const { busy, error, swappable, send, replan, swap } = useDecision(plan, card, onPlan);
+  const { busy, error, swappable, send, replan, swap, keepBrand, rememberCurrent } = useDecision(plan, card, onPlan);
   const [swapOpen, setSwapOpen] = useState(false);
 
   return (
@@ -100,6 +109,7 @@ export function DecisionBubble({ plan, card, index, total, onPlan }: {
             {card.type === "replan" ? "Manter assim" : "Ok"}
           </button>
         )}
+        {keepBrand && <button type="button" disabled={busy} onClick={rememberCurrent}>Sempre {keepBrand}</button>}
         {swappable.length > 0 && (
           <button type="button" disabled={busy} aria-expanded={swapOpen} onClick={() => setSwapOpen(!swapOpen)}>Trocar</button>
         )}
@@ -116,7 +126,7 @@ export function DecisionBubble({ plan, card, index, total, onPlan }: {
 export function ChoiceNote({ plan, card, onPlan, tone = "warn" }: {
   plan: Plan; card: Decision; onPlan: (p: Plan) => void; tone?: "warn" | "plain";
 }) {
-  const { busy, error, swappable, swap } = useDecision(plan, card, onPlan);
+  const { busy, error, swappable, swap, keepBrand, rememberCurrent } = useDecision(plan, card, onPlan);
   const [swapOpen, setSwapOpen] = useState(false);
   const resolved = card.status === "resolved";
 
@@ -126,10 +136,17 @@ export function ChoiceNote({ plan, card, onPlan, tone = "warn" }: {
       <div className="grow">
         <span><RichText text={card.text} /></span>
         {resolved && <span className="t-small">{resolutionLabel(card)}</span>}
-        {!resolved && swappable.length > 0 && (
-          <button type="button" className="btn-text" aria-expanded={swapOpen} onClick={() => setSwapOpen(!swapOpen)}>
-            {swapOpen ? "Manter esta escolha" : "Trocar"}
-          </button>
+        {!resolved && (keepBrand || swappable.length > 0) && (
+          <span className="row" style={{ gap: 16, flexWrap: "wrap" }}>
+            {keepBrand && (
+              <button type="button" className="btn-text" disabled={busy} onClick={rememberCurrent}>Sempre {keepBrand}</button>
+            )}
+            {swappable.length > 0 && (
+              <button type="button" className="btn-text" aria-expanded={swapOpen} onClick={() => setSwapOpen(!swapOpen)}>
+                {swapOpen ? "Manter esta escolha" : "Trocar"}
+              </button>
+            )}
+          </span>
         )}
         {swapOpen && <SwapOptions card={card} busy={busy} swappable={swappable} onSwap={swap} />}
         {error && <span role="alert">{error}</span>}

@@ -7,7 +7,7 @@
       "longitude": -47.89623
     }
   },
-  "recordedAt": "2026-10-18T07:33:50",
+  "recordedAt": "2026-10-18T09:10:57",
   "response": {
     "address": "Rua Quinze De Novembro, 1070, Parque Santa Mônica, SAO CARLOS - SP, 13561206, BR",
     "agentHints": {
@@ -19,7 +19,38 @@
       "navigationHint": "Call `browseOffers` with `resultKind=ITEM`, the matching `merchantType`, and `refinements.merchantId=fdc30d9c-4a05-4e5a-b1de-421b2df23eb0` to browse items. Use `searchOffers` with `refinements.merchantId=fdc30d9c-4a05-4e5a-b1de-421b2df23eb0` for keyword search within this merchant.",
       "totalItems": 2402
     },
-    "deliveryMethods": [],
+    "deliveryMethods": [
+      {
+        "deliveryMethodId": "FAST_DELIVERY",
+        "deliveryMethodMode": "DELIVERY",
+        "estimatedMinutes": {
+          "max": 35,
+          "min": 25
+        },
+        "fee": 10.49,
+        "promotionalFee": 3
+      },
+      {
+        "deliveryMethodId": "DEFAULT",
+        "deliveryMethodMode": "DELIVERY",
+        "estimatedMinutes": {
+          "max": 70,
+          "min": 50
+        },
+        "fee": 7.49,
+        "promotionalFee": 0
+      },
+      {
+        "deliveryMethodId": "TAKEOUT",
+        "deliveryMethodMode": "TAKEOUT",
+        "estimatedMinutes": {
+          "max": 55,
+          "min": 45
+        },
+        "fee": 0,
+        "promotionalFee": 0
+      }
+    ],
     "featuredItems": [
       {
         "itemEan": "7895000347209",
@@ -72,7 +103,7 @@
         "unitPrice": 21.99
       }
     ],
-    "isOpen": false,
+    "isOpen": true,
     "merchantId": "fdc30d9c-4a05-4e5a-b1de-421b2df23eb0",
     "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/fdc30d9c-4a05-4e5a-b1de-421b2df23eb0/202601271313_QN9O.png",
     "merchantName": "Minuto Pão - XV de Novembro",

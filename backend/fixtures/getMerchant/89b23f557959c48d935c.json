@@ -7,7 +7,7 @@
       "longitude": -47.89623
     }
   },
-  "recordedAt": "2026-10-18T07:33:57",
+  "recordedAt": "2026-10-18T09:11:07",
   "response": {
     "address": "Avenida Bruno Ruggiero Filho, 101, Parque Santa Felícia Jardim, SAO CARLOS - SP, 13562420, BR",
     "agentHints": {
@@ -17,15 +17,15 @@
     "appDeeplink": "ifood://catalog-hub/32549526-5a03-4af1-a9ed-f4e8875828bf/GROCERIES",
     "catalogSummary": {
       "navigationHint": "Call `browseOffers` with `resultKind=ITEM`, the matching `merchantType`, and `refinements.merchantId=32549526-5a03-4af1-a9ed-f4e8875828bf` to browse items. Use `searchOffers` with `refinements.merchantId=32549526-5a03-4af1-a9ed-f4e8875828bf` for keyword search within this merchant.",
-      "totalItems": 3082
+      "totalItems": 3079
     },
     "deliveryMethods": [
       {
         "deliveryMethodId": "FAST_DELIVERY",
         "deliveryMethodMode": "DELIVERY",
         "estimatedMinutes": {
-          "max": 47,
-          "min": 37
+          "max": 46,
+          "min": 36
         },
         "fee": 13.99,
         "promotionalFee": 13.99
@@ -34,8 +34,8 @@
         "deliveryMethodId": "DEFAULT",
         "deliveryMethodMode": "DELIVERY",
         "estimatedMinutes": {
-          "max": 105,
-          "min": 95
+          "max": 102,
+          "min": 92
         },
         "fee": 9.99,
         "promotionalFee": 0
@@ -62,16 +62,6 @@
         "unitPrice": 12.99
       },
       {
-        "itemEan": "7891021006125",
-        "itemId": "d05a4d5a-041c-4cc5-b9ae-614af883ebe3",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510042312_ztr20d88fwc.jpeg",
-        "itemName": "Café Torrado e Moído Tradicional Vácuo Melitta 500g",
-        "itemSkuId": "SKU-FUAJ88324",
-        "menuSection": "Matinais",
-        "promotionalUnitPrice": 15.67,
-        "unitPrice": 27.99
-      },
-      {
         "itemEan": "7896331100310",
         "itemId": "91ac4e39-2ca5-47d3-befd-aa343fe03e74",
         "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510031433_jos3it9pw2.jpeg",
@@ -92,14 +82,24 @@
         "unitPrice": 26.99
       },
       {
-        "itemEan": "SM00200120820",
-        "itemId": "360d1020-48d3-45bf-82e0-8dd443ea06d6",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210190010_dpgpp89q4tw.jpg",
-        "itemName": "Morango Bandeja 200g",
-        "itemSkuId": "SKU-XJWK01298",
+        "itemEan": "SM00201129860",
+        "itemId": "8d5da3c4-555f-4e72-abbc-d312df3684a7",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202601151115_ntuhtlurjo.png",
+        "itemName": "Mamão Papaia Oba Bem Querer",
+        "itemSkuId": "SKU-ARME56129",
         "menuSection": "Feira",
-        "promotionalUnitPrice": 9.18,
-        "unitPrice": 18.35
+        "promotionalUnitPrice": 4.41,
+        "unitPrice": 8.81
+      },
+      {
+        "itemEan": "SM00200360803",
+        "itemId": "8676c06e-1816-48f8-9d21-512311ace946",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202509241815_ts2l0mn2g4.jpeg",
+        "itemName": "Banana Nanica",
+        "itemSkuId": "SKU-GZXL39523",
+        "menuSection": "Feira",
+        "promotionalUnitPrice": 0.6,
+        "unitPrice": 1.19
       }
     ],
     "isOpen": true,

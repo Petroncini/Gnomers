@@ -7,7 +7,7 @@
       "longitude": -47.89623
     }
   },
-  "recordedAt": "2026-10-18T07:33:53",
+  "recordedAt": "2026-10-18T09:10:59",
   "response": {
     "address": "Rua São Sebastião,, 1746, Centro, SAO CARLOS - SP, 13560230, BR",
     "agentHints": {
@@ -17,9 +17,40 @@
     "appDeeplink": "ifood://catalog-hub/6af300f4-e672-43ca-8ae8-9ee96a501894/GROCERIES",
     "catalogSummary": {
       "navigationHint": "Call `browseOffers` with `resultKind=ITEM`, the matching `merchantType`, and `refinements.merchantId=6af300f4-e672-43ca-8ae8-9ee96a501894` to browse items. Use `searchOffers` with `refinements.merchantId=6af300f4-e672-43ca-8ae8-9ee96a501894` for keyword search within this merchant.",
-      "totalItems": 6731
+      "totalItems": 6724
     },
-    "deliveryMethods": [],
+    "deliveryMethods": [
+      {
+        "deliveryMethodId": "FAST_DELIVERY",
+        "deliveryMethodMode": "DELIVERY",
+        "estimatedMinutes": {
+          "max": 54,
+          "min": 44
+        },
+        "fee": 10.49,
+        "promotionalFee": 4
+      },
+      {
+        "deliveryMethodId": "DEFAULT",
+        "deliveryMethodMode": "DELIVERY",
+        "estimatedMinutes": {
+          "max": 120,
+          "min": 110
+        },
+        "fee": 6.49,
+        "promotionalFee": 0
+      },
+      {
+        "deliveryMethodId": "TAKEOUT",
+        "deliveryMethodMode": "TAKEOUT",
+        "estimatedMinutes": {
+          "max": 70,
+          "min": 60
+        },
+        "fee": 0,
+        "promotionalFee": 0
+      }
+    ],
     "featuredItems": [
       {
         "itemEan": "7898377661848",
@@ -72,7 +103,7 @@
         "unitPrice": 17.49
       }
     ],
-    "isOpen": false,
+    "isOpen": true,
     "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
     "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
     "merchantName": "Extra - São Carlos",
