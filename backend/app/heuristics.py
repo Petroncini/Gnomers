@@ -38,9 +38,6 @@ KNOWN_BRANDS = [
 ]
 _BRANDS_NORM = sorted(((norm(b), b) for b in KNOWN_BRANDS), key=lambda x: -len(x[0]))
 
-STORE_BRANDS = {norm(b) for b in ["Carrefour", "Qualitá", "Great Value", "Viva Mais", "Taeq"]}
-PREMIUM_TERMS = {"premium", "gourmet", "especial", "organico", "extra virgem", "tipo a", "zero lactose",
-                 "integral premium", "artesanal", "selecionado", "reserva"}
 
 # Termos descritivos que entram na query e que, quando pedidos, precisam aparecer no SKU.
 VARIETY_TERMS = [
@@ -221,20 +218,11 @@ def normalize_product(category: str, name: str, item_query: str = "") -> dict:
         if following and following[0] in CATEGORY_CHANGERS and following[0] not in query_tokens:
             matches = False
 
-    nb = norm(brand)
-    nname = norm(name)
-    if nb in STORE_BRANDS:
-        tier = 1
-    elif any(p in nname for p in PREMIUM_TERMS):
-        tier = 3
-    else:
-        tier = 2
     return {
         "brand": brand,
         "variety_terms": variety,
         "pack_size": size,
         "pack_unit": unit,
-        "quality_tier": tier,
         "matches": matches,
     }
 

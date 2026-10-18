@@ -52,7 +52,7 @@ async def seed() -> None:
             s.exec(delete(model))
         s.commit()
         user = s.get(User, 1)
-        user.quality_profile, user.max_merchants, user.split_min_savings = 0.4, 2, 8.0
+        user.max_merchants, user.split_min_savings = 2, 8.0
         s.add(user)
 
         lst = ShoppingList(owner_id=user.id, name="Compra do mês", recurrence_days=30,

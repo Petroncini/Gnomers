@@ -36,10 +36,6 @@ def test_derivatives_do_not_match():
     assert normalize_product("papel higienico", "Papel Higiênico Folha Dupla Neve 12 Rolos")["matches"]
 
 
-def test_store_brand_is_tier_one():
-    assert normalize_product("leite", "Leite Longa Vida Qualitá Integral Caixa 1l")["quality_tier"] == 1
-
-
 def test_three_error_shapes():
     od = normalize_error("searchOffers", {"errors": {"code": "INVALID_QUERY", "message": "m", "retryable": True}})
     cart = normalize_error("createCart", {"error": {"code": "MERCHANT_CLOSED", "message": "m",

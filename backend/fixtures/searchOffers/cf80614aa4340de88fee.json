@@ -1,0 +1,29 @@
+{
+  "tool": "searchOffers",
+  "args": {
+    "query": "feijão cru em grão",
+    "userLocation": {
+      "latitude": -22.01318,
+      "longitude": -47.89623
+    },
+    "resultKind": "ITEM",
+    "merchantType": "GROCERIES",
+    "intention": "product",
+    "refinements": {
+      "onlyWithPromotion": true,
+      "sort": "PRICE"
+    },
+    "pageSize": 10
+  },
+  "recordedAt": "2026-10-18T08:00:07",
+  "response": {
+    "agentHints": {
+      "noResultsGuidance": "No results found for \"feijão cru em grão\" with the active filters in this area. Suggest the user try a broader term, remove price or distance filters, or try a different neighborhood."
+    },
+    "hasMore": false,
+    "interpretedQuery": "feijão cru em grão",
+    "nextPageToken": null,
+    "resultKind": "ITEM",
+    "results": []
+  }
+}

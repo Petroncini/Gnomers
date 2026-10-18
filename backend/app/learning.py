@@ -15,7 +15,7 @@ from datetime import timedelta
 from sqlmodel import Session, select
 
 from app.db import today
-from app.models import ListItem, OrderLine, Rule, Signal, User
+from app.models import ListItem, OrderLine, Rule, Signal
 from app.rules import norm
 
 WEIGHTS = {"chosen": 1.0, "accepted": 1.0, "swapped_to": 2.0, "swapped_from": -1.5, "rejected": -2.0}
@@ -42,15 +42,6 @@ def brand_scores(s: Session, user_id: int) -> dict[str, dict[str, dict]]:
         if sig.kind == "rejected":
             entry["rejected"] += 1
     return out
-
-
-def affinity(s: Session, user_id: int) -> dict[str, dict[str, float]]:
-    """Ajuste de qualidade percebida por marca, entre -0.5 e +0.5, usado na penalidade de qualidade."""
-    result: dict[str, dict[str, float]] = {}
-    for cat, brands in brand_scores(s, user_id).items():
-        top = max((abs(v["score"]) for v in brands.values()), default=0) or 1
-        result[cat] = {norm(b): max(-0.5, min(0.5, 0.5 * v["score"] / top)) for b, v in brands.items()}
-    return result
 
 
 def update_rules(s: Session, user_id: int) -> list[Rule]:
@@ -86,29 +77,6 @@ def update_rules(s: Session, user_id: int) -> list[Rule]:
                     changed.append(rule)
     s.commit()
     return changed
-
-
-def adjust_quality_profile(s: Session, user: User) -> float:
-    """Trocas sistemáticas para itens mais caros (ou mais baratos) mexem no perfil."""
-    sigs = s.exec(select(Signal).where(Signal.user_id == user.id, Signal.kind.in_(["swapped_to", "swapped_from"]))
-                  .order_by(Signal.created_at)).all()
-    pairs, last_from = [], None
-    for sig in sigs:
-        if sig.kind == "swapped_from":
-            last_from = sig
-        elif last_from and sig.unit_price and last_from.unit_price:
-            pairs.append(sig.unit_price - last_from.unit_price)
-            last_from = None
-    if len(pairs) >= 3:
-        up = sum(1 for d in pairs[-6:] if d > 0)
-        down = sum(1 for d in pairs[-6:] if d < 0)
-        if up >= 3 and up > 2 * down:
-            user.quality_profile = min(1.0, round(user.quality_profile + 0.1, 2))
-        elif down >= 3 and down > 2 * up:
-            user.quality_profile = max(0.0, round(user.quality_profile - 0.1, 2))
-        s.add(user)
-        s.commit()
-    return user.quality_profile
 
 
 def update_periodicity(s: Session, list_id: int) -> None:

@@ -21,7 +21,7 @@ def _json(default: Any = None) -> Any:
 class User(SQLModel, table=True):
     id: Optional[int] = Field(default=None, primary_key=True)
     name: str = "Você"
-    quality_profile: float = 0.5  # 0 = economia, 1 = qualidade
+    quality_profile: float = 0.5  # sem uso; a coluna fica para bancos já criados (é NOT NULL)
     max_merchants: int = 2
     split_min_savings: Optional[float] = 10.0
     ifood_token: Optional[dict] = Field(default=None, sa_column=Column(JSON))
@@ -49,7 +49,7 @@ class ShoppingList(SQLModel, table=True):
     next_due: Optional[date] = None
     shared: bool = False
     # sobrescritas do perfil do usuário só para esta lista
-    quality_profile: Optional[float] = None
+    quality_profile: Optional[float] = None  # sem uso
     max_merchants: Optional[int] = None
     split_min_savings: Optional[float] = None
     last_total: Optional[float] = None
@@ -107,7 +107,7 @@ class Product(SQLModel, table=True):
     variety_terms: list = _json([])
     pack_size: Optional[float] = None
     pack_unit: Optional[str] = None
-    quality_tier: int = 2
+    quality_tier: int = 2  # sem uso; a coluna fica para bancos já criados
     matched_category: Optional[str] = None  # categoria contra a qual o casamento foi avaliado
     matched: bool = True
     parsed_at: datetime = Field(default_factory=now)

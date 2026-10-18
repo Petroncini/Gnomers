@@ -41,7 +41,6 @@ class AuthStatus(BaseModel):
 class UserView(BaseModel):
     id: int
     name: str
-    quality_profile: float
     max_merchants: int
     split_min_savings: Optional[float]
     imported_history: bool
@@ -91,7 +90,6 @@ class ShoppingListView(BaseModel):
     recurrence_days: Optional[int]
     next_due: Optional[date]
     last_total: Optional[float]
-    quality_profile: Optional[float]
     max_merchants: Optional[int]
     split_min_savings: Optional[float]
     item_count: int

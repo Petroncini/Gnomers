@@ -345,9 +345,6 @@ a.info-row:active, button.info-row:active { background: var(--color-bg); }
 }
 .segmented button[aria-pressed="true"] { background: var(--color-surface); color: var(--color-ink); font-weight: 700; box-shadow: var(--shadow-raised); }
 
-.range { display: flex; flex-direction: column; gap: 4px; }
-.range input { width: 100%; height: var(--tap); margin: 0; accent-color: var(--color-primary); }
-.range .ends { display: flex; justify-content: space-between; font-size: 0.75rem; font-weight: 600; color: var(--color-muted); }
 
 .switch { position: relative; flex: none; width: 52px; height: var(--tap); display: inline-flex; align-items: center; cursor: pointer; }
 .switch input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }

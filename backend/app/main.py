@@ -122,7 +122,6 @@ async def auth_logout():
 # ------------------------------------------------------------------- perfil
 
 class ProfileIn(BaseModel):
-    quality_profile: Optional[float] = None
     max_merchants: Optional[int] = None
     split_min_savings: Optional[float] = None
     name: Optional[str] = None
@@ -160,7 +159,6 @@ class ListIn(BaseModel):
     name: Optional[str] = None
     recurrence_days: Optional[int] = None
     next_due: Optional[date] = None
-    quality_profile: Optional[float] = None
     max_merchants: Optional[int] = None
     split_min_savings: Optional[float] = None
 

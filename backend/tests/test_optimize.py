@@ -65,14 +65,6 @@ def test_penalties_shift_choice():
     assert solve(p).picks[0].sku_id == "preferida"
 
 
-def test_quality_alpha():
-    cands = [c("barato", 1, "Z", 10, quality_penalty=4), c("bom", 1, "Z", 12)]
-    eco = Problem(items=[Item(1, 1, 100)], merchants=[Z], candidates=cands, alpha=0.0, max_merchants=1)
-    qual = Problem(items=[Item(1, 1, 100)], merchants=[Z], candidates=cands, alpha=1.0, max_merchants=1)
-    assert solve(eco).picks[0].sku_id == "barato"
-    assert solve(qual).picks[0].sku_id == "bom"
-
-
 def test_unused_merchant_has_no_fee():
     p = Problem(items=[Item(1, 1, 100)], merchants=[A, B], candidates=[c("a1", 1, "A", 31)], max_merchants=2)
     sol = solve(p)

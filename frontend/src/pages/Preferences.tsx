@@ -5,7 +5,7 @@ import { ProposedRule, Rule, ShoppingList, UserView, api } from "../api";
 import RuleCard, { RuleProposal } from "../components/RuleCard";
 import { BottomNav, ErrorStrip, Header, ListSkeleton, PrimaryButton, useToast } from "../ui";
 
-type Profile = Pick<UserView, "quality_profile" | "max_merchants" | "split_min_savings" | "today">;
+type Profile = Pick<UserView, "max_merchants" | "split_min_savings" | "today">;
 
 // Perfil (global, com a barra de navegação) ou preferências de uma lista.
 export default function Preferences() {
@@ -39,8 +39,7 @@ export default function Preferences() {
 
   // na aba da lista, os controles sobrescrevem o perfil só para ela
   const settings = tab === "list" && list
-    ? { quality_profile: list.quality_profile ?? profile?.quality_profile ?? 0.5,
-        max_merchants: list.max_merchants ?? profile?.max_merchants ?? 2,
+    ? { max_merchants: list.max_merchants ?? profile?.max_merchants ?? 2,
         split_min_savings: list.split_min_savings ?? profile?.split_min_savings ?? null }
     : profile;
 
@@ -92,13 +91,6 @@ export default function Preferences() {
           <section className="section">
             <h2 className="t-overline">Ao montar o carrinho</h2>
             <div className="card pad stack" style={{ gap: 20 }}>
-              <label className="range">
-                <span className="t-title-md">Economia ou qualidade</span>
-                <input type="range" min={0} max={1} step={0.1} value={settings.quality_profile}
-                       onChange={(e) => saveSetting({ quality_profile: Number(e.target.value) })} />
-                <span className="ends" aria-hidden="true"><span>Mais economia</span><span>Mais qualidade</span></span>
-              </label>
-
               <fieldset style={{ border: 0, padding: 0, margin: 0 }}>
                 <legend className="t-title-md" style={{ marginBottom: 10 }}>Comprar em até</legend>
                 <div className="stack">

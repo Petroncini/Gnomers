@@ -23,7 +23,7 @@ def client():
 
 def cand(item, sku, merchant, name, price, size):
     return {"sku_id": sku, "item_id": item, "merchant_id": merchant, "name": name, "brand": None, "price": price,
-            "size": size, "reasons": [], "quality_penalty": 0, "substitution_penalty": 0, "note_penalty": 0}
+            "size": size, "reasons": [], "substitution_penalty": 0, "note_penalty": 0}
 
 
 def test_swap_that_kills_the_split_suggests_replan(client):

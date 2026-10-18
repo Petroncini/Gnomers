@@ -32,7 +32,6 @@ class Candidate:
     brand: str | None
     price: float         # preço efetivo por embalagem
     size: float          # quanto uma embalagem cobre, na unidade do item
-    quality_penalty: float = 0.0       # já em reais, antes do α
     substitution_penalty: float = 0.0  # marca ou variedade fora do pedido
     note_penalty: float = 0.0
 
@@ -49,7 +48,6 @@ class Problem:
     items: list[Item]
     merchants: list[Merchant]
     candidates: list[Candidate]
-    alpha: float = 0.5   # peso da qualidade, vem do quality_profile
     max_merchants: int = 2
 
 
@@ -112,8 +110,7 @@ def solve(problem: Problem, *, max_merchants: int | None = None,
     lp += (
         pulp.lpSum(cands[s].price * n[s] for s in x)
         + pulp.lpSum(merchants[m].delivery_fee * y[m] for m in y)
-        + pulp.lpSum((problem.alpha * cands[s].quality_penalty + cands[s].substitution_penalty
-                      + cands[s].note_penalty) * x[s] for s in x)
+        + pulp.lpSum((cands[s].substitution_penalty + cands[s].note_penalty) * x[s] for s in x)
         + pulp.lpSum(items[i].missing_penalty * u[i] for i in u)
     )
 

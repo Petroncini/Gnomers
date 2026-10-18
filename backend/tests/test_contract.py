@@ -27,7 +27,7 @@ def test_every_route_matches_its_response_model(client):
     assert ok(client.get("/health"))[0]
     assert ok(client.get("/auth/status"))[0]
     assert ok(client.get("/me"))[0]
-    assert ok(client.patch("/me", json={"quality_profile": 0.6}))[0]
+    assert ok(client.patch("/me", json={"max_merchants": 2}))[0]
     assert ok(client.post("/items/parse", json={"text": "2 leite integral Italac 1L"}))[0]
     lst = client.post("/lists", json={"name": "Contrato", "recurrence_days": 7}).json()
     item = client.post(f"/lists/{lst['id']}/items", json={"raw_text": "café 500g"}).json()

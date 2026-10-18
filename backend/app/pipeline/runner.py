@@ -10,7 +10,7 @@ from dataclasses import dataclass, field
 
 from sqlmodel import Session, select
 
-from app import heuristics, learning, llm, metrics
+from app import heuristics, llm, metrics
 from app.heuristics import PARSER_VERSION
 from app.db import engine
 from app.mcp.client import McpToolError, NotAuthenticated
@@ -46,11 +46,10 @@ async def emit(plan_id: int, stage: str, data: dict | None = None, *, final: boo
         pe.cond.notify_all()
 
 
-def effective(user: User, lst: ShoppingList) -> tuple[float, int, float | None]:
-    q = lst.quality_profile if lst.quality_profile is not None else user.quality_profile
+def effective(user: User, lst: ShoppingList) -> tuple[int, float | None]:
     k = lst.max_merchants if lst.max_merchants is not None else user.max_merchants
     split = lst.split_min_savings if lst.split_min_savings is not None else user.split_min_savings
-    return q, max(1, k), split
+    return max(1, k), split
 
 
 async def resolve_address(s: Session, api: Ifood, plan: Plan, user: User) -> Address | None:
@@ -233,14 +232,14 @@ async def _run(s: Session, api: Ifood, plan: Plan, say, only_open: bool) -> None
 
     # 7.3 normalização
     await say("normalize", {"message": f"Comparando {len(found.offers)} produtos"})
-    normalized = await normalize.build(s, specs, found.offers, affinity=learning.affinity(s, user.id))
+    normalized = await normalize.build(s, specs, found.offers)
 
     # 7.4 otimização
-    quality, max_merchants, split_min = effective(user, lst)
+    max_merchants, split_min = effective(user, lst)
     problem = optimize.Problem(
         items=normalized.items,
         merchants=[optimize.Merchant(m.id, m.name, m.delivery_fee, m.minimum_order) for m in found.merchants.values()],
-        candidates=normalized.candidates, alpha=quality, max_merchants=max_merchants)
+        candidates=normalized.candidates, max_merchants=max_merchants)
     await say("optimize", {"message": "Calculando a melhor combinação de produtos e mercados"})
     solutions = await asyncio.to_thread(optimize.solve_with_alternatives, problem, split_min)
     if not solutions or not solutions[0].merchants:

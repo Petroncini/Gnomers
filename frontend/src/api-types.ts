@@ -985,8 +985,6 @@ export interface components {
             name?: string | null;
             /** Next Due */
             next_due?: string | null;
-            /** Quality Profile */
-            quality_profile?: number | null;
             /** Recurrence Days */
             recurrence_days?: number | null;
             /** Split Min Savings */
@@ -1317,8 +1315,6 @@ export interface components {
             max_merchants?: number | null;
             /** Name */
             name?: string | null;
-            /** Quality Profile */
-            quality_profile?: number | null;
             /** Split Min Savings */
             split_min_savings?: number | null;
         };
@@ -1496,8 +1492,6 @@ export interface components {
             name: string;
             /** Next Due */
             next_due: string | null;
-            /** Quality Profile */
-            quality_profile: number | null;
             /** Recurrence Days */
             recurrence_days: number | null;
             /** Split Min Savings */
@@ -1618,8 +1612,6 @@ export interface components {
             max_merchants: number;
             /** Name */
             name: string;
-            /** Quality Profile */
-            quality_profile: number;
             /** Split Min Savings */
             split_min_savings: number | null;
             /**

@@ -73,6 +73,7 @@ def test_agent_searches_and_swaps_in_the_real_cart(client, plan, scripted):
 
     def swap(body):
         found = last_tool_result(body)["resultados"]
+        assert all(r["merchant"] for r in found)  # o iFood manda merchantName; sem ele o agente não sabe onde está
         pick = next(r for r in found if "Extraforte" in r["nome"] and r["mercado_no_carrinho"])
         return tool_call("trocarItem", {"itemDaLista": cafe["id"], "itemId": pick["itemId"], "quantidade": 1}, "c3")
 

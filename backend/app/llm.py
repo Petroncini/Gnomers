@@ -315,7 +315,6 @@ class NormalizedSku(BaseModel):
     variety_terms: list[str]
     pack_size: float | None
     pack_unit: Literal["g", "ml", "un"] | None
-    quality_tier: int = Field(ge=1, le=3, description="1 = marca própria ou econômica, 2 = comum, 3 = premium")
     matches: bool = Field(description="o SKU é o produto pedido (não um derivado, como 'leite de coco' para 'leite')")
 
 

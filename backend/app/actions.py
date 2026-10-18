@@ -177,7 +177,7 @@ def estimate_replan(s: Session, plan: Plan, result: dict) -> optimize.Solution |
     pins = pins_from(result)
     user = s.get(User, plan.user_id)
     lst = s.get(ShoppingList, plan.list_id)
-    quality, max_merchants, split_min = effective(user, lst)
+    max_merchants, split_min = effective(user, lst)
     items, candidates = [], []
     for it in result["items"]:
         pin = pins.get(str(it["id"]), {})
@@ -189,11 +189,11 @@ def estimate_replan(s: Session, plan: Plan, result: dict) -> optimize.Solution |
         costs = [c["price"] * optimize.packs_for(it["required"], c["size"]) for c in cands]
         items.append(optimize.Item(it["id"], it["required"], max(25.0, 2.5 * statistics.median(costs)) if costs else 25.0))
         candidates += [optimize.Candidate(c["sku_id"], it["id"], c["merchant_id"], c["name"], c.get("brand"), c["price"],
-                                          c["size"], c.get("quality_penalty", 0.0), c.get("substitution_penalty", 0.0),
+                                          c["size"], c.get("substitution_penalty", 0.0),
                                           c.get("note_penalty", 0.0)) for c in cands]
     merchants = [optimize.Merchant(m_id, m["name"], m["delivery_fee"], m["minimum_order"])
                  for m_id, m in result.get("merchants", {}).items()]
-    problem = optimize.Problem(items=items, merchants=merchants, candidates=candidates, alpha=quality,
+    problem = optimize.Problem(items=items, merchants=merchants, candidates=candidates,
                                max_merchants=max_merchants)
     solutions = optimize.solve_with_alternatives(problem, split_min, n_alternatives=1)
     return solutions[0] if solutions and solutions[0].merchants else None
@@ -460,8 +460,6 @@ async def checkout(s: Session, api: Ifood, plan: Plan, *, accept_changes: bool =
     s.commit()
     learning.update_rules(s, plan.user_id)
     learning.update_periodicity(s, plan.list_id)
-    user = s.get(User, plan.user_id)
-    learning.adjust_quality_profile(s, user)
     return {"status": "ordered", "orders": orders, "plan": plan_view(plan)}
 
 

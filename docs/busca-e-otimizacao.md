@@ -68,13 +68,12 @@ Cada regra tem ainda `scope` (`global` ou o id de uma lista), `category` (ou nul
 
 No `User` (e, se definido, sobrescrito na `ShoppingList`):
 
-- `quality_profile` (0 a 1): o peso α da qualidade no solver. 0 é só preço.
 - `max_merchants`: quantos mercados no máximo numa compra.
 - `split_min_savings`: quanto a divisão entre mercados precisa economizar para valer.
 
 ### Regras aprendidas
 
-`app/learning.py` transforma escolhas em sinais (`chosen`, `accepted`, `swapped_to`, `swapped_from`, `rejected`). Por categoria, quando uma marca tem pelo menos 3 sinais positivos e mais de 70% deles, nasce uma `brand_chain` suave com `source: learned`. Duas rejeições da mesma marca viram `brand_block` suave. Os sinais também ajustam a qualidade percebida de cada marca (±0,5 nível) na penalidade de qualidade.
+`app/learning.py` transforma escolhas em sinais (`chosen`, `accepted`, `swapped_to`, `swapped_from`, `rejected`). Por categoria, quando uma marca tem pelo menos 3 sinais positivos e mais de 70% deles, nasce uma `brand_chain` suave com `source: learned`. Duas rejeições da mesma marca viram `brand_block` suave.
 
 ## 2. Endereço
 
@@ -158,7 +157,7 @@ O catálogo de mercado não traz marca, variedade nem tamanho como campos, só o
 
 **Cache:** a tabela `Product` guarda a normalização por `itemId`. Um SKU com o mesmo **EAN** de outro já normalizado (o mesmo produto em outro mercado) reaproveita a normalização sem chamar o LLM.
 
-**Extração:** o LLM (`normalize_products`, em lotes de 30) ou a heurística devolve marca, variedade, tamanho, unidade e nível de qualidade (1 marca própria, 2 comum, 3 premium).
+**Extração:** o LLM (`normalize_products`, em lotes de 30) ou a heurística devolve marca, variedade, tamanho e unidade. Não há nota de qualidade: o MCP não traz avaliação de produto de mercado, e uma nota por marca seria palpite.
 
 **Se o produto serve** é decisão do juiz (seção 3): "não serve" é descartado, "substituto" recebe penalidade.
 
@@ -179,7 +178,6 @@ O catálogo de mercado não traz marca, variedade nem tamanho como campos, só o
 | substituição | marca fora da cadeia, sem outras permitidas | R$ 60 + 100% do custo |
 | substituição | k-ésima marca da cadeia (k > 1) | R$ 0,50 + 8% × posição × custo |
 | substituição | o juiz classificou como substituto | R$ 1 + 15% do custo |
-| qualidade | nível baixo (antes do α) | (3 − nível) / 2 × 30% do custo |
 | nota | regra `note` | (1 − nota do LLM) × 20% do custo |
 
 **Filtros por item.** Cada um só é aplicado se sobrar alguma opção; senão é melhor manter tudo do que deixar o item de fora:
@@ -206,7 +204,7 @@ Variáveis   x[s] ∈ {0,1}   SKU s escolhido
             u[i] ∈ {0,1}   item i fica de fora
 
 Objetivo    min  Σ preço[s]·n[s] + Σ frete[m]·y[m]
-               + Σ (α·qualidade[s] + substituição[s] + nota[s])·x[s]
+               + Σ (substituição[s] + nota[s])·x[s]
                + Σ falta[i]·u[i]
 
 Restrições  Σ_{s∈S(i)} x[s] + u[i] = 1          cada item: um SKU ou falta
@@ -217,7 +215,6 @@ Restrições  Σ_{s∈S(i)} x[s] + u[i] = 1          cada item: um SKU ou falta
             Σ y[m] ≤ max_merchants
 ```
 
-- **α** é o `quality_profile` do usuário (ou da lista).
 - **Quantidade fixa:** o número de embalagens é exatamente o necessário para cobrir o pedido. O solver nunca põe unidades a mais para bater o pedido mínimo; se a lista não chega ao mínimo, o item fica de fora e a tela explica com números.
 - **Um mercado ou vários:** o modelo roda duas vezes, com no máximo 1 mercado e com `max_merchants`. A versão dividida só vale se o objetivo (preço, frete e penalidades) cair mais que `split_min_savings`.
 - **Alternativas:** o modelo roda mais vezes com um corte que proíbe repetir o mesmo conjunto de mercados, gerando até 3 soluções.

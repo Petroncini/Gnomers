@@ -1,0 +1,94 @@
+{
+  "tool": "removeVoucher",
+  "args": {
+    "cartId": "fba65a5a-1404-47a8-996f-9f00346e5a37"
+  },
+  "recordedAt": "2026-10-18T07:35:26",
+  "response": {
+    "cartId": "fba65a5a-1404-47a8-996f-9f00346e5a37",
+    "merchant": {
+      "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
+      "merchantName": "Extra - São Carlos",
+      "orderMinimumPrice": 60.0,
+      "formattedAddress": "Rua São Sebastião,, 1746 — Centro, SAO CARLOS, SP"
+    },
+    "items": [
+      {
+        "itemId": "8001b304-2969-469e-96b5-f52fccd283db",
+        "cartItemId": "f5f18092-9ad9-45ea-8606-1cc7e688db1d",
+        "quantity": 1,
+        "unitPrice": 10.49,
+        "name": "Feijão Carioca Empório São João Pacote 1kg"
+      },
+      {
+        "itemId": "cf952cab-9904-416e-8711-127d1d483e99",
+        "cartItemId": "4ee7f635-5197-4e35-9321-84c38cb58c13",
+        "quantity": 2,
+        "unitPrice": 11.99,
+        "name": "Granola Jasmine Frutas Tropicais Zero Açúcar 250g"
+      },
+      {
+        "itemId": "1b20de44-14b0-4dc7-9c5a-a2deb43fb6fd",
+        "cartItemId": "429cca60-f0f1-4a85-a494-ac153866cbb8",
+        "quantity": 1,
+        "unitPrice": 4.31,
+        "name": "Arroz Branco Tipo 1 Qualitá 1kg"
+      },
+      {
+        "itemId": "6b6de444-ba16-4164-a64b-f89bbabc0ad3",
+        "cartItemId": "1ad3ff69-7fa8-45f6-a9a0-cfcce637f968",
+        "quantity": 1,
+        "unitPrice": 27.54,
+        "name": "Café Torrado e Moído Tradicional Caboclo 500g"
+      },
+      {
+        "itemId": "15b6fc89-40c5-4e22-b050-68dc4077ec41",
+        "cartItemId": "c9d27f0b-5255-4d1e-9b29-4602be9a80e9",
+        "quantity": 2,
+        "unitPrice": 5.71,
+        "name": "Leite Uht Integral com Tampa Italac 1l"
+      }
+    ],
+    "deliveryAddress": {
+      "streetName": "Rua São Sebastião",
+      "streetNumber": "1455",
+      "neighborhood": "Centro"
+    },
+    "deliveryMethod": {
+      "deliveryMethodId": "DEFAULT",
+      "deliveryMethodMode": "DELIVERY",
+      "deliveryMethodName": "Padrão",
+      "fee": 0.0,
+      "estimatedMinutes": {
+        "min": 110,
+        "max": 120
+      },
+      "timeSlot": {
+        "from": "2026-10-19T11:00:00",
+        "to": "2026-10-19T13:00:00"
+      }
+    },
+    "fees": [
+      {
+        "name": "Taxa de serviço",
+        "description": "Cobramos uma taxa que nos ajuda a cobrir custos operacionais, inclusive de segurança, e a manter os investimentos contínuos na plataforma.",
+        "amount": 1.99
+      }
+    ],
+    "summary": {
+      "totalName": "Valor total",
+      "totalAmount": 79.73,
+      "subtotalName": "Valor dos itens",
+      "subtotalAmount": 77.74,
+      "deliveryFeeName": "Valor da taxa de entrega",
+      "deliveryFeeAmount": 0.0,
+      "feeTotalName": "Valor das taxas e serviços",
+      "feeTotalAmount": 1.99,
+      "benefitsTotalName": "Valor dos benefícios",
+      "benefitsTotalAmount": 9.98,
+      "voucherTotalName": "Valor dos cupons",
+      "voucherTotalAmount": 0.0
+    },
+    "appDeeplink": "ifood://cart?cartId=fba65a5a-1404-47a8-996f-9f00346e5a37"
+  }
+}

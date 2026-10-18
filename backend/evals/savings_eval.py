@@ -39,7 +39,6 @@ from app.rules import Resolved  # noqa: E402
 
 HERE = Path(__file__).parent
 FIXTURES = HERE.parent / "fixtures" / "searchOffers"
-ALPHA = 0.0          # perfil "economia": só preço, como as pessoas de referência
 MAX_MERCHANTS = 2
 SPLIT_MIN = 10.0     # padrão do app: dividir só se economizar mais de R$ 10
 
@@ -139,7 +138,7 @@ async def main() -> None:
         for combo in itertools.combinations(range(1, len(ITEMS) + 1), size):
             items = [i for i in norm_set.items if i.id in combo]
             cands = [c for c in norm_set.candidates if c.item_id in combo]
-            problem = optimize.Problem(items=items, candidates=cands, alpha=ALPHA, max_merchants=MAX_MERCHANTS,
+            problem = optimize.Problem(items=items, candidates=cands, max_merchants=MAX_MERCHANTS,
                                        merchants=[optimize.Merchant(x.id, x.name, x.delivery_fee, x.minimum_order)
                                                   for x in merchants.values()])
             sol = optimize.solve_with_alternatives(problem, SPLIT_MIN)[0]

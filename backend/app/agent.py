@@ -177,7 +177,7 @@ class _Session:
                 continue
             offer = {"itemId": r["itemId"], "nome": r.get("itemName", ""), "preco": float(price),
                      "preco_sem_promocao": float(r.get("unitPrice") or price), "merchantId": m["merchantId"],
-                     "merchant": m.get("name", ""), "mercado_no_carrinho": m["merchantId"] in in_cart,
+                     "merchant": m.get("merchantName") or m.get("name", ""), "mercado_no_carrinho": m["merchantId"] in in_cart,
                      "image": r.get("itemImageUrl")}
             self.seen[r["itemId"]] = offer
             out.append({k: v for k, v in offer.items() if k != "image"})

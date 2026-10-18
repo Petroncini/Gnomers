@@ -49,7 +49,6 @@ class SkuInfo:
     variety_terms: list[str]
     pack_size: float | None
     pack_unit: str | None
-    quality_tier: int
     price: float
     list_price: float
     size: float
@@ -57,16 +56,15 @@ class SkuInfo:
     reasons: list[str] = field(default_factory=list)  # por que é substituição
     size_known: bool = True
     verdict: str = "exato"  # do juiz: exato | substituto (nao_serve nem entra)
-    quality_penalty: float = 0.0
     substitution_penalty: float = 0.0
     note_penalty: float = 0.0
 
     def to_dict(self) -> dict:
         return {"sku_id": self.sku_id, "item_id": self.item_id, "merchant_id": self.merchant_id, "name": self.name,
                 "brand": self.brand, "variety_terms": self.variety_terms, "pack_size": self.pack_size,
-                "pack_unit": self.pack_unit, "quality_tier": self.quality_tier, "price": self.price,
+                "pack_unit": self.pack_unit, "price": self.price,
                 "list_price": self.list_price, "size": self.size, "image": self.image, "reasons": self.reasons,
-                "size_known": self.size_known, "verdict": self.verdict, "quality_penalty": self.quality_penalty,
+                "size_known": self.size_known, "verdict": self.verdict,
                 "substitution_penalty": self.substitution_penalty, "note_penalty": self.note_penalty}
 
 
@@ -121,7 +119,7 @@ async def _ensure_products(s: Session, specs: dict[int, ItemSpec], offers: list[
         if twin and norm(twin.matched_category) == norm(spec.category):
             # mesmo EAN em outro mercado: mesmo produto, reaproveita a normalização
             p = p or Product(ifood_item_id=o.sku_id, merchant_id=o.merchant_id, name=o.name)
-            for f in ("brand", "category", "variety_terms", "pack_size", "pack_unit", "quality_tier",
+            for f in ("brand", "category", "variety_terms", "pack_size", "pack_unit",
                       "matched_category", "matched"):
                 setattr(p, f, getattr(twin, f))
             p.ean = o.ean
@@ -148,7 +146,6 @@ async def _ensure_products(s: Session, specs: dict[int, ItemSpec], offers: list[
                 p.variety_terms = info.get("variety_terms") or []
                 p.pack_size = info.get("pack_size")
                 p.pack_unit = info.get("pack_unit")
-                p.quality_tier = int(info.get("quality_tier") or 2)
                 p.matched_category = spec.category
                 # o LLM às vezes aceita "leite em pó" como "leite"; a trava de derivado vale sempre
                 p.matched = bool(info.get("matches")) and not heuristics.is_derivative(spec.category, o.name, spec.query)
@@ -201,11 +198,9 @@ async def _judge(s: Session, specs: dict[int, ItemSpec], offers: list[Offer]) ->
     return out
 
 
-async def build(s: Session, specs: list[ItemSpec], offers: list[Offer], *,
-                affinity: dict[str, dict[str, float]] | None = None) -> NormalizedSet:
+async def build(s: Session, specs: list[ItemSpec], offers: list[Offer]) -> NormalizedSet:
     spec_by_id = {sp.id: sp for sp in specs}
     products = await _ensure_products(s, spec_by_id, offers)
-    affinity = affinity or {}
 
     rejected: dict[int, dict[str, int]] = {sp.id: {} for sp in specs}
     pool: dict[int, list[tuple[float, SkuInfo, Candidate]]] = {sp.id: [] for sp in specs}
@@ -257,20 +252,15 @@ async def build(s: Session, specs: list[ItemSpec], offers: list[Offer], *,
             reasons.append("substituto: " + (verdict["reason"] or "não é exatamente o pedido"))
             sub_pen += 1.0 + 0.15 * est_cost
 
-        brand_aff = affinity.get(norm(spec.category), {}).get(norm(p.brand), 0.0)
-        tier = min(3.0, max(1.0, p.quality_tier + brand_aff))
-        quality_pen = (3.0 - tier) / 2.0 * 0.3 * est_cost
-
         info = SkuInfo(sku_id=o.sku_id, item_id=o.item_id, merchant_id=o.merchant_id, name=o.name, brand=p.brand,
                        variety_terms=list(p.variety_terms or []), pack_size=p.pack_size, pack_unit=p.pack_unit,
-                       quality_tier=p.quality_tier, price=o.price, list_price=o.list_price, size=size, image=o.image,
+                       price=o.price, list_price=o.list_price, size=size, image=o.image,
                        reasons=reasons, size_known=size_known, verdict=verdict["verdict"],
-                       quality_penalty=round(quality_pen, 2),
                        substitution_penalty=round(sub_pen, 2))
         cand = Candidate(sku_id=o.sku_id, item_id=o.item_id, merchant_id=o.merchant_id, name=o.name, brand=p.brand,
-                         price=o.price, size=size, quality_penalty=round(quality_pen, 2),
+                         price=o.price, size=size,
                          substitution_penalty=round(sub_pen, 2))
-        score = o.price / size + (sub_pen + 0.5 * quality_pen) / max(required, 1e-6)
+        score = o.price / size + sub_pen / max(required, 1e-6)
         pool[o.item_id].append((score, info, cand))
 
     candidates: list[Candidate] = []

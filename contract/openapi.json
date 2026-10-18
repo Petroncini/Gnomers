@@ -1426,17 +1426,6 @@
             ],
             "title": "Next Due"
           },
-          "quality_profile": {
-            "anyOf": [
-              {
-                "type": "number"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Quality Profile"
-          },
           "recurrence_days": {
             "anyOf": [
               {
@@ -2499,17 +2488,6 @@
             ],
             "title": "Name"
           },
-          "quality_profile": {
-            "anyOf": [
-              {
-                "type": "number"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Quality Profile"
-          },
           "split_min_savings": {
             "anyOf": [
               {
@@ -3083,17 +3061,6 @@
             ],
             "title": "Next Due"
           },
-          "quality_profile": {
-            "anyOf": [
-              {
-                "type": "number"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Quality Profile"
-          },
           "recurrence_days": {
             "anyOf": [
               {
@@ -3123,7 +3090,6 @@
           "recurrence_days",
           "next_due",
           "last_total",
-          "quality_profile",
           "max_merchants",
           "split_min_savings",
           "item_count",
@@ -3456,10 +3422,6 @@
             "title": "Name",
             "type": "string"
           },
-          "quality_profile": {
-            "title": "Quality Profile",
-            "type": "number"
-          },
           "split_min_savings": {
             "anyOf": [
               {
@@ -3480,7 +3442,6 @@
         "required": [
           "id",
           "name",
-          "quality_profile",
           "max_merchants",
           "split_min_savings",
           "imported_history",

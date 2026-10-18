@@ -1,0 +1,101 @@
+{
+  "tool": "setCartPayment",
+  "args": {
+    "cartId": "d36c66d0-5727-47d8-a70a-f20f784e49a3",
+    "paymentMethodId": "75354fd8-e916-41db-9286-93be2232efe2"
+  },
+  "recordedAt": "2026-10-18T07:35:40",
+  "response": {
+    "cartId": "d36c66d0-5727-47d8-a70a-f20f784e49a3",
+    "merchant": {
+      "merchantId": "32549526-5a03-4af1-a9ed-f4e8875828bf",
+      "merchantName": "Oba Hortifruti - São Carlos",
+      "orderMinimumPrice": 30.0,
+      "formattedAddress": "Avenida Bruno Ruggiero Filho, 101 — Parque Santa Felícia Jardim, SAO CARLOS, SP"
+    },
+    "items": [
+      {
+        "itemId": "5d43c0fc-6b29-4671-b64e-7cf88ca5c417",
+        "cartItemId": "c2ed3fdc-6ea6-4890-8d55-f27ad342049a",
+        "quantity": 1,
+        "unitPrice": 6.99,
+        "name": "Arroz Tipo 1 Prato Fino 1kg"
+      },
+      {
+        "itemId": "0a692205-16ff-4757-b169-364f5c9544e2",
+        "cartItemId": "c78fc39e-c99e-4922-87ac-1c2b7073b827",
+        "quantity": 2,
+        "unitPrice": 8.69,
+        "name": "Leite Tp Italac 1L A2 Integral"
+      },
+      {
+        "itemId": "1b1cc247-3d11-45c8-9099-e2b83cf1c160",
+        "cartItemId": "8b0ed149-02b1-4805-a6d7-e208e322de91",
+        "quantity": 1,
+        "unitPrice": 7.99,
+        "name": "Feijão Preto Broto Legal 1kg"
+      },
+      {
+        "itemId": "a14a6666-239e-476d-ba5f-4db226864691",
+        "cartItemId": "cc26c254-f24b-40fe-9230-9bf4dc30c7b3",
+        "quantity": 1,
+        "unitPrice": 34.99,
+        "name": "Granola Zero Pacote Kobber 500g"
+      },
+      {
+        "itemId": "d05a4d5a-041c-4cc5-b9ae-614af883ebe3",
+        "cartItemId": "98345a64-e1fd-4f0c-adfc-46b6f474ea6a",
+        "quantity": 1,
+        "unitPrice": 15.67,
+        "name": "Café Torrado e Moído Tradicional Vácuo Melitta 500g"
+      }
+    ],
+    "deliveryAddress": {
+      "streetName": "Rua São Sebastião",
+      "streetNumber": "1455",
+      "neighborhood": "Centro"
+    },
+    "paymentMethod": {
+      "paymentMethodId": "75354fd8-e916-41db-9286-93be2232efe2",
+      "kind": "PIX",
+      "displayName": "Pix",
+      "brand": "PIX"
+    },
+    "deliveryMethod": {
+      "deliveryMethodId": "DEFAULT",
+      "deliveryMethodMode": "DELIVERY",
+      "deliveryMethodName": "Padrão",
+      "fee": 0.0,
+      "estimatedMinutes": {
+        "min": 95,
+        "max": 105
+      },
+      "timeSlot": {
+        "from": "2026-10-19T11:00:00",
+        "to": "2026-10-19T13:00:00"
+      }
+    },
+    "fees": [
+      {
+        "name": "Taxa de serviço",
+        "description": "Cobramos uma taxa que nos ajuda a cobrir custos operacionais, inclusive de segurança, e a manter os investimentos contínuos na plataforma.",
+        "amount": 2.08
+      }
+    ],
+    "summary": {
+      "totalName": "Valor total",
+      "totalAmount": 70.2,
+      "subtotalName": "Valor dos itens",
+      "subtotalAmount": 83.02,
+      "deliveryFeeName": "Valor da taxa de entrega",
+      "deliveryFeeAmount": 0.0,
+      "feeTotalName": "Valor das taxas e serviços",
+      "feeTotalAmount": 2.08,
+      "benefitsTotalName": "Valor dos benefícios",
+      "benefitsTotalAmount": 37.21,
+      "voucherTotalName": "Valor dos cupons",
+      "voucherTotalAmount": 0.0
+    },
+    "appDeeplink": "ifood://cart?cartId=d36c66d0-5727-47d8-a70a-f20f784e49a3"
+  }
+}
