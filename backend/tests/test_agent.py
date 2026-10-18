@@ -7,9 +7,13 @@ import httpx
 import pytest
 from fastapi.testclient import TestClient
 
+from sqlmodel import Session
+
 from app import llm
+from app.db import engine
 from app.main import app
 from app.mcp.fake import ICMC
+from app.models import Plan
 
 
 @pytest.fixture(scope="module")
@@ -82,6 +86,13 @@ def test_agent_searches_and_swaps_in_the_real_cart(client, plan, scripted):
     names = [ln["name"] for c in out["plan"]["result"]["chosen"]["carts"] for ln in c["lines"]
              if ln["item_id"] == cafe["id"]]
     assert len(names) == 1 and "Extraforte" in names[0]
+    # o produto da busca entra com o tamanho do nome (500 g), não 1: senão o recálculo veria 500 pacotes
+    with Session(engine) as s:
+        stored = s.get(Plan, plan["id"]).result
+    sku = next(ln["sku_id"] for c in stored["chosen"]["carts"] for ln in c["lines"] if ln["item_id"] == cafe["id"])
+    chosen = next(c for c in stored["candidates"][str(cafe["id"])] if c["sku_id"] == sku)
+    assert chosen["size"] == 500.0  # "café 500 g" pede 500 g; a embalagem cobre 500
+    assert not any(c["type"] == "replan" for c in out["plan"]["result"]["decisions"])
     assert calls[0]["tools"] and calls[0]["tool_choice"] == "auto"
 
 
@@ -109,3 +120,31 @@ def test_agent_failure_falls_back_to_the_old_chat(client, plan, monkeypatch):
 
 def last_tool_result_text(body: dict) -> str:
     return next(m for m in reversed(body["messages"]) if m["role"] == "tool")["content"]
+
+
+def test_product_found_by_the_agent_gets_its_size_from_the_name(client, plan, scripted):
+    """Produto que o pipeline não tinha visto: entra como candidato com o tamanho lido do nome."""
+    _, replies = scripted
+    cafe = next(i for i in plan["result"]["items"] if i["category"] == "cafe")
+    cart = next(c for c in plan["result"]["chosen"]["carts"] if any(ln["item_id"] == cafe["id"] for ln in c["lines"]))
+    with Session(engine) as s:
+        stored = s.get(Plan, plan["id"])
+        result = dict(stored.result)
+        result["candidates"] = {k: v for k, v in result["candidates"].items() if k != str(cafe["id"])}
+        stored.result = result  # o pipeline "não viu" nenhum café: tudo que o agente achar é novo
+        s.add(stored)
+        s.commit()
+
+    def swap(body):
+        found = json.loads(next(m for m in reversed(body["messages"]) if m["role"] == "tool")["content"])["resultados"]
+        pick = next(r for r in found if r["mercado_no_carrinho"] and "500g" in r["nome"].replace(" ", "").lower())
+        return tool_call("trocarItem", {"itemDaLista": cafe["id"], "itemId": pick["itemId"], "quantidade": 1}, "c2")
+
+    replies.extend([tool_call("searchOffers", {"query": "café", "merchantId": cart["merchant_id"]}), swap,
+                    {"content": "Troquei."}])
+    client.post(f"/plans/{plan['id']}/chat", json={"message": "troca o café"})
+    with Session(engine) as s:
+        stored = s.get(Plan, plan["id"]).result
+    added = [c for c in stored["candidates"][str(cafe["id"])] if c.get("reasons") == ["escolhido no chat"]]
+    assert len(added) == 1 and added[0]["size"] == 500.0
+    assert not any(c["type"] == "replan" for c in stored["decisions"])

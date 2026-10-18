@@ -17,7 +17,7 @@ import logging
 
 from sqlmodel import Session
 
-from app import actions, llm
+from app import actions, heuristics, llm
 from app.mcp.client import McpToolError
 from app.mcp.ifood import Ifood
 from app.models import Address, Plan
@@ -202,12 +202,21 @@ class _Session:
         if not offer["mercado_no_carrinho"]:
             return (f"Erro: {offer['merchant']} não está no carrinho. Trocar de mercado exige refazer o "
                     "carrinho; explique isso ao cliente.")
-        # o produto novo entra como candidato do item, e a troca segue o mesmo caminho do cartão
+        # o produto novo entra como candidato do item, e a troca segue o mesmo caminho do cartão.
+        # O tamanho vem do nome, como no pipeline: o recálculo de "dá para pagar menos" depende dele.
+        item = self._item(list_item)
+        parsed = heuristics.normalize_product(item["category"], offer["nome"], item.get("query", ""))
+        if item["unit"] == "pack":
+            size = 1.0
+        elif parsed["pack_size"] and parsed["pack_unit"] == item["unit"]:
+            size = float(parsed["pack_size"])
+        else:
+            size = item["required"] / quantity  # sem tamanho no nome: a quantidade escolhida cobre o pedido
         result = copy.deepcopy(self.plan.result)
         cands = result.setdefault("candidates", {}).setdefault(str(list_item), [])
         if not any(c["sku_id"] == sku_id for c in cands):
             cands.append({"sku_id": sku_id, "item_id": list_item, "merchant_id": offer["merchantId"],
-                          "name": offer["nome"], "brand": None, "price": offer["preco"], "size": 1.0,
+                          "name": offer["nome"], "brand": parsed["brand"], "price": offer["preco"], "size": size,
                           "image": offer.get("image"), "reasons": ["escolhido no chat"]})
         self.plan.result = result
         old = next((ln["name"] for c in result["chosen"]["carts"] for ln in c["lines"] if ln["item_id"] == list_item), None)

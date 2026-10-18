@@ -53,11 +53,30 @@ O Cesta é comparado com três pessoas de referência. Elas já sabem quais prod
 | Duas alterações no mesmo carrinho ao mesmo tempo (um cartão e o agente do chat): a segunda apagava a primeira | uma alteração por vez em cada plano, relendo o plano do banco | `test_concurrent_changes_to_a_plan_are_not_lost`, mais um teste que mostra a perda sem a trava |
 | O sandbox bloqueia o token por alguns minutos depois de ~60 chamadas em 1 a 2 min, e responde `INTERNAL` | no máximo 30 chamadas ao iFood por minuto (`GNOMERS_MCP_CALLS_PER_MIN`); cache, simulador e reprodução não contam | `test_rate_limiter_waits_for_the_window` |
 
+## 4. Robustez do agente do chat
+
+**Protegido:**
+- no máximo 6 chamadas ao iFood e 8 rodadas por mensagem; na última rodada as tools ficam desligadas, então sempre há resposta;
+- a troca só aceita produtos que vieram de uma busca na mesma conversa, e os wrappers recusam ID que não seja UUID de uma resposta do iFood;
+- troca só dentro dos mercados do carrinho; o agente não paga nem fecha pedido;
+- falhas do iFood e argumentos inválidos voltam ao modelo como resultado da tool, e ele explica ao usuário;
+- o chat roda com a trava do plano, então não sobrescreve um clique num cartão;
+- sem LLM, ou se ele falhar antes de agir, o chat volta ao fluxo sem tools.
+
+**Corrigido:** um produto achado pelo agente entrava no carrinho com tamanho 1. O recálculo de "dá para pagar menos" via "café 500 g" como 500 pacotes, deixava o item de fora e podia mostrar uma economia falsa. Agora o tamanho vem do nome do produto, como no pipeline (testes `test_agent_searches_and_swaps_in_the_real_cart` e `test_product_found_by_the_agent_gets_its_size_from_the_name`).
+
+**Pendente:**
+1. **Falha no meio da conversa.** Se o agente troca um item e o LLM falha na rodada seguinte, o chat responde pelo fluxo sem tools e não conta que o carrinho mudou. O certo é responder com os passos já feitos.
+2. **Sem tempo máximo por mensagem.** Cada chamada ao LLM pode levar até 90 s, e a trava do plano bloqueia os cartões enquanto isso. Falta um limite (uns 45 s).
+3. **Quantidade sem teto.** O agente pode pedir qualquer número de embalagens. Falta limitar, por exemplo a 3 vezes o que a lista pede.
+
+**Risco aceito:** os nomes de produtos do iFood vão para o modelo, então um nome malicioso poderia tentar instruí-lo. O pior resultado possível é uma troca dentro do carrinho, que aparece nos passos e passa pela confirmação antes do pagamento.
+
 ## Como reproduzir
 
 ```bash
 cd backend
 uv run python evals/judge_eval.py           # juiz contra regras (LLM do .env; --rules para só as regras)
 uv run python evals/savings_eval.py         # economia sobre os preços gravados
-uv run pytest tests/test_robustness.py
+uv run pytest tests/test_robustness.py tests/test_agent.py
 ```
