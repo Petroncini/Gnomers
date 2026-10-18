@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { ChevronDown, ChevronRight, MapPin, Plus, ShoppingBasket } from "lucide-react";
-import { AddressView, api, brl, getPosition, LocationResult, NearbyAddress, savedAddressId, saveAddressId, ShoppingList, Suggestion } from "../api";
+import { BellRing, ChevronDown, ChevronRight, MapPin, Plus, ShoppingBasket } from "lucide-react";
+import { AddressView, api, brl, getPosition, LocationResult, NearbyAddress, PromotionResult, savedAddressId, saveAddressId, ShoppingList, Suggestion } from "../api";
 import SuggestionCard from "../components/SuggestionCard";
 import AddressPicker from "../components/AddressPicker";
 import { BottomNav, ErrorStrip, Fab, ListSkeleton, PrimaryButton, Sheet, placeholderColor, useToast } from "../ui";
@@ -33,6 +33,7 @@ export default function Home() {
   const [today, setToday] = useState(new Date().toISOString().slice(0, 10));
   const [newName, setNewName] = useState("");
   const [creating, setCreating] = useState(false);
+  const [simulating, setSimulating] = useState(false);
   const navigate = useNavigate();
   const toast = useToast();
 
@@ -91,6 +92,26 @@ export default function Home() {
     }
   };
 
+  // demonstração da proatividade: o MCP não avisa quando entra promoção, então ela é simulada num item da lista
+  const simulatePromo = async () => {
+    const target = next ?? lists?.[0];
+    if (!target) return;
+    setSimulating(true);
+    try {
+      const full = await api.get<ShoppingList>(`/lists/${target.id}`);
+      const item = full.items?.[0];
+      if (!item) return toast("A lista está vazia");
+      const r = await api.post<PromotionResult>("/admin/promotions", { query: item.category, discount_pct: 25 });
+      load();
+      const why = r.evaluations.find((e) => !e.action)?.reason;
+      toast(r.suggestions.length ? "Chegou uma sugestão" : why ? `Sem sugestão: ${why}` : "Nenhum item da lista entrou na promoção");
+    } catch (e) {
+      toast((e as Error).message);
+    } finally {
+      setSimulating(false);
+    }
+  };
+
   const next = (lists ?? [])
     .filter((l) => l.next_due)
     .sort((a, b) => a.next_due!.localeCompare(b.next_due!))[0];
@@ -128,9 +149,27 @@ export default function Home() {
           </div>
         )}
 
-        {suggestions.length > 0 && (
-          <section className="stack" aria-label="Sugestões">
-            {suggestions.map((s) => <SuggestionCard key={s.id} suggestion={s} onChange={load} />)}
+        {lists && lists.length > 0 && (
+          <section className="section">
+            <h2 className="t-overline">Para você</h2>
+            {suggestions.length > 0 ? (
+              <div className="stack">
+                {suggestions.map((s) => <SuggestionCard key={s.id} suggestion={s} onChange={load} />)}
+              </div>
+            ) : (
+              <article className="card pad suggestion">
+                <div className="top">
+                  <span className="ico"><BellRing size={18} strokeWidth={2.2} aria-hidden="true" /></span>
+                  <p className="t-body">
+                    Fico de olho no que você compra sempre. Quando algo entra em promoção perto da hora de comprar,
+                    aviso aqui para você <strong>adiantar</strong> ou <strong>estocar</strong>.
+                  </p>
+                </div>
+                <button type="button" className="btn-secondary" onClick={simulatePromo} disabled={simulating}>
+                  {simulating ? "Simulando…" : "Simular uma promoção"}
+                </button>
+              </article>
+            )}
           </section>
         )}
 
@@ -165,7 +204,10 @@ export default function Home() {
                     </span>
                     <span className="grow">
                       <span className="t-body-strong">{l.name}</span>
-                      <span className="t-caption">{l.item_count} {l.item_count === 1 ? "item" : "itens"} · {recurrence(l)}</span>
+                      <span className="t-caption">
+                        {l.item_count} {l.item_count === 1 ? "item" : "itens"} · {recurrence(l)}
+                        {l.next_due && ` · próxima: ${whenLabel(daysUntil(l.next_due, today)).toLocaleLowerCase("pt-BR")}`}
+                      </span>
                     </span>
                     <ChevronRight size={18} className="chev" aria-hidden="true" />
                   </Link>

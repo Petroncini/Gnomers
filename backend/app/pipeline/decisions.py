@@ -50,7 +50,7 @@ async def build_cards(specs: list[ItemSpec], winner: dict, skus: dict[str, SkuIn
         if spec.id not in picked:
             cards.append({"type": "missing", "item_id": spec.id, "category": spec.category,
                           "title": f"{spec.raw_text}: não encontrado",
-                          "default_text": f"Não achei \"{spec.raw_text}\" nos mercados escolhidos, então ficou de fora.",
+                          "default_text": f"Não achei **{spec.raw_text}** nos mercados escolhidos, então ficou de fora.",
                           "question": True, "alternatives": []})
             continue
         ln, cart = picked[spec.id]
@@ -67,19 +67,19 @@ async def build_cards(specs: list[ItemSpec], winner: dict, skus: dict[str, SkuIn
                 # substituição autorizada pela cadeia do usuário: só informa
                 cards.append({**base, "type": "brand_chain_info", "question": False,
                               "title": f"{label}: {info.brand}",
-                              "default_text": f"{wanted_brand} não estava disponível; usei {info.brand}, "
+                              "default_text": f"**{wanted_brand}** não estava disponível; usei **{info.brand}**, "
                                               f"que é a sua {position + 1}ª opção."})
             else:
                 cards.append({**base, "type": "brand_substitution", "question": True,
                               "title": f"{label}: {info.brand or 'outra marca'} no lugar de {wanted_brand}",
-                              "default_text": f"Não achei {wanted_brand} com bom preço; coloquei {info.name} "
+                              "default_text": f"Não achei **{wanted_brand}** com bom preço; coloquei **{info.name}** "
                                               f"por {brl(ln['unit_price'])}."})
         elif not wanted_brand and not r.brand_chain and info.brand:
             # sem regra para a marca: o sistema escolheu; vale perguntar uma vez por categoria
             # sem regra para a marca: só informa; vira pergunta se o usuário abrir o chat no cartão
             cards.append({**base, "type": "brand_choice", "question": False,
                           "title": f"{label}: escolhi {info.brand}",
-                          "default_text": f"Sem marca preferida de {label.lower()}, escolhi {info.name} "
+                          "default_text": f"Sem marca preferida de {label.lower()}, escolhi **{info.name}** "
                                           f"por {brl(ln['unit_price'])}, o melhor custo-benefício."})
 
         # substituto escolhido pelo preço quando havia opção exata nos mercados da compra: vale perguntar
@@ -89,9 +89,9 @@ async def build_cards(specs: list[ItemSpec], winner: dict, skus: dict[str, SkuIn
             why = substitute.split(": ", 1)[1]
             cards.append({**base, "type": "variety", "question": True,
                           "title": f"{label}: {why}",
-                          "default_text": f"Coloquei {info.name} ({brl(ln['unit_price'])}): {why}. "
+                          "default_text": f"Coloquei **{info.name}** ({brl(ln['unit_price'])}): {why}. "
                                           f"O que você pediu sai por {brl(exact_alts[0]['price'])}: "
-                                          f"{exact_alts[0]['name']}."})
+                                          f"**{exact_alts[0]['name']}**."})
 
         required, unit = required_amount(spec)
         bought = ln["quantity"] * info.size

@@ -15,7 +15,7 @@
     },
     "pageSize": 10
   },
-  "recordedAt": "2026-10-18T08:00:13",
+  "recordedAt": "2026-10-18T08:17:08",
   "response": {
     "agentHints": {
       "nextStepWhenUserPicksItem": "Retrieve full item details — option groups and applicable promotions — before presenting it to the user."

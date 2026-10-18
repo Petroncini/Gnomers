@@ -76,7 +76,7 @@ export default function Preferences() {
       {failed && <ErrorStrip onRetry={load} />}
       {listId
         ? <Header back={`/listas/${listId}`} title="Preferências" subtitle={list?.name} titleClass="t-title-lg" />
-        : <Header title="Perfil" subtitle="Como o agente escolhe por você" />}
+        : <Header title="Preferências" subtitle="Como o agente escolhe por você" />}
 
       <main className={`content${listId ? "" : " has-nav no-fab"}`} style={{ gap: 24 }}>
         {listId && (

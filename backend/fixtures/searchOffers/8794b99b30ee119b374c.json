@@ -15,7 +15,7 @@
     },
     "pageSize": 10
   },
-  "recordedAt": "2026-10-18T08:00:10",
+  "recordedAt": "2026-10-18T08:17:05",
   "response": {
     "agentHints": {
       "nextStepWhenUserPicksItem": "Retrieve full item details — option groups and applicable promotions — before presenting it to the user."
@@ -25,6 +25,93 @@
     "nextPageToken": "MTA7MQ==",
     "resultKind": "ITEM",
     "results": [
+      {
+        "itemEan": "78933873",
+        "itemId": "09696dbf-86e7-44a5-8f18-3eb516bce7b9",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202608261119_ahw47vwfp2u.png",
+        "itemName": "Refrigerante Coca-Cola Zero Açúcar 200ml",
+        "itemSkuId": "01a08d55-67d0-7af0-8feb-89f22e49fdd3",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "FAST_DELIVERY",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 59,
+              "min": 49
+            },
+            "fee": 12.99,
+            "promotionalFee": 12.99
+          },
+          "isOpen": true,
+          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
+          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1867,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.26
+        },
+        "promotionalUnitPrice": 1.61,
+        "unitPrice": 2.15
+      },
+      {
+        "itemEan": "78933873",
+        "itemId": "14527681-61bd-4fba-a671-c5958ddc42d5",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202604221110_h6p9zhl9v2b.png",
+        "itemName": "Refrigerante Coca-Cola Zero Açúcar 200ml",
+        "itemSkuId": "01a08d55-67d0-7af0-8feb-89f22e49fdd3",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "FAST_DELIVERY",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 54,
+              "min": 44
+            },
+            "fee": 10.49,
+            "promotionalFee": 4
+          },
+          "isOpen": true,
+          "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
+          "merchantName": "Extra - São Carlos",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1354,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 0.27
+        },
+        "promotionalUnitPrice": 1.64,
+        "unitPrice": 2.19
+      },
+      {
+        "itemEan": "78933873",
+        "itemId": "c13cd3f6-b728-497b-b97a-0935f7157b40",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202604221110_h6p9zhl9v2b.png",
+        "itemName": "Refrigerante Coca-Cola Zero Açúcar 200ml",
+        "itemSkuId": "01a08d55-67d0-7af0-8feb-89f22e49fdd3",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "FAST_DELIVERY",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 35,
+              "min": 25
+            },
+            "fee": 10.49,
+            "promotionalFee": 3
+          },
+          "isOpen": true,
+          "merchantId": "fdc30d9c-4a05-4e5a-b1de-421b2df23eb0",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/fdc30d9c-4a05-4e5a-b1de-421b2df23eb0/202601271313_QN9O.png",
+          "merchantName": "Minuto Pão - XV de Novembro",
+          "minimumOrderAmount": 30,
+          "ratingCount": 688,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 0.41
+        },
+        "promotionalUnitPrice": 1.64,
+        "unitPrice": 2.19
+      },
       {
         "itemEan": "78933873",
         "itemId": "7baf9dab-c82c-46a3-903d-ecece9744e5c",
@@ -55,30 +142,59 @@
         "unitPrice": 2.19
       },
       {
+        "itemEan": "7894900700398",
+        "itemId": "569d21ca-d7a6-4050-a739-3a40d4e43990",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202604221110_as5r4nbt3hm.png",
+        "itemName": "Refrigerante Zero Açucar Coca-Cola 220ml",
+        "itemSkuId": "01a08d55-67cf-7c00-86df-7a1918081a02",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "FAST_DELIVERY",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 54,
+              "min": 44
+            },
+            "fee": 10.49,
+            "promotionalFee": 4
+          },
+          "isOpen": true,
+          "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
+          "merchantName": "Extra - São Carlos",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1354,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 0.27
+        },
+        "promotionalUnitPrice": 2.8,
+        "unitPrice": 3.29
+      },
+      {
         "itemEan": "7896052608140",
-        "itemId": "44bb91d3-b4e2-45a7-8d54-228a44297353",
+        "itemId": "5c4183ff-45dd-4517-b66d-6cf09c14478c",
         "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202504281511_v9lspv60q8.png",
         "itemName": "Refrigerante Guaraná Zero Açúcar Fys Lata 350ml",
         "itemSkuId": "SKU-JVOQ06428",
         "merchant": {
           "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodId": "FAST_DELIVERY",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 240,
-              "min": 230
+              "max": 54,
+              "min": 44
             },
-            "fee": 11.99,
-            "promotionalFee": 0
+            "fee": 10.49,
+            "promotionalFee": 4
           },
           "isOpen": true,
-          "merchantId": "e6067614-d8f3-4108-8b6e-c72fd364ae2c",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/3974223/202607281734_5AGE.png",
-          "merchantName": "Pão de Açúcar - Shopping Iguatemi São Carlos",
-          "minimumOrderAmount": 30,
-          "ratingCount": 102,
+          "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
+          "merchantName": "Extra - São Carlos",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1354,
           "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 2.09
+          "straightLineDistanceKm": 0.27
         },
         "promotionalUnitPrice": 2.94,
         "unitPrice": 3.09
@@ -113,6 +229,64 @@
         "unitPrice": 3.09
       },
       {
+        "itemEan": "7896052608140",
+        "itemId": "44bb91d3-b4e2-45a7-8d54-228a44297353",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202504281511_v9lspv60q8.png",
+        "itemName": "Refrigerante Guaraná Zero Açúcar Fys Lata 350ml",
+        "itemSkuId": "SKU-JVOQ06428",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 240,
+              "min": 230
+            },
+            "fee": 11.99,
+            "promotionalFee": 0
+          },
+          "isOpen": true,
+          "merchantId": "e6067614-d8f3-4108-8b6e-c72fd364ae2c",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/3974223/202607281734_5AGE.png",
+          "merchantName": "Pão de Açúcar - Shopping Iguatemi São Carlos",
+          "minimumOrderAmount": 30,
+          "ratingCount": 102,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 2.09
+        },
+        "promotionalUnitPrice": 2.94,
+        "unitPrice": 3.09
+      },
+      {
+        "itemEan": "7891910000197",
+        "itemId": "1bc0cf27-3fdc-44cf-9ad1-e6654b20eb14",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202602171840_ufle8dh1w0k.jpeg",
+        "itemName": "Açúcar Refinado União 1kg",
+        "itemSkuId": "01a1165c-f0ab-7dc3-9347-515fd232fafc",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "FAST_DELIVERY",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 54,
+              "min": 44
+            },
+            "fee": 10.49,
+            "promotionalFee": 4
+          },
+          "isOpen": true,
+          "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
+          "merchantName": "Extra - São Carlos",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1354,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 0.27
+        },
+        "promotionalUnitPrice": 3.11,
+        "unitPrice": 3.89
+      },
+      {
         "itemEan": "7891097107023",
         "itemId": "f1264006-81de-4be6-b9c5-c1c26df3a073",
         "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202505202047_iyucc7n133.png",
@@ -140,180 +314,6 @@
         },
         "promotionalUnitPrice": 3.22,
         "unitPrice": 3.39
-      },
-      {
-        "itemEan": "7891910000197",
-        "itemId": "93ef19bd-7bf7-4fdb-97cb-dea7c8e6c90b",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202602171840_ufle8dh1w0k.jpeg",
-        "itemName": "Açúcar Refinado União 1kg",
-        "itemSkuId": "01a1165c-f0ab-7dc3-9347-515fd232fafc",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 240,
-              "min": 230
-            },
-            "fee": 11.99,
-            "promotionalFee": 0
-          },
-          "isOpen": true,
-          "merchantId": "e6067614-d8f3-4108-8b6e-c72fd364ae2c",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/3974223/202607281734_5AGE.png",
-          "merchantName": "Pão de Açúcar - Shopping Iguatemi São Carlos",
-          "minimumOrderAmount": 30,
-          "ratingCount": 102,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 2.09
-        },
-        "promotionalUnitPrice": 3.67,
-        "unitPrice": 4.59
-      },
-      {
-        "itemEan": "7895000319015",
-        "itemId": "4c1a4c94-3d97-49a8-9e5a-b4330fe8c293",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202305161214_dn1tme9b23.jpg",
-        "itemName": "Açúcar Refinado Qualitá 1kg",
-        "itemSkuId": "SKU-AXOS87585",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 240,
-              "min": 230
-            },
-            "fee": 11.99,
-            "promotionalFee": 0
-          },
-          "isOpen": true,
-          "merchantId": "e6067614-d8f3-4108-8b6e-c72fd364ae2c",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/3974223/202607281734_5AGE.png",
-          "merchantName": "Pão de Açúcar - Shopping Iguatemi São Carlos",
-          "minimumOrderAmount": 30,
-          "ratingCount": 102,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 2.09
-        },
-        "promotionalUnitPrice": 4.08,
-        "unitPrice": 4.29
-      },
-      {
-        "itemEan": "7896032501010",
-        "itemId": "b2c5676f-a824-414e-af16-ccdbe43205f5",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202310020851_30jqrvwu2y6.jpg",
-        "itemName": "Açúcar Refinado Tradicional da Barra 1kg",
-        "itemSkuId": "SKU-MTFG50931",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 240,
-              "min": 230
-            },
-            "fee": 11.99,
-            "promotionalFee": 0
-          },
-          "isOpen": true,
-          "merchantId": "e6067614-d8f3-4108-8b6e-c72fd364ae2c",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/3974223/202607281734_5AGE.png",
-          "merchantName": "Pão de Açúcar - Shopping Iguatemi São Carlos",
-          "minimumOrderAmount": 30,
-          "ratingCount": 102,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 2.09
-        },
-        "promotionalUnitPrice": 4.27,
-        "unitPrice": 4.49
-      },
-      {
-        "itemEan": "7891097107221",
-        "itemId": "5b6750ff-5478-4ca4-800e-866498de5c60",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202506271453_4sby045bo8.png",
-        "itemName": "Iogurte Sabor Coco Sem Adição de Açúcares Parmalat Fit 10 Zero 120g",
-        "itemSkuId": "SKU-BOLH21989",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 240,
-              "min": 230
-            },
-            "fee": 11.99,
-            "promotionalFee": 0
-          },
-          "isOpen": true,
-          "merchantId": "e6067614-d8f3-4108-8b6e-c72fd364ae2c",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/3974223/202607281734_5AGE.png",
-          "merchantName": "Pão de Açúcar - Shopping Iguatemi São Carlos",
-          "minimumOrderAmount": 30,
-          "ratingCount": 102,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 2.09
-        },
-        "promotionalUnitPrice": 4.46,
-        "unitPrice": 4.69
-      },
-      {
-        "itemEan": "7891991008785",
-        "itemId": "f0336ebb-f597-4578-8084-9ce8086cc786",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202505181545_8n2ip32chq.png",
-        "itemName": "Refrigerante Sem Açúcar Guaraná Antarctica 1,5l",
-        "itemSkuId": "01a08d55-74a4-7a40-915e-dae44b464ad8",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 240,
-              "min": 230
-            },
-            "fee": 11.99,
-            "promotionalFee": 0
-          },
-          "isOpen": true,
-          "merchantId": "e6067614-d8f3-4108-8b6e-c72fd364ae2c",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/3974223/202607281734_5AGE.png",
-          "merchantName": "Pão de Açúcar - Shopping Iguatemi São Carlos",
-          "minimumOrderAmount": 30,
-          "ratingCount": 102,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 2.09
-        },
-        "promotionalUnitPrice": 4.79,
-        "unitPrice": 7.99
-      },
-      {
-        "itemEan": "7891910020096",
-        "itemId": "08b7f9b1-4d5c-4a45-b0c9-c767b6688e83",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510032006_dj9aj1ehbue.jpeg",
-        "itemName": "Açucar Refinado União Fit Light 500g",
-        "itemSkuId": "SKU-PSUV41132",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 240,
-              "min": 230
-            },
-            "fee": 11.99,
-            "promotionalFee": 0
-          },
-          "isOpen": true,
-          "merchantId": "e6067614-d8f3-4108-8b6e-c72fd364ae2c",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/3974223/202607281734_5AGE.png",
-          "merchantName": "Pão de Açúcar - Shopping Iguatemi São Carlos",
-          "minimumOrderAmount": 30,
-          "ratingCount": 102,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 2.09
-        },
-        "promotionalUnitPrice": 5.22,
-        "unitPrice": 5.49
       }
     ]
   }

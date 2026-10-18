@@ -498,7 +498,7 @@ class ProposedRule(BaseModel):
 class ExtractedRule(BaseModel):
     action: CartAction
     rule: ProposedRule | None
-    reply: str = Field(description="uma frase curta ao usuário, em português, sem jargão técnico")
+    reply: str = Field(description="uma frase curta ao usuário, em português, sem jargão técnico; nomes de produtos e marcas entre ** (negrito)")
     is_question: bool = Field(description="true se a mensagem é uma pergunta aberta e não um pedido de mudança")
 
 
@@ -640,7 +640,8 @@ async def explain(question: str, plan_result: dict) -> str:
         out = await _run(Explanation,
                          "Responda ao cliente de um app de compras em no máximo 2 frases curtas (até 40 palavras), "
                          "em português, usando só os dados do carrinho. Não fale em 'otimizador', 'plano' ou "
-                         "'solver'; não refaça contas nem invente valores.",
+                         "'solver'; não refaça contas nem invente valores. Escreva nomes de produtos e marcas "
+                         "entre ** (negrito); nenhuma outra formatação.",
                          f"Plano: {json.dumps(plan_result, ensure_ascii=False)[:60000]}\nPergunta: {question}",
                          strong=True)
         return out.answer

@@ -4,7 +4,7 @@ import { SendHorizontal } from "lucide-react";
 import { api, brl, ChatResponse, Plan, ProgressEvent, ProposedRule, ShoppingList } from "../api";
 import { DecisionBubble, resolutionLabel } from "../components/DecisionCard";
 import { RuleProposal } from "../components/RuleCard";
-import { ErrorStrip, Header } from "../ui";
+import { ErrorStrip, Header, RichText } from "../ui";
 
 const STAGES: [string, string][] = [
   ["address", "Endereço"], ["discovery", "Busca"], ["merchants", "Mercados"], ["gaps", "Lacunas"],
@@ -104,7 +104,7 @@ export default function AssistantPage() {
           {m.steps.map((st, j) => <li key={j}>{st}</li>)}
         </ul>
       )}
-      <p>{m.text}</p>
+      <p>{m.from === "agent" ? <RichText text={m.text} /> : m.text}</p>
       {m.proposal && plan && (
         <RuleProposal proposal={m.proposal} listId={plan.list_id} planId={plan.id}
                       onSaved={(r) => dropProposal(i, { from: "agent", text: `Regra salva: ${r.text}`, cardId })}
@@ -191,7 +191,7 @@ export default function AssistantPage() {
           const talked = messages.some((m) => m.cardId === d.id);
           return (
             <Fragment key={d.id}>
-              <div className="bubble agent compact"><p><strong>{d.title}.</strong> {d.text}</p></div>
+              <div className="bubble agent compact"><p><strong>{d.title}.</strong> <RichText text={d.text} /></p></div>
               {thread(d.id)}
               {!talked && <div className="bubble user"><p>{resolutionLabel(d)}</p></div>}
             </Fragment>

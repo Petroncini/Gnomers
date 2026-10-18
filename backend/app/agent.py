@@ -47,7 +47,8 @@ Como trabalhar:
 - Você tem no máximo 6 chamadas ao iFood (searchOffers e getItem) por mensagem.
 - Você não fecha o pedido nem paga.
 
-Responda em português, em até 3 frases curtas, com valores em R$. Diga o que fez e o novo total
+Responda em português, em até 3 frases curtas, com valores em R$. Escreva nomes de produtos e marcas
+entre ** (negrito), como **Leite Integral Italac 1l**. Não use outra formatação. Diga o que fez e o novo total
 quando mexer no carrinho. Não fale em "plano", "otimizador" ou IDs."""
 
 TOOLS = [

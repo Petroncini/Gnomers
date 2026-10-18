@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Percent, RefreshCw } from "lucide-react";
 import { api, planTarget, Suggestion } from "../api";
-import { PrimaryButton, useToast } from "../ui";
+import { PrimaryButton, useToast, RichText } from "../ui";
 
 export default function SuggestionCard({ suggestion, onChange }: { suggestion: Suggestion; onChange: () => void }) {
   const [busy, setBusy] = useState(false);
@@ -33,7 +33,7 @@ export default function SuggestionCard({ suggestion, onChange }: { suggestion: S
     <article className="card pad suggestion">
       <div className="top">
         <span className="ico"><Icon size={18} strokeWidth={2.2} aria-hidden="true" /></span>
-        <p className="t-body">{suggestion.text}</p>
+        <p className="t-body"><RichText text={suggestion.text} /></p>
       </div>
       <div className="actions">
         <button type="button" className="btn-secondary" onClick={dismiss} disabled={busy}>Agora não</button>

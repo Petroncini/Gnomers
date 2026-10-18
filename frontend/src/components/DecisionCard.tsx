@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeftRight } from "lucide-react";
 import { api, brl, Decision, Plan, PlanCreated } from "../api";
+import { RichText } from "../ui";
 
 // Ações de um cartão de decisão: aceitar, trocar, remover, dispensar ou refazer o carrinho.
 function useDecision(plan: Plan, card: Decision, onPlan: (p: Plan) => void) {
@@ -88,7 +89,7 @@ export function DecisionBubble({ plan, card, index, total, onPlan }: {
     <>
       <div className="bubble agent">
         <span className="conflict">{index} de {total} · {card.title}</span>
-        <p>{card.text}</p>
+        <p><RichText text={card.text} /></p>
         {error && <p className="conflict" role="alert">{error}</p>}
       </div>
       <div className="quick-replies" role="group" aria-label="Respostas rápidas">
@@ -123,7 +124,7 @@ export function ChoiceNote({ plan, card, onPlan, tone = "warn" }: {
     <div className={`notice${tone === "plain" ? " plain" : ""}`}>
       <ArrowLeftRight size={16} className="ico" aria-hidden="true" />
       <div className="grow">
-        <span>{card.text}</span>
+        <span><RichText text={card.text} /></span>
         {resolved && <span className="t-small">{resolutionLabel(card)}</span>}
         {!resolved && swappable.length > 0 && (
           <button type="button" className="btn-text" aria-expanded={swapOpen} onClick={() => setSwapOpen(!swapOpen)}>

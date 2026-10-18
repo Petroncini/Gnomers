@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { CalendarClock, ChevronRight, Ellipsis, Plus, Receipt, ShoppingCart, SlidersHorizontal, Zap } from "lucide-react";
+import { CalendarClock, ChevronRight, Ellipsis, Plus, Receipt, Repeat, ShoppingCart, SlidersHorizontal, Zap } from "lucide-react";
 import { ParsedItem, Rule, ShoppingList, api, brl, planTarget } from "../api";
 import ItemRow, { factsLine, hasRestriction, rulesFor, understanding } from "../components/ItemRow";
 import { ErrorStrip, Fab, Header, IconButton, ListSkeleton, PrimaryButton, Sheet, Spinner, UnderstoodList, useToast } from "../ui";
@@ -15,6 +15,8 @@ function fmtDeliverAt(v: string): string {
   const day = d.toLocaleDateString("pt-BR", { weekday: "short", day: "2-digit", month: "2-digit" });
   return `${day}, ${d.toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" })}`;
 }
+
+const fmtDay = (d: string) => new Date(d + "T12:00").toLocaleDateString("pt-BR", { weekday: "short", day: "2-digit", month: "2-digit" });
 
 export default function ListPage() {
   const { id } = useParams();
@@ -72,16 +74,43 @@ export default function ListPage() {
   const items = list.items ?? [];
   const restricted = new Set(items.filter((it) => hasRestriction(it, rulesFor(rules, it.category, listId))).map((it) => it.id));
   const shown = expanded ? items : items.slice(0, VISIBLE);
+  // regras que valem para esta lista: as globais e as dela
+  const listRules = rules.filter((r) => r.active && (r.scope === "global" || r.scope === String(listId)));
+  const learnedCount = listRules.filter((r) => r.source === "learned").length;
+  const ownCount = listRules.length - learnedCount;
+  const prefsLabel = listRules.length === 0 ? "Nenhuma ainda: diga do que você gosta"
+    : [ownCount && `${ownCount} ${ownCount === 1 ? "regra sua" : "regras suas"}`,
+       learnedCount && `${learnedCount} ${learnedCount === 1 ? "aprendida" : "aprendidas"}`].filter(Boolean).join(" · ");
 
   return (
     <div className="screen">
       {failed && <ErrorStrip onRetry={load} />}
       <Header back="/" title={list.name}
               subtitle={`${items.length} ${items.length === 1 ? "item" : "itens"} · ${restricted.size} com restrição`}
-              action={<IconButton label="Mais opções" onClick={() => setSheet("options")}><Ellipsis size={20} aria-hidden="true" /></IconButton>} />
+              action={<IconButton label="Mais opções" onClick={() => setSheet("options")}><Ellipsis size={28} strokeWidth={2.8} aria-hidden="true" /></IconButton>} />
 
       <main className="content has-fab">
         {error && <div className="notice" role="alert"><span className="grow">{error}</span></div>}
+
+        <div className="card divided">
+          <button type="button" className="info-row" onClick={() => setSheet("options")}>
+            <Repeat size={20} className="ico" aria-hidden="true" />
+            <span className="grow">
+              <span className="t-small muted">Repetição</span>
+              <span className="t-body-strong">{list.recurrence_days ? `A cada ${list.recurrence_days} dias` : "Sem repetição"}</span>
+              {list.next_due && <span className="t-caption">Próxima compra em {fmtDay(list.next_due)}</span>}
+            </span>
+            <span className="btn-text" aria-hidden="true">{list.recurrence_days ? "Trocar" : "Definir"}</span>
+          </button>
+          <Link to={`/listas/${id}/preferencias`} className="info-row">
+            <SlidersHorizontal size={20} className="ico" aria-hidden="true" />
+            <span className="grow">
+              <span className="t-small muted">Preferências</span>
+              <span className="t-body-strong">{prefsLabel}</span>
+            </span>
+            <ChevronRight size={16} className="chev" style={{ color: "var(--color-dashed)" }} aria-hidden="true" />
+          </Link>
+        </div>
 
         <button type="button" className="add-dashed" onClick={() => setSheet("add")}>
           <Plus size={18} strokeWidth={2.4} aria-hidden="true" />Adicionar item
@@ -260,7 +289,7 @@ function OptionsSheet({ list, onSaved, onClose }: {
         <span className="ico-box"><SlidersHorizontal size={18} aria-hidden="true" /></span>
         <span className="grow">
           <span className="t-body-strong">Preferências desta lista</span>
-          <span className="t-caption">Regras de marca, economia e número de mercados</span>
+          <span className="t-caption">Regras de marca e número de mercados</span>
         </span>
         <ChevronRight size={16} style={{ color: "var(--color-dashed)" }} aria-hidden="true" />
       </Link>

@@ -191,7 +191,7 @@ def _when(days: int) -> str:
 def _text(action: str, best: dict, p: Pattern) -> str:
     every = f"Você compra a cada ~{p.interval_days} dias" if p.interval_days else "Está na sua lista"
     paid = f", você costuma pagar {brl(best['avg_paid'])}" if best.get("avg_paid") else ""
-    head = f"{best['name']} está {best['pct']}% mais barato no {best['merchant']} ({brl(best['price'])}{paid})."
+    head = f"**{best['name']}** está {best['pct']}% mais barato no {best['merchant']} ({brl(best['price'])}{paid})."
     if action == "stock":
         return f"{head} {every} e comprou há pouco, mas o desconto é bom. Estocar agora?"
     nxt = f", e a próxima compra seria {_when(p.days_to_due)}" if p.days_to_due is not None else ""

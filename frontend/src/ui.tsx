@@ -5,7 +5,7 @@ import { createPortal } from "react-dom";
 import { Link, NavLink } from "react-router-dom";
 import {
   AlignLeft, Apple, Beef, Beer, Candy, ChevronLeft, CircleCheck, Coffee, Cookie, Croissant, CupSoda, Drumstick, Egg,
-  Fish, GlassWater, House, LucideIcon, Milk, ShoppingBasket, SprayCan, UserRound, Wheat, Wine, X,
+  Fish, GlassWater, House, LucideIcon, Milk, ShoppingBasket, SlidersHorizontal, SprayCan, Wheat, Wine, X,
 } from "lucide-react";
 import { Rule } from "./api";
 
@@ -138,11 +138,26 @@ export function ErrorStrip({ message, onRetry }: { message?: string; onRetry: ()
   );
 }
 
+// Texto do back-end ou do agente: **nome do produto** e porcentagens saem em negrito.
+const RICH = /(\*\*[^*]+\*\*|\d+(?:[.,]\d+)?\s?%)/g;
+
+export function RichText({ text }: { text: string }) {
+  return (
+    <>
+      {text.split(RICH).map((part, i) => {
+        if (part.startsWith("**") && part.endsWith("**") && part.length > 4) return <strong key={i}>{part.slice(2, -2)}</strong>;
+        if (/^\d+(?:[.,]\d+)?\s?%$/.test(part)) return <strong key={i}>{part}</strong>;
+        return part;
+      })}
+    </>
+  );
+}
+
 export function BottomNav() {
   return (
     <nav className="bottom-nav" aria-label="Principal">
       <NavLink to="/" end><House size={22} strokeWidth={2} aria-hidden="true" />Início</NavLink>
-      <NavLink to="/preferencias" end><UserRound size={22} strokeWidth={2} aria-hidden="true" />Perfil</NavLink>
+      <NavLink to="/preferencias" end><SlidersHorizontal size={22} strokeWidth={2} aria-hidden="true" />Preferências</NavLink>
     </nav>
   );
 }

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, Repeat } from "lucide-react";
 import { ListItem, Rule, Unit } from "../api";
 import { RestrictionTag, Thumb, Understanding, ruleSelos } from "../ui";
 
@@ -64,6 +64,9 @@ export default function ItemRow({ item, to, restricted }: { item: ListItem; to: 
         <span className="grow">
           <span className="t-body-strong">{displayName(item.raw_text)}</span>
           {restricted && <RestrictionTag />}
+          {item.recurrence_days && (
+            <span className="t-caption recur"><Repeat size={12} aria-hidden="true" />a cada {item.recurrence_days} dias</span>
+          )}
         </span>
         <span className="qty" aria-label={`quantidade ${item.quantity}`}>{qtyLabel(item.quantity)}</span>
         <ChevronRight size={16} className="chev" aria-hidden="true" />

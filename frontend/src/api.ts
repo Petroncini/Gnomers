@@ -24,6 +24,7 @@ export type Order = Schemas["OrderView"];
 export type Plan = Schemas["PlanView"];
 export type ProgressEvent = Schemas["ProgressEvent"];
 export type Suggestion = Schemas["SuggestionView"];
+export type PromotionResult = Schemas["PromotionResult"];
 export type Tracking = Schemas["TrackingView"];
 export type AuthStatus = Schemas["AuthStatus"];
 export type UserView = Schemas["UserView"];

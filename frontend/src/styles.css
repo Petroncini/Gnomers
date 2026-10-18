@@ -584,3 +584,6 @@ details.card > .details-body { padding: 0 14px 14px; display: flex; flex-directi
   .spinner { animation-duration: 1.6s; }
   * { scroll-behavior: auto !important; }
 }
+
+/* repetição própria de um item, na linha da lista */
+.item-row .recur { display: inline-flex; align-items: center; gap: 4px; }
