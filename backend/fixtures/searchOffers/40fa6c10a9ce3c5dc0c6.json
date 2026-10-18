@@ -14,7 +14,7 @@
     },
     "pageSize": 25
   },
-  "recordedAt": "2026-10-18T05:47:25",
+  "recordedAt": "2026-10-18T07:33:37",
   "response": {
     "agentHints": {
       "nextStepWhenUserPicksItem": "Retrieve full item details — option groups and applicable promotions — before presenting it to the user."
@@ -25,33 +25,33 @@
     "resultKind": "ITEM",
     "results": [
       {
-        "itemEan": "7895000483136",
-        "itemId": "9048502c-fc5d-4728-8060-c9f730701b81",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202202100248_aym4a91boh4.jpg",
-        "itemName": "Feijão Carioca Enlatado Qualitá 420g",
-        "itemSkuId": "SKU-CTPW25874",
+        "itemEan": "7896006744115",
+        "itemId": "3af31a5f-4760-4ab5-b7e0-00a66eeca514",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202408211735_xipbxuwhca.jpeg",
+        "itemName": "Feijão Carioca Tipo 1 Camil 1kg",
+        "itemSkuId": "SKU-OQLG92859",
         "merchant": {
           "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodId": "FAST_DELIVERY",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 234,
-              "min": 224
+              "max": 47,
+              "min": 37
             },
-            "fee": 11.99,
-            "promotionalFee": 0
+            "fee": 13.99,
+            "promotionalFee": 13.99
           },
-          "isOpen": false,
-          "merchantId": "e6067614-d8f3-4108-8b6e-c72fd364ae2c",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/3974223/202607281734_5AGE.png",
-          "merchantName": "Pão de Açúcar - Shopping Iguatemi São Carlos",
+          "isOpen": true,
+          "merchantId": "32549526-5a03-4af1-a9ed-f4e8875828bf",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/32549526-5a03-4af1-a9ed-f4e8875828bf/202605131411_woyX_l.jpg",
+          "merchantName": "Oba Hortifruti - São Carlos",
           "minimumOrderAmount": 30,
-          "ratingCount": 102,
+          "ratingCount": 276,
           "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 2.09
+          "straightLineDistanceKm": 1.96
         },
-        "promotionalUnitPrice": 6.97,
-        "unitPrice": 9.29
+        "promotionalUnitPrice": 9.99,
+        "unitPrice": 9.99
       },
       {
         "itemEan": "7898957777013",
@@ -64,8 +64,8 @@
             "deliveryMethodId": "DEFAULT",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 102,
-              "min": 92
+              "max": 132,
+              "min": 122
             },
             "fee": 9.99,
             "promotionalFee": 9.99
@@ -81,6 +81,412 @@
         },
         "promotionalUnitPrice": 9.59,
         "unitPrice": 9.59
+      },
+      {
+        "itemEan": "7896006744115",
+        "itemId": "23af9a24-2995-404f-b472-cd51f650dad9",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202408211735_xipbxuwhca.jpeg",
+        "itemName": "Feijão Carioca Tipo 1 Camil 1kg",
+        "itemSkuId": "SKU-OQLG92859",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 240,
+              "min": 230
+            },
+            "fee": 11.99,
+            "promotionalFee": 0
+          },
+          "isOpen": false,
+          "merchantId": "e6067614-d8f3-4108-8b6e-c72fd364ae2c",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/3974223/202607281734_5AGE.png",
+          "merchantName": "Pão de Açúcar - Shopping Iguatemi São Carlos",
+          "minimumOrderAmount": 30,
+          "ratingCount": 102,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 2.09
+        },
+        "promotionalUnitPrice": 9.79,
+        "unitPrice": 9.79
+      },
+      {
+        "itemEan": "7896200115346",
+        "itemId": "4761744d-44f9-4237-85a9-5d3601b36728",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202306021024_q46gznvn7cc.jpg",
+        "itemName": "Feijao Carioca Broto Legal 1kg",
+        "itemSkuId": "SKU-DASY48894",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "FAST_DELIVERY",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 47,
+              "min": 37
+            },
+            "fee": 13.99,
+            "promotionalFee": 13.99
+          },
+          "isOpen": true,
+          "merchantId": "32549526-5a03-4af1-a9ed-f4e8875828bf",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/32549526-5a03-4af1-a9ed-f4e8875828bf/202605131411_woyX_l.jpg",
+          "merchantName": "Oba Hortifruti - São Carlos",
+          "minimumOrderAmount": 30,
+          "ratingCount": 276,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.96
+        },
+        "promotionalUnitPrice": 12.99,
+        "unitPrice": 12.99
+      },
+      {
+        "itemEan": "7897122601931",
+        "itemId": "084470bd-a805-4470-ba90-d70e285ccc60",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510032037_22amogifnf7.jpeg",
+        "itemName": "Feijão Carioca Vapza Orgânico Cozido a Vapor Caixa 250g",
+        "itemSkuId": "SKU-CHPR30910",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "FAST_DELIVERY",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 47,
+              "min": 37
+            },
+            "fee": 13.99,
+            "promotionalFee": 13.99
+          },
+          "isOpen": true,
+          "merchantId": "32549526-5a03-4af1-a9ed-f4e8875828bf",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/32549526-5a03-4af1-a9ed-f4e8875828bf/202605131411_woyX_l.jpg",
+          "merchantName": "Oba Hortifruti - São Carlos",
+          "minimumOrderAmount": 30,
+          "ratingCount": 276,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.96
+        },
+        "promotionalUnitPrice": 13.99,
+        "unitPrice": 13.99
+      },
+      {
+        "itemEan": "7896200115360",
+        "itemId": "1b1cc247-3d11-45c8-9099-e2b83cf1c160",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510031803_0o7h9ppailb.jpeg",
+        "itemName": "Feijão Preto Broto Legal 1kg",
+        "itemSkuId": "SKU-QNLE28659",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "FAST_DELIVERY",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 47,
+              "min": 37
+            },
+            "fee": 13.99,
+            "promotionalFee": 13.99
+          },
+          "isOpen": true,
+          "merchantId": "32549526-5a03-4af1-a9ed-f4e8875828bf",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/32549526-5a03-4af1-a9ed-f4e8875828bf/202605131411_woyX_l.jpg",
+          "merchantName": "Oba Hortifruti - São Carlos",
+          "minimumOrderAmount": 30,
+          "ratingCount": 276,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.96
+        },
+        "promotionalUnitPrice": 7.99,
+        "unitPrice": 7.99
+      },
+      {
+        "itemEan": "619205556825",
+        "itemId": "7209e372-f4a2-43e8-954c-62d108b08c19",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202602191120_jp88oouk2id.png",
+        "itemName": "Feijão Preto Holyfoods 120g",
+        "itemSkuId": "SKU-QFYY13742",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "FAST_DELIVERY",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 47,
+              "min": 37
+            },
+            "fee": 13.99,
+            "promotionalFee": 13.99
+          },
+          "isOpen": true,
+          "merchantId": "32549526-5a03-4af1-a9ed-f4e8875828bf",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/32549526-5a03-4af1-a9ed-f4e8875828bf/202605131411_woyX_l.jpg",
+          "merchantName": "Oba Hortifruti - São Carlos",
+          "minimumOrderAmount": 30,
+          "ratingCount": 276,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.96
+        },
+        "promotionalUnitPrice": 16.99,
+        "unitPrice": 16.99
+      },
+      {
+        "itemEan": "7896006749295",
+        "itemId": "c77b9a91-68ea-4309-aa28-d6a2419ccc51",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210182332_4a7sgs8zsic.jpg",
+        "itemName": "Feijão Fradinho Tipo 1 Camil Pacote 500g",
+        "itemSkuId": "SKU-DUXA72059",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "FAST_DELIVERY",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 47,
+              "min": 37
+            },
+            "fee": 13.99,
+            "promotionalFee": 13.99
+          },
+          "isOpen": true,
+          "merchantId": "32549526-5a03-4af1-a9ed-f4e8875828bf",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/32549526-5a03-4af1-a9ed-f4e8875828bf/202605131411_woyX_l.jpg",
+          "merchantName": "Oba Hortifruti - São Carlos",
+          "minimumOrderAmount": 30,
+          "ratingCount": 276,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.96
+        },
+        "promotionalUnitPrice": 6.49,
+        "unitPrice": 6.49
+      },
+      {
+        "itemEan": "7896006748830",
+        "itemId": "d5bdd135-898f-41c4-9f1a-45917a7d7c6a",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510032016_7lduwjikcww.jpeg",
+        "itemName": "Feijão Bolinha Camil Pacote 500g",
+        "itemSkuId": "SKU-CCGI72308",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "FAST_DELIVERY",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 47,
+              "min": 37
+            },
+            "fee": 13.99,
+            "promotionalFee": 13.99
+          },
+          "isOpen": true,
+          "merchantId": "32549526-5a03-4af1-a9ed-f4e8875828bf",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/32549526-5a03-4af1-a9ed-f4e8875828bf/202605131411_woyX_l.jpg",
+          "merchantName": "Oba Hortifruti - São Carlos",
+          "minimumOrderAmount": 30,
+          "ratingCount": 276,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.96
+        },
+        "promotionalUnitPrice": 13.99,
+        "unitPrice": 13.99
+      },
+      {
+        "itemEan": "7896006748731",
+        "itemId": "9b7dd9aa-434e-44b2-bb94-6ae83916b14a",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210182341_sw7t1pp3gv9.jpg",
+        "itemName": "Feijão Jalo Tipo 1 Camil Pacote 500g",
+        "itemSkuId": "SKU-CBZN53145",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "FAST_DELIVERY",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 47,
+              "min": 37
+            },
+            "fee": 13.99,
+            "promotionalFee": 13.99
+          },
+          "isOpen": true,
+          "merchantId": "32549526-5a03-4af1-a9ed-f4e8875828bf",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/32549526-5a03-4af1-a9ed-f4e8875828bf/202605131411_woyX_l.jpg",
+          "merchantName": "Oba Hortifruti - São Carlos",
+          "minimumOrderAmount": 30,
+          "ratingCount": 276,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.96
+        },
+        "promotionalUnitPrice": 11.99,
+        "unitPrice": 11.99
+      },
+      {
+        "itemEan": "7896006748786",
+        "itemId": "2be01f3e-bcc9-4d06-b27a-27d8e0662f87",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210182341_0yo4ib0n9xam.jpg",
+        "itemName": "Feijão Rajado Tipo 1 Camil Pacote 500g",
+        "itemSkuId": "SKU-WBHQ56441",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "FAST_DELIVERY",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 47,
+              "min": 37
+            },
+            "fee": 13.99,
+            "promotionalFee": 13.99
+          },
+          "isOpen": true,
+          "merchantId": "32549526-5a03-4af1-a9ed-f4e8875828bf",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/32549526-5a03-4af1-a9ed-f4e8875828bf/202605131411_woyX_l.jpg",
+          "merchantName": "Oba Hortifruti - São Carlos",
+          "minimumOrderAmount": 30,
+          "ratingCount": 276,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.96
+        },
+        "promotionalUnitPrice": 12.49,
+        "unitPrice": 12.49
+      },
+      {
+        "itemEan": "7896006748885",
+        "itemId": "a2058270-a29f-406b-9691-3d73ba060d53",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510042231_citdxi3rmgo.jpeg",
+        "itemName": "Feijão Branco Tipo 1 Camil 500g",
+        "itemSkuId": "SKU-TRDO37870",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "FAST_DELIVERY",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 47,
+              "min": 37
+            },
+            "fee": 13.99,
+            "promotionalFee": 13.99
+          },
+          "isOpen": true,
+          "merchantId": "32549526-5a03-4af1-a9ed-f4e8875828bf",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/32549526-5a03-4af1-a9ed-f4e8875828bf/202605131411_woyX_l.jpg",
+          "merchantName": "Oba Hortifruti - São Carlos",
+          "minimumOrderAmount": 30,
+          "ratingCount": 276,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.96
+        },
+        "promotionalUnitPrice": 13.99,
+        "unitPrice": 13.99
+      },
+      {
+        "itemEan": "7896006748939",
+        "itemId": "e63a8ceb-8bac-4b1a-98d5-7adb2171e7d0",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202307060700_eoa73wy6q97.jpg",
+        "itemName": "Feijão Rosinha Camil 500g",
+        "itemSkuId": "SKU-REAY84245",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "FAST_DELIVERY",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 47,
+              "min": 37
+            },
+            "fee": 13.99,
+            "promotionalFee": 13.99
+          },
+          "isOpen": true,
+          "merchantId": "32549526-5a03-4af1-a9ed-f4e8875828bf",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/32549526-5a03-4af1-a9ed-f4e8875828bf/202605131411_woyX_l.jpg",
+          "merchantName": "Oba Hortifruti - São Carlos",
+          "minimumOrderAmount": 30,
+          "ratingCount": 276,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.96
+        },
+        "promotionalUnitPrice": 11.99,
+        "unitPrice": 11.99
+      },
+      {
+        "itemEan": "7898965646097",
+        "itemId": "302e0bbb-dc5a-4087-90c1-69a4e60d75d8",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510042224_ycx1l3qbfj.jpeg",
+        "itemName": "Mini Veggies Biscoito de Feijão/Arroz e Cenoura Nhami Mami 18g",
+        "itemSkuId": "01a08d55-6ff2-7170-9d9d-e548cd0bd52d",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "FAST_DELIVERY",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 47,
+              "min": 37
+            },
+            "fee": 13.99,
+            "promotionalFee": 13.99
+          },
+          "isOpen": true,
+          "merchantId": "32549526-5a03-4af1-a9ed-f4e8875828bf",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/32549526-5a03-4af1-a9ed-f4e8875828bf/202605131411_woyX_l.jpg",
+          "merchantName": "Oba Hortifruti - São Carlos",
+          "minimumOrderAmount": 30,
+          "ratingCount": 276,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.96
+        },
+        "promotionalUnitPrice": 7.99,
+        "unitPrice": 7.99
+      },
+      {
+        "itemEan": "7898969895255",
+        "itemId": "4b0736b2-bc27-4408-8ebb-95f14ba3c56b",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510031805_ry7yj134c4h.jpeg",
+        "itemName": "Sopinha Orgânica de Arroz Feijão E Carne Papapá La Chef 180g",
+        "itemSkuId": "01a08d55-766f-7bd2-8fb2-aa6ec42b27b7",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "FAST_DELIVERY",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 47,
+              "min": 37
+            },
+            "fee": 13.99,
+            "promotionalFee": 13.99
+          },
+          "isOpen": true,
+          "merchantId": "32549526-5a03-4af1-a9ed-f4e8875828bf",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/32549526-5a03-4af1-a9ed-f4e8875828bf/202605131411_woyX_l.jpg",
+          "merchantName": "Oba Hortifruti - São Carlos",
+          "minimumOrderAmount": 30,
+          "ratingCount": 276,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.96
+        },
+        "promotionalUnitPrice": 24.99,
+        "unitPrice": 24.99
+      },
+      {
+        "itemEan": "7897122608176",
+        "itemId": "16ea33a1-9a4b-4a30-835d-d3023c5a0fe3",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202512161958_qft7fan6oig.png",
+        "itemName": "Feijão Carioca Pronto Para Aquecer Vapza 200g",
+        "itemSkuId": "SKU-HORK42178",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "FAST_DELIVERY",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 47,
+              "min": 37
+            },
+            "fee": 13.99,
+            "promotionalFee": 13.99
+          },
+          "isOpen": true,
+          "merchantId": "32549526-5a03-4af1-a9ed-f4e8875828bf",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/32549526-5a03-4af1-a9ed-f4e8875828bf/202605131411_woyX_l.jpg",
+          "merchantName": "Oba Hortifruti - São Carlos",
+          "minimumOrderAmount": 30,
+          "ratingCount": 276,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.96
+        },
+        "promotionalUnitPrice": 11.99,
+        "unitPrice": 11.99
       },
       {
         "itemEan": "7896006744115",
@@ -113,7 +519,7 @@
       },
       {
         "itemEan": "7896006744115",
-        "itemId": "23af9a24-2995-404f-b472-cd51f650dad9",
+        "itemId": "9c15f0bd-8cf4-4daf-bfd7-ab5b8defd8a7",
         "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202408211735_xipbxuwhca.jpeg",
         "itemName": "Feijão Carioca Tipo 1 Camil 1kg",
         "itemSkuId": "SKU-OQLG92859",
@@ -122,23 +528,23 @@
             "deliveryMethodId": "DEFAULT",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 234,
-              "min": 224
+              "max": 132,
+              "min": 122
             },
-            "fee": 11.99,
-            "promotionalFee": 0
+            "fee": 9.99,
+            "promotionalFee": 9.99
           },
           "isOpen": false,
-          "merchantId": "e6067614-d8f3-4108-8b6e-c72fd364ae2c",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/3974223/202607281734_5AGE.png",
-          "merchantName": "Pão de Açúcar - Shopping Iguatemi São Carlos",
-          "minimumOrderAmount": 30,
-          "ratingCount": 102,
+          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
+          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1867,
           "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 2.09
+          "straightLineDistanceKm": 1.26
         },
-        "promotionalUnitPrice": 9.79,
-        "unitPrice": 9.79
+        "promotionalUnitPrice": 8.99,
+        "unitPrice": 8.99
       },
       {
         "itemEan": "7896086421982",
@@ -151,8 +557,8 @@
             "deliveryMethodId": "DEFAULT",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 102,
-              "min": 92
+              "max": 132,
+              "min": 122
             },
             "fee": 9.99,
             "promotionalFee": 9.99
@@ -180,8 +586,8 @@
             "deliveryMethodId": "DEFAULT",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 102,
-              "min": 92
+              "max": 132,
+              "min": 122
             },
             "fee": 9.99,
             "promotionalFee": 9.99
@@ -209,8 +615,8 @@
             "deliveryMethodId": "DEFAULT",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 102,
-              "min": 92
+              "max": 132,
+              "min": 122
             },
             "fee": 9.99,
             "promotionalFee": 9.99
@@ -228,33 +634,62 @@
         "unitPrice": 7.95
       },
       {
-        "itemEan": "7896006744115",
-        "itemId": "9c15f0bd-8cf4-4daf-bfd7-ab5b8defd8a7",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202408211735_xipbxuwhca.jpeg",
-        "itemName": "Feijão Carioca Tipo 1 Camil 1kg",
-        "itemSkuId": "SKU-OQLG92859",
+        "itemEan": "7896086421982",
+        "itemId": "8001b304-2969-469e-96b5-f52fccd283db",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202605291932_cg263s1613u.png",
+        "itemName": "Feijão Carioca Empório São João Pacote 1kg",
+        "itemSkuId": "SKU-DLAC56541",
         "merchant": {
           "deliveryMethod": {
             "deliveryMethodId": "DEFAULT",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 102,
-              "min": 92
+              "max": 120,
+              "min": 110
             },
-            "fee": 9.99,
-            "promotionalFee": 9.99
+            "fee": 6.49,
+            "promotionalFee": 0
           },
           "isOpen": false,
-          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
-          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
+          "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
+          "merchantName": "Extra - São Carlos",
           "minimumOrderAmount": 60,
-          "ratingCount": 1867,
+          "ratingCount": 1354,
           "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 1.26
+          "straightLineDistanceKm": 0.27
         },
-        "promotionalUnitPrice": 8.99,
-        "unitPrice": 8.99
+        "promotionalUnitPrice": 10.49,
+        "unitPrice": 10.49
+      },
+      {
+        "itemEan": "7895000483136",
+        "itemId": "9b485903-ab80-494d-aa20-bc02fe54e334",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202202100248_aym4a91boh4.jpg",
+        "itemName": "Feijão Carioca Enlatado Qualitá 420g",
+        "itemSkuId": "SKU-CTPW25874",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 120,
+              "min": 110
+            },
+            "fee": 6.49,
+            "promotionalFee": 0
+          },
+          "isOpen": false,
+          "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
+          "merchantName": "Extra - São Carlos",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1354,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 0.27
+        },
+        "promotionalUnitPrice": 8.24,
+        "unitPrice": 10.99
       },
       {
         "itemEan": "7896006744115",
@@ -287,93 +722,6 @@
       },
       {
         "itemEan": "7895000483136",
-        "itemId": "9b485903-ab80-494d-aa20-bc02fe54e334",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202202100248_aym4a91boh4.jpg",
-        "itemName": "Feijão Carioca Enlatado Qualitá 420g",
-        "itemSkuId": "SKU-CTPW25874",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 120,
-              "min": 110
-            },
-            "fee": 6.49,
-            "promotionalFee": 0
-          },
-          "isOpen": false,
-          "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
-          "merchantName": "Extra - São Carlos",
-          "minimumOrderAmount": 60,
-          "ratingCount": 1354,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 0.27
-        },
-        "promotionalUnitPrice": 8.24,
-        "unitPrice": 10.99
-      },
-      {
-        "itemEan": "7896070800014",
-        "itemId": "c1894538-c4d7-4f1d-b34c-f674dd8d2f0f",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510031854_i24lfssnd5j.jpeg",
-        "itemName": "Feijao Carioca Pantera 1kg Tp1 Com",
-        "itemSkuId": "SKU-GEGX64699",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 120,
-              "min": 110
-            },
-            "fee": 6.49,
-            "promotionalFee": 0
-          },
-          "isOpen": false,
-          "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
-          "merchantName": "Extra - São Carlos",
-          "minimumOrderAmount": 60,
-          "ratingCount": 1354,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 0.27
-        },
-        "promotionalUnitPrice": 9.49,
-        "unitPrice": 9.99
-      },
-      {
-        "itemEan": "7895000318995",
-        "itemId": "ce2002a0-8ea0-43cd-bbf6-602cd69efc0e",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202503061255_8h3p7hqmf9.png",
-        "itemName": "Feijão Carioca Qualitá Embalagem 1kg",
-        "itemSkuId": "SKU-PWIU12328",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 120,
-              "min": 110
-            },
-            "fee": 6.49,
-            "promotionalFee": 0
-          },
-          "isOpen": false,
-          "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
-          "merchantName": "Extra - São Carlos",
-          "minimumOrderAmount": 60,
-          "ratingCount": 1354,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 0.27
-        },
-        "promotionalUnitPrice": 7.99,
-        "unitPrice": 9.99
-      },
-      {
-        "itemEan": "7895000483136",
         "itemId": "8d99f863-f05f-4082-862f-2b56210249ef",
         "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202202100248_aym4a91boh4.jpg",
         "itemName": "Feijão Carioca Enlatado Qualitá 420g",
@@ -400,354 +748,6 @@
         },
         "promotionalUnitPrice": 8.24,
         "unitPrice": 10.99
-      },
-      {
-        "itemEan": "7898276600108",
-        "itemId": "8ea84a1b-8547-4d6b-a60e-cdeb51015f86",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210182352_y9o31heul.jpg",
-        "itemName": "Feijão Carioca Caldo Nobre Pacote 1kg",
-        "itemSkuId": "SKU-CGMB52606",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 120,
-              "min": 110
-            },
-            "fee": 6.49,
-            "promotionalFee": 0
-          },
-          "isOpen": false,
-          "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
-          "merchantName": "Extra - São Carlos",
-          "minimumOrderAmount": 60,
-          "ratingCount": 1354,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 0.27
-        },
-        "promotionalUnitPrice": 6.64,
-        "unitPrice": 6.99
-      },
-      {
-        "itemEan": "7898957777013",
-        "itemId": "191b7192-3eab-4ac5-b9db-9f1f633e2c9f",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210180118_856ekrpw2n5.jpg",
-        "itemName": "Feijão Carioca de Luci Embalagem 1kg",
-        "itemSkuId": "SKU-LVVU17760",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 120,
-              "min": 110
-            },
-            "fee": 6.49,
-            "promotionalFee": 0
-          },
-          "isOpen": false,
-          "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
-          "merchantName": "Extra - São Carlos",
-          "minimumOrderAmount": 60,
-          "ratingCount": 1354,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 0.27
-        },
-        "promotionalUnitPrice": 10.99,
-        "unitPrice": 10.99
-      },
-      {
-        "itemEan": "7896086421982",
-        "itemId": "8001b304-2969-469e-96b5-f52fccd283db",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202605291932_cg263s1613u.png",
-        "itemName": "Feijão Carioca Empório São João Pacote 1kg",
-        "itemSkuId": "SKU-DLAC56541",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 120,
-              "min": 110
-            },
-            "fee": 6.49,
-            "promotionalFee": 0
-          },
-          "isOpen": false,
-          "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
-          "merchantName": "Extra - São Carlos",
-          "minimumOrderAmount": 60,
-          "ratingCount": 1354,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 0.27
-        },
-        "promotionalUnitPrice": 10.49,
-        "unitPrice": 10.49
-      },
-      {
-        "itemEan": "7896116900029",
-        "itemId": "0ee38611-bdf0-44c0-8052-3359ff98a5d4",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510042327_x3tygqq5b0r.jpeg",
-        "itemName": "Feijão Carioca Tipo 1 Kicaldo 1kg",
-        "itemSkuId": "SKU-MVTY24756",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 172,
-              "min": 142
-            },
-            "fee": 21.99,
-            "promotionalFee": 21.99
-          },
-          "isOpen": false,
-          "merchantId": "2454a662-ab7d-4cb8-91c9-c69720983886",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/2454a662-ab7d-4cb8-91c9-c69720983886/202509011622_2TXL.png",
-          "merchantName": "Atacadão São Carlos",
-          "minimumOrderAmount": 90,
-          "ratingCount": 212,
-          "reviewRating": 4.800000190734863,
-          "straightLineDistanceKm": 5.1
-        },
-        "promotionalUnitPrice": 7.29,
-        "unitPrice": 7.29
-      },
-      {
-        "itemEan": "7896864400178",
-        "itemId": "9bafc80f-dece-4b3a-a550-25d8d014ccf3",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210182226_mxhaezsnolh.jpg",
-        "itemName": "Feijão Carioca Premium Picinin 1kg",
-        "itemSkuId": "SKU-TFDZ73897",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 172,
-              "min": 142
-            },
-            "fee": 21.99,
-            "promotionalFee": 21.99
-          },
-          "isOpen": false,
-          "merchantId": "2454a662-ab7d-4cb8-91c9-c69720983886",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/2454a662-ab7d-4cb8-91c9-c69720983886/202509011622_2TXL.png",
-          "merchantName": "Atacadão São Carlos",
-          "minimumOrderAmount": 90,
-          "ratingCount": 212,
-          "reviewRating": 4.800000190734863,
-          "straightLineDistanceKm": 5.1
-        },
-        "promotionalUnitPrice": 8.2,
-        "unitPrice": 8.2
-      },
-      {
-        "itemEan": "7896006744115",
-        "itemId": "2993d6af-6773-449e-ba59-7b3cbfa83622",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202408211735_xipbxuwhca.jpeg",
-        "itemName": "Feijão Carioca Tipo 1 Camil 1kg",
-        "itemSkuId": "SKU-OQLG92859",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 172,
-              "min": 142
-            },
-            "fee": 21.99,
-            "promotionalFee": 21.99
-          },
-          "isOpen": false,
-          "merchantId": "2454a662-ab7d-4cb8-91c9-c69720983886",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/2454a662-ab7d-4cb8-91c9-c69720983886/202509011622_2TXL.png",
-          "merchantName": "Atacadão São Carlos",
-          "minimumOrderAmount": 90,
-          "ratingCount": 212,
-          "reviewRating": 4.800000190734863,
-          "straightLineDistanceKm": 5.1
-        },
-        "promotionalUnitPrice": 8.29,
-        "unitPrice": 8.29
-      },
-      {
-        "itemEan": "7896086421982",
-        "itemId": "db1902d5-93ea-4962-bb91-5a87e3aaa301",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202605291932_cg263s1613u.png",
-        "itemName": "Feijão Carioca Empório São João Pacote 1kg",
-        "itemSkuId": "SKU-DLAC56541",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 172,
-              "min": 142
-            },
-            "fee": 21.99,
-            "promotionalFee": 21.99
-          },
-          "isOpen": false,
-          "merchantId": "2454a662-ab7d-4cb8-91c9-c69720983886",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/2454a662-ab7d-4cb8-91c9-c69720983886/202509011622_2TXL.png",
-          "merchantName": "Atacadão São Carlos",
-          "minimumOrderAmount": 90,
-          "ratingCount": 212,
-          "reviewRating": 4.800000190734863,
-          "straightLineDistanceKm": 5.1
-        },
-        "promotionalUnitPrice": 8.53,
-        "unitPrice": 8.53
-      },
-      {
-        "itemEan": "7896116900128",
-        "itemId": "8e35233c-9e69-48e2-8c80-e3cec2a2d911",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210180205_zndoio92ojm.jpg",
-        "itemName": "Feijão Carioca da Casa Embalagem 1kg",
-        "itemSkuId": "SKU-HJHM04655",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 172,
-              "min": 142
-            },
-            "fee": 21.99,
-            "promotionalFee": 21.99
-          },
-          "isOpen": false,
-          "merchantId": "2454a662-ab7d-4cb8-91c9-c69720983886",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/2454a662-ab7d-4cb8-91c9-c69720983886/202509011622_2TXL.png",
-          "merchantName": "Atacadão São Carlos",
-          "minimumOrderAmount": 90,
-          "ratingCount": 212,
-          "reviewRating": 4.800000190734863,
-          "straightLineDistanceKm": 5.1
-        },
-        "promotionalUnitPrice": 8.04,
-        "unitPrice": 8.04
-      },
-      {
-        "itemEan": "7897122600071",
-        "itemId": "7d9238dc-375a-40c4-b4d9-2e071a6334d7",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510031443_h32csgg01sa.jpeg",
-        "itemName": "Feijao Carioca Vapza 500g",
-        "itemSkuId": "SKU-SLYC88807",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 118,
-              "min": 98
-            },
-            "fee": 9.99,
-            "promotionalFee": 0
-          },
-          "isOpen": false,
-          "merchantId": "782805bb-66e0-4d8d-8e86-5befa3b5d7f8",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/782805bb-66e0-4d8d-8e86-5befa3b5d7f8/202603111724_A6N4.png",
-          "merchantName": "Carrefour Bairro - São Carlos 2",
-          "minimumOrderAmount": 30,
-          "ratingCount": 584,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 1.43
-        },
-        "promotionalUnitPrice": 19.28,
-        "unitPrice": 20.29
-      },
-      {
-        "itemEan": "7896116900029",
-        "itemId": "2b2b961a-381d-404d-bd18-1dbde1646647",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510042327_x3tygqq5b0r.jpeg",
-        "itemName": "Feijão Carioca Tipo 1 Kicaldo 1kg",
-        "itemSkuId": "SKU-MVTY24756",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 118,
-              "min": 98
-            },
-            "fee": 9.99,
-            "promotionalFee": 0
-          },
-          "isOpen": false,
-          "merchantId": "782805bb-66e0-4d8d-8e86-5befa3b5d7f8",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/782805bb-66e0-4d8d-8e86-5befa3b5d7f8/202603111724_A6N4.png",
-          "merchantName": "Carrefour Bairro - São Carlos 2",
-          "minimumOrderAmount": 30,
-          "ratingCount": 584,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 1.43
-        },
-        "promotionalUnitPrice": 8.53,
-        "unitPrice": 10.03
-      },
-      {
-        "itemEan": "7896200115346",
-        "itemId": "b2aa52f4-f4a8-4c82-9a19-c4caca9a5bd5",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202306021024_q46gznvn7cc.jpg",
-        "itemName": "Feijao Carioca Broto Legal 1kg",
-        "itemSkuId": "SKU-DASY48894",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 118,
-              "min": 98
-            },
-            "fee": 9.99,
-            "promotionalFee": 0
-          },
-          "isOpen": false,
-          "merchantId": "782805bb-66e0-4d8d-8e86-5befa3b5d7f8",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/782805bb-66e0-4d8d-8e86-5befa3b5d7f8/202603111724_A6N4.png",
-          "merchantName": "Carrefour Bairro - São Carlos 2",
-          "minimumOrderAmount": 30,
-          "ratingCount": 584,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 1.43
-        },
-        "promotionalUnitPrice": 11.89,
-        "unitPrice": 12.52
-      },
-      {
-        "itemEan": "7896006744115",
-        "itemId": "b5a8ab5a-3d6b-4f11-ad48-5c86bb03188b",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202408211735_xipbxuwhca.jpeg",
-        "itemName": "Feijão Carioca Tipo 1 Camil 1kg",
-        "itemSkuId": "SKU-OQLG92859",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 118,
-              "min": 98
-            },
-            "fee": 9.99,
-            "promotionalFee": 0
-          },
-          "isOpen": false,
-          "merchantId": "782805bb-66e0-4d8d-8e86-5befa3b5d7f8",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/782805bb-66e0-4d8d-8e86-5befa3b5d7f8/202603111724_A6N4.png",
-          "merchantName": "Carrefour Bairro - São Carlos 2",
-          "minimumOrderAmount": 30,
-          "ratingCount": 584,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 1.43
-        },
-        "promotionalUnitPrice": 10.55,
-        "unitPrice": 11.11
       }
     ]
   }

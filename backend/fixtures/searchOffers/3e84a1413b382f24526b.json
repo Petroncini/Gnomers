@@ -14,7 +14,7 @@
     },
     "pageSize": 25
   },
-  "recordedAt": "2026-10-18T05:47:23",
+  "recordedAt": "2026-10-18T07:33:36",
   "response": {
     "agentHints": {
       "nextStepWhenUserPicksItem": "Retrieve full item details — option groups and applicable promotions — before presenting it to the user."
@@ -25,11 +25,98 @@
     "resultKind": "ITEM",
     "results": [
       {
+        "itemEan": "7898080643148",
+        "itemId": "0a692205-16ff-4757-b169-364f5c9544e2",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202408150044_ghx4tz0o696.jpeg",
+        "itemName": "Leite Tp Italac 1L A2 Integral",
+        "itemSkuId": "SKU-PKUF76541",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "FAST_DELIVERY",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 47,
+              "min": 37
+            },
+            "fee": 13.99,
+            "promotionalFee": 13.99
+          },
+          "isOpen": true,
+          "merchantId": "32549526-5a03-4af1-a9ed-f4e8875828bf",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/32549526-5a03-4af1-a9ed-f4e8875828bf/202605131411_woyX_l.jpg",
+          "merchantName": "Oba Hortifruti - São Carlos",
+          "minimumOrderAmount": 30,
+          "ratingCount": 276,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.96
+        },
+        "promotionalUnitPrice": 8.69,
+        "unitPrice": 8.69
+      },
+      {
+        "itemEan": "7898080642646",
+        "itemId": "638c4eef-76a2-40bd-a743-44334ed227bc",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510031305_zwncgija1yc.jpeg",
+        "itemName": "Leite Condensado Italac Integral 395g",
+        "itemSkuId": "SKU-MEIT03156",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "FAST_DELIVERY",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 47,
+              "min": 37
+            },
+            "fee": 13.99,
+            "promotionalFee": 13.99
+          },
+          "isOpen": true,
+          "merchantId": "32549526-5a03-4af1-a9ed-f4e8875828bf",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/32549526-5a03-4af1-a9ed-f4e8875828bf/202605131411_woyX_l.jpg",
+          "merchantName": "Oba Hortifruti - São Carlos",
+          "minimumOrderAmount": 30,
+          "ratingCount": 276,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.96
+        },
+        "promotionalUnitPrice": 8.99,
+        "unitPrice": 8.99
+      },
+      {
         "itemEan": "7898080640611",
         "itemId": "15b6fc89-40c5-4e22-b050-68dc4077ec41",
         "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202511101418_n60rlk0rlbk.jpeg",
         "itemName": "Leite Uht Integral com Tampa Italac 1l",
         "itemSkuId": "SKU-SBIP32711",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 120,
+              "min": 110
+            },
+            "fee": 6.49,
+            "promotionalFee": 0
+          },
+          "isOpen": false,
+          "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
+          "merchantName": "Extra - São Carlos",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1354,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 0.27
+        },
+        "promotionalUnitPrice": 5.71,
+        "unitPrice": 6.49
+      },
+      {
+        "itemEan": "7898080640628",
+        "itemId": "4efd0e22-f202-4b71-aafa-56a3235e77c7",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202512161619_5a2y2y7em8a.jpeg",
+        "itemName": "Leite Uht Semidesnatado com Tampa Italac 1l",
+        "itemSkuId": "SKU-ABKD50770",
         "merchant": {
           "deliveryMethod": {
             "deliveryMethodId": "DEFAULT",
@@ -81,180 +168,6 @@
         },
         "promotionalUnitPrice": 6.17,
         "unitPrice": 6.49
-      },
-      {
-        "itemEan": "7898080640628",
-        "itemId": "4efd0e22-f202-4b71-aafa-56a3235e77c7",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202512161619_5a2y2y7em8a.jpeg",
-        "itemName": "Leite Uht Semidesnatado com Tampa Italac 1l",
-        "itemSkuId": "SKU-ABKD50770",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 120,
-              "min": 110
-            },
-            "fee": 6.49,
-            "promotionalFee": 0
-          },
-          "isOpen": false,
-          "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
-          "merchantName": "Extra - São Carlos",
-          "minimumOrderAmount": 60,
-          "ratingCount": 1354,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 0.27
-        },
-        "promotionalUnitPrice": 5.71,
-        "unitPrice": 6.49
-      },
-      {
-        "itemEan": "7898080640628",
-        "itemId": "a43e76e0-4318-422b-a289-936dec2cbcec",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202512161619_5a2y2y7em8a.jpeg",
-        "itemName": "Leite Uht Semidesnatado com Tampa Italac 1l",
-        "itemSkuId": "SKU-ABKD50770",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 102,
-              "min": 92
-            },
-            "fee": 9.99,
-            "promotionalFee": 9.99
-          },
-          "isOpen": false,
-          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
-          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
-          "minimumOrderAmount": 60,
-          "ratingCount": 1867,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 1.26
-        },
-        "promotionalUnitPrice": 5.79,
-        "unitPrice": 5.79
-      },
-      {
-        "itemEan": "7898080640635",
-        "itemId": "31ae4c5a-d028-49e7-892d-d10ea618601a",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202509051057_vc0zzte3fr9.png",
-        "itemName": "Leite Uht Italac Desnatado Com Tampa 1l",
-        "itemSkuId": "SKU-EPII72329",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 102,
-              "min": 92
-            },
-            "fee": 9.99,
-            "promotionalFee": 9.99
-          },
-          "isOpen": false,
-          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
-          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
-          "minimumOrderAmount": 60,
-          "ratingCount": 1867,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 1.26
-        },
-        "promotionalUnitPrice": 5.79,
-        "unitPrice": 5.79
-      },
-      {
-        "itemEan": "7898080643018",
-        "itemId": "2676e9a5-c80e-4e96-a889-593fda35a6ef",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202302241012_cm47ds0kvdc.jpg",
-        "itemName": "Leite Uht Especial A2 Semidesnatado Italac 1l",
-        "itemSkuId": "SKU-HOKX40139",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 102,
-              "min": 92
-            },
-            "fee": 9.99,
-            "promotionalFee": 9.99
-          },
-          "isOpen": false,
-          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
-          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
-          "minimumOrderAmount": 60,
-          "ratingCount": 1867,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 1.26
-        },
-        "promotionalUnitPrice": 6.59,
-        "unitPrice": 6.59
-      },
-      {
-        "itemEan": "7898080643148",
-        "itemId": "dbdf2b83-0f67-48fd-8680-c0cff0c86f6c",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202408150044_ghx4tz0o696.jpeg",
-        "itemName": "Leite Tp Italac 1L A2 Integral",
-        "itemSkuId": "SKU-PKUF76541",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 102,
-              "min": 92
-            },
-            "fee": 9.99,
-            "promotionalFee": 9.99
-          },
-          "isOpen": false,
-          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
-          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
-          "minimumOrderAmount": 60,
-          "ratingCount": 1867,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 1.26
-        },
-        "promotionalUnitPrice": 6.59,
-        "unitPrice": 6.59
-      },
-      {
-        "itemEan": "7898080640611",
-        "itemId": "bbf35701-96c1-4a78-8f24-c47d004baca7",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202511101418_n60rlk0rlbk.jpeg",
-        "itemName": "Leite Uht Integral com Tampa Italac 1l",
-        "itemSkuId": "SKU-SBIP32711",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 102,
-              "min": 92
-            },
-            "fee": 9.99,
-            "promotionalFee": 9.99
-          },
-          "isOpen": false,
-          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
-          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
-          "minimumOrderAmount": 60,
-          "ratingCount": 1867,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 1.26
-        },
-        "promotionalUnitPrice": 5.79,
-        "unitPrice": 5.79
       },
       {
         "itemEan": "7898080643018",
@@ -344,8 +257,66 @@
         "unitPrice": 5.39
       },
       {
+        "itemEan": "7898080640611",
+        "itemId": "bbf35701-96c1-4a78-8f24-c47d004baca7",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202511101418_n60rlk0rlbk.jpeg",
+        "itemName": "Leite Uht Integral com Tampa Italac 1l",
+        "itemSkuId": "SKU-SBIP32711",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 132,
+              "min": 122
+            },
+            "fee": 9.99,
+            "promotionalFee": 9.99
+          },
+          "isOpen": false,
+          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
+          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1867,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.26
+        },
+        "promotionalUnitPrice": 5.79,
+        "unitPrice": 5.79
+      },
+      {
+        "itemEan": "7898080640628",
+        "itemId": "a43e76e0-4318-422b-a289-936dec2cbcec",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202512161619_5a2y2y7em8a.jpeg",
+        "itemName": "Leite Uht Semidesnatado com Tampa Italac 1l",
+        "itemSkuId": "SKU-ABKD50770",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 132,
+              "min": 122
+            },
+            "fee": 9.99,
+            "promotionalFee": 9.99
+          },
+          "isOpen": false,
+          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
+          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1867,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.26
+        },
+        "promotionalUnitPrice": 5.79,
+        "unitPrice": 5.79
+      },
+      {
         "itemEan": "7898080643018",
-        "itemId": "9bf9c75e-7b03-4e8b-b638-5c3d88a6b92d",
+        "itemId": "2676e9a5-c80e-4e96-a889-593fda35a6ef",
         "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202302241012_cm47ds0kvdc.jpg",
         "itemName": "Leite Uht Especial A2 Semidesnatado Italac 1l",
         "itemSkuId": "SKU-HOKX40139",
@@ -354,23 +325,81 @@
             "deliveryMethodId": "DEFAULT",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 234,
-              "min": 224
+              "max": 132,
+              "min": 122
             },
-            "fee": 11.99,
-            "promotionalFee": 0
+            "fee": 9.99,
+            "promotionalFee": 9.99
           },
           "isOpen": false,
-          "merchantId": "e6067614-d8f3-4108-8b6e-c72fd364ae2c",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/3974223/202607281734_5AGE.png",
-          "merchantName": "Pão de Açúcar - Shopping Iguatemi São Carlos",
-          "minimumOrderAmount": 30,
-          "ratingCount": 102,
+          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
+          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1867,
           "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 2.09
+          "straightLineDistanceKm": 1.26
         },
-        "promotionalUnitPrice": 9.29,
-        "unitPrice": 9.29
+        "promotionalUnitPrice": 6.59,
+        "unitPrice": 6.59
+      },
+      {
+        "itemEan": "7898080643148",
+        "itemId": "dbdf2b83-0f67-48fd-8680-c0cff0c86f6c",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202408150044_ghx4tz0o696.jpeg",
+        "itemName": "Leite Tp Italac 1L A2 Integral",
+        "itemSkuId": "SKU-PKUF76541",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 132,
+              "min": 122
+            },
+            "fee": 9.99,
+            "promotionalFee": 9.99
+          },
+          "isOpen": false,
+          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
+          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1867,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.26
+        },
+        "promotionalUnitPrice": 6.59,
+        "unitPrice": 6.59
+      },
+      {
+        "itemEan": "7898080640635",
+        "itemId": "31ae4c5a-d028-49e7-892d-d10ea618601a",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202509051057_vc0zzte3fr9.png",
+        "itemName": "Leite Uht Italac Desnatado Com Tampa 1l",
+        "itemSkuId": "SKU-EPII72329",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 132,
+              "min": 122
+            },
+            "fee": 9.99,
+            "promotionalFee": 9.99
+          },
+          "isOpen": false,
+          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
+          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1867,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.26
+        },
+        "promotionalUnitPrice": 5.79,
+        "unitPrice": 5.79
       },
       {
         "itemEan": "7898080640611",
@@ -383,8 +412,8 @@
             "deliveryMethodId": "DEFAULT",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 234,
-              "min": 224
+              "max": 240,
+              "min": 230
             },
             "fee": 11.99,
             "promotionalFee": 0
@@ -412,8 +441,8 @@
             "deliveryMethodId": "DEFAULT",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 234,
-              "min": 224
+              "max": 240,
+              "min": 230
             },
             "fee": 11.99,
             "promotionalFee": 0
@@ -429,6 +458,35 @@
         },
         "promotionalUnitPrice": 4.79,
         "unitPrice": 5.99
+      },
+      {
+        "itemEan": "7898080643018",
+        "itemId": "9bf9c75e-7b03-4e8b-b638-5c3d88a6b92d",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202302241012_cm47ds0kvdc.jpg",
+        "itemName": "Leite Uht Especial A2 Semidesnatado Italac 1l",
+        "itemSkuId": "SKU-HOKX40139",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 240,
+              "min": 230
+            },
+            "fee": 11.99,
+            "promotionalFee": 0
+          },
+          "isOpen": false,
+          "merchantId": "e6067614-d8f3-4108-8b6e-c72fd364ae2c",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/3974223/202607281734_5AGE.png",
+          "merchantName": "Pão de Açúcar - Shopping Iguatemi São Carlos",
+          "minimumOrderAmount": 30,
+          "ratingCount": 102,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 2.09
+        },
+        "promotionalUnitPrice": 9.29,
+        "unitPrice": 9.29
       },
       {
         "itemEan": "7898080640611",
@@ -690,64 +748,6 @@
         },
         "promotionalUnitPrice": 6.2,
         "unitPrice": 6.2
-      },
-      {
-        "itemEan": "7898080643018",
-        "itemId": "06d1ee3a-65cb-48c4-8b24-0698388d1f2f",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202302241012_cm47ds0kvdc.jpg",
-        "itemName": "Leite Uht Especial A2 Semidesnatado Italac 1l",
-        "itemSkuId": "SKU-HOKX40139",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 67,
-              "min": 57
-            },
-            "fee": 7.49,
-            "promotionalFee": 7.49
-          },
-          "isOpen": false,
-          "merchantId": "75a8e0a0-2766-48e7-990f-5d551d441dbb",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/75a8e0a0-2766-48e7-990f-5d551d441dbb/201909191637_C7AP_i.png",
-          "merchantName": "Supermercados Arco Íris Express",
-          "minimumOrderAmount": 30,
-          "ratingCount": 89,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 1.32
-        },
-        "promotionalUnitPrice": 8.02,
-        "unitPrice": 8.02
-      },
-      {
-        "itemEan": "7898080643148",
-        "itemId": "0a692205-16ff-4757-b169-364f5c9544e2",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202408150044_ghx4tz0o696.jpeg",
-        "itemName": "Leite Tp Italac 1L A2 Integral",
-        "itemSkuId": "SKU-PKUF76541",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 92,
-              "min": 82
-            },
-            "fee": 9.99,
-            "promotionalFee": 0
-          },
-          "isOpen": false,
-          "merchantId": "32549526-5a03-4af1-a9ed-f4e8875828bf",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/32549526-5a03-4af1-a9ed-f4e8875828bf/202605131411_woyX_l.jpg",
-          "merchantName": "Oba Hortifruti - São Carlos",
-          "minimumOrderAmount": 30,
-          "ratingCount": 276,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 1.96
-        },
-        "promotionalUnitPrice": 8.69,
-        "unitPrice": 8.69
       }
     ]
   }

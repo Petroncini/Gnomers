@@ -7,7 +7,7 @@
       "longitude": -47.89623
     }
   },
-  "recordedAt": "2026-10-18T05:47:42",
+  "recordedAt": "2026-10-18T07:33:55",
   "response": {
     "address": "Avenida Francisco Pereira Lopes, 1701, Parque Santa Mônica, SAO CARLOS - SP, 13561250, BR",
     "agentHints": {
@@ -17,10 +17,30 @@
     "appDeeplink": "ifood://catalog-hub/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/GROCERIES",
     "catalogSummary": {
       "navigationHint": "Call `browseOffers` with `resultKind=ITEM`, the matching `merchantType`, and `refinements.merchantId=8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2` to browse items. Use `searchOffers` with `refinements.merchantId=8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2` for keyword search within this merchant.",
-      "totalItems": 11672
+      "totalItems": 11671
     },
     "deliveryMethods": [],
     "featuredItems": [
+      {
+        "itemEan": "7891164005412",
+        "itemId": "08f317f8-eaac-4998-8cdf-ff5a6428501f",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210182231_nkchkag4xe.jpg",
+        "itemName": "Salsicha Hot Dog Aurora 500g",
+        "itemSkuId": "SKU-PTLL33737",
+        "menuSection": "Carnes, Aves e Peixes",
+        "promotionalUnitPrice": 4.17,
+        "unitPrice": 5.95
+      },
+      {
+        "itemEan": "7891000455951",
+        "itemId": "4fa9fdf8-f0a9-42e8-9cab-7b7ed8517a8e",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202603172151_tmpjxjm7b8.jpeg",
+        "itemName": "Barra de Chocolate Galak Nestlé Recheados",
+        "itemSkuId": "SKU-MEZC19732",
+        "menuSection": "Doces e Sobremesas",
+        "promotionalUnitPrice": 5.59,
+        "unitPrice": 7.99
+      },
       {
         "itemEan": "7896098904305",
         "itemId": "84c910f9-e01f-4db5-9e1b-90b8f722a6ab",
@@ -42,34 +62,14 @@
         "unitPrice": 14.55
       },
       {
-        "itemEan": "7891000457467",
-        "itemId": "0e7fce15-fdc6-44e9-8d5c-c2c293e7b8a0",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202603172159_ymxtjai7v2h.jpeg",
-        "itemName": "Bombom Especialidades Nestlé 220g",
-        "itemSkuId": "SKU-NAPA92807",
-        "menuSection": "Doces e Sobremesas",
-        "promotionalUnitPrice": 9.31,
-        "unitPrice": 10.95
-      },
-      {
-        "itemEan": "7896098904350",
-        "itemId": "b10ebd4c-4942-4ca1-afc6-9a78590d7285",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202608050824_9bff21e5tyk.jpeg",
-        "itemName": "Saponáceo Multiuso Cremoso Lavanda Ypê 300ml",
-        "itemSkuId": "SKU-OTJG46874",
-        "menuSection": "Limpeza",
-        "promotionalUnitPrice": 7.99,
-        "unitPrice": 9.99
-      },
-      {
-        "itemEan": "7896098904336",
-        "itemId": "3481c0d1-d47e-469b-b595-db6e29b70fe1",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202608050825_dpucxjb4msd.jpeg",
-        "itemName": "Saponáceo Multiuso Cremoso Original Ypê 300ml",
-        "itemSkuId": "SKU-LSPD51351",
-        "menuSection": "Limpeza",
-        "promotionalUnitPrice": 7.99,
-        "unitPrice": 9.99
+        "itemEan": "7622210571540",
+        "itemId": "195c0797-8b26-431f-a860-f2efe1a318ff",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202609041751_p1bzrkcyu.png",
+        "itemName": "Suco em Pó Tang Limão 18g",
+        "itemSkuId": "SKU-IFJN89771",
+        "menuSection": "Bebidas",
+        "promotionalUnitPrice": 1.01,
+        "unitPrice": 1.69
       }
     ],
     "isOpen": false,

@@ -14,7 +14,7 @@
     },
     "pageSize": 25
   },
-  "recordedAt": "2026-10-18T05:47:31",
+  "recordedAt": "2026-10-18T07:33:42",
   "response": {
     "agentHints": {
       "nextStepWhenUserPicksItem": "Retrieve full item details — option groups and applicable promotions — before presenting it to the user."
@@ -24,6 +24,35 @@
     "nextPageToken": null,
     "resultKind": "ITEM",
     "results": [
+      {
+        "itemEan": "7898994481348",
+        "itemId": "06716962-7327-4a66-9217-575e2d217faa",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202410151447_mo7clmqffs9.jpeg",
+        "itemName": "Granola Vegana Zero Açúcar Grano Square 200g",
+        "itemSkuId": "SKU-VNOL43546",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "FAST_DELIVERY",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 47,
+              "min": 37
+            },
+            "fee": 13.99,
+            "promotionalFee": 13.99
+          },
+          "isOpen": true,
+          "merchantId": "32549526-5a03-4af1-a9ed-f4e8875828bf",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/32549526-5a03-4af1-a9ed-f4e8875828bf/202605131411_woyX_l.jpg",
+          "merchantName": "Oba Hortifruti - São Carlos",
+          "minimumOrderAmount": 30,
+          "ratingCount": 276,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.96
+        },
+        "promotionalUnitPrice": 49.99,
+        "unitPrice": 49.99
+      },
       {
         "itemEan": "7896283002427",
         "itemId": "baaece8e-73bb-4429-af39-ff8fd9eba434",
@@ -83,35 +112,6 @@
         "unitPrice": 48.99
       },
       {
-        "itemEan": "7891150087613",
-        "itemId": "f25d686d-2f80-438f-98e2-dffe1f78091a",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202607032127_3ju4x0b8tnf.png",
-        "itemName": "Granola Tradicional Zero Açúcares Mãe Terra 250g",
-        "itemSkuId": "SKU-DXCN55468",
-        "merchant": {
-          "deliveryMethod": {
-            "deliveryMethodId": "DEFAULT",
-            "deliveryMethodMode": "DELIVERY",
-            "estimatedMinutes": {
-              "max": 102,
-              "min": 92
-            },
-            "fee": 9.99,
-            "promotionalFee": 9.99
-          },
-          "isOpen": false,
-          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
-          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
-          "minimumOrderAmount": 60,
-          "ratingCount": 1867,
-          "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 1.26
-        },
-        "promotionalUnitPrice": 16.4,
-        "unitPrice": 16.4
-      },
-      {
         "itemEan": "7896283002427",
         "itemId": "cf952cab-9904-416e-8711-127d1d483e99",
         "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202604171509_0w1qr4g2rqu.png",
@@ -151,8 +151,8 @@
             "deliveryMethodId": "DEFAULT",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 102,
-              "min": 92
+              "max": 132,
+              "min": 122
             },
             "fee": 9.99,
             "promotionalFee": 9.99
@@ -170,33 +170,33 @@
         "unitPrice": 47.9
       },
       {
-        "itemEan": "7898994481348",
-        "itemId": "06716962-7327-4a66-9217-575e2d217faa",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202410151447_mo7clmqffs9.jpeg",
-        "itemName": "Granola Vegana Zero Açúcar Grano Square 200g",
-        "itemSkuId": "SKU-VNOL43546",
+        "itemEan": "7891150087613",
+        "itemId": "f25d686d-2f80-438f-98e2-dffe1f78091a",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202607032127_3ju4x0b8tnf.png",
+        "itemName": "Granola Tradicional Zero Açúcares Mãe Terra 250g",
+        "itemSkuId": "SKU-DXCN55468",
         "merchant": {
           "deliveryMethod": {
             "deliveryMethodId": "DEFAULT",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 92,
-              "min": 82
+              "max": 132,
+              "min": 122
             },
             "fee": 9.99,
-            "promotionalFee": 0
+            "promotionalFee": 9.99
           },
           "isOpen": false,
-          "merchantId": "32549526-5a03-4af1-a9ed-f4e8875828bf",
-          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/32549526-5a03-4af1-a9ed-f4e8875828bf/202605131411_woyX_l.jpg",
-          "merchantName": "Oba Hortifruti - São Carlos",
-          "minimumOrderAmount": 30,
-          "ratingCount": 276,
+          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
+          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1867,
           "reviewRating": 4.900000095367432,
-          "straightLineDistanceKm": 1.96
+          "straightLineDistanceKm": 1.26
         },
-        "promotionalUnitPrice": 49.99,
-        "unitPrice": 49.99
+        "promotionalUnitPrice": 16.4,
+        "unitPrice": 16.4
       },
       {
         "itemEan": "7896283007293",
@@ -267,8 +267,8 @@
             "deliveryMethodId": "DEFAULT",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 234,
-              "min": 224
+              "max": 240,
+              "min": 230
             },
             "fee": 11.99,
             "promotionalFee": 0
@@ -296,8 +296,8 @@
             "deliveryMethodId": "DEFAULT",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 234,
-              "min": 224
+              "max": 240,
+              "min": 230
             },
             "fee": 11.99,
             "promotionalFee": 0
@@ -325,8 +325,8 @@
             "deliveryMethodId": "DEFAULT",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 234,
-              "min": 224
+              "max": 240,
+              "min": 230
             },
             "fee": 11.99,
             "promotionalFee": 0
@@ -354,8 +354,8 @@
             "deliveryMethodId": "DEFAULT",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 234,
-              "min": 224
+              "max": 240,
+              "min": 230
             },
             "fee": 11.99,
             "promotionalFee": 0
@@ -383,8 +383,8 @@
             "deliveryMethodId": "DEFAULT",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 234,
-              "min": 224
+              "max": 240,
+              "min": 230
             },
             "fee": 11.99,
             "promotionalFee": 0
@@ -412,8 +412,8 @@
             "deliveryMethodId": "DEFAULT",
             "deliveryMethodMode": "DELIVERY",
             "estimatedMinutes": {
-              "max": 67,
-              "min": 57
+              "max": 92,
+              "min": 82
             },
             "fee": 7.49,
             "promotionalFee": 7.49
