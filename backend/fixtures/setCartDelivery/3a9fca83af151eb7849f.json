@@ -1,0 +1,82 @@
+{
+  "tool": "setCartDelivery",
+  "args": {
+    "cartId": "190e2305-35fb-4732-a396-261fd293231d",
+    "deliveryMethodId": "DEFAULT",
+    "selectedTimeSlotId": "494af8f3-4005-56be-b122-f5303a918456"
+  },
+  "recordedAt": "2026-10-18T00:04:19",
+  "response": {
+    "cartId": "190e2305-35fb-4732-a396-261fd293231d",
+    "merchant": {
+      "merchantId": "9d6b46da-7347-4d8a-8fde-cda8ca3adef8",
+      "merchantName": "Paulistão Av. Luiz Brandão - São Carlos Lj 13",
+      "orderMinimumPrice": 30.0,
+      "formattedAddress": "AV CAPITAO LUIZ BRANDAO, 1007 — JARDIM SANTA MARIA II, SAO CARLOS, SP"
+    },
+    "items": [
+      {
+        "itemId": "11c8eb67-ba5b-4631-a5b7-47642318eb5f",
+        "cartItemId": "94bd7338-af70-4202-9b3c-a9f10415592e",
+        "quantity": 2,
+        "unitPrice": 5.69,
+        "name": "Leite Uht Integral com Tampa Italac 1l"
+      },
+      {
+        "itemId": "ac1f3cf6-7165-4732-9445-fa2f330e2fab",
+        "cartItemId": "1751dd79-fd78-45db-8b59-8748c3a67c69",
+        "quantity": 2,
+        "unitPrice": 3.09,
+        "name": "Feijão Fradinho Solito 500g"
+      },
+      {
+        "itemId": "b16757b5-a57e-4891-8328-08c933ffc3df",
+        "cartItemId": "77042851-c7ef-4f2f-b52d-fe907436b8f5",
+        "quantity": 25,
+        "unitPrice": 2.85,
+        "name": "Café Cappuccino Lor Baunilha 20,3g"
+      }
+    ],
+    "deliveryAddress": {
+      "streetName": "Rua São Sebastião",
+      "streetNumber": "1455",
+      "neighborhood": "Centro"
+    },
+    "deliveryMethod": {
+      "deliveryMethodId": "DEFAULT",
+      "deliveryMethodMode": "DELIVERY",
+      "deliveryMethodName": "Padrão",
+      "fee": 0.0,
+      "estimatedMinutes": {
+        "min": 230,
+        "max": 240
+      },
+      "timeSlot": {
+        "from": "2026-10-19T11:00:00",
+        "to": "2026-10-19T14:00:00"
+      }
+    },
+    "fees": [
+      {
+        "name": "Taxa de serviço",
+        "description": "Cobramos uma taxa que nos ajuda a cobrir custos operacionais, inclusive de segurança, e a manter os investimentos contínuos na plataforma.",
+        "amount": 2.22
+      }
+    ],
+    "summary": {
+      "totalName": "Valor total",
+      "totalAmount": 91.03,
+      "subtotalName": "Valor dos itens",
+      "subtotalAmount": 88.81,
+      "deliveryFeeName": "Valor da taxa de entrega",
+      "deliveryFeeAmount": 0.0,
+      "feeTotalName": "Valor das taxas e serviços",
+      "feeTotalAmount": 2.22,
+      "benefitsTotalName": "Valor dos benefícios",
+      "benefitsTotalAmount": 18.49,
+      "voucherTotalName": "Valor dos cupons",
+      "voucherTotalAmount": 0.0
+    },
+    "appDeeplink": "ifood://cart?cartId=190e2305-35fb-4732-a396-261fd293231d"
+  }
+}

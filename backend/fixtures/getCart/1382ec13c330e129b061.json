@@ -1,0 +1,72 @@
+{
+  "tool": "getCart",
+  "args": {
+    "cartId": "d5f29d79-d3ff-4e18-b5a1-251df9344592"
+  },
+  "recordedAt": "2026-10-18T00:18:03",
+  "response": {
+    "cartId": "d5f29d79-d3ff-4e18-b5a1-251df9344592",
+    "merchant": {
+      "merchantId": "75a8e0a0-2766-48e7-990f-5d551d441dbb",
+      "merchantName": "Supermercados Arco Íris Express",
+      "orderMinimumPrice": 30.0,
+      "formattedAddress": "Rua Miguel Petroni, 1166 — Jardim Bandeirantes, SAO CARLOS, SP"
+    },
+    "items": [
+      {
+        "itemId": "6aa70872-8e47-4611-9e63-a2edbf660868",
+        "cartItemId": "cd1e8086-15f5-493f-82a6-7b9964faa5c9",
+        "quantity": 2,
+        "unitPrice": 27.95,
+        "name": "Granola Piri Piri sem Açúcar Embalagem 250g"
+      }
+    ],
+    "deliveryAddress": {
+      "streetName": "Rua São Sebastião",
+      "streetNumber": "1455",
+      "neighborhood": "Centro"
+    },
+    "paymentMethod": {
+      "paymentMethodId": "75354fd8-e916-41db-9286-93be2232efe2",
+      "kind": "PIX",
+      "displayName": "Pix",
+      "brand": "PIX"
+    },
+    "deliveryMethod": {
+      "deliveryMethodId": "DEFAULT",
+      "deliveryMethodMode": "DELIVERY",
+      "deliveryMethodName": "Padrão",
+      "fee": 7.49,
+      "estimatedMinutes": {
+        "min": 57,
+        "max": 67
+      },
+      "timeSlot": {
+        "from": "2026-10-19T11:00:00",
+        "to": "2026-10-19T13:00:00"
+      }
+    },
+    "fees": [
+      {
+        "name": "Taxa de serviço",
+        "description": "Cobramos uma taxa que nos ajuda a cobrir custos operacionais, inclusive de segurança, e a manter os investimentos contínuos na plataforma.",
+        "amount": 1.99
+      }
+    ],
+    "summary": {
+      "totalName": "Valor total",
+      "totalAmount": 65.38,
+      "subtotalName": "Valor dos itens",
+      "subtotalAmount": 55.9,
+      "deliveryFeeName": "Valor da taxa de entrega",
+      "deliveryFeeAmount": 7.49,
+      "feeTotalName": "Valor das taxas e serviços",
+      "feeTotalAmount": 1.99,
+      "benefitsTotalName": "Valor dos benefícios",
+      "benefitsTotalAmount": 0.0,
+      "voucherTotalName": "Valor dos cupons",
+      "voucherTotalAmount": 0.0
+    },
+    "appDeeplink": "ifood://cart?cartId=d5f29d79-d3ff-4e18-b5a1-251df9344592"
+  }
+}

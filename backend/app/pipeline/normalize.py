@@ -7,7 +7,7 @@ from dataclasses import dataclass, field
 
 from sqlmodel import Session, select
 
-from app import llm
+from app import heuristics, llm
 from app.models import Product, now
 from app.pipeline.discovery import Offer
 from app.pipeline.optimize import Candidate, Item, packs_for
@@ -15,6 +15,7 @@ from app.rules import Resolved, norm
 
 TOP_PER_MERCHANT = 5
 BATCH = 30
+OVERSIZE = 2.0  # embalagem com mais que o dobro do pedido só entra se não houver outra opção
 
 
 @dataclass
@@ -29,6 +30,7 @@ class ItemSpec:
     pack_unit: str | None
     quantity: float
     rules: Resolved
+    pin_size: float | None = None  # escolha do usuário num carrinho anterior: só embalagens deste tamanho
 
 
 @dataclass
@@ -47,12 +49,18 @@ class SkuInfo:
     size: float
     image: str | None
     reasons: list[str] = field(default_factory=list)  # por que é substituição
+    size_known: bool = True
+    quality_penalty: float = 0.0
+    substitution_penalty: float = 0.0
+    note_penalty: float = 0.0
 
     def to_dict(self) -> dict:
         return {"sku_id": self.sku_id, "item_id": self.item_id, "merchant_id": self.merchant_id, "name": self.name,
                 "brand": self.brand, "variety_terms": self.variety_terms, "pack_size": self.pack_size,
                 "pack_unit": self.pack_unit, "quality_tier": self.quality_tier, "price": self.price,
-                "list_price": self.list_price, "size": self.size, "image": self.image, "reasons": self.reasons}
+                "list_price": self.list_price, "size": self.size, "image": self.image, "reasons": self.reasons,
+                "size_known": self.size_known, "quality_penalty": self.quality_penalty,
+                "substitution_penalty": self.substitution_penalty, "note_penalty": self.note_penalty}
 
 
 @dataclass
@@ -135,7 +143,8 @@ async def _ensure_products(s: Session, specs: dict[int, ItemSpec], offers: list[
                 p.pack_unit = info.get("pack_unit")
                 p.quality_tier = int(info.get("quality_tier") or 2)
                 p.matched_category = spec.category
-                p.matched = bool(info.get("matches"))
+                # o LLM às vezes aceita "leite em pó" como "leite"; a trava de derivado vale sempre
+                p.matched = bool(info.get("matches")) and not heuristics.is_derivative(spec.category, o.name, spec.query)
                 p.parsed_at = now()
                 s.add(p)
                 cached[o.sku_id] = p
@@ -183,6 +192,7 @@ async def build(s: Session, specs: list[ItemSpec], offers: list[Offer], *,
 
         required, unit_mode = required_amount(spec)
         size = size_in_item_units(spec, unit_mode, p.pack_size, p.pack_unit)
+        size_known = unit_mode == "pack" or (bool(p.pack_size) and p.pack_unit == unit_mode)
         est_cost = o.price * packs_for(required, size)
 
         reasons: list[str] = []
@@ -210,7 +220,8 @@ async def build(s: Session, specs: list[ItemSpec], offers: list[Offer], *,
         info = SkuInfo(sku_id=o.sku_id, item_id=o.item_id, merchant_id=o.merchant_id, name=o.name, brand=p.brand,
                        variety_terms=list(p.variety_terms or []), pack_size=p.pack_size, pack_unit=p.pack_unit,
                        quality_tier=p.quality_tier, price=o.price, list_price=o.list_price, size=size, image=o.image,
-                       reasons=reasons)
+                       reasons=reasons, size_known=size_known, quality_penalty=round(quality_pen, 2),
+                       substitution_penalty=round(sub_pen, 2))
         cand = Candidate(sku_id=o.sku_id, item_id=o.item_id, merchant_id=o.merchant_id, name=o.name, brand=p.brand,
                          price=o.price, size=size, quality_penalty=round(quality_pen, 2),
                          substitution_penalty=round(sub_pen, 2))
@@ -222,6 +233,26 @@ async def build(s: Session, specs: list[ItemSpec], offers: list[Offer], *,
     items: list[Item] = []
     for spec in specs:
         entries = pool[spec.id]
+        required, unit_mode = required_amount(spec)
+
+        def keep(entries: list, ok, reason: str) -> list:
+            """Aplica o filtro só se sobrar alguma opção; senão mantém tudo (melhor que deixar o item de fora)."""
+            fits = [e for e in entries if ok(e[1])]
+            if fits and len(fits) < len(entries):
+                rejected[spec.id][reason] = rejected[spec.id].get(reason, 0) + len(entries) - len(fits)
+                return fits
+            return entries
+
+        if spec.pin_size:
+            entries = keep(entries, lambda i: abs(i.size - spec.pin_size) <= 0.02 * spec.pin_size,
+                           "tamanho diferente do escolhido")
+        if unit_mode != "pack":
+            # sem tamanho no nome, o SKU seria tratado como se tivesse o tamanho pedido
+            entries = keep(entries, lambda i: i.size_known, "tamanho desconhecido")
+            entries = keep(entries, lambda i: i.size <= OVERSIZE * required, "embalagem grande demais")
+            if spec.rules.quantity_exact:
+                limit = required * spec.rules.max_overbuy
+                entries = keep(entries, lambda i: packs_for(required, i.size) * i.size <= limit, "maior que o pedido")
         # só os cinco melhores por mercado entram no modelo
         by_merchant: dict[str, list] = {}
         for e in sorted(entries, key=lambda e: e[0]):

@@ -1,0 +1,320 @@
+{
+  "tool": "searchOffers",
+  "args": {
+    "query": "granola sem açúcar",
+    "userLocation": {
+      "latitude": -22.01318,
+      "longitude": -47.89623
+    },
+    "resultKind": "ITEM",
+    "merchantType": "GROCERIES",
+    "intention": "product",
+    "refinements": {
+      "sort": "PRICE",
+      "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894"
+    },
+    "pageSize": 10
+  },
+  "recordedAt": "2026-10-18T00:10:29",
+  "response": {
+    "agentHints": {
+      "nextStepWhenUserPicksItem": "Retrieve full item details — option groups and applicable promotions — before presenting it to the user."
+    },
+    "hasMore": true,
+    "interpretedQuery": "granola sem açúcar",
+    "nextPageToken": "MTA7MQ==",
+    "resultKind": "ITEM",
+    "results": [
+      {
+        "itemEan": "78933873",
+        "itemId": "14527681-61bd-4fba-a671-c5958ddc42d5",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202604221110_h6p9zhl9v2b.png",
+        "itemName": "Refrigerante Coca-Cola Zero Açúcar 200ml",
+        "itemSkuId": "01a08d55-67d0-7af0-8feb-89f22e49fdd3",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 120,
+              "min": 110
+            },
+            "fee": 6.49,
+            "promotionalFee": 0
+          },
+          "isOpen": false,
+          "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
+          "merchantName": "Extra - São Carlos",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1364,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 0.27
+        },
+        "promotionalUnitPrice": 1.64,
+        "unitPrice": 2.19
+      },
+      {
+        "itemEan": "7622210696328",
+        "itemId": "7ea1081d-8e5e-4854-809e-2410e372f8ca",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202402231358_0n77k4vnx2yh.jpeg",
+        "itemName": "Refresco em Pó Clight Sem Açúcar Limonada 8g",
+        "itemSkuId": "SKU-FIMS27772",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 120,
+              "min": 110
+            },
+            "fee": 6.49,
+            "promotionalFee": 0
+          },
+          "isOpen": false,
+          "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
+          "merchantName": "Extra - São Carlos",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1364,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 0.27
+        },
+        "promotionalUnitPrice": 2.09,
+        "unitPrice": 2.09
+      },
+      {
+        "itemEan": "7622210696632",
+        "itemId": "ae5d3707-be13-4368-909b-8ecc5bedc651",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202402231358_d52mvxqfkpl.jpeg",
+        "itemName": "Refresco Em Pó Clight Sem Açúcar Laranja 8g",
+        "itemSkuId": "SKU-ZNKI80960",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 120,
+              "min": 110
+            },
+            "fee": 6.49,
+            "promotionalFee": 0
+          },
+          "isOpen": false,
+          "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
+          "merchantName": "Extra - São Carlos",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1364,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 0.27
+        },
+        "promotionalUnitPrice": 2.09,
+        "unitPrice": 2.09
+      },
+      {
+        "itemEan": "7622210696441",
+        "itemId": "ff33bfb7-37f4-40bd-b5e3-197768701f01",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202402231356_q30jn7l0a5h.jpeg",
+        "itemName": "Refresco em Pó Clight Sem Açúcar Morango 8g",
+        "itemSkuId": "SKU-KOHJ90181",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 120,
+              "min": 110
+            },
+            "fee": 6.49,
+            "promotionalFee": 0
+          },
+          "isOpen": false,
+          "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
+          "merchantName": "Extra - São Carlos",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1364,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 0.27
+        },
+        "promotionalUnitPrice": 2.09,
+        "unitPrice": 2.09
+      },
+      {
+        "itemEan": "7622210696595",
+        "itemId": "4dc2e9e5-97f2-4818-a229-d7d8bfc43a1b",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202402231357_52diqi262rl.jpeg",
+        "itemName": "Refresco Em Pó Clight Sem Açúcar Maracuja 8g",
+        "itemSkuId": "SKU-YNLW03167",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 120,
+              "min": 110
+            },
+            "fee": 6.49,
+            "promotionalFee": 0
+          },
+          "isOpen": false,
+          "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
+          "merchantName": "Extra - São Carlos",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1364,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 0.27
+        },
+        "promotionalUnitPrice": 2.09,
+        "unitPrice": 2.09
+      },
+      {
+        "itemEan": "7622210696670",
+        "itemId": "bbd42147-f89f-4347-958d-9ea286e54fbf",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202402231354_8j625ock8m8.jpeg",
+        "itemName": "Refresco em Pó Uva Sem Açúcar Clight 8g",
+        "itemSkuId": "SKU-FXSU35302",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 120,
+              "min": 110
+            },
+            "fee": 6.49,
+            "promotionalFee": 0
+          },
+          "isOpen": false,
+          "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
+          "merchantName": "Extra - São Carlos",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1364,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 0.27
+        },
+        "promotionalUnitPrice": 2.09,
+        "unitPrice": 2.09
+      },
+      {
+        "itemEan": "7622210696373",
+        "itemId": "c7ddf1b7-d379-4d29-be69-573ce77c29d0",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202402231359_b77yfxpcnog.jpeg",
+        "itemName": "Refresco em Pó de Abacaxi Sem Açúcar Clight 8g",
+        "itemSkuId": "01a08d55-7646-7b43-b5f5-dc1e5de1696c",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 120,
+              "min": 110
+            },
+            "fee": 6.49,
+            "promotionalFee": 0
+          },
+          "isOpen": false,
+          "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
+          "merchantName": "Extra - São Carlos",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1364,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 0.27
+        },
+        "promotionalUnitPrice": 2.09,
+        "unitPrice": 2.09
+      },
+      {
+        "itemEan": "7898996178635",
+        "itemId": "62141446-a5ad-4e9b-85f7-1bbda1baf874",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202601061210_iltikl7u80m.png",
+        "itemName": "Refresco Guaraná Com Açaí Zero Açúcar Guara Maxx Garrafa 250ml",
+        "itemSkuId": "SKU-VAJH51610",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 120,
+              "min": 110
+            },
+            "fee": 6.49,
+            "promotionalFee": 0
+          },
+          "isOpen": false,
+          "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
+          "merchantName": "Extra - São Carlos",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1364,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 0.27
+        },
+        "promotionalUnitPrice": 2.09,
+        "unitPrice": 2.09
+      },
+      {
+        "itemEan": "7891098042149",
+        "itemId": "d6d0708b-1ee1-4edd-986d-5adbb5a37f82",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202604221114_a8dq75cme.png",
+        "itemName": "Chá Ice Tea de Pêssego Zero Açúcares Leão 300ml",
+        "itemSkuId": "SKU-GXQT62764",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 120,
+              "min": 110
+            },
+            "fee": 6.49,
+            "promotionalFee": 0
+          },
+          "isOpen": false,
+          "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
+          "merchantName": "Extra - São Carlos",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1364,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 0.27
+        },
+        "promotionalUnitPrice": 2.49,
+        "unitPrice": 2.49
+      },
+      {
+        "itemEan": "7894900700398",
+        "itemId": "569d21ca-d7a6-4050-a739-3a40d4e43990",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202604221110_as5r4nbt3hm.png",
+        "itemName": "Refrigerante Zero Açucar Coca-Cola 220ml",
+        "itemSkuId": "01a08d55-67cf-7c00-86df-7a1918081a02",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 120,
+              "min": 110
+            },
+            "fee": 6.49,
+            "promotionalFee": 0
+          },
+          "isOpen": false,
+          "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
+          "merchantName": "Extra - São Carlos",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1364,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 0.27
+        },
+        "promotionalUnitPrice": 2.8,
+        "unitPrice": 3.29
+      }
+    ]
+  }
+}

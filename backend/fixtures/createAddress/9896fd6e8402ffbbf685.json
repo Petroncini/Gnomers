@@ -3,12 +3,12 @@
   "args": {
     "address": "Onovolab"
   },
-  "recordedAt": "2026-10-17T23:38:51",
+  "recordedAt": "2026-10-18T00:46:29",
   "response": {
     "matchConfidence": "SINGLE",
     "candidates": [
       {
-        "candidateId": "9f377043-33f2-49a9-b1c2-b09f20ff5850",
+        "candidateId": "15ae2748-3c45-491e-b64d-7ba9d4cbf1b7",
         "formattedAddress": "R. Aquidaban, 1, Centro, São Carlos, SP, CEP 13560-120",
         "location": {
           "street": "R. Aquidaban",

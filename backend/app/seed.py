@@ -11,6 +11,7 @@ from datetime import datetime, timedelta, timezone
 from sqlmodel import Session, delete, select
 
 from app import learning, llm
+from app.heuristics import PARSER_VERSION
 from app.db import engine, init_db, today
 from app.models import ListItem, Order, OrderLine, Plan, Rule, ShoppingList, Signal, Suggestion, User
 
@@ -57,7 +58,7 @@ async def seed() -> None:
         s.refresh(lst)
         for raw in DEMO_ITEMS:
             parsed = await llm.parse_item(raw)
-            s.add(ListItem(list_id=lst.id, raw_text=raw, **parsed))
+            s.add(ListItem(list_id=lst.id, raw_text=raw, parser_version=PARSER_VERSION, **parsed))
         s.commit()
 
         s.add(Rule(user_id=user.id, scope="global", category="detergente", kind="brand_chain",

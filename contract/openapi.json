@@ -907,7 +907,8 @@
               "brand_choice",
               "variety",
               "quantity",
-              "split"
+              "split",
+              "replan"
             ],
             "title": "Type",
             "type": "string"
@@ -2455,6 +2456,7 @@
               "brand_block",
               "merchant",
               "delivery",
+              "quantity",
               "note"
             ],
             "title": "Kind",
@@ -2627,6 +2629,7 @@
               "brand_block",
               "merchant",
               "delivery",
+              "quantity",
               "note"
             ],
             "title": "Kind",
@@ -4334,6 +4337,46 @@
           }
         },
         "summary": "Plan Events"
+      }
+    },
+    "/plans/{plan_id}/replan": {
+      "post": {
+        "description": "Novo carrinho para a mesma lista, mantendo endereço, horário e as escolhas feitas neste.",
+        "operationId": "replan_plans__plan_id__replan_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "plan_id",
+            "required": true,
+            "schema": {
+              "title": "Plan Id",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlanCreated"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Replan"
       }
     },
     "/rules": {

@@ -67,7 +67,7 @@ class DiscoveryResult:
     offers: list[Offer]
     merchants: dict[str, MerchantInfo]
     coverage: dict[str, int]
-    taxonomy_updates: dict[int, str]
+    taxonomy_updates: dict[int, str | None]
     errors: list[dict]
 
 
@@ -97,14 +97,27 @@ def _refinements(q: ItemQuery, *, only_open: bool, max_distance_km: float | None
     return ref
 
 
+def effective_fee(method: dict) -> float:
+    """Frete que o carrinho cobra de fato.
+
+    Confirmado no sandbox em 18/10: `fee: 6.49, promotionalFee: 0` virou frete R$ 0,00
+    no carrinho real, e `fee: 10.99, promotionalFee: 10.99` virou R$ 10,99. Mercado
+    fechado vem com o método vazio (`deliveryMethodId: ""` e tudo zero); aí não há
+    informação e vale o `fee` cheio.
+    """
+    fee = float(method.get("fee") or 0)
+    promo = method.get("promotionalFee")
+    if promo is None or not method.get("deliveryMethodId"):
+        return fee
+    return min(fee, float(promo))
+
+
 def _merchant_from(summary: dict) -> MerchantInfo:
     dm = summary.get("deliveryMethod") or {}
     eta = dm.get("estimatedMinutes") or {}
-    # o sandbox devolve promotionalFee 0 tanto para "frete grátis" quanto para "sem informação";
-    # a estimativa usa o fee cheio e o carrinho real decide o valor final
     return MerchantInfo(
         id=summary["merchantId"], name=summary.get("merchantName", ""),
-        delivery_fee=float(dm.get("fee") or 0), minimum_order=float(summary.get("minimumOrderAmount") or 0),
+        delivery_fee=effective_fee(dm), minimum_order=float(summary.get("minimumOrderAmount") or 0),
         distance_km=summary.get("straightLineDistanceKm"), eta_max=eta.get("max") or None,
         is_open=bool(summary.get("isOpen", True)), logo=summary.get("merchantLogoUrl"),
     )
@@ -138,17 +151,32 @@ async def discover(api: Ifood, queries: list[ItemQuery], lat: float, lng: float,
     errors: list[dict] = []
     offers: list[Offer] = []
     merchants: dict[str, MerchantInfo] = {}
-    taxonomy_updates: dict[int, str] = {}
+    taxonomy_updates: dict[int, str | None] = {}
+    dropped_taxonomy: set[int] = set()
 
     # ---------------------------------------------------------- fase 1
     async def phase1(q: ItemQuery):
-        try:
-            body = await api.search_items(q.query, lat, lng, intention=q.intention, include_facets=q.taxonomy_id is None,
-                                          refinements=_refinements(q, only_open=only_open, max_distance_km=max_distance_km,
-                                                                   max_minimum=None))
-        except (McpToolError, ValueError) as exc:
-            errors.append({"item_id": q.item_id, "stage": "fase1", "error": str(exc)})
-            return q, {}
+        # sem resultado: tenta sem a taxonomia e depois com intention "product"
+        attempts = [(q.taxonomy_id, q.intention)]
+        if q.taxonomy_id:
+            attempts.append((None, q.intention))
+        if q.intention != "product":
+            attempts.append((None, "product"))
+        body: dict = {}
+        for taxonomy, intention in attempts:
+            tq = ItemQuery(**{**q.__dict__, "taxonomy_id": taxonomy, "intention": intention})
+            try:
+                body = await api.search_items(q.query, lat, lng, intention=intention, include_facets=taxonomy is None,
+                                              refinements=_refinements(tq, only_open=only_open,
+                                                                       max_distance_km=max_distance_km, max_minimum=None))
+            except (McpToolError, ValueError) as exc:
+                errors.append({"item_id": q.item_id, "stage": "fase1", "error": str(exc)})
+                body = {}
+                continue
+            if body.get("results"):
+                if taxonomy != q.taxonomy_id:
+                    dropped_taxonomy.add(q.item_id)
+                break
         return q, body
 
     await say("discovery", {"message": f"Buscando {len(queries)} itens nos mercados próximos"})
@@ -158,8 +186,10 @@ async def discover(api: Ifood, queries: list[ItemQuery], lat: float, lng: float,
         offers.extend(o)
         for k, v in m.items():
             merchants.setdefault(k, v)
+        if q.item_id in dropped_taxonomy:
+            taxonomy_updates[q.item_id] = None  # a taxonomia gravada zerava a busca
         facets = (body.get("facets") or {}).get("itemTaxonomy") or []
-        if facets and not q.taxonomy_id:
+        if facets and (not q.taxonomy_id or q.item_id in dropped_taxonomy):
             tax = await llm.pick_taxonomy(q.category, facets)
             if tax:
                 taxonomy_updates[q.item_id] = tax
@@ -205,7 +235,7 @@ async def discover(api: Ifood, queries: list[ItemQuery], lat: float, lng: float,
         info.is_open = bool(body.get("isOpen", info.is_open))
         methods = [d for d in body.get("deliveryMethods", []) if d.get("deliveryMethodMode", "DELIVERY") in ("DELIVERY", "")]
         info.delivery_methods = methods
-        fees = [float(d["fee"]) for d in methods if d.get("fee") is not None and d.get("deliveryMethodId")]
+        fees = [effective_fee(d) for d in methods if d.get("fee") is not None and d.get("deliveryMethodId")]
         if fees:
             info.delivery_fee = min(fees)
         merchants[m_id] = info

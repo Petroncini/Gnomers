@@ -20,7 +20,7 @@ FastAPI + SQLModel (SQLite) + PuLP 2.9/CBC + SDK `mcp`. Visão geral no `CLAUDE.
 
 - `app/mcp/`: `client.py` (sessão, OAuth, erros normalizados, envelope `{success, data}`), `recorder.py`, `ifood.py` (wrappers tipados; toda chamada passa por eles), `fake.py`.
 - `app/pipeline/`: `address`, `discovery` (duas fases), `normalize`, `optimize` (MILP puro, sem I/O), `materialize` (carrinhos reais, cupom, entrega e horário, Pix), `decisions`, `runner` (orquestra e emite SSE).
-- `app/rules.py` (regras tipadas e resolução por escopo), `app/llm.py` (tarefas com esquema, cai em `app/heuristics.py`), `app/actions.py` (cartões, chat, checkout, rastreio), `app/learning.py`, `app/scheduler.py`.
+- `app/rules.py` (regras tipadas e resolução por escopo), `app/llm.py` (tarefas com esquema via OpenRouter ou API da Anthropic, cai em `app/heuristics.py`), `app/actions.py` (cartões, chat, checkout, rastreio), `app/learning.py`, `app/scheduler.py`.
 
 ## Cuidados
 

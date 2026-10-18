@@ -85,3 +85,25 @@ def test_taxonomy_never_picks_a_derivative():
     # caso real: a busca "leites integral italac" trouxe LEITE_CONDENSADO e a heurística antiga escolheu ele
     assert pick_taxonomy("leite", [{"count": 7, "id": "LEITE_CONDENSADO"}, {"count": 5, "id": "LEITE_EM_PO"}]) is None
     assert pick_taxonomy("leite", [{"count": 91, "id": "LEITE_EM_PO"}, {"count": 123, "id": "LEITE_TRADICIONAL"}]) == "LEITE_TRADICIONAL"
+
+
+@pytest.mark.parametrize("name,derivative", [
+    ("Café Com Leite Solúvel 3 Corações Sache 20g", True),        # caso real, Extra, 18/10
+    ("Café Cappuccino Lor Premium Avelã Sachet 17,8g", True),     # caso real, Pão de Açúcar
+    ("Café Individual 3 Corações Tradicional Drip Coffee", True),  # caso real, Savegnago
+    ("Café Tradicional 3 Corações 500g", False),
+    ("Café Torrado e Moído Pilão 500g", False),
+])
+def test_coffee_derivatives(name, derivative):
+    from app.heuristics import is_derivative
+
+    assert is_derivative("cafe", name) is derivative
+
+
+def test_effective_fee_uses_promotional_fee():
+    from app.pipeline.discovery import effective_fee
+
+    # sandbox 18/10: fee 6.49 + promotionalFee 0 virou frete grátis no carrinho do Extra
+    assert effective_fee({"deliveryMethodId": "DEFAULT", "fee": 6.49, "promotionalFee": 0}) == 0
+    assert effective_fee({"deliveryMethodId": "DEFAULT", "fee": 10.99, "promotionalFee": 10.99}) == 10.99
+    assert effective_fee({"deliveryMethodId": "DEFAULT", "fee": 8.0, "promotionalFee": None}) == 8.0

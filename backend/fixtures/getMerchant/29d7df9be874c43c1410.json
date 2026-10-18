@@ -1,0 +1,137 @@
+{
+  "tool": "getMerchant",
+  "args": {
+    "merchantId": "e6067614-d8f3-4108-8b6e-c72fd364ae2c",
+    "userLocation": {
+      "latitude": -22.01318,
+      "longitude": -47.89623
+    }
+  },
+  "recordedAt": "2026-10-18T01:01:09",
+  "response": {
+    "address": "RUA PASSEIO DOS FLAMBOYANTS, 200, S C IGUATEMI LJ AN 1, PQ FABER, SAO CARLOS - SP, 13560970, BR",
+    "agentHints": {
+      "nextStepForItemsNavigation": "Follow `catalogSummary.navigationHint` to browse or search items in this merchant's catalog.",
+      "nextStepWhenUserPicksItem": "Retrieve full item details — option groups, nutrition, and applicable promotions — for the chosen item before adding it to the cart."
+    },
+    "appDeeplink": "ifood://catalog-hub/e6067614-d8f3-4108-8b6e-c72fd364ae2c/GROCERIES",
+    "catalogSummary": {
+      "navigationHint": "Call `browseOffers` with `resultKind=ITEM`, the matching `merchantType`, and `refinements.merchantId=e6067614-d8f3-4108-8b6e-c72fd364ae2c` to browse items. Use `searchOffers` with `refinements.merchantId=e6067614-d8f3-4108-8b6e-c72fd364ae2c` for keyword search within this merchant.",
+      "totalItems": 10075
+    },
+    "deliveryMethods": [],
+    "featuredItems": [
+      {
+        "itemEan": "7895000342198",
+        "itemId": "093f61fe-5010-4429-afaf-8c1a4f2560bb",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210190452_v7b8d6aglyk.jpg",
+        "itemName": "Saco para Lixo Qualitá 100l 15un",
+        "itemSkuId": "SKU-SDTG02332",
+        "menuSection": "Limpeza",
+        "promotionalUnitPrice": 8.74,
+        "unitPrice": 17.49
+      },
+      {
+        "itemEan": "7895000342181",
+        "itemId": "9390e9e4-a5a8-430e-9326-8c42bfabe2b3",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202610091045_qs6u0typ9k.png",
+        "itemName": "Saco Para Lixo Qualitá 50l 30 Unidades",
+        "itemSkuId": "SKU-VJTH93271",
+        "menuSection": "Limpeza",
+        "promotionalUnitPrice": 8.74,
+        "unitPrice": 17.49
+      },
+      {
+        "itemEan": "7895000347193",
+        "itemId": "05e2a6bd-e5ca-4b90-9d5a-7f94ebe1ba77",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210190451_0bl3gobzu2eg.jpg",
+        "itemName": "Saco para Lixo Antibacteriano 100l Qualitá 15un",
+        "itemSkuId": "SKU-FCHL85326",
+        "menuSection": "Limpeza",
+        "promotionalUnitPrice": 9.99,
+        "unitPrice": 19.99
+      },
+      {
+        "itemEan": "7895000347186",
+        "itemId": "8f3cdd87-83b9-4186-8ba1-afb7a56446bc",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210190451_e8jljkuedn.jpg",
+        "itemName": "Saco para Lixo Qualitá Antibacteriano 50lt 30un",
+        "itemSkuId": "SKU-BBIV99959",
+        "menuSection": "Limpeza",
+        "promotionalUnitPrice": 9.99,
+        "unitPrice": 19.99
+      },
+      {
+        "itemEan": "7895000499939",
+        "itemId": "1503a417-9e41-4a60-967d-b3e417477a6b",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210190454_asmzcicgh9n.jpg",
+        "itemName": "Saco para Lixo 200l Qualitá 15 Unidades",
+        "itemSkuId": "SKU-RFHC03394",
+        "menuSection": "Limpeza",
+        "promotionalUnitPrice": 37.95,
+        "unitPrice": 75.9
+      }
+    ],
+    "isOpen": false,
+    "merchantId": "e6067614-d8f3-4108-8b6e-c72fd364ae2c",
+    "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/3974223/202607281734_5AGE.png",
+    "merchantName": "Pão de Açúcar - Shopping Iguatemi São Carlos",
+    "merchantType": "GROCERIES",
+    "minimumOrderAmount": 30,
+    "operatingHours": {
+      "today": [
+        {
+          "closeLocal": "13:50",
+          "openLocal": "08:00"
+        }
+      ],
+      "weekly": {
+        "fri": [
+          {
+            "closeLocal": "13:50",
+            "openLocal": "08:00"
+          }
+        ],
+        "mon": [
+          {
+            "closeLocal": "13:50",
+            "openLocal": "08:00"
+          }
+        ],
+        "sat": [
+          {
+            "closeLocal": "13:50",
+            "openLocal": "08:00"
+          }
+        ],
+        "sun": [
+          {
+            "closeLocal": "13:50",
+            "openLocal": "08:00"
+          }
+        ],
+        "thu": [
+          {
+            "closeLocal": "13:50",
+            "openLocal": "08:00"
+          }
+        ],
+        "tue": [
+          {
+            "closeLocal": "13:50",
+            "openLocal": "08:00"
+          }
+        ],
+        "wed": [
+          {
+            "closeLocal": "13:50",
+            "openLocal": "08:00"
+          }
+        ]
+      }
+    },
+    "ratingCount": 99,
+    "reviewRating": 4.900000095367432,
+    "straightLineDistanceKm": 2.09
+  }
+}

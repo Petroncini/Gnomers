@@ -1,0 +1,125 @@
+{
+  "tool": "getMerchant",
+  "args": {
+    "merchantId": "8a1da42a-5d58-489b-9697-b92bf9ada902",
+    "userLocation": {
+      "latitude": -22.01318,
+      "longitude": -47.89623
+    }
+  },
+  "recordedAt": "2026-10-18T00:02:02",
+  "response": {
+    "address": "Avenida Maranhão, 241, Jardim Pacaembu, SAO CARLOS - SP, 13572390, BR",
+    "agentHints": {
+      "nextStepForItemsNavigation": "Follow `catalogSummary.navigationHint` to browse or search items in this merchant's catalog.",
+      "nextStepWhenUserPicksItem": "Retrieve full item details — option groups, nutrition, and applicable promotions — for the chosen item before adding it to the cart."
+    },
+    "appDeeplink": "ifood://catalog-hub/8a1da42a-5d58-489b-9697-b92bf9ada902/GROCERIES",
+    "catalogSummary": {
+      "navigationHint": "Call `browseOffers` with `resultKind=ITEM`, the matching `merchantType`, and `refinements.merchantId=8a1da42a-5d58-489b-9697-b92bf9ada902` to browse items. Use `searchOffers` with `refinements.merchantId=8a1da42a-5d58-489b-9697-b92bf9ada902` for keyword search within this merchant.",
+      "totalItems": 899
+    },
+    "deliveryMethods": [],
+    "featuredItems": [
+      {
+        "itemEan": "7894900184372",
+        "itemId": "e21e19a8-1bed-4cfd-acf3-2287b0e303d4",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510031835_8p3iogp5pab.jpeg",
+        "itemName": "Drink Pronto Schweppes Mixed Spritz Lata 269ml",
+        "itemSkuId": "SKU-UCDS66196",
+        "menuSection": "Bebidas Alcoólicas",
+        "promotionalUnitPrice": 3.5,
+        "unitPrice": 5.83
+      },
+      {
+        "itemEan": "78909045",
+        "itemId": "1ba40de6-5be6-4cb3-bbf5-3c780372f87e",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202604221111_5zzkxg4h21i.png",
+        "itemName": "Refrigerante Coca-Cola Zero Açúcar Pet 250ml",
+        "itemSkuId": "01a08d55-67db-7530-b7ff-bb855effb386",
+        "menuSection": "Bebidas",
+        "promotionalUnitPrice": 1.77,
+        "unitPrice": 2.36
+      },
+      {
+        "itemEan": "7891999904805",
+        "itemId": "a1e6e5b6-0524-457c-ac30-f934b4a42d15",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202311211041_0xn7zg637c7k.jpg",
+        "itemName": "Leite Fermentado Tradicional Vigor 450g",
+        "itemSkuId": "SKU-MUCK73163",
+        "menuSection": "Iogurtes",
+        "promotionalUnitPrice": 8.02,
+        "unitPrice": 9.44
+      },
+      {
+        "itemEan": "7891999100047",
+        "itemId": "1aa49454-a986-4026-8c16-8a85ca166e64",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202607101733_6ziwliyj2yb.png",
+        "itemName": "Bebida de Uva Vigor 200ml",
+        "itemSkuId": "01a08d55-73e8-7f62-b51d-cda46359b901",
+        "menuSection": "Bebidas",
+        "promotionalUnitPrice": 2.64,
+        "unitPrice": 3.1
+      },
+      {
+        "itemEan": "7891999340108",
+        "itemId": "470cfe73-70fc-45ba-838b-7142ec7f1dc1",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202607101731_w4ffptk5xe.png",
+        "itemName": "Bebida de Morango Vigor 200ml",
+        "itemSkuId": "SKU-JXNB66522",
+        "menuSection": "Bebidas",
+        "promotionalUnitPrice": 2.64,
+        "unitPrice": 3.1
+      }
+    ],
+    "isOpen": false,
+    "merchantId": "8a1da42a-5d58-489b-9697-b92bf9ada902",
+    "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8a1da42a-5d58-489b-9697-b92bf9ada902/202201271618_plFt_i.png",
+    "merchantName": "Lalo Supermercado",
+    "merchantType": "GROCERIES",
+    "minimumOrderAmount": 30,
+    "operatingHours": {
+      "today": [],
+      "weekly": {
+        "fri": [
+          {
+            "closeLocal": "16:20",
+            "openLocal": "09:00"
+          }
+        ],
+        "mon": [
+          {
+            "closeLocal": "16:20",
+            "openLocal": "09:00"
+          }
+        ],
+        "sat": [
+          {
+            "closeLocal": "16:20",
+            "openLocal": "09:00"
+          }
+        ],
+        "thu": [
+          {
+            "closeLocal": "16:20",
+            "openLocal": "09:00"
+          }
+        ],
+        "tue": [
+          {
+            "closeLocal": "16:20",
+            "openLocal": "09:00"
+          }
+        ],
+        "wed": [
+          {
+            "closeLocal": "16:20",
+            "openLocal": "09:00"
+          }
+        ]
+      }
+    },
+    "reviewRating": 0,
+    "straightLineDistanceKm": 2.72
+  }
+}

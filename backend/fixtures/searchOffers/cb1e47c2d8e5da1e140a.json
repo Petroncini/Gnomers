@@ -1,0 +1,753 @@
+{
+  "tool": "searchOffers",
+  "args": {
+    "query": "feijão",
+    "userLocation": {
+      "latitude": -22.01318,
+      "longitude": -47.89623
+    },
+    "resultKind": "ITEM",
+    "merchantType": "GROCERIES",
+    "intention": "product",
+    "refinements": {
+      "sort": "PRICE",
+      "maxDistanceKm": 8.0,
+      "itemTaxonomy": [
+        "FEIJAO"
+      ]
+    },
+    "pageSize": 25
+  },
+  "recordedAt": "2026-10-18T01:00:57",
+  "response": {
+    "agentHints": {
+      "nextStepWhenUserPicksItem": "Retrieve full item details — option groups and applicable promotions — before presenting it to the user."
+    },
+    "hasMore": true,
+    "interpretedQuery": "feijão",
+    "nextPageToken": "MjU7MQ==",
+    "resultKind": "ITEM",
+    "results": [
+      {
+        "itemEan": "7896062600004",
+        "itemId": "ac1f3cf6-7165-4732-9445-fa2f330e2fab",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210180851_xxtuss6mdys.jpg",
+        "itemName": "Feijão Fradinho Solito 500g",
+        "itemSkuId": "SKU-VHFA67595",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 240,
+              "min": 230
+            },
+            "fee": 18.49,
+            "promotionalFee": 0
+          },
+          "isOpen": false,
+          "merchantId": "9d6b46da-7347-4d8a-8fde-cda8ca3adef8",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/3901056/202607311821_FR9A.png",
+          "merchantName": "Paulistão Av. Luiz Brandão - São Carlos Lj 13",
+          "minimumOrderAmount": 30,
+          "ratingCount": 172,
+          "reviewRating": 4.800000190734863,
+          "straightLineDistanceKm": 3.08
+        },
+        "promotionalUnitPrice": 3.09,
+        "unitPrice": 3.09
+      },
+      {
+        "itemEan": "7899659901270",
+        "itemId": "55f70cea-a338-4a78-aab1-fefc1f1700f2",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202404131027_ipvdfvy9wi.jpeg",
+        "itemName": "Feijão Preto Pronto Bonare Sachê",
+        "itemSkuId": "SKU-SWLY35618",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 172,
+              "min": 142
+            },
+            "fee": 19.99,
+            "promotionalFee": 19.99
+          },
+          "isOpen": false,
+          "merchantId": "2454a662-ab7d-4cb8-91c9-c69720983886",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/2454a662-ab7d-4cb8-91c9-c69720983886/202509011622_2TXL.png",
+          "merchantName": "Atacadão São Carlos",
+          "minimumOrderAmount": 90,
+          "ratingCount": 211,
+          "reviewRating": 4.800000190734863,
+          "straightLineDistanceKm": 5.1
+        },
+        "promotionalUnitPrice": 3.82,
+        "unitPrice": 3.82
+      },
+      {
+        "itemEan": "7896200116503",
+        "itemId": "b4501fff-a8af-4c55-96ce-2c2c29155922",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202609101616_dwofbotn4un.jpeg",
+        "itemName": "Feijão Fradinho Broto Legal 500g",
+        "itemSkuId": "SKU-TFSM01406",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 102,
+              "min": 92
+            },
+            "fee": 10.99,
+            "promotionalFee": 10.99
+          },
+          "isOpen": false,
+          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
+          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1867,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.26
+        },
+        "promotionalUnitPrice": 3.85,
+        "unitPrice": 3.85
+      },
+      {
+        "itemEan": "7895000536887",
+        "itemId": "f01c3d5e-40cd-40a5-8115-81543dad10bc",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202609101205_xuuhhqnu0z.png",
+        "itemName": "Feijão Fradinho Tipo 1 Qualitá Pacote 500g",
+        "itemSkuId": "SKU-TDHS02005",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 120,
+              "min": 110
+            },
+            "fee": 6.49,
+            "promotionalFee": 0
+          },
+          "isOpen": false,
+          "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
+          "merchantName": "Extra - São Carlos",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1364,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 0.27
+        },
+        "promotionalUnitPrice": 3.99,
+        "unitPrice": 3.99
+      },
+      {
+        "itemEan": "7895000536887",
+        "itemId": "1010c2d5-f7d5-4103-8f3b-42a6b42cfa1a",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202609101205_xuuhhqnu0z.png",
+        "itemName": "Feijão Fradinho Tipo 1 Qualitá Pacote 500g",
+        "itemSkuId": "SKU-TDHS02005",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 234,
+              "min": 224
+            },
+            "fee": 13.99,
+            "promotionalFee": 0
+          },
+          "isOpen": false,
+          "merchantId": "e6067614-d8f3-4108-8b6e-c72fd364ae2c",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/3974223/202607281734_5AGE.png",
+          "merchantName": "Pão de Açúcar - Shopping Iguatemi São Carlos",
+          "minimumOrderAmount": 30,
+          "ratingCount": 99,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 2.09
+        },
+        "promotionalUnitPrice": 4.09,
+        "unitPrice": 4.09
+      },
+      {
+        "itemEan": "7897517209223",
+        "itemId": "5d677e56-4136-4c6f-b24d-bcd3cb21fa81",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202305111038_72e4qxhn0e.jpg",
+        "itemName": "Feijão Carioca Fugini 250g",
+        "itemSkuId": "SKU-SQVK36583",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 67,
+              "min": 57
+            },
+            "fee": 7.49,
+            "promotionalFee": 7.49
+          },
+          "isOpen": false,
+          "merchantId": "75a8e0a0-2766-48e7-990f-5d551d441dbb",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/75a8e0a0-2766-48e7-990f-5d551d441dbb/201909191637_C7AP_i.png",
+          "merchantName": "Supermercados Arco Íris Express",
+          "minimumOrderAmount": 30,
+          "ratingCount": 90,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.32
+        },
+        "promotionalUnitPrice": 4.72,
+        "unitPrice": 4.72
+      },
+      {
+        "itemEan": "7896062600011",
+        "itemId": "cd1b50e5-2190-4a70-9ecf-0172a7aab1c1",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210180851_tbdfyaco0qd.jpg",
+        "itemName": "Feijão Branco Solito 500g",
+        "itemSkuId": "SKU-ZNXN05044",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 240,
+              "min": 230
+            },
+            "fee": 18.49,
+            "promotionalFee": 0
+          },
+          "isOpen": false,
+          "merchantId": "9d6b46da-7347-4d8a-8fde-cda8ca3adef8",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/3901056/202607311821_FR9A.png",
+          "merchantName": "Paulistão Av. Luiz Brandão - São Carlos Lj 13",
+          "minimumOrderAmount": 30,
+          "ratingCount": 172,
+          "reviewRating": 4.800000190734863,
+          "straightLineDistanceKm": 3.08
+        },
+        "promotionalUnitPrice": 4.89,
+        "unitPrice": 4.89
+      },
+      {
+        "itemEan": "7897517209223",
+        "itemId": "0fb4a0f3-c228-4370-9a21-154561371fa1",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202305111038_72e4qxhn0e.jpg",
+        "itemName": "Feijão Carioca Fugini 250g",
+        "itemSkuId": "SKU-SQVK36583",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 60,
+              "min": 50
+            },
+            "fee": 14.99,
+            "promotionalFee": 14.99
+          },
+          "isOpen": false,
+          "merchantId": "c5c86308-ba52-44f6-b425-40ac26a03df0",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/c5c86308-ba52-44f6-b425-40ac26a03df0/202002271630_sGM5_i.jpg",
+          "merchantName": "Sorriso Supermercado",
+          "minimumOrderAmount": 30,
+          "ratingCount": 6,
+          "reviewRating": 4.300000190734863,
+          "straightLineDistanceKm": 3.16
+        },
+        "promotionalUnitPrice": 4.94,
+        "unitPrice": 4.94
+      },
+      {
+        "itemEan": "7897517209223",
+        "itemId": "410c6252-6eb3-4109-a412-aea117c745ae",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202305111038_72e4qxhn0e.jpg",
+        "itemName": "Feijão Carioca Fugini 250g",
+        "itemSkuId": "SKU-SQVK36583",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 59,
+              "min": 49
+            },
+            "fee": 11.99,
+            "promotionalFee": 0
+          },
+          "isOpen": false,
+          "merchantId": "8a1da42a-5d58-489b-9697-b92bf9ada902",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8a1da42a-5d58-489b-9697-b92bf9ada902/202201271618_plFt_i.png",
+          "merchantName": "Lalo Supermercado",
+          "minimumOrderAmount": 30,
+          "reviewRating": 0,
+          "straightLineDistanceKm": 2.73
+        },
+        "promotionalUnitPrice": 5.24,
+        "unitPrice": 5.24
+      },
+      {
+        "itemEan": "7897517209247",
+        "itemId": "8e0a9927-73a1-40b3-a4f8-6df9425e96c7",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202305111038_h8x1ndk9nfs.jpg",
+        "itemName": "Feijão Preto Fugini 250g",
+        "itemSkuId": "SKU-VCSM82410",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 60,
+              "min": 50
+            },
+            "fee": 14.99,
+            "promotionalFee": 14.99
+          },
+          "isOpen": false,
+          "merchantId": "c5c86308-ba52-44f6-b425-40ac26a03df0",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/c5c86308-ba52-44f6-b425-40ac26a03df0/202002271630_sGM5_i.jpg",
+          "merchantName": "Sorriso Supermercado",
+          "minimumOrderAmount": 30,
+          "ratingCount": 6,
+          "reviewRating": 4.300000190734863,
+          "straightLineDistanceKm": 3.16
+        },
+        "promotionalUnitPrice": 5.27,
+        "unitPrice": 5.27
+      },
+      {
+        "itemEan": "7897517209247",
+        "itemId": "5976f8b7-233c-417e-aae5-3b61e905c7e9",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202305111038_h8x1ndk9nfs.jpg",
+        "itemName": "Feijão Preto Fugini 250g",
+        "itemSkuId": "SKU-VCSM82410",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 67,
+              "min": 57
+            },
+            "fee": 7.49,
+            "promotionalFee": 7.49
+          },
+          "isOpen": false,
+          "merchantId": "75a8e0a0-2766-48e7-990f-5d551d441dbb",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/75a8e0a0-2766-48e7-990f-5d551d441dbb/201909191637_C7AP_i.png",
+          "merchantName": "Supermercados Arco Íris Express",
+          "minimumOrderAmount": 30,
+          "ratingCount": 90,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.32
+        },
+        "promotionalUnitPrice": 5.49,
+        "unitPrice": 5.49
+      },
+      {
+        "itemEan": "7897517209223",
+        "itemId": "5a8936be-4671-4f5d-ac17-06e1d1c66dbf",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202305111038_72e4qxhn0e.jpg",
+        "itemName": "Feijão Carioca Fugini 250g",
+        "itemSkuId": "SKU-SQVK36583",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 129,
+              "min": 119
+            },
+            "fee": 11.49,
+            "promotionalFee": 11.49
+          },
+          "isOpen": false,
+          "merchantId": "635de4f5-f3f7-40cf-b618-47be55c6dd6d",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/635de4f5-f3f7-40cf-b618-47be55c6dd6d/202308181613_luJT_i.jpg",
+          "merchantName": "França Supermercados - Loja Zavaglia",
+          "minimumOrderAmount": 30,
+          "ratingCount": 5,
+          "reviewRating": 5,
+          "straightLineDistanceKm": 4.36
+        },
+        "promotionalUnitPrice": 5.49,
+        "unitPrice": 5.49
+      },
+      {
+        "itemEan": "7896200116398",
+        "itemId": "d81586db-5fad-4897-9b9b-684425cf6f9f",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210180204_cy2ns2lrka5.jpg",
+        "itemName": "Feijão Preto Serra Azul Embalagem 1kg",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 240,
+              "min": 230
+            },
+            "fee": 18.49,
+            "promotionalFee": 0
+          },
+          "isOpen": false,
+          "merchantId": "9d6b46da-7347-4d8a-8fde-cda8ca3adef8",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/3901056/202607311821_FR9A.png",
+          "merchantName": "Paulistão Av. Luiz Brandão - São Carlos Lj 13",
+          "minimumOrderAmount": 30,
+          "ratingCount": 172,
+          "reviewRating": 4.800000190734863,
+          "straightLineDistanceKm": 3.08
+        },
+        "promotionalUnitPrice": 5.49,
+        "unitPrice": 5.49
+      },
+      {
+        "itemEan": "7896062602114",
+        "itemId": "63a5c746-fca0-48f9-86af-f7afaa23b4f4",
+        "itemName": "Feijão Bolinha Tipo 1 Solito 500g Pacote",
+        "itemSkuId": "SKU-VKIT63335",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 240,
+              "min": 230
+            },
+            "fee": 18.49,
+            "promotionalFee": 0
+          },
+          "isOpen": false,
+          "merchantId": "9d6b46da-7347-4d8a-8fde-cda8ca3adef8",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/3901056/202607311821_FR9A.png",
+          "merchantName": "Paulistão Av. Luiz Brandão - São Carlos Lj 13",
+          "minimumOrderAmount": 30,
+          "ratingCount": 172,
+          "reviewRating": 4.800000190734863,
+          "straightLineDistanceKm": 3.08
+        },
+        "promotionalUnitPrice": 5.55,
+        "unitPrice": 5.55
+      },
+      {
+        "itemEan": "7891103210792",
+        "itemId": "a5754806-75aa-4338-84a5-4b95a0ec00f9",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210202202_jxftr10zkp.jpg",
+        "itemName": "Feijão Preto Tipo 1 Carrefour 1kg",
+        "itemSkuId": "SKU-CEBU92685",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 118,
+              "min": 98
+            },
+            "fee": 9.99,
+            "promotionalFee": 0
+          },
+          "isOpen": false,
+          "merchantId": "782805bb-66e0-4d8d-8e86-5befa3b5d7f8",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/782805bb-66e0-4d8d-8e86-5befa3b5d7f8/202603111724_A6N4.png",
+          "merchantName": "Carrefour Bairro - São Carlos 2",
+          "minimumOrderAmount": 30,
+          "ratingCount": 584,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.43
+        },
+        "promotionalUnitPrice": 5.69,
+        "unitPrice": 5.69
+      },
+      {
+        "itemEan": "7896116900647",
+        "itemId": "a477a47a-7c56-4464-850e-617af1b3c286",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202307262036_spekx6uxn1d.jpg",
+        "itemName": "Feijão Preto Tipo 1 Kicaldo 1kg",
+        "itemSkuId": "SKU-LRDI23465",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 172,
+              "min": 142
+            },
+            "fee": 19.99,
+            "promotionalFee": 19.99
+          },
+          "isOpen": false,
+          "merchantId": "2454a662-ab7d-4cb8-91c9-c69720983886",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/2454a662-ab7d-4cb8-91c9-c69720983886/202509011622_2TXL.png",
+          "merchantName": "Atacadão São Carlos",
+          "minimumOrderAmount": 90,
+          "ratingCount": 211,
+          "reviewRating": 4.800000190734863,
+          "straightLineDistanceKm": 5.1
+        },
+        "promotionalUnitPrice": 5.78,
+        "unitPrice": 7.29
+      },
+      {
+        "itemEan": "7896116900647",
+        "itemId": "5dbe07c0-fbad-48e0-89b4-3052e4558c43",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202307262036_spekx6uxn1d.jpg",
+        "itemName": "Feijão Preto Tipo 1 Kicaldo 1kg",
+        "itemSkuId": "SKU-LRDI23465",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 118,
+              "min": 98
+            },
+            "fee": 9.99,
+            "promotionalFee": 0
+          },
+          "isOpen": false,
+          "merchantId": "782805bb-66e0-4d8d-8e86-5befa3b5d7f8",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/782805bb-66e0-4d8d-8e86-5befa3b5d7f8/202603111724_A6N4.png",
+          "merchantName": "Carrefour Bairro - São Carlos 2",
+          "minimumOrderAmount": 30,
+          "ratingCount": 584,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.43
+        },
+        "promotionalUnitPrice": 5.78,
+        "unitPrice": 9.42
+      },
+      {
+        "itemEan": "7896116900647",
+        "itemId": "231bed3d-cccb-4780-8ec7-b2a16190710d",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202307262036_spekx6uxn1d.jpg",
+        "itemName": "Feijão Preto Tipo 1 Kicaldo 1kg",
+        "itemSkuId": "SKU-LRDI23465",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 100,
+              "min": 90
+            },
+            "fee": 9.9,
+            "promotionalFee": 9.9
+          },
+          "isOpen": false,
+          "merchantId": "becdb3b1-b307-418b-a650-9103bc03b501",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/becdb3b1-b307-418b-a650-9103bc03b501/202505211748_79Jm_s.png",
+          "merchantName": "Shopper | São Carlos",
+          "minimumOrderAmount": 149.9,
+          "ratingCount": 6,
+          "reviewRating": 5,
+          "straightLineDistanceKm": 0.62
+        },
+        "promotionalUnitPrice": 5.78,
+        "unitPrice": 7.99
+      },
+      {
+        "itemEan": "7896006751113",
+        "itemId": "a5bbc5b1-9a6a-4630-a645-a9accfa69d94",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510042121_zyazzsrq4w.jpeg",
+        "itemName": "Feijão Preto Tipo 1 Camil 1kg",
+        "itemSkuId": "SKU-BGOQ28002",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 100,
+              "min": 90
+            },
+            "fee": 9.9,
+            "promotionalFee": 9.9
+          },
+          "isOpen": false,
+          "merchantId": "becdb3b1-b307-418b-a650-9103bc03b501",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/becdb3b1-b307-418b-a650-9103bc03b501/202505211748_79Jm_s.png",
+          "merchantName": "Shopper | São Carlos",
+          "minimumOrderAmount": 149.9,
+          "ratingCount": 6,
+          "reviewRating": 5,
+          "straightLineDistanceKm": 0.62
+        },
+        "promotionalUnitPrice": 5.99,
+        "unitPrice": 5.99
+      },
+      {
+        "itemEan": "7896200115049",
+        "itemId": "da47a2d4-97a5-44f7-882e-5229e0e4ffca",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510031549_tf8mi0in6e.jpeg",
+        "itemName": "Feijão Branco Broto Legal 500g",
+        "itemSkuId": "SKU-XFAA58169",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 240,
+              "min": 230
+            },
+            "fee": 18.49,
+            "promotionalFee": 0
+          },
+          "isOpen": false,
+          "merchantId": "9d6b46da-7347-4d8a-8fde-cda8ca3adef8",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/3901056/202607311821_FR9A.png",
+          "merchantName": "Paulistão Av. Luiz Brandão - São Carlos Lj 13",
+          "minimumOrderAmount": 30,
+          "ratingCount": 172,
+          "reviewRating": 4.800000190734863,
+          "straightLineDistanceKm": 3.08
+        },
+        "promotionalUnitPrice": 6,
+        "unitPrice": 6
+      },
+      {
+        "itemEan": "7896200116398",
+        "itemId": "7cffe184-2857-471a-8b08-6f953ec7ee49",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210180204_cy2ns2lrka5.jpg",
+        "itemName": "Feijão Preto Serra Azul Embalagem 1kg",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 102,
+              "min": 92
+            },
+            "fee": 10.99,
+            "promotionalFee": 10.99
+          },
+          "isOpen": false,
+          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
+          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1867,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.26
+        },
+        "promotionalUnitPrice": 6.19,
+        "unitPrice": 6.19
+      },
+      {
+        "itemEan": "7897517209247",
+        "itemId": "88ac0d73-592e-4422-8379-39bff0174867",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202305111038_h8x1ndk9nfs.jpg",
+        "itemName": "Feijão Preto Fugini 250g",
+        "itemSkuId": "SKU-VCSM82410",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 59,
+              "min": 49
+            },
+            "fee": 11.99,
+            "promotionalFee": 0
+          },
+          "isOpen": false,
+          "merchantId": "8a1da42a-5d58-489b-9697-b92bf9ada902",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8a1da42a-5d58-489b-9697-b92bf9ada902/202201271618_plFt_i.png",
+          "merchantName": "Lalo Supermercado",
+          "minimumOrderAmount": 30,
+          "reviewRating": 0,
+          "straightLineDistanceKm": 2.73
+        },
+        "promotionalUnitPrice": 6.29,
+        "unitPrice": 6.29
+      },
+      {
+        "itemEan": "7896200115032",
+        "itemId": "1717686e-c99b-4a33-ae55-a9dbf9929a19",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510031951_t790vuqbere.png",
+        "itemName": "Feijão Bolinha Broto Legal 500g",
+        "itemSkuId": "SKU-WVTW40457",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 102,
+              "min": 92
+            },
+            "fee": 10.99,
+            "promotionalFee": 10.99
+          },
+          "isOpen": false,
+          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
+          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1867,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.26
+        },
+        "promotionalUnitPrice": 6.35,
+        "unitPrice": 6.35
+      },
+      {
+        "itemEan": "7896200115049",
+        "itemId": "90f01ade-7ddc-4716-b1ff-84f43041fb11",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510031549_tf8mi0in6e.jpeg",
+        "itemName": "Feijão Branco Broto Legal 500g",
+        "itemSkuId": "SKU-XFAA58169",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 102,
+              "min": 92
+            },
+            "fee": 10.99,
+            "promotionalFee": 10.99
+          },
+          "isOpen": false,
+          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
+          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1867,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.26
+        },
+        "promotionalUnitPrice": 6.35,
+        "unitPrice": 6.35
+      },
+      {
+        "itemEan": "7895000319008",
+        "itemId": "2ee53d10-5c5b-4df5-8f17-763cedbe8cfc",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210180321_rzxaa54ut2f.jpg",
+        "itemName": "Feijão Preto Tipo 1 Qualitá 1kg",
+        "itemSkuId": "SKU-XPJM36893",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 120,
+              "min": 110
+            },
+            "fee": 6.49,
+            "promotionalFee": 0
+          },
+          "isOpen": false,
+          "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
+          "merchantName": "Extra - São Carlos",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1364,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 0.27
+        },
+        "promotionalUnitPrice": 6.45,
+        "unitPrice": 6.79
+      }
+    ]
+  }
+}

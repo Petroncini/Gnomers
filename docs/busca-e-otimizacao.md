@@ -1,0 +1,224 @@
+# Como funcionam a busca e a otimização
+
+Este documento descreve o que acontece entre o clique em "Criar carrinho" e o carrinho pronto: onde ficam as preferências, como as buscas no MCP do iFood são montadas, como os resultados são filtrados e como o solver escolhe produtos e mercados. Descreve o código como ele está; o desenho original está em `plano-implementacao.md`.
+
+## Visão geral
+
+```text
+Lista + preferências
+  │
+  ├─ 1. Resolução de regras por item ............ app/rules.py
+  ├─ 2. Endereço ................................ app/pipeline/address.py
+  ├─ 3. Busca, fase 1 (um searchOffers por item) . app/pipeline/discovery.py
+  ├─ 4. Escolha de até 5 mercados + getMerchant
+  ├─ 5. Busca, fase 2 (lacunas e marcas preferidas)
+  ├─ 6. Normalização e filtros .................. app/pipeline/normalize.py
+  ├─ 7. Otimização (MILP) ....................... app/pipeline/optimize.py
+  ├─ 8. Carrinhos reais: cupom, entrega, Pix .... app/pipeline/materialize.py
+  └─ 9. Cartões de decisão ...................... app/pipeline/decisionPergunte o que quiser sobre este carrinho.
+
+como assim variedade da original?
+
+Isso se refere à granola. Você pediu uma granola sem açúcar, e o otimizador escolheu a Granola Jasmine Frutas Tropicais Zero Açúcar 250g (2 pacotes, R$ 11,99 cada, no Extra - São Carlos). Ela não corresponde exatamente à variedade que o sistema esperava encontrar, por isso foi marcada como "variedade diferente". O alerta inicial dizia "falta sem açúcar", ou seja, o sistema não achou certeza de uma correspondência exata nesse atributo. O plano não informa qual seria a variedade original. Você aceitou a troca, então ela foi mantida no carrinho e a decisão aparece como resolvida.s.py
+```
+
+O `app/pipeline/runner.py` orquestra tudo e publica o progresso por SSE. O LLM nunca chama o MCP: ele só interpreta texto. Quem decide produtos e mercados é o solver.
+
+## 1. Onde ficam as preferências
+
+### Itens da lista
+
+Cada item (`ListItem`) é interpretado uma vez, quando é salvo. O texto livre ("2 leite integral Italac 1L") vira campos:
+
+| Campo | Exemplo | Para que serve |
+|---|---|---|
+| `query` | `leite integral Italac` | texto enviado ao `searchOffers` |
+| `intention` | `product_exact` | `product_exact` quando há marca, senão `product` |
+| `category` | `leite` | casa regras e reconhece o produto no catálogo |
+| `brand` | `Italac` | marca pedida |
+| `variety_terms` | `["integral"]` | variedade que o SKU precisa ter |
+| `pack_size`, `pack_unit` | `1000`, `ml` | tamanho de uma embalagem (g, ml ou un) |
+| `quantity` | `2` | quantas embalagens |
+| `taxonomy_id` | `LEITE_TRADICIONAL` | categoria do iFood, aprendida na primeira busca |
+
+A interpretação vem do LLM (`app/llm.py`, tarefa `parse_item`) ou, sem LLM, das heurísticas de `app/heuristics.py`. O campo `parser_version` marca a versão: itens salvos por um parser antigo são reinterpretados no próximo carrinho, mantendo a marca escolhida nos chips.
+
+### Regras (`Rule`)
+
+Preferências ficam como regras tipadas, nunca como texto solto, porque cada tipo tem um destino concreto:
+
+| `kind` | `payload` | Onde age |
+|---|---|---|
+| `dietary` | `{"tags": ["LAC_FREE"]}` | `refinements.itemRestrictions` da busca |
+| `variety` | `{"terms": ["integral"]}` | dura: entra na `query`; suave: penalidade no solver |
+| `brand_chain` | `{"order": ["Ypê", "Limpol"], "allow_others": true}` | busca extra por marca e penalidade por posição |
+| `brand_block` | `{"brands": ["X"]}` | o SKU é descartado |
+| `merchant` | `{"prefer": [id], "block": [id]}` | entra ou sai da lista de mercados candidatos |
+| `delivery` | `{"max_fee": 8, "max_minutes": 60}` | `maxDeliveryFee` e `maxDeliveryTimeMinutes` |
+| `quantity` | `{"exact": true, "max_overbuy": 1.1}` | descarta embalagem que passa do pedido |
+| `note` | `{"text": "banana mais verde"}` | o LLM pontua cada SKU contra a nota |
+
+Cada regra tem ainda `scope` (`global` ou o id de uma lista), `category` (ou nula, valendo para tudo), `hardness`, `source` (`user`, `chat`, `learned`), `confidence` e `active`.
+
+**Resolução** (`rules.resolve`): para cada item, valem as regras ativas cuja categoria bate (ou é nula) e cujo escopo é global ou a lista atual. Entre duas regras do mesmo tipo vence a de maior prioridade, nesta ordem:
+
+1. escopo da lista ganha do global;
+2. regra de categoria ganha da regra geral;
+3. origem: `user` > `chat` > `learned`;
+4. maior confiança, depois a mais nova.
+
+`note` e `brand_block` não competem: elas se somam. Uma nota que fala em "quantidade exata" também liga a regra de quantidade.
+
+### Perfil
+
+No `User` (e, se definido, sobrescrito na `ShoppingList`):
+
+- `quality_profile` (0 a 1): o peso α da qualidade no solver. 0 é só preço.
+- `max_merchants`: quantos mercados no máximo numa compra.
+- `split_min_savings`: quanto a divisão entre mercados precisa economizar para valer.
+
+### Regras aprendidas
+
+`app/learning.py` transforma escolhas em sinais (`chosen`, `accepted`, `swapped_to`, `swapped_from`, `rejected`). Por categoria, quando uma marca tem pelo menos 3 sinais positivos e mais de 70% deles, nasce uma `brand_chain` suave com `source: learned`. Duas rejeições da mesma marca viram `brand_block` suave. Os sinais também ajustam a qualidade percebida de cada marca (±0,5 nível) na penalidade de qualidade.
+
+## 2. Endereço
+
+`listAddresses` é sempre a primeira chamada. A posição do navegador escolhe o endereço salvo mais próximo, dentro de 200 m ou da margem de erro do GPS (até 1,5 km). Na tela, o endereço escolhido pelo usuário vale mais que o GPS.
+
+## 3. Busca, fase 1
+
+Uma chamada `searchOffers` por item, em paralelo (até 6 ao mesmo tempo):
+
+```json
+{
+  "query": "leite integral Italac",
+  "intention": "product_exact",
+  "resultKind": "ITEM",
+  "merchantType": "GROCERIES",
+  "userLocation": {"latitude": -22.01318, "longitude": -47.89623},
+  "pageSize": 25,
+  "includeFacets": true,
+  "refinements": {
+    "sort": "PRICE",
+    "onlyOpen": true,
+    "maxDistanceKm": 8,
+    "itemRestrictions": ["LAC_FREE"],
+    "itemTaxonomy": ["LEITE_TRADICIONAL"],
+    "maxDeliveryFee": 8
+  }
+}
+```
+
+- **Qualificadores nunca vão na `query`.** O wrapper (`app/mcp/ifood.py`) recusa "barato", "perto" e afins.
+- **`onlyOpen`:** desligado quando o carrinho tem horário de entrega (`deliver_at`), porque o iFood aceita carrinho em mercado fechado e agenda a entrega. Também desliga com `GNOMERS_ONLY_OPEN=0`.
+- **Campos opcionais:** `itemRestrictions`, `maxDeliveryFee` e `maxDeliveryTimeMinutes` só entram se houver regra. `itemTaxonomy` só entra se o item já tiver taxonomia.
+- **Taxonomia:** sem `itemTaxonomy`, a busca pede `includeFacets`, e a taxonomia do item é escolhida entre os facets e gravada. A escolha descarta categorias que viram outro produto (`LEITE_CONDENSADO` para "leite") e as marginais (menos de 30% do maior facet).
+- **Busca sem resultado tenta de novo,** primeiro sem a taxonomia e depois com `intention: product`. Se a taxonomia gravada era a culpada, ela é apagada do item.
+
+**O que se aproveita da resposta:** de cada resultado, `itemId`, `itemName`, `itemEan`, `unitPrice`, `promotionalUnitPrice` (o preço efetivo; no sandbox ele vem sempre, igual ao `unitPrice` quando não há promoção) e o resumo do `merchant` (`merchantId`, nome, `minimumOrderAmount`, distância, `deliveryMethod`). Algumas tools embrulham a resposta em `{"success": true, "data": {...}}`, e o cliente desembrulha.
+
+## 4. Escolha dos mercados
+
+Com os resultados da fase 1, conta-se a **cobertura** de cada mercado (quantos itens da lista apareceram nele). Os mercados são ordenados por cobertura e, no empate, por `frete + 0,1 × pedido mínimo`. Os bloqueados saem, os preferidos entram, e ficam até 5 candidatos.
+
+Para cada candidato há um `getMerchant`, que traz o pedido mínimo e os métodos de entrega.
+
+**Frete estimado:** `promotionalFee` quando existe, senão `fee`. Foi confirmado montando carrinhos em 18/10 que `fee: 6.49, promotionalFee: 0` sai de fato com frete grátis. Exceção: mercado fechado vem com o método de entrega vazio e tudo zerado, e aí não há informação.
+
+## 5. Busca, fase 2
+
+- **Lacunas:** para cada par (item, mercado candidato) sem resultado, um `searchOffers` restrito ao mercado (`refinements.merchantId`, `pageSize: 10`, sem `onlyOpen`).
+- **Marcas preferidas:** para itens com `brand_chain`, se uma marca da cadeia não apareceu, busca `"<categoria> <marca>"` com `product_exact`, na ordem da cadeia, até achar.
+
+No fim, as ofertas são deduplicadas e só ficam as dos mercados candidatos.
+
+## 6. Normalização e filtros
+
+O catálogo de mercado não traz marca, variedade nem tamanho como campos, só o nome ("Leite Uht Integral com Tampa Italac 1l"). A normalização extrai isso.
+
+**Cache:** a tabela `Product` guarda a normalização por `itemId`. Um SKU com o mesmo **EAN** de outro já normalizado (o mesmo produto em outro mercado) reaproveita a normalização sem chamar o LLM.
+
+**Extração:** o LLM (`normalize_products`, em lotes de 30) ou a heurística devolve marca, variedade, tamanho, unidade, nível de qualidade (1 marca própria, 2 comum, 3 premium) e se o SKU é o produto pedido. Uma trava fixa barra derivados mesmo quando o LLM aceita: "leite **em pó**", "leite **condensado**", "café **com leite solúvel**", "café **cappuccino**", sachês.
+
+**Descartes por oferta:**
+
+- não é o produto pedido (derivado, outro produto que só cita a palavra);
+- marca bloqueada (`brand_block`);
+- mercado bloqueado;
+- variedade obrigatória ausente (`variety` dura).
+
+**Tamanho na unidade do item:** "arroz 5kg" pede 5000 g, e um SKU de 1 kg cobre 1000 g por embalagem. Itens sem tamanho ("pão de forma") contam embalagens.
+
+**Penalidades,** em reais, calculadas sobre o custo estimado do item naquele SKU:
+
+| Penalidade | Quando | Valor |
+|---|---|---|
+| substituição | marca fora da cadeia, com outras permitidas | R$ 2 + 25% do custo |
+| substituição | marca fora da cadeia, sem outras permitidas | R$ 60 + 100% do custo |
+| substituição | k-ésima marca da cadeia (k > 1) | R$ 0,50 + 8% × posição × custo |
+| substituição | cada termo de variedade suave ausente | R$ 1 + 15% do custo |
+| qualidade | nível baixo (antes do α) | (3 − nível) / 2 × 30% do custo |
+| nota | regra `note` | (1 − nota do LLM) × 20% do custo |
+
+**Filtros por item.** Cada um só é aplicado se sobrar alguma opção; senão é melhor manter tudo do que deixar o item de fora:
+
+- tamanho escolhido pelo usuário num carrinho anterior ("refazer carrinho");
+- SKU sem tamanho no nome sai quando existe outro com tamanho conhecido;
+- embalagem com mais que o dobro do pedido sai quando há opção menor;
+- com a regra `quantity`, sai o que passa de `max_overbuy` (110%) do pedido.
+
+Por fim, ficam os **5 melhores SKUs por item e por mercado** (preço por unidade mais penalidades), para o modelo continuar pequeno. Cada item recebe uma penalidade de falta de `max(R$ 25; 2,5 × custo mediano)`.
+
+## 7. Otimização
+
+Programação linear inteira com PuLP 2.9 e o solver CBC.
+
+```text
+Conjuntos   I itens, M mercados candidatos, S(i) SKUs candidatos do item i
+
+Variáveis   x[s] ∈ {0,1}   SKU s escolhido
+            n[s] ∈ ℤ≥0     embalagens do SKU s
+            y[m] ∈ {0,1}   mercado m usado
+            u[i] ∈ {0,1}   item i fica de fora
+
+Objetivo    min  Σ preço[s]·n[s] + Σ frete[m]·y[m]
+               + Σ (α·qualidade[s] + substituição[s] + nota[s])·x[s]
+               + Σ falta[i]·u[i]
+
+Restrições  Σ_{s∈S(i)} x[s] + u[i] = 1          cada item: um SKU ou falta
+            n[s] = ⌈pedido[i] / tamanho[s]⌉·x[s]  exatamente as embalagens necessárias
+            x[s] ≤ y[m(s)]                       só compra de mercado usado
+            Σ_{s∈m} preço[s]·n[s] ≥ mínimo[m]·y[m]   pedido mínimo
+            y[m] ≤ Σ_{s∈m} x[s]                  mercado sem item não é usado
+            Σ y[m] ≤ max_merchants
+```
+
+- **α** é o `quality_profile` do usuário (ou da lista).
+- **Quantidade fixa:** o número de embalagens é exatamente o necessário para cobrir o pedido. O solver nunca põe unidades a mais para bater o pedido mínimo; se a lista não chega ao mínimo, o item fica de fora e a tela explica com números.
+- **Um mercado ou vários:** o modelo roda duas vezes, com no máximo 1 mercado e com `max_merchants`. A versão dividida só vale se o objetivo (preço, frete e penalidades) cair mais que `split_min_savings`.
+- **Alternativas:** o modelo roda mais vezes com um corte que proíbe repetir o mesmo conjunto de mercados, gerando até 3 soluções.
+
+## 8. Carrinhos reais
+
+A estimativa não conhece cupons, taxas de serviço nem o frete final. Por isso cada uma das 3 soluções vira carrinho de verdade no iFood:
+
+1. `createCart` com os SKUs e as quantidades. Carrinhos idênticos entre soluções são reaproveitados.
+2. `getCartDeliveryMethods` e `setCartDelivery`: o método mais barato. Com horário pedido, o horário que cobre o momento; se o método só tem horários agendados, o primeiro disponível.
+3. `listVouchers`: cada cupom é testado com `setVoucher`, e fica o de menor total.
+4. `listPaymentMethods` e `setCartPayment` com Pix (cartão exige um `cardTokenId` que o MCP não expõe).
+5. `getCart` para o total final.
+
+**Vence a solução com menos itens de fora e, depois, o menor `totalAmount` real somado.** Os carrinhos das soluções perdedoras ficam abandonados, porque o MCP não tem tool para apagar carrinho.
+
+## 9. Depois do carrinho
+
+- **Cartões de decisão:** comparam o escolhido com o pedido (marca trocada, variedade diferente, item em falta, quantidade maior, compra dividida). Substituição dentro da cadeia de marcas do próprio usuário só informa.
+- **Trocas pelo cartão ou pelo chat:** mexem no carrinho real (`addItemToCart`, `removeItemFromCart`, `updateCartItem`). Em seguida, o back-end refaz a otimização **em memória**, com os candidatos guardados no plano e a escolha do usuário fixada. Se refazer o carrinho sair mais de 5% (ou R$ 3) mais barato, aparece o cartão "Dá para pagar menos", e "Refazer carrinho" cria um plano novo mantendo endereço, horário e as escolhas.
+
+## Limitações conhecidas
+
+- **Variedade comparada por texto literal.** "sem açúcar" pedido contra "Zero Açúcar" no rótulo conta como variedade ausente: gera cartão e penalidade sem motivo. Falta uma tabela de sinônimos ou a conferência pelo LLM.
+- **Embalagens minúsculas.** 25 sachês de 20 g cobrem 500 g de café e passam pelos filtros.
+- **Lista de derivados mantida à mão.** Um derivado com palavra nova passa. A taxonomia do iFood seria um filtro mais sólido.
+- **Só 3 soluções viram carrinho.** Uma combinação em 4º lugar na estimativa nunca tem cupons testados.
+- **Frete de mercado fechado desconhecido** até o `getMerchant` ou o carrinho.

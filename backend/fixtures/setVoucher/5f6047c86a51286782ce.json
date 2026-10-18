@@ -1,0 +1,26 @@
+{
+  "tool": "setVoucher",
+  "args": {
+    "cartId": "d5f29d79-d3ff-4e18-b5a1-251df9344592",
+    "code": "84d6c6cd-3144-4fcf-9831-c9058de0dc63",
+    "campaignId": "84d6c6cd-3144-4fcf-9831-c9058de0dc63"
+  },
+  "recordedAt": "2026-10-18T00:11:38",
+  "error": {
+    "tool": "setVoucher",
+    "code": "VOUCH-002",
+    "message": "Ele é válido acima de R$ 100,00. Adicione mais itens ou aplique outro disponível.",
+    "retryable": false,
+    "userMessage": "Ele é válido acima de R$ 100,00. Adicione mais itens ou aplique outro disponível."
+  },
+  "raw": {
+    "error": {
+      "code": "VOUCH-002",
+      "message": "Ele é válido acima de R$ 100,00. Adicione mais itens ou aplique outro disponível.",
+      "userFriendlyMessage": "Ele é válido acima de R$ 100,00. Adicione mais itens ou aplique outro disponível."
+    },
+    "agentHints": {
+      "askForAnotherCoupon": "The coupon code is invalid and was removed from the cart. Ask if the user has another coupon code to try."
+    }
+  }
+}

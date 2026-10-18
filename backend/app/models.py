@@ -76,6 +76,7 @@ class ListItem(SQLModel, table=True):
     recurrence_days: Optional[int] = None
     next_due: Optional[date] = None
     requested_by: Optional[int] = None
+    parser_version: Optional[int] = None  # itens de um parser antigo são reinterpretados no próximo carrinho
 
 
 class Rule(SQLModel, table=True):
@@ -119,6 +120,8 @@ class Plan(SQLModel, table=True):
     lat: Optional[float] = None
     lng: Optional[float] = None
     deliver_at: Optional[str] = None  # "2026-10-19T10:00", horário local; None = o quanto antes
+    # escolhas de um carrinho anterior: {"<item_id>": {"size": 250.0} | {"removed": true}}
+    pins: Optional[dict] = Field(default=None, sa_column=Column(JSON))
     result: dict = _json({})
     error: Optional[str] = None
     created_at: datetime = Field(default_factory=now)

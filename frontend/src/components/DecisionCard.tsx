@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { api, brl, Decision, Plan } from "../api";
+import { useNavigate } from "react-router-dom";
+import { api, brl, Decision, Plan, PlanCreated } from "../api";
 
 interface Props {
   plan: Plan;
@@ -14,6 +15,7 @@ export default function DecisionCard({ plan, card, onPlan, onChat }: Props) {
   const [remember, setRemember] = useState(true);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const navigate = useNavigate();
   const merchants = new Set(plan.result.chosen?.carts.map((c) => c.merchant_id));
   const swappable = card.alternatives.filter((a) => merchants.has(a.merchant_id));
 
@@ -26,6 +28,18 @@ export default function DecisionCard({ plan, card, onPlan, onChat }: Props) {
     } catch (e) {
       setError((e as Error).message);
     } finally {
+      setBusy(false);
+    }
+  };
+
+  // novo carrinho do zero, mantendo as trocas feitas neste
+  const replan = async () => {
+    setBusy(true);
+    try {
+      const next = await api.post<PlanCreated>(`/plans/${plan.id}/replan`);
+      navigate(`/carrinho/${next.id}`);
+    } catch (e) {
+      setError((e as Error).message);
       setBusy(false);
     }
   };
@@ -52,7 +66,12 @@ export default function DecisionCard({ plan, card, onPlan, onChat }: Props) {
           {card.item_id != null && card.type !== "missing" && (
             <button className="ghost" disabled={busy} onClick={() => send("remove")}>Remover</button>
           )}
-          {card.item_id == null && <button disabled={busy} onClick={() => send("dismiss")}>Ok</button>}
+          {card.type === "replan" && <button disabled={busy} onClick={replan}>Refazer carrinho</button>}
+          {card.item_id == null && (
+            <button className={card.type === "replan" ? "ghost" : ""} disabled={busy} onClick={() => send("dismiss")}>
+              {card.type === "replan" ? "Manter assim" : "Ok"}
+            </button>
+          )}
           <button className="link" onClick={() => onChat(card)}>Conversar</button>
         </div>
       )}

@@ -4,11 +4,13 @@ from __future__ import annotations
 
 import copy
 import re
+import statistics
 from datetime import datetime, timedelta, timezone
 
 from sqlmodel import Session, select
 
 from app import learning, llm
+from app.pipeline import optimize
 from app.db import today
 from app.mcp.client import McpToolError
 from app.mcp.ifood import Ifood
@@ -90,6 +92,7 @@ async def apply_action(s: Session, api: Ifood, plan: Plan, item_id: int, action:
         learning.record(s, user_id, category, line.get("brand"), "rejected", unit_price=line["unit_price"],
                         list_item_id=item_id)
         cart["lines"].remove(line)
+        result.setdefault("removed_items", []).append(item_id)
         if "cartId" not in body:
             # o MCP apaga o carrinho quando sai o último item
             chosen["carts"].remove(cart)
@@ -130,10 +133,86 @@ async def apply_action(s: Session, api: Ifood, plan: Plan, item_id: int, action:
         raise ActionError(f"ação desconhecida: {action}")
 
     _refresh_totals(result)
+    if action in ("swap", "remove", "set_quantity"):
+        _update_replan_card(s, plan, result)
     plan.result = result
     s.add(plan)
     s.commit()
     return result
+
+
+# ------------------------------------------------------- recálculo depois de trocas
+
+def pins_from(result: dict) -> dict:
+    """Escolhas do usuário no carrinho que um novo cálculo precisa manter."""
+    pins: dict = {}
+    sizes = {(c["item_id"], c["sku_id"]): c["size"] for cands in result.get("candidates", {}).values() for c in cands}
+    for cart in result["chosen"]["carts"]:
+        for ln in cart["lines"]:
+            if ln.get("user_action") == "swapped" and (ln["item_id"], ln["sku_id"]) in sizes:
+                pins[str(ln["item_id"])] = {"size": sizes[(ln["item_id"], ln["sku_id"])]}
+    for item_id in result.get("removed_items", []):
+        pins[str(item_id)] = {"removed": True}
+    return pins
+
+
+def estimate_replan(s: Session, plan: Plan, result: dict) -> optimize.Solution | None:
+    """Refaz a otimização em memória com as escolhas do usuário, sem chamar o iFood."""
+    from app.pipeline.runner import effective
+
+    pins = pins_from(result)
+    user = s.get(User, plan.user_id)
+    lst = s.get(ShoppingList, plan.list_id)
+    quality, max_merchants, split_min = effective(user, lst)
+    items, candidates = [], []
+    for it in result["items"]:
+        pin = pins.get(str(it["id"]), {})
+        if pin.get("removed"):
+            continue
+        cands = result.get("candidates", {}).get(str(it["id"]), [])
+        if pin.get("size"):
+            cands = [c for c in cands if abs(c["size"] - pin["size"]) <= 0.02 * pin["size"]]
+        costs = [c["price"] * optimize.packs_for(it["required"], c["size"]) for c in cands]
+        items.append(optimize.Item(it["id"], it["required"], max(25.0, 2.5 * statistics.median(costs)) if costs else 25.0))
+        candidates += [optimize.Candidate(c["sku_id"], it["id"], c["merchant_id"], c["name"], c.get("brand"), c["price"],
+                                          c["size"], c.get("quality_penalty", 0.0), c.get("substitution_penalty", 0.0),
+                                          c.get("note_penalty", 0.0)) for c in cands]
+    merchants = [optimize.Merchant(m_id, m["name"], m["delivery_fee"], m["minimum_order"])
+                 for m_id, m in result.get("merchants", {}).items()]
+    problem = optimize.Problem(items=items, merchants=merchants, candidates=candidates, alpha=quality,
+                               max_merchants=max_merchants)
+    solutions = optimize.solve_with_alternatives(problem, split_min, n_alternatives=1)
+    return solutions[0] if solutions and solutions[0].merchants else None
+
+
+def _update_replan_card(s: Session, plan: Plan, result: dict) -> None:
+    """Depois de uma troca, avisa se refazer o carrinho do zero sai bem mais barato."""
+    chosen = result["chosen"]
+    cards = [c for c in result.get("decisions", []) if c["type"] != "replan"]
+    current = {c["merchant_id"] for c in chosen["carts"]}
+    best = estimate_replan(s, plan, result)
+    if best is not None:
+        gain = round(chosen["total"] - best.estimated_total, 2)
+        if gain > max(3.0, 0.05 * chosen["total"]) and set(best.merchants) != current:
+            names = " e ".join(result["merchants"][m]["name"] for m in best.merchants)
+            cards.append({
+                "id": max([c["id"] for c in cards], default=-1) + 1, "type": "replan", "item_id": None,
+                "category": None, "title": "Dá para pagar menos", "question": True, "status": "open",
+                "text": (f"Com as suas trocas, comprar tudo em {names} sai por volta de R$ {best.estimated_total:.2f}, "
+                         f"contra R$ {chosen['total']:.2f} agora. Quer que eu refaça o carrinho mantendo suas escolhas?"),
+                "default_text": "", "alternatives": [], "saving": gain,
+            })
+    # o cartão da divisão precisa refletir o total de agora
+    for card in cards:
+        if card["type"] == "split" and card["status"] == "open":
+            single = result.get("single_total")
+            saving = round(single - chosen["total"], 2) if single else None
+            card["saving"] = saving
+            if len(chosen["carts"]) < 2:
+                card["status"], card["text"] = "resolved", "A compra não está mais dividida."
+            elif saving is not None and saving <= 0:
+                card["text"] = "Com as trocas, dividir a compra deixou de compensar."
+    result["decisions"] = cards
 
 
 def save_rule(s: Session, user_id: int, data: dict, *, source: str = "user") -> Rule:

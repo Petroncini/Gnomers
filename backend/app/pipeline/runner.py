@@ -10,7 +10,8 @@ from dataclasses import dataclass, field
 
 from sqlmodel import Session, select
 
-from app import learning
+from app import heuristics, learning, llm
+from app.heuristics import PARSER_VERSION
 from app.db import engine
 from app.mcp.client import McpToolError, NotAuthenticated
 from app.mcp.ifood import Ifood, ifood
@@ -109,10 +110,36 @@ def _fail(s: Session, plan: Plan, code: str, message: str) -> None:
     s.commit()
 
 
+async def _refresh_stale_items(s: Session, items: list[ListItem]) -> None:
+    """Reinterpreta itens salvos por um parser antigo e descarta taxonomias que viram outro produto."""
+    changed = False
+    for it in items:
+        before = (it.query, it.category, it.taxonomy_id, it.parser_version)
+        if (it.parser_version or 0) < PARSER_VERSION:
+            parsed = await llm.parse_item(it.raw_text)
+            user_brand = it.brand
+            for k, v in parsed.items():
+                setattr(it, k, v)
+            # marca escolhida nos chips vale mais que a releitura
+            if user_brand and not it.brand:
+                it.brand, it.intention = user_brand, "product_exact"
+            it.taxonomy_id = None
+            it.parser_version = PARSER_VERSION
+        elif heuristics.taxonomy_changes_product(it.category, it.taxonomy_id):
+            it.taxonomy_id = None
+        if (it.query, it.category, it.taxonomy_id, it.parser_version) != before:
+            s.add(it)
+            changed = True
+    if changed:
+        s.commit()
+
+
 async def _run(s: Session, api: Ifood, plan: Plan, say, only_open: bool) -> None:
     user = s.get(User, plan.user_id)
     lst = s.get(ShoppingList, plan.list_id)
     items = s.exec(select(ListItem).where(ListItem.list_id == lst.id)).all()
+    pins = plan.pins or {}
+    items = [it for it in items if not pins.get(str(it.id), {}).get("removed")]
     if not items:
         raise ValueError("a lista está vazia")
     rules = s.exec(select(Rule).where(Rule.user_id == user.id, Rule.active == True)).all()  # noqa: E712
@@ -131,6 +158,8 @@ async def _run(s: Session, api: Ifood, plan: Plan, say, only_open: bool) -> None
     lat, lng = addr.lat, addr.lng
     await say("address", {"message": f"Entregando em {addr.alias or addr.formatted}", "address": addr.alias or addr.formatted})
 
+    await _refresh_stale_items(s, items)
+
     specs: list[normalize.ItemSpec] = []
     queries: list[discovery.ItemQuery] = []
     for it in items:
@@ -143,7 +172,7 @@ async def _run(s: Session, api: Ifood, plan: Plan, say, only_open: bool) -> None
         specs.append(normalize.ItemSpec(id=it.id, raw_text=it.raw_text, query=query, category=it.category or norm(query),
                                         brand=it.brand, variety_terms=list(it.variety_terms or []),
                                         pack_size=it.pack_size, pack_unit=it.pack_unit, quantity=it.quantity or 1,
-                                        rules=resolved))
+                                        rules=resolved, pin_size=pins.get(str(it.id), {}).get("size")))
         queries.append(discovery.ItemQuery(item_id=it.id, raw_text=it.raw_text, query=query,
                                            intention=it.intention or "product", category=it.category or norm(query),
                                            brand=it.brand, taxonomy_id=it.taxonomy_id, rules=resolved))
@@ -172,12 +201,27 @@ async def _run(s: Session, api: Ifood, plan: Plan, say, only_open: bool) -> None
     await say("optimize", {"message": "Calculando a melhor combinação de produtos e mercados"})
     solutions = await asyncio.to_thread(optimize.solve_with_alternatives, problem, split_min)
     if not solutions or not solutions[0].merchants:
-        names = ", ".join(f"{m.name} (mínimo R$ {m.minimum_order:.2f})" for m in found.merchants.values())
-        covered = len({o.item_id for o in found.offers})
-        message = (f"Nenhum mercado{' aberto' if only_open else ''} atende esta lista agora: achei {covered} de "
-                   f"{len(specs)} itens em {names}, e o que dá para comprar não chega ao pedido mínimo.")
-        if only_open:
-            message += " Fora do horário comercial quase todos os mercados ficam fechados; tente de novo mais tarde."
+        covered = {c.item_id for c in normalized.candidates}
+        cheapest = {}
+        for c in normalized.candidates:
+            req = next(i.required for i in normalized.items if i.id == c.item_id)
+            cost = c.price * optimize.packs_for(req, c.size)
+            cheapest[c.item_id] = min(cheapest.get(c.item_id, cost), cost)
+        basket = round(sum(cheapest.values()), 2)
+        lowest_min = min((m.minimum_order for m in found.merchants.values()), default=0)
+        missing = [sp.raw_text for sp in specs if sp.id not in covered]
+        parts = [f"Achei {len(covered)} de {len(specs)} itens."]
+        if missing:
+            parts.append("Não encontrei: " + ", ".join(missing) + ".")
+        if covered and basket < lowest_min:
+            parts.append(f"Os itens encontrados custam cerca de R$ {basket:.2f}, abaixo do menor pedido mínimo "
+                         f"entre os mercados (R$ {lowest_min:.2f}). Acrescente itens à lista.")
+        elif only_open:
+            parts.append("Fora do horário comercial quase todos os mercados ficam fechados; "
+                         "escolha um horário de entrega ou tente mais tarde.")
+        else:
+            parts.append("Nenhum mercado tem os itens com um total que chegue ao pedido mínimo dele.")
+        message = " ".join(parts)
         raise McpToolError("solver", "NO_SOLUTION", message)
     await say("optimize", {"message": f"{len(solutions)} opções para montar de verdade",
                            "estimates": [sol.estimated_total for sol in solutions]})

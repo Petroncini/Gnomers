@@ -155,3 +155,76 @@ def test_choose_delivery_rules():
     assert m["deliveryMethodId"] == "DEFAULT" and slot["timeslotId"] == "a"
     m, slot, problem = choose_delivery(methods, "2026-10-21T22:00")
     assert m is None and "21/10 22:00" in problem
+
+
+def test_stale_items_are_reparsed_and_bad_taxonomy_dropped(client):
+    """Caso real de 18/10: itens salvos pelo parser antigo e leite preso em LEITE_CONDENSADO."""
+    from sqlmodel import Session
+
+    from app.db import engine
+    from app.models import ListItem
+
+    lst = client.post("/lists", json={"name": "Itens antigos"}).json()
+    leite = client.post(f"/lists/{lst['id']}/items", json={"raw_text": "2 leites integral italac"}).json()
+    arroz = client.post(f"/lists/{lst['id']}/items", json={"raw_text": "1 kilo de arroz branco"}).json()
+    with Session(engine) as s:
+        a = s.get(ListItem, arroz["id"])
+        a.query, a.category, a.pack_size, a.pack_unit, a.parser_version = "kilo de arroz branco", "kilo", None, None, None
+        lt = s.get(ListItem, leite["id"])
+        lt.taxonomy_id = "LEITE_CONDENSADO"
+        s.add(a)
+        s.add(lt)
+        s.commit()
+
+    r = client.post(f"/lists/{lst['id']}/plan", json={"lat": ICMC["latitude"], "lng": ICMC["longitude"]})
+    plan = client.get(f"/plans/{r.json()['id']}").json()
+    # os dois itens são achados, mas a lista é pequena demais para o pedido mínimo: o solver
+    # não pode encher o carrinho, e a mensagem explica com números
+    assert plan["status"] == "failed"
+    assert "Achei 2 de 2 itens" in plan["error"] and "pedido mínimo" in plan["error"]
+
+    # com mais itens o carrinho fecha, com leite de verdade e arroz de 1 kg
+    for raw in ["café 500g", "sabão em pó 1,6kg", "papel higiênico 12 rolos"]:
+        client.post(f"/lists/{lst['id']}/items", json={"raw_text": raw})
+    r = client.post(f"/lists/{lst['id']}/plan", json={"lat": ICMC["latitude"], "lng": ICMC["longitude"]})
+    plan = client.get(f"/plans/{r.json()['id']}").json()
+    assert plan["status"] == "ready", plan.get("error")
+    lines = {ln["name"]: ln for c in plan["result"]["chosen"]["carts"] for ln in c["lines"]}
+    leites = [n for n in lines if n.startswith("Leite")]
+    assert leites and all("Coco" not in n and "Condensado" not in n for n in leites)
+    assert lines[leites[0]]["quantity"] == 2
+    assert all("5kg" not in n for n in lines if n.startswith("Arroz")), lines
+    items = {i["id"]: i for i in client.get(f"/lists/{lst['id']}").json()["items"]}
+    assert items[arroz["id"]]["category"] == "arroz" and items[arroz["id"]]["pack_size"] == 1000
+    assert items[leite["id"]]["taxonomy_id"] != "LEITE_CONDENSADO"
+
+
+def test_search_falls_back_when_taxonomy_returns_nothing(client):
+    from sqlmodel import Session
+
+    from app.db import engine
+    from app.models import ListItem
+
+    lst = client.post("/lists", json={"name": "Taxonomia ruim"}).json()
+    item = client.post(f"/lists/{lst['id']}/items", json={"raw_text": "café 500g"}).json()
+    with Session(engine) as s:
+        it = s.get(ListItem, item["id"])
+        it.taxonomy_id = "OVOS"  # existe no catálogo, mas não tem café
+        s.add(it)
+        s.commit()
+    r = client.post(f"/lists/{lst['id']}/plan", json={"lat": ICMC["latitude"], "lng": ICMC["longitude"]})
+    plan = client.get(f"/plans/{r.json()['id']}").json()
+    names = [ln["name"] for c in (plan["result"].get("chosen") or {"carts": []})["carts"] for ln in c["lines"]]
+    assert any("Café" in n for n in names) or plan["status"] == "failed" and "mínimo" in plan["error"]
+    assert client.get(f"/lists/{lst['id']}").json()["items"][0]["taxonomy_id"] != "OVOS"
+
+
+def test_chat_turns_exact_weight_into_quantity_rule(client, ready_plan):
+    lst, _ = ready_plan
+    r = client.post(f"/lists/{lst['id']}/plan", json={"lat": ICMC["latitude"], "lng": ICMC["longitude"]})
+    plan = client.get(f"/plans/{r.json()['id']}").json()
+    card = next(c for c in plan["result"]["decisions"] if c["item_id"] is not None)
+    out = client.post(f"/plans/{plan['id']}/chat",
+                      json={"card_id": card["id"], "message": "não, quero o peso exato mesmo que fique mais caro"}).json()
+    assert out["proposed_rule"]["kind"] == "quantity"
+    assert "quantidade exata" in out["proposed_rule"]["text"]

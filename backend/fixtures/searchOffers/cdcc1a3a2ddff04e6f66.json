@@ -1,0 +1,896 @@
+{
+  "tool": "searchOffers",
+  "args": {
+    "query": "café",
+    "userLocation": {
+      "latitude": -22.01318,
+      "longitude": -47.89623
+    },
+    "resultKind": "ITEM",
+    "merchantType": "GROCERIES",
+    "intention": "product",
+    "refinements": {
+      "sort": "PRICE",
+      "maxDistanceKm": 8.0
+    },
+    "pageSize": 25,
+    "includeFacets": true
+  },
+  "recordedAt": "2026-10-18T01:01:02",
+  "response": {
+    "agentHints": {
+      "nextStepWhenUserPicksItem": "Retrieve full item details — option groups and applicable promotions — before presenting it to the user."
+    },
+    "facets": {
+      "itemTaxonomy": [
+        {
+          "count": 173,
+          "id": "CAFE_SOLUVEL",
+          "name": "CAFE_SOLUVEL"
+        },
+        {
+          "count": 104,
+          "id": "CAFE_MOIDO",
+          "name": "CAFE_MOIDO"
+        },
+        {
+          "count": 83,
+          "id": "CAFE_CAPSULA",
+          "name": "CAFE_CAPSULA"
+        },
+        {
+          "count": 11,
+          "id": "CAFES",
+          "name": "CAFES"
+        },
+        {
+          "count": 7,
+          "id": "BEBIDA_PROTEICA",
+          "name": "BEBIDA_PROTEICA"
+        },
+        {
+          "count": 4,
+          "id": "REFRIGERANTE_COLA",
+          "name": "REFRIGERANTE_COLA"
+        },
+        {
+          "count": 3,
+          "id": "UTENSILIOS_PREPARACAO/PENEIRA",
+          "name": "PENEIRA"
+        },
+        {
+          "count": 3,
+          "id": "UTENSILIOS_PREPARACAO",
+          "name": "UTENSILIOS_PREPARACAO"
+        },
+        {
+          "count": 3,
+          "id": "FUNCIONAIS",
+          "name": "FUNCIONAIS"
+        },
+        {
+          "count": 2,
+          "id": "SABONETES",
+          "name": "SABONETES"
+        },
+        {
+          "count": 1,
+          "id": "CEREBRO_E_NERVOS/MEDICAMENTOS_DOR_E_FEBRE",
+          "name": "MEDICAMENTOS_DOR_E_FEBRE"
+        },
+        {
+          "count": 1,
+          "id": "BARRAS",
+          "name": "BARRAS"
+        },
+        {
+          "count": 1,
+          "id": "BALAS",
+          "name": "BALAS"
+        },
+        {
+          "count": 1,
+          "id": "ACHOCOLATADO",
+          "name": "ACHOCOLATADO"
+        },
+        {
+          "count": 1,
+          "id": "CEREBRO_E_NERVOS",
+          "name": "CEREBRO_E_NERVOS"
+        },
+        {
+          "count": 1,
+          "id": "EMBALAGENS_DESCARTAVEIS",
+          "name": "EMBALAGENS_DESCARTAVEIS"
+        },
+        {
+          "count": 1,
+          "id": "BOLOS",
+          "name": "BOLOS"
+        },
+        {
+          "count": 1,
+          "id": "BEBIDA_SABORES",
+          "name": "BEBIDA_SABORES"
+        }
+      ],
+      "maxDistanceKm": [
+        {
+          "count": 13,
+          "from": 0,
+          "to": 3
+        },
+        {
+          "count": 6,
+          "from": 3,
+          "to": 10
+        }
+      ],
+      "maxItemPrice": [
+        {
+          "count": 369,
+          "from": 0,
+          "to": 20
+        },
+        {
+          "count": 31,
+          "from": 20,
+          "to": 50
+        }
+      ],
+      "merchantType": [
+        "GROCERIES",
+        "SHOPPING"
+      ],
+      "minRating": [
+        {
+          "count": 1,
+          "from": 0,
+          "to": 3
+        },
+        {
+          "count": 1,
+          "from": 3,
+          "to": 4
+        },
+        {
+          "count": 11,
+          "from": 4,
+          "to": 5
+        }
+      ],
+      "onlyOpen": {
+        "closed": 19,
+        "open": 0
+      }
+    },
+    "hasMore": true,
+    "interpretedQuery": "café",
+    "nextPageToken": "MjU7MQ==",
+    "resultKind": "ITEM",
+    "results": [
+      {
+        "itemEan": "7896045108824",
+        "itemId": "bd11309e-f2d3-486d-ba15-c87bbd944dc6",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210200451_3rnhmq63af6.jpg",
+        "itemName": "Café Individual 3 Corações Tradicional Drip Coffee",
+        "itemSkuId": "SKU-RNPP25696",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 102,
+              "min": 92
+            },
+            "fee": 10.99,
+            "promotionalFee": 10.99
+          },
+          "isOpen": false,
+          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
+          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1867,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.26
+        },
+        "promotionalUnitPrice": 1.49,
+        "unitPrice": 1.49
+      },
+      {
+        "itemEan": "7509546701004",
+        "itemId": "b33862dc-de6c-4e98-8fb6-bd85beec1dee",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202605111612_lz4uinpn3ym.jpeg",
+        "itemName": "Sabonete Em Barra Natural Café E Óleo de Amêndoas Palmolive 85g",
+        "itemSkuId": "SKU-IJHE11497",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 102,
+              "min": 92
+            },
+            "fee": 10.99,
+            "promotionalFee": 10.99
+          },
+          "isOpen": false,
+          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
+          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1867,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.26
+        },
+        "promotionalUnitPrice": 2.19,
+        "unitPrice": 2.19
+      },
+      {
+        "itemEan": "7896005807521",
+        "itemId": "019df5a6-afe0-46e7-b19f-889b9c6c6c6d",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202311131354_iwg2pdz3rhl.jpg",
+        "itemName": "Café Com Leite Solúvel 3 Corações Sache 20g",
+        "itemSkuId": "SKU-FPTR35109",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 67,
+              "min": 57
+            },
+            "fee": 7.49,
+            "promotionalFee": 7.49
+          },
+          "isOpen": false,
+          "merchantId": "75a8e0a0-2766-48e7-990f-5d551d441dbb",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/75a8e0a0-2766-48e7-990f-5d551d441dbb/201909191637_C7AP_i.png",
+          "merchantName": "Supermercados Arco Íris Express",
+          "minimumOrderAmount": 30,
+          "ratingCount": 90,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.32
+        },
+        "promotionalUnitPrice": 2.74,
+        "unitPrice": 2.74
+      },
+      {
+        "itemEan": "7894900025019",
+        "itemId": "92a34853-2d94-47af-8732-b193796fdfa1",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202305021346_6cpzpzek3ye.jpg",
+        "itemName": "Refrigerante Coca Cola Plus Café Espresso 220ml",
+        "itemSkuId": "01a08d55-67d5-7871-aada-a3b1b083403f",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 102,
+              "min": 92
+            },
+            "fee": 10.99,
+            "promotionalFee": 10.99
+          },
+          "isOpen": false,
+          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
+          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1867,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.26
+        },
+        "promotionalUnitPrice": 2.79,
+        "unitPrice": 2.79
+      },
+      {
+        "itemEan": "7896005807521",
+        "itemId": "3f687925-cac2-461c-82da-67d63b1a7604",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202311131354_iwg2pdz3rhl.jpg",
+        "itemName": "Café Com Leite Solúvel 3 Corações Sache 20g",
+        "itemSkuId": "SKU-FPTR35109",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 120,
+              "min": 110
+            },
+            "fee": 6.49,
+            "promotionalFee": 0
+          },
+          "isOpen": false,
+          "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
+          "merchantName": "Extra - São Carlos",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1364,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 0.27
+        },
+        "promotionalUnitPrice": 2.79,
+        "unitPrice": 2.79
+      },
+      {
+        "itemEan": "7896089015096",
+        "itemId": "95f432df-8110-420f-b260-5e55553585c3",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202607141842_uokonmd67ma.png",
+        "itemName": "Café Cappuccino Lor Premium Avelã Sachet 17,8g",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 240,
+              "min": 230
+            },
+            "fee": 18.49,
+            "promotionalFee": 0
+          },
+          "isOpen": false,
+          "merchantId": "9d6b46da-7347-4d8a-8fde-cda8ca3adef8",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/3901056/202607311821_FR9A.png",
+          "merchantName": "Paulistão Av. Luiz Brandão - São Carlos Lj 13",
+          "minimumOrderAmount": 30,
+          "ratingCount": 172,
+          "reviewRating": 4.800000190734863,
+          "straightLineDistanceKm": 3.08
+        },
+        "promotionalUnitPrice": 2.85,
+        "unitPrice": 2.85
+      },
+      {
+        "itemEan": "7896089051056",
+        "itemId": "b16757b5-a57e-4891-8328-08c933ffc3df",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202607141558_9kwnptlgfs6.png",
+        "itemName": "Café Cappuccino Lor Baunilha 20,3g",
+        "itemSkuId": "SKU-OSXK49721",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 240,
+              "min": 230
+            },
+            "fee": 18.49,
+            "promotionalFee": 0
+          },
+          "isOpen": false,
+          "merchantId": "9d6b46da-7347-4d8a-8fde-cda8ca3adef8",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/3901056/202607311821_FR9A.png",
+          "merchantName": "Paulistão Av. Luiz Brandão - São Carlos Lj 13",
+          "minimumOrderAmount": 30,
+          "ratingCount": 172,
+          "reviewRating": 4.800000190734863,
+          "straightLineDistanceKm": 3.08
+        },
+        "promotionalUnitPrice": 2.85,
+        "unitPrice": 2.85
+      },
+      {
+        "itemEan": "7896089015096",
+        "itemId": "d0262daf-0576-44da-ada4-f20601cba7fc",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202607141842_uokonmd67ma.png",
+        "itemName": "Café Cappuccino Lor Premium Avelã Sachet 17,8g",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 234,
+              "min": 224
+            },
+            "fee": 13.99,
+            "promotionalFee": 0
+          },
+          "isOpen": false,
+          "merchantId": "e6067614-d8f3-4108-8b6e-c72fd364ae2c",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/3974223/202607281734_5AGE.png",
+          "merchantName": "Pão de Açúcar - Shopping Iguatemi São Carlos",
+          "minimumOrderAmount": 30,
+          "ratingCount": 99,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 2.09
+        },
+        "promotionalUnitPrice": 2.89,
+        "unitPrice": 2.89
+      },
+      {
+        "itemEan": "7894900025019",
+        "itemId": "53b8ad17-a349-473f-812d-a953f94925ff",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202305021346_6cpzpzek3ye.jpg",
+        "itemName": "Refrigerante Coca Cola Plus Café Espresso 220ml",
+        "itemSkuId": "01a08d55-67d5-7871-aada-a3b1b083403f",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 118,
+              "min": 98
+            },
+            "fee": 9.99,
+            "promotionalFee": 0
+          },
+          "isOpen": false,
+          "merchantId": "782805bb-66e0-4d8d-8e86-5befa3b5d7f8",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/782805bb-66e0-4d8d-8e86-5befa3b5d7f8/202603111724_A6N4.png",
+          "merchantName": "Carrefour Bairro - São Carlos 2",
+          "minimumOrderAmount": 30,
+          "ratingCount": 584,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.43
+        },
+        "promotionalUnitPrice": 2.98,
+        "unitPrice": 3.24
+      },
+      {
+        "itemEan": "7894900025019",
+        "itemId": "fc106706-e382-402a-bfea-6587160c44e6",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202305021346_6cpzpzek3ye.jpg",
+        "itemName": "Refrigerante Coca Cola Plus Café Espresso 220ml",
+        "itemSkuId": "01a08d55-67d5-7871-aada-a3b1b083403f",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 172,
+              "min": 142
+            },
+            "fee": 19.99,
+            "promotionalFee": 19.99
+          },
+          "isOpen": false,
+          "merchantId": "2454a662-ab7d-4cb8-91c9-c69720983886",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/2454a662-ab7d-4cb8-91c9-c69720983886/202509011622_2TXL.png",
+          "merchantName": "Atacadão São Carlos",
+          "minimumOrderAmount": 90,
+          "ratingCount": 211,
+          "reviewRating": 4.800000190734863,
+          "straightLineDistanceKm": 5.1
+        },
+        "promotionalUnitPrice": 3.07,
+        "unitPrice": 3.2
+      },
+      {
+        "itemEan": "7896045114344",
+        "itemId": "d3acb434-84d0-45ac-9166-66c1b32e623f",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202505300714_3vm4wy216s.png",
+        "itemName": "Cafe Drip 3 Coracoes Rituais Chocolate 12G",
+        "itemSkuId": "SKU-AWSX27807",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 234,
+              "min": 224
+            },
+            "fee": 13.99,
+            "promotionalFee": 0
+          },
+          "isOpen": false,
+          "merchantId": "e6067614-d8f3-4108-8b6e-c72fd364ae2c",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/3974223/202607281734_5AGE.png",
+          "merchantName": "Pão de Açúcar - Shopping Iguatemi São Carlos",
+          "minimumOrderAmount": 30,
+          "ratingCount": 99,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 2.09
+        },
+        "promotionalUnitPrice": 3.09,
+        "unitPrice": 3.09
+      },
+      {
+        "itemEan": "7896045114368",
+        "itemId": "7183bee7-9b95-4a2a-9c62-c09566c54088",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202506121151_zh9zrdsva5.png",
+        "itemName": "Café Em Sachê Torrado E Moído Drip Coffee Exótico 3 Corações Rituais 85+ Envelope 12g",
+        "itemSkuId": "SKU-ZCTQ56384",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 234,
+              "min": 224
+            },
+            "fee": 13.99,
+            "promotionalFee": 0
+          },
+          "isOpen": false,
+          "merchantId": "e6067614-d8f3-4108-8b6e-c72fd364ae2c",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/3974223/202607281734_5AGE.png",
+          "merchantName": "Pão de Açúcar - Shopping Iguatemi São Carlos",
+          "minimumOrderAmount": 30,
+          "ratingCount": 99,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 2.09
+        },
+        "promotionalUnitPrice": 3.09,
+        "unitPrice": 3.09
+      },
+      {
+        "itemEan": "7896089051056",
+        "itemId": "baa4e75b-6bd9-4f66-9e81-1d7bbdc6c06c",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202607141558_9kwnptlgfs6.png",
+        "itemName": "Café Cappuccino Lor Baunilha 20,3g",
+        "itemSkuId": "SKU-OSXK49721",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 234,
+              "min": 224
+            },
+            "fee": 13.99,
+            "promotionalFee": 0
+          },
+          "isOpen": false,
+          "merchantId": "e6067614-d8f3-4108-8b6e-c72fd364ae2c",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/3974223/202607281734_5AGE.png",
+          "merchantName": "Pão de Açúcar - Shopping Iguatemi São Carlos",
+          "minimumOrderAmount": 30,
+          "ratingCount": 99,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 2.09
+        },
+        "promotionalUnitPrice": 3.19,
+        "unitPrice": 3.19
+      },
+      {
+        "itemEan": "7894900025019",
+        "itemId": "65671769-341a-4dd3-bc8f-26a1bbf5d1ef",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202305021346_6cpzpzek3ye.jpg",
+        "itemName": "Refrigerante Coca Cola Plus Café Espresso 220ml",
+        "itemSkuId": "01a08d55-67d5-7871-aada-a3b1b083403f",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 120,
+              "min": 110
+            },
+            "fee": 6.49,
+            "promotionalFee": 0
+          },
+          "isOpen": false,
+          "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
+          "merchantName": "Extra - São Carlos",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1364,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 0.27
+        },
+        "promotionalUnitPrice": 3.19,
+        "unitPrice": 3.19
+      },
+      {
+        "itemEan": "7896045106868",
+        "itemId": "4eae54e1-6e7a-43e7-8196-77db00c007a8",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210200218_is2rqhvml2c.jpg",
+        "itemName": "Café Gourmet Dark Roast Drip Coffee Três Corações Sachê 11g",
+        "itemSkuId": "SKU-ALDH85233",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 63,
+              "min": 53
+            },
+            "fee": 15.99,
+            "promotionalFee": 15.99
+          },
+          "isOpen": false,
+          "merchantId": "b58df102-3ffe-45a3-9f60-1c1188f59d11",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/3757582/202605141336_CWTO.jpeg",
+          "merchantName": "Tonin - São Carlos",
+          "minimumOrderAmount": 60,
+          "ratingCount": 55,
+          "reviewRating": 4.800000190734863,
+          "straightLineDistanceKm": 3.53
+        },
+        "promotionalUnitPrice": 3.29,
+        "unitPrice": 3.29
+      },
+      {
+        "itemEan": "7896045108824",
+        "itemId": "4972b7bc-2735-4724-9608-3e15de914877",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210200451_3rnhmq63af6.jpg",
+        "itemName": "Café Individual 3 Corações Tradicional Drip Coffee",
+        "itemSkuId": "SKU-RNPP25696",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 63,
+              "min": 53
+            },
+            "fee": 15.99,
+            "promotionalFee": 15.99
+          },
+          "isOpen": false,
+          "merchantId": "b58df102-3ffe-45a3-9f60-1c1188f59d11",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/3757582/202605141336_CWTO.jpeg",
+          "merchantName": "Tonin - São Carlos",
+          "minimumOrderAmount": 60,
+          "ratingCount": 55,
+          "reviewRating": 4.800000190734863,
+          "straightLineDistanceKm": 3.53
+        },
+        "promotionalUnitPrice": 3.4,
+        "unitPrice": 3.4
+      },
+      {
+        "itemEan": "7895144295602",
+        "itemId": "cfb85440-89f5-4647-b140-56b9ed504e00",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202309131524_1vu7ed2kxjgj.jpg",
+        "itemName": "Bala Sem Açúcar Fruittella Life Café Expresso 18,9g 9 Unidades",
+        "itemSkuId": "01a088ec-448f-7583-9b54-abd804bfbb30",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 67,
+              "min": 57
+            },
+            "fee": 7.49,
+            "promotionalFee": 7.49
+          },
+          "isOpen": false,
+          "merchantId": "75a8e0a0-2766-48e7-990f-5d551d441dbb",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/75a8e0a0-2766-48e7-990f-5d551d441dbb/201909191637_C7AP_i.png",
+          "merchantName": "Supermercados Arco Íris Express",
+          "minimumOrderAmount": 30,
+          "ratingCount": 90,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.32
+        },
+        "promotionalUnitPrice": 3.49,
+        "unitPrice": 3.49
+      },
+      {
+        "itemEan": "7891103522772",
+        "itemId": "2b504b02-e471-443c-955e-c0311881d723",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202505210238_d4gc0br96dg.png",
+        "itemName": "Filtro de Café N 102 Home Carrefour 30un",
+        "itemSkuId": "SKU-RHYT89223",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 118,
+              "min": 98
+            },
+            "fee": 9.99,
+            "promotionalFee": 0
+          },
+          "isOpen": false,
+          "merchantId": "782805bb-66e0-4d8d-8e86-5befa3b5d7f8",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/782805bb-66e0-4d8d-8e86-5befa3b5d7f8/202603111724_A6N4.png",
+          "merchantName": "Carrefour Bairro - São Carlos 2",
+          "minimumOrderAmount": 30,
+          "ratingCount": 584,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.43
+        },
+        "promotionalUnitPrice": 3.7,
+        "unitPrice": 5.28
+      },
+      {
+        "itemEan": "7509546701011",
+        "itemId": "e1a45a9b-d874-487f-8672-7f4c6500c089",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202606021955_s9cen2ovfr.jpeg",
+        "itemName": "Sabonete em Barra Café e Óleo de Amêndoa Palmolive 150g",
+        "itemSkuId": "SKU-AQOX74454",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 102,
+              "min": 92
+            },
+            "fee": 10.99,
+            "promotionalFee": 10.99
+          },
+          "isOpen": false,
+          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
+          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1867,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.26
+        },
+        "promotionalUnitPrice": 3.79,
+        "unitPrice": 3.79
+      },
+      {
+        "itemEan": "7896089051056",
+        "itemId": "cb931b0e-c2bf-47b5-af02-cdaf449bc1d0",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202607141558_9kwnptlgfs6.png",
+        "itemName": "Café Cappuccino Lor Baunilha 20,3g",
+        "itemSkuId": "SKU-OSXK49721",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 67,
+              "min": 57
+            },
+            "fee": 7.49,
+            "promotionalFee": 7.49
+          },
+          "isOpen": false,
+          "merchantId": "75a8e0a0-2766-48e7-990f-5d551d441dbb",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/75a8e0a0-2766-48e7-990f-5d551d441dbb/201909191637_C7AP_i.png",
+          "merchantName": "Supermercados Arco Íris Express",
+          "minimumOrderAmount": 30,
+          "ratingCount": 90,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.32
+        },
+        "promotionalUnitPrice": 3.84,
+        "unitPrice": 3.84
+      },
+      {
+        "itemEan": "7896089015096",
+        "itemId": "40283942-eaab-4817-9db4-bb9aa9ad7ae9",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202607141842_uokonmd67ma.png",
+        "itemName": "Café Cappuccino Lor Premium Avelã Sachet 17,8g",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 102,
+              "min": 92
+            },
+            "fee": 10.99,
+            "promotionalFee": 10.99
+          },
+          "isOpen": false,
+          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
+          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1867,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.26
+        },
+        "promotionalUnitPrice": 3.89,
+        "unitPrice": 3.89
+      },
+      {
+        "itemEan": "7896089051056",
+        "itemId": "dd792c6b-7bc9-45c3-a836-95a961ab4cd2",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202607141558_9kwnptlgfs6.png",
+        "itemName": "Café Cappuccino Lor Baunilha 20,3g",
+        "itemSkuId": "SKU-OSXK49721",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 102,
+              "min": 92
+            },
+            "fee": 10.99,
+            "promotionalFee": 10.99
+          },
+          "isOpen": false,
+          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
+          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1867,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.26
+        },
+        "promotionalUnitPrice": 3.89,
+        "unitPrice": 3.89
+      },
+      {
+        "itemEan": "7896045108824",
+        "itemId": "2f1e2183-a93f-48f3-bb76-a4744df4af47",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210200451_3rnhmq63af6.jpg",
+        "itemName": "Café Individual 3 Corações Tradicional Drip Coffee",
+        "itemSkuId": "SKU-RNPP25696",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 93,
+              "min": 73
+            },
+            "fee": 6.99,
+            "promotionalFee": 0
+          },
+          "isOpen": false,
+          "merchantId": "e8e2e095-f435-4930-b16f-eac7b7d1d880",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/e8e2e095-f435-4930-b16f-eac7b7d1d880/202410151113_23jn_i.jpg",
+          "merchantName": "Nissei Mercado - 431",
+          "minimumOrderAmount": 60,
+          "ratingCount": 40,
+          "reviewRating": 5,
+          "straightLineDistanceKm": 0.5
+        },
+        "promotionalUnitPrice": 4,
+        "unitPrice": 4
+      },
+      {
+        "itemEan": "7896005807521",
+        "itemId": "92dd3c0f-7c98-4fe3-9e2e-a01519584476",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202311131354_iwg2pdz3rhl.jpg",
+        "itemName": "Café Com Leite Solúvel 3 Corações Sache 20g",
+        "itemSkuId": "SKU-FPTR35109",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 63,
+              "min": 53
+            },
+            "fee": 15.99,
+            "promotionalFee": 15.99
+          },
+          "isOpen": false,
+          "merchantId": "b58df102-3ffe-45a3-9f60-1c1188f59d11",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/3757582/202605141336_CWTO.jpeg",
+          "merchantName": "Tonin - São Carlos",
+          "minimumOrderAmount": 60,
+          "ratingCount": 55,
+          "reviewRating": 4.800000190734863,
+          "straightLineDistanceKm": 3.53
+        },
+        "promotionalUnitPrice": 4.06,
+        "unitPrice": 4.06
+      },
+      {
+        "itemEan": "7891018427766",
+        "itemId": "599a2b85-7b68-49b0-98c8-df4cf7430130",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202506120821_6l2xvh0rxu3.png",
+        "itemName": "Cafe Brasileiro Gran.Soluvel Refil",
+        "itemSkuId": "SKU-BEPM89372",
+        "merchant": {
+          "deliveryMethod": {
+            "deliveryMethodId": "DEFAULT",
+            "deliveryMethodMode": "DELIVERY",
+            "estimatedMinutes": {
+              "max": 102,
+              "min": 92
+            },
+            "fee": 10.99,
+            "promotionalFee": 10.99
+          },
+          "isOpen": false,
+          "merchantId": "8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2",
+          "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/8ca75d1c-bd6a-4cbf-bcdd-0cd1d8bdf1c2/202504291343_CSe2_l.png",
+          "merchantName": "Savegnago - Shopping Passeio - LJ 33",
+          "minimumOrderAmount": 60,
+          "ratingCount": 1867,
+          "reviewRating": 4.900000095367432,
+          "straightLineDistanceKm": 1.26
+        },
+        "promotionalUnitPrice": 4.55,
+        "unitPrice": 4.55
+      }
+    ]
+  }
+}

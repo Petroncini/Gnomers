@@ -13,7 +13,6 @@ from dataclasses import dataclass, field
 import pulp
 
 N_MAX = 30
-OVERBUY = 1.3
 
 
 @dataclass(frozen=True)
@@ -121,10 +120,10 @@ def solve(problem: Problem, *, max_merchants: int | None = None,
     for i, idxs in by_item.items():
         lp += pulp.lpSum(x[s] for s in idxs) + u[i] == 1, f"cobre_{i}"
     for s, c in enumerate(cands):
-        req = items[c.item_id].required
-        lp += c.size * n[s] >= req * x[s], f"qtd_{s}"
-        lp += c.size * n[s] <= OVERBUY * req + c.size, f"exagero_{s}"
-        lp += n[s] <= N_MAX * x[s], f"liga_n_{s}"
+        # exatamente as embalagens necessárias para cobrir o pedido: nunca acrescenta
+        # unidades para bater o pedido mínimo (isso é decisão do usuário)
+        packs = min(packs_for(items[c.item_id].required, c.size), N_MAX)
+        lp += n[s] == packs * x[s], f"qtd_{s}"
         lp += x[s] <= y[c.merchant_id], f"liga_y_{s}"
     for j, (m_id, m) in enumerate(merchants.items()):
         in_m = [s for s, c in enumerate(cands) if c.merchant_id == m_id]

@@ -1,0 +1,29 @@
+{
+  "tool": "searchOffers",
+  "args": {
+    "query": "granola sem açucar (>)",
+    "userLocation": {
+      "latitude": -22.01318,
+      "longitude": -47.89623
+    },
+    "resultKind": "ITEM",
+    "merchantType": "GROCERIES",
+    "intention": "product",
+    "refinements": {
+      "sort": "PRICE",
+      "merchantId": "9d6b46da-7347-4d8a-8fde-cda8ca3adef8"
+    },
+    "pageSize": 10
+  },
+  "recordedAt": "2026-10-18T00:03:58",
+  "response": {
+    "agentHints": {
+      "noResultsGuidance": "No results found for \"granola sem açucar (>)\" with the active filters in this area. Suggest the user try a broader term, remove price or distance filters, or try a different neighborhood."
+    },
+    "hasMore": false,
+    "interpretedQuery": "granola sem açucar (>)",
+    "nextPageToken": null,
+    "resultKind": "ITEM",
+    "results": []
+  }
+}

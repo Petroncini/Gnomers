@@ -1,0 +1,137 @@
+{
+  "tool": "getMerchant",
+  "args": {
+    "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
+    "userLocation": {
+      "latitude": -22.01318,
+      "longitude": -47.89623
+    }
+  },
+  "recordedAt": "2026-10-18T01:01:16",
+  "response": {
+    "address": "Rua São Sebastião,, 1746, Centro, SAO CARLOS - SP, 13560230, BR",
+    "agentHints": {
+      "nextStepForItemsNavigation": "Follow `catalogSummary.navigationHint` to browse or search items in this merchant's catalog.",
+      "nextStepWhenUserPicksItem": "Retrieve full item details — option groups, nutrition, and applicable promotions — for the chosen item before adding it to the cart."
+    },
+    "appDeeplink": "ifood://catalog-hub/6af300f4-e672-43ca-8ae8-9ee96a501894/GROCERIES",
+    "catalogSummary": {
+      "navigationHint": "Call `browseOffers` with `resultKind=ITEM`, the matching `merchantType`, and `refinements.merchantId=6af300f4-e672-43ca-8ae8-9ee96a501894` to browse items. Use `searchOffers` with `refinements.merchantId=6af300f4-e672-43ca-8ae8-9ee96a501894` for keyword search within this merchant.",
+      "totalItems": 6733
+    },
+    "deliveryMethods": [],
+    "featuredItems": [
+      {
+        "itemEan": "7898377661848",
+        "itemId": "1481162a-9b1a-4730-a71b-460b0bdf4259",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202311281407_my9dsj2khps.jpg",
+        "itemName": "Cabaré Ice Limão 275ml",
+        "itemSkuId": "SKU-VZNK18615",
+        "menuSection": "Bebidas Alcoólicas",
+        "promotionalUnitPrice": 3.99,
+        "unitPrice": 8.29
+      },
+      {
+        "itemEan": "7896072923698",
+        "itemId": "33672086-c632-41ad-b404-557e177d4df0",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510221535_asmcdjbwmxw.jpeg",
+        "itemName": "Sidra Bebida Alcoólica Mista Sabor Maçã Verde Cereser 275ml",
+        "itemSkuId": "SKU-DKEY58608",
+        "menuSection": "Bebidas Alcoólicas",
+        "promotionalUnitPrice": 3.49,
+        "unitPrice": 7.09
+      },
+      {
+        "itemEan": "7891024027257",
+        "itemId": "46827268-f1b6-4d2c-8f00-52e397cf4596",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510042214_oxzjxnrn14d.jpeg",
+        "itemName": "Sabonete Líquido Protex Vitamina e Refil 200ml",
+        "itemSkuId": "01a08d55-89d5-7c53-b70c-3a07acf20bcd",
+        "menuSection": "Higiene e Cuidados Pessoais",
+        "promotionalUnitPrice": 7.39,
+        "unitPrice": 14.99
+      },
+      {
+        "itemEan": "7891024027325",
+        "itemId": "ef124e2e-6e58-4e1a-b921-d305fa8eb44f",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202505281833_2d0zcxjaitb.png",
+        "itemName": "Sabonete Líquido Protex Erva-Doce 200ml",
+        "itemSkuId": "01a08d55-8889-73e2-8af7-bbd7fdc717b0",
+        "menuSection": "Higiene e Cuidados Pessoais",
+        "promotionalUnitPrice": 7.39,
+        "unitPrice": 14.99
+      },
+      {
+        "itemEan": "7895000342198",
+        "itemId": "e71596a4-fa36-4ec9-b000-087fd9a9e32d",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210190452_v7b8d6aglyk.jpg",
+        "itemName": "Saco para Lixo Qualitá 100l 15un",
+        "itemSkuId": "SKU-SDTG02332",
+        "menuSection": "Limpeza",
+        "promotionalUnitPrice": 8.74,
+        "unitPrice": 17.49
+      }
+    ],
+    "isOpen": false,
+    "merchantId": "6af300f4-e672-43ca-8ae8-9ee96a501894",
+    "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/6af300f4-e672-43ca-8ae8-9ee96a501894/202501291758_HAYX.png",
+    "merchantName": "Extra - São Carlos",
+    "merchantType": "GROCERIES",
+    "minimumOrderAmount": 60,
+    "operatingHours": {
+      "today": [
+        {
+          "closeLocal": "16:30",
+          "openLocal": "08:00"
+        }
+      ],
+      "weekly": {
+        "fri": [
+          {
+            "closeLocal": "17:30",
+            "openLocal": "09:00"
+          }
+        ],
+        "mon": [
+          {
+            "closeLocal": "17:30",
+            "openLocal": "09:00"
+          }
+        ],
+        "sat": [
+          {
+            "closeLocal": "17:30",
+            "openLocal": "09:00"
+          }
+        ],
+        "sun": [
+          {
+            "closeLocal": "16:30",
+            "openLocal": "08:00"
+          }
+        ],
+        "thu": [
+          {
+            "closeLocal": "17:30",
+            "openLocal": "09:00"
+          }
+        ],
+        "tue": [
+          {
+            "closeLocal": "17:30",
+            "openLocal": "09:00"
+          }
+        ],
+        "wed": [
+          {
+            "closeLocal": "17:30",
+            "openLocal": "09:00"
+          }
+        ]
+      }
+    },
+    "ratingCount": 1364,
+    "reviewRating": 4.900000095367432,
+    "straightLineDistanceKm": 0.27
+  }
+}

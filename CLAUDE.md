@@ -21,7 +21,7 @@ O servidor `ifood` é configurado por pessoa com `python3 scripts/setup_ifood_mc
 - `GNOMERS_MCP_MODE`: `live` (padrão), `record` (grava cada chamada em `backend/fixtures/`), `replay` (só lê as gravações) e `fake` (simulador local em `app/mcp/fake.py`).
 - Demo sem rede: `GNOMERS_MCP_MODE=fake GNOMERS_DB=sqlite:///$PWD/gnomers-fake.db uv run python -m app.seed`, depois suba o back-end com as mesmas variáveis.
 - Testes: `cd backend && uv run pytest`. O solver é PuLP 2.9 com CBC; o PuLP 4 não traz solver e mudou a API.
-- Sem `ANTHROPIC_API_KEY`, as tarefas do LLM caem nas heurísticas de `app/heuristics.py`.
+- LLM pelo OpenRouter: `OPENROUTER_API_KEY` no `.env` (teste com `uv run python -m app.llm "2 leites integral italac"`). Sem chave, as tarefas caem nas heurísticas de `app/heuristics.py`.
 
 ## Trabalho em paralelo
 

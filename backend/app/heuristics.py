@@ -11,6 +11,9 @@ import re
 
 from app.rules import norm
 
+# Sobe quando a interpretação dos itens muda; itens salvos com versão menor são reinterpretados.
+PARSER_VERSION = 2
+
 # Marcas comuns em mercado. Comparação feita sem acento e em minúsculas.
 KNOWN_BRANDS = [
     "Italac", "Parmalat", "Piracanjuba", "Itambé", "Ninho", "Nestlé", "Quatá", "Jussara", "Aurora",
@@ -55,6 +58,7 @@ CATEGORY_CHANGERS = {
     "coco", "condensado", "infantil", "formula", "em", "funcionai", "funcionais", "po", "fermentado", "vegetal", "amendoas", "aveia", "soja", "achocolatado",
     "creme", "doce", "moça", "sabor", "chocolate", "solúvel", "soluvel", "capsula", "capsulas",
     "instantaneo", "bolo", "biscoito", "barra", "sorvete", "iogurte", "molho", "farinha", "tempero",
+    "cappuccino", "capuccino", "mocaccino", "latte", "drip", "sache", "sachet", "individual",
 }
 
 # Cabeças genéricas que só fazem sentido com a palavra seguinte ("papel higiênico").
@@ -185,6 +189,19 @@ def _category(text: str, brand: str | None, variety: list[str]) -> str:
     return words[0]
 
 
+def is_derivative(category: str, name: str, item_query: str = "") -> bool:
+    """True quando o nome traz a categoria seguida de algo que vira outro produto ("Leite em Pó", "Leite de Coco")."""
+    tokens = [singular(t) for t in _tokens(name)]
+    cat_tokens = singular(norm(category)).split()
+    if not cat_tokens or cat_tokens[-1] not in tokens:
+        return False
+    query_tokens = {singular(t) for t in _tokens(item_query)}
+    idx = tokens.index(cat_tokens[-1])
+    # olha as duas palavras seguintes: "Café com Leite Solúvel" esconde o "solúvel" atrás de "leite"
+    following = [t for t in tokens[idx + 1: idx + 4] if t not in STOPWORDS][:2]
+    return any(t in CATEGORY_CHANGERS and t not in query_tokens for t in following)
+
+
 def normalize_product(category: str, name: str, item_query: str = "") -> dict:
     """Nome de um SKU do catálogo para marca, variedade, tamanho e se casa com o item."""
     size, unit = parse_pack(name)
@@ -220,6 +237,15 @@ def normalize_product(category: str, name: str, item_query: str = "") -> dict:
         "quality_tier": tier,
         "matches": matches,
     }
+
+
+def taxonomy_changes_product(category: str, taxonomy_id: str | None) -> bool:
+    """True se a taxonomia transforma o item em outro produto ("LEITE_CONDENSADO" para "leite")."""
+    if not taxonomy_id:
+        return False
+    cat_words = {singular(w) for w in norm(category).split()}
+    leaf = {singular(w) for w in norm(taxonomy_id.split("/")[-1]).replace("_", " ").split()}
+    return bool((leaf - cat_words) & {singular(c) for c in CATEGORY_CHANGERS})
 
 
 def pick_taxonomy(category: str, facets: list[dict]) -> str | None:

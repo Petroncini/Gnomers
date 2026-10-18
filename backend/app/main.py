@@ -19,6 +19,7 @@ from sse_starlette.sse import EventSourceResponse
 from app import actions, llm, onboarding, scheduler
 from app import schemas as S
 from app.config import settings
+from app.heuristics import PARSER_VERSION
 from app.db import advance_days, current_user, get_session, init_db, today
 from app.mcp.client import McpToolError, NotAuthenticated
 from app.mcp.ifood import ifood
@@ -258,7 +259,7 @@ async def add_item(list_id: int, body: ItemIn, s: Session = Depends(get_session)
     parsed = await llm.parse_item(body.raw_text)
     # o que o usuário corrigiu nos chips vence a interpretação
     overrides = body.model_dump(exclude_unset=True, exclude={"raw_text"})
-    item = ListItem(list_id=list_id, raw_text=body.raw_text, **{**parsed, **overrides})
+    item = ListItem(list_id=list_id, raw_text=body.raw_text, parser_version=PARSER_VERSION, **{**parsed, **overrides})
     if item.recurrence_days:
         item.next_due = today() + timedelta(days=item.recurrence_days)
     s.add(item)
@@ -278,6 +279,7 @@ async def patch_item(list_id: int, item_id: int, body: ItemIn, s: Session = Depe
         for k, v in parsed.items():
             setattr(item, k, v)
         item.taxonomy_id = None
+        item.parser_version = PARSER_VERSION
     for k, v in changes.items():
         setattr(item, k, v)
     if "brand" in changes:
@@ -437,6 +439,22 @@ async def create_plan(list_id: int, body: PlanIn, background: BackgroundTasks, s
             raise HTTPException(422, "deliver_at precisa ser data e hora, ex.: 2026-10-19T10:00")
     plan = Plan(user_id=user.id, list_id=list_id, lat=body.lat, lng=body.lng, address_id=body.address_id,
                 deliver_at=deliver_at)
+    s.add(plan)
+    s.commit()
+    s.refresh(plan)
+    events_for(plan.id)
+    background.add_task(run_plan, plan.id)
+    return {"id": plan.id, "status": plan.status}
+
+
+@app.post("/plans/{plan_id}/replan", response_model=S.PlanCreated)
+async def replan(plan_id: int, background: BackgroundTasks, s: Session = Depends(get_session)):
+    """Novo carrinho para a mesma lista, mantendo endereço, horário e as escolhas feitas neste."""
+    old = _get_plan(s, plan_id)
+    if not (old.result or {}).get("chosen"):
+        raise HTTPException(409, "este plano não tem carrinho para refazer")
+    plan = Plan(user_id=old.user_id, list_id=old.list_id, lat=old.lat, lng=old.lng, address_id=old.address_id,
+                deliver_at=old.deliver_at, pins=actions.pins_from(old.result))
     s.add(plan)
     s.commit()
     s.refresh(plan)

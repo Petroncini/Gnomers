@@ -1,0 +1,137 @@
+{
+  "tool": "getMerchant",
+  "args": {
+    "merchantId": "75a8e0a0-2766-48e7-990f-5d551d441dbb",
+    "userLocation": {
+      "latitude": -22.01318,
+      "longitude": -47.89623
+    }
+  },
+  "recordedAt": "2026-10-18T00:10:21",
+  "response": {
+    "address": "Rua Miguel Petroni, 1166, Jardim Bandeirantes, SAO CARLOS - SP, 13562190, BR",
+    "agentHints": {
+      "nextStepForItemsNavigation": "Follow `catalogSummary.navigationHint` to browse or search items in this merchant's catalog.",
+      "nextStepWhenUserPicksItem": "Retrieve full item details — option groups, nutrition, and applicable promotions — for the chosen item before adding it to the cart."
+    },
+    "appDeeplink": "ifood://catalog-hub/75a8e0a0-2766-48e7-990f-5d551d441dbb/GROCERIES",
+    "catalogSummary": {
+      "navigationHint": "Call `browseOffers` with `resultKind=ITEM`, the matching `merchantType`, and `refinements.merchantId=75a8e0a0-2766-48e7-990f-5d551d441dbb` to browse items. Use `searchOffers` with `refinements.merchantId=75a8e0a0-2766-48e7-990f-5d551d441dbb` for keyword search within this merchant.",
+      "totalItems": 13576
+    },
+    "deliveryMethods": [],
+    "featuredItems": [
+      {
+        "itemEan": "7894900184273",
+        "itemId": "b28d466f-5178-40ce-be21-2b87e7ec49df",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510032044_twqsfx538ih.jpeg",
+        "itemName": "Drink Pronto Schweppes Mixed Vodka Citrus Lata 269ml",
+        "itemSkuId": "SKU-EONO00985",
+        "menuSection": "Bebidas Alcoólicas",
+        "promotionalUnitPrice": 3.95,
+        "unitPrice": 6.59
+      },
+      {
+        "itemEan": "7894900184372",
+        "itemId": "0a9b53a9-4460-409e-b40c-b817fc8eeb99",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510031835_8p3iogp5pab.jpeg",
+        "itemName": "Drink Pronto Schweppes Mixed Spritz Lata 269ml",
+        "itemSkuId": "SKU-UCDS66196",
+        "menuSection": "Bebidas Alcoólicas",
+        "promotionalUnitPrice": 3.95,
+        "unitPrice": 6.59
+      },
+      {
+        "itemEan": "7894900184907",
+        "itemId": "662d5a4a-9d15-48dc-9548-803b232a8c8e",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202601061202_gz7cubkoi5d.png",
+        "itemName": "Drink Pronto Schweppes Mixed Maracujá Vodka Fusion Lata 269ml",
+        "itemSkuId": "SKU-JNOZ11208",
+        "menuSection": "Bebidas Alcoólicas",
+        "promotionalUnitPrice": 3.95,
+        "unitPrice": 6.59
+      },
+      {
+        "itemEan": "7894900184075",
+        "itemId": "c5968e15-4125-4509-89c4-6bad61e519c1",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202407291532_iqr0kmbxmp.png",
+        "itemName": "Drink Pronto Schweppes Mixed Gin Tonica Lata 269ml",
+        "itemSkuId": "SKU-RRDW71171",
+        "menuSection": "Bebidas Alcoólicas",
+        "promotionalUnitPrice": 3.95,
+        "unitPrice": 6.59
+      },
+      {
+        "itemEan": "7894900184174",
+        "itemId": "5d945ff8-b6b5-4963-b6dc-f83e783ccbd1",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202409301352_ho326exgxbp.jpeg",
+        "itemName": "Drink Pronto Schweppes Mixed Gin Tonica Pink Lata 269ml",
+        "itemSkuId": "SKU-YYXQ34016",
+        "menuSection": "Bebidas Alcoólicas",
+        "promotionalUnitPrice": 3.95,
+        "unitPrice": 6.59
+      }
+    ],
+    "isOpen": false,
+    "merchantId": "75a8e0a0-2766-48e7-990f-5d551d441dbb",
+    "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/75a8e0a0-2766-48e7-990f-5d551d441dbb/201909191637_C7AP_i.png",
+    "merchantName": "Supermercados Arco Íris Express",
+    "merchantType": "GROCERIES",
+    "minimumOrderAmount": 30,
+    "operatingHours": {
+      "today": [
+        {
+          "closeLocal": "10:00",
+          "openLocal": "08:00"
+        }
+      ],
+      "weekly": {
+        "fri": [
+          {
+            "closeLocal": "16:30",
+            "openLocal": "08:00"
+          }
+        ],
+        "mon": [
+          {
+            "closeLocal": "16:30",
+            "openLocal": "08:00"
+          }
+        ],
+        "sat": [
+          {
+            "closeLocal": "16:30",
+            "openLocal": "08:00"
+          }
+        ],
+        "sun": [
+          {
+            "closeLocal": "10:00",
+            "openLocal": "08:00"
+          }
+        ],
+        "thu": [
+          {
+            "closeLocal": "16:30",
+            "openLocal": "08:00"
+          }
+        ],
+        "tue": [
+          {
+            "closeLocal": "16:30",
+            "openLocal": "08:00"
+          }
+        ],
+        "wed": [
+          {
+            "closeLocal": "16:30",
+            "openLocal": "08:00"
+          }
+        ]
+      }
+    },
+    "ratingCount": 90,
+    "reviewRating": 4.900000095367432,
+    "straightLineDistanceKm": 1.32
+  }
+}

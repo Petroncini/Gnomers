@@ -7,7 +7,7 @@
       "longitude": -47.89623
     }
   },
-  "recordedAt": "2026-10-17T23:47:18",
+  "recordedAt": "2026-10-18T00:02:04",
   "response": {
     "address": "Avenida Bruno Ruggiero Filho, 101, Parque Santa Felícia Jardim, SAO CARLOS - SP, 13562420, BR",
     "agentHints": {
@@ -22,53 +22,53 @@
     "deliveryMethods": [],
     "featuredItems": [
       {
-        "itemEan": "7891107101621",
-        "itemId": "fdbccfcb-f635-46d9-9a9c-2ed26580e943",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202608111441_tcn5r7pfez.png",
-        "itemName": "Óleo de Soja Soya 900ml",
-        "itemSkuId": "SKU-AEPI48079",
-        "menuSection": "Alimentos Básicos",
-        "promotionalUnitPrice": 5.39,
-        "unitPrice": 8.99
+        "itemEan": "SM00201037764",
+        "itemId": "26e119b5-81ea-4997-ac1a-d60b6de621ce",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202502041549_khd0xwliyj.png",
+        "itemName": "Uva Algodão Doce 500g",
+        "menuSection": "Feira",
+        "promotionalUnitPrice": 9.09,
+        "unitPrice": 12.99
       },
       {
-        "itemEan": "7896098900208",
-        "itemId": "57a55e15-830f-453e-bdd1-649997f476c1",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202608041626_xxm08lcvu7.jpeg",
-        "itemName": "Detergente Neutro Ypê 500ml",
-        "itemSkuId": "01a0f422-24d8-7252-b182-7c986187945d",
-        "menuSection": "Limpeza",
-        "promotionalUnitPrice": 1.97,
-        "unitPrice": 3.29
+        "itemEan": "7891021006125",
+        "itemId": "d05a4d5a-041c-4cc5-b9ae-614af883ebe3",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510042312_ztr20d88fwc.jpeg",
+        "itemName": "Café Torrado e Moído Tradicional Vácuo Melitta 500g",
+        "itemSkuId": "SKU-FUAJ88324",
+        "menuSection": "Matinais",
+        "promotionalUnitPrice": 15.67,
+        "unitPrice": 27.99
       },
       {
-        "itemEan": "7896098900239",
-        "itemId": "32f32498-f57d-4f53-8064-89521122c67c",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202608041622_8b4io3scd4e.jpeg",
-        "itemName": "Detergente Coco Ypê 500ml",
-        "itemSkuId": "SKU-PZQI34861",
-        "menuSection": "Limpeza",
-        "promotionalUnitPrice": 1.97,
-        "unitPrice": 3.29
+        "itemEan": "7896331100310",
+        "itemId": "91ac4e39-2ca5-47d3-befd-aa343fe03e74",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510031433_jos3it9pw2.jpeg",
+        "itemName": "Manteiga Com Sal Aviação Pote 200g",
+        "itemSkuId": "SKU-KGUZ77008",
+        "menuSection": "Frios e Laticínios",
+        "promotionalUnitPrice": 9.49,
+        "unitPrice": 18.99
       },
       {
-        "itemEan": "7898215152002",
-        "itemId": "e9180041-5613-478b-a489-df9a7be21e15",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202604281106_s170dlie2ar.jpeg",
-        "itemName": "Leite Condensado Semidesnatado Piracanjuba 395g",
-        "itemSkuId": "SKU-LEUX09878",
-        "menuSection": "Doces e Sobremesas",
-        "promotionalUnitPrice": 5.39,
-        "unitPrice": 8.99
+        "itemEan": "7899934808010",
+        "itemId": "c9a61d4b-acb8-4828-9a76-f383f44ae2c4",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202307201346_x2tspiajep7.jpg",
+        "itemName": "Queijo Mussarela Fatiado Oba Bem Querer 250g",
+        "itemSkuId": "SKU-IRQR40349",
+        "menuSection": "Frios e Laticínios",
+        "promotionalUnitPrice": 13.5,
+        "unitPrice": 26.99
       },
       {
-        "itemEan": "7894900337501",
-        "itemId": "5e631016-88c2-4e11-acb3-0badcfc94e6d",
-        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202606011438_jyhqwabxrrp.jpeg",
-        "itemName": "Drink Pronto Absolut Sprite Frutas Vermelhas Lt 269ml",
-        "menuSection": "Bebidas Alcoólicas",
-        "promotionalUnitPrice": 5.99,
-        "unitPrice": 9.99
+        "itemEan": "SM00200120820",
+        "itemId": "360d1020-48d3-45bf-82e0-8dd443ea06d6",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210190010_dpgpp89q4tw.jpg",
+        "itemName": "Morango Bandeja 200g",
+        "itemSkuId": "SKU-XJWK01298",
+        "menuSection": "Feira",
+        "promotionalUnitPrice": 9.18,
+        "unitPrice": 18.35
       }
     ],
     "isOpen": false,

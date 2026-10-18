@@ -77,3 +77,12 @@ def test_unused_merchant_has_no_fee():
     p = Problem(items=[Item(1, 1, 100)], merchants=[A, B], candidates=[c("a1", 1, "A", 31)], max_merchants=2)
     sol = solve(p)
     assert sol.merchants == ["A"] and sol.delivery_cost == 8.0
+
+
+def test_never_pads_quantity_to_reach_minimum():
+    """Caso real: 2 leites + 1 kg de arroz não chegam ao mínimo de R$ 30; o solver não pode comprar a mais."""
+    m = Merchant("M", "Mercado", 8.0, 30.0)
+    p = Problem(items=[Item(1, 2, 25), Item(2, 1000, 25)], merchants=[m],
+                candidates=[c("leite", 1, "M", 5.25), c("arroz", 2, "M", 8.61, 1000)], max_merchants=1)
+    sol = solve(p)
+    assert sol.merchants == [] and sorted(sol.missing) == [1, 2]

@@ -1,0 +1,137 @@
+{
+  "tool": "getMerchant",
+  "args": {
+    "merchantId": "9d6b46da-7347-4d8a-8fde-cda8ca3adef8",
+    "userLocation": {
+      "latitude": -22.01318,
+      "longitude": -47.89623
+    }
+  },
+  "recordedAt": "2026-10-18T01:01:14",
+  "response": {
+    "address": "AV CAPITAO LUIZ BRANDAO, 1007, JARDIM SANTA MARIA II, SAO CARLOS - SP, 13568450, BR",
+    "agentHints": {
+      "nextStepForItemsNavigation": "Follow `catalogSummary.navigationHint` to browse or search items in this merchant's catalog.",
+      "nextStepWhenUserPicksItem": "Retrieve full item details — option groups, nutrition, and applicable promotions — for the chosen item before adding it to the cart."
+    },
+    "appDeeplink": "ifood://catalog-hub/9d6b46da-7347-4d8a-8fde-cda8ca3adef8/GROCERIES",
+    "catalogSummary": {
+      "navigationHint": "Call `browseOffers` with `resultKind=ITEM`, the matching `merchantType`, and `refinements.merchantId=9d6b46da-7347-4d8a-8fde-cda8ca3adef8` to browse items. Use `searchOffers` with `refinements.merchantId=9d6b46da-7347-4d8a-8fde-cda8ca3adef8` for keyword search within this merchant.",
+      "totalItems": 7219
+    },
+    "deliveryMethods": [],
+    "featuredItems": [
+      {
+        "itemEan": "7891022637007",
+        "itemId": "891254de-4c8a-466c-80f3-f6924d8e98c1",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510042221_jlm7bjewbyn.png",
+        "itemName": "Detergente Líquido de Limão Limpol 500ml",
+        "itemSkuId": "SKU-ISKY87127",
+        "menuSection": "Limpeza",
+        "promotionalUnitPrice": 1.69,
+        "unitPrice": 1.69
+      },
+      {
+        "itemEan": "7894900184273",
+        "itemId": "2f6ed508-47c0-4dab-878b-32e149a96b9d",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202510032044_twqsfx538ih.jpeg",
+        "itemName": "Drink Pronto Schweppes Mixed Vodka Citrus Lata 269ml",
+        "itemSkuId": "SKU-EONO00985",
+        "menuSection": "Bebidas Alcoólicas",
+        "promotionalUnitPrice": 3.89,
+        "unitPrice": 6.49
+      },
+      {
+        "itemEan": "7891150064300",
+        "itemId": "d8b7bec9-fb6b-4ec6-a413-445d0de4f9a4",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202502071033_66s1lfr3wpu.png",
+        "itemName": "Desodorante Aerosol Rexona Clinical Extra Dry  Proteção Intensa 150ml",
+        "itemSkuId": "01a06db2-226b-78c2-9811-220b532b4f7c",
+        "menuSection": "Higiene e Cuidados Pessoais",
+        "promotionalUnitPrice": 13.44,
+        "unitPrice": 19.2
+      },
+      {
+        "itemEan": "7506306214989",
+        "itemId": "639868a6-13c1-46bb-b220-404ac5bfeb13",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202512081301_4sw9w11glne.jpeg",
+        "itemName": "Desodorante Rexona Clinical Classic",
+        "itemSkuId": "01a03fbf-aa10-7481-8821-aac4150cdf9a",
+        "menuSection": "Higiene e Cuidados Pessoais",
+        "promotionalUnitPrice": 13.44,
+        "unitPrice": 19.2
+      },
+      {
+        "itemEan": "7506306214972",
+        "itemId": "784699fd-6af7-4508-872f-fd80058866d5",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202608040919_w2867kbmr7p.png",
+        "itemName": "Desodorante Aero Rexona Clin. Men Clean 150ml",
+        "itemSkuId": "01a0594d-4e9b-7031-be08-3d5b702c13ef",
+        "menuSection": "Higiene e Cuidados Pessoais",
+        "promotionalUnitPrice": 14.49,
+        "unitPrice": 20.7
+      }
+    ],
+    "isOpen": false,
+    "merchantId": "9d6b46da-7347-4d8a-8fde-cda8ca3adef8",
+    "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/3901056/202607311821_FR9A.png",
+    "merchantName": "Paulistão Av. Luiz Brandão - São Carlos Lj 13",
+    "merchantType": "GROCERIES",
+    "minimumOrderAmount": 30,
+    "operatingHours": {
+      "today": [
+        {
+          "closeLocal": "13:50",
+          "openLocal": "09:00"
+        }
+      ],
+      "weekly": {
+        "fri": [
+          {
+            "closeLocal": "17:50",
+            "openLocal": "08:00"
+          }
+        ],
+        "mon": [
+          {
+            "closeLocal": "17:50",
+            "openLocal": "08:00"
+          }
+        ],
+        "sat": [
+          {
+            "closeLocal": "17:50",
+            "openLocal": "08:00"
+          }
+        ],
+        "sun": [
+          {
+            "closeLocal": "13:50",
+            "openLocal": "09:00"
+          }
+        ],
+        "thu": [
+          {
+            "closeLocal": "17:50",
+            "openLocal": "08:00"
+          }
+        ],
+        "tue": [
+          {
+            "closeLocal": "17:50",
+            "openLocal": "08:00"
+          }
+        ],
+        "wed": [
+          {
+            "closeLocal": "17:50",
+            "openLocal": "08:00"
+          }
+        ]
+      }
+    },
+    "ratingCount": 172,
+    "reviewRating": 4.800000190734863,
+    "straightLineDistanceKm": 3.08
+  }
+}

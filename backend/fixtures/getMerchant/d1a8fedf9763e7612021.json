@@ -7,7 +7,7 @@
       "longitude": -47.89623
     }
   },
-  "recordedAt": "2026-10-17T23:47:20",
+  "recordedAt": "2026-10-18T01:01:19",
   "response": {
     "address": "Avenida Francisco Pereira Lopes, 1701, Parque Santa Mônica, SAO CARLOS - SP, 13561250, BR",
     "agentHints": {
@@ -81,7 +81,7 @@
     "operatingHours": {
       "today": [
         {
-          "closeLocal": "18:10",
+          "closeLocal": "16:10",
           "openLocal": "08:00"
         }
       ],

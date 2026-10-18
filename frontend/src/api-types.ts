@@ -407,6 +407,26 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/plans/{plan_id}/replan": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Replan
+         * @description Novo carrinho para a mesma lista, mantendo endereço, horário e as escolhas feitas neste.
+         */
+        post: operations["replan_plans__plan_id__replan_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/rules": {
         parameters: {
             query?: never;
@@ -772,7 +792,7 @@ export interface components {
              * Type
              * @enum {string}
              */
-            type: "missing" | "brand_chain_info" | "brand_substitution" | "brand_choice" | "variety" | "quantity" | "split";
+            type: "missing" | "brand_chain_info" | "brand_substitution" | "brand_choice" | "variety" | "quantity" | "split" | "replan";
         };
         /** DecisionChoice */
         DecisionChoice: {
@@ -1230,7 +1250,7 @@ export interface components {
              * Kind
              * @enum {string}
              */
-            kind: "dietary" | "variety" | "brand_chain" | "brand_block" | "merchant" | "delivery" | "note";
+            kind: "dietary" | "variety" | "brand_chain" | "brand_block" | "merchant" | "delivery" | "quantity" | "note";
             /** Payload */
             payload: {
                 [key: string]: unknown;
@@ -1286,7 +1306,7 @@ export interface components {
              * Kind
              * @enum {string}
              */
-            kind: "dietary" | "variety" | "brand_chain" | "brand_block" | "merchant" | "delivery" | "note";
+            kind: "dietary" | "variety" | "brand_chain" | "brand_block" | "merchant" | "delivery" | "quantity" | "note";
             /** Payload */
             payload: {
                 [key: string]: unknown;
@@ -2328,6 +2348,37 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["ProgressEvent"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    replan_plans__plan_id__replan_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                plan_id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PlanCreated"];
                 };
             };
             /** @description Validation Error */

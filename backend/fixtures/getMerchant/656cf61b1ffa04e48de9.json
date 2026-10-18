@@ -1,0 +1,126 @@
+{
+  "tool": "getMerchant",
+  "args": {
+    "merchantId": "782805bb-66e0-4d8d-8e86-5befa3b5d7f8",
+    "userLocation": {
+      "latitude": -22.01318,
+      "longitude": -47.89623
+    }
+  },
+  "recordedAt": "2026-10-18T01:01:12",
+  "response": {
+    "address": "Av São Carlos, 3594, Vila Costa do Sol, SAO CARLOS - SP, 13566330, BR",
+    "agentHints": {
+      "nextStepForItemsNavigation": "Follow `catalogSummary.navigationHint` to browse or search items in this merchant's catalog.",
+      "nextStepWhenUserPicksItem": "Retrieve full item details — option groups, nutrition, and applicable promotions — for the chosen item before adding it to the cart."
+    },
+    "appDeeplink": "ifood://catalog-hub/782805bb-66e0-4d8d-8e86-5befa3b5d7f8/GROCERIES",
+    "catalogSummary": {
+      "navigationHint": "Call `browseOffers` with `resultKind=ITEM`, the matching `merchantType`, and `refinements.merchantId=782805bb-66e0-4d8d-8e86-5befa3b5d7f8` to browse items. Use `searchOffers` with `refinements.merchantId=782805bb-66e0-4d8d-8e86-5befa3b5d7f8` for keyword search within this merchant.",
+      "totalItems": 5318
+    },
+    "deliveryMethods": [],
+    "featuredItems": [
+      {
+        "itemEan": "7896010175615",
+        "itemId": "21ac815a-13b9-48ee-b5a7-10bd464ebe8e",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202512041118_b5v0cdmgof4.png",
+        "itemName": "Hair Spray Charming 150ml Extra Brilho",
+        "itemSkuId": "01a088ec-3703-7c71-951b-1c9abaeddd84",
+        "menuSection": "Higiene e Cuidados Pessoais",
+        "promotionalUnitPrice": 3.99,
+        "unitPrice": 4.99
+      },
+      {
+        "itemEan": "7891024037355",
+        "itemId": "08b7f037-9241-4bd2-9792-1f323f17f2a1",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202210180522_r07hibbmcni.jpg",
+        "itemName": "Sabonete Íntimo em Barra Cuidado Íntimo Fresh Equilibrium Protex 85g",
+        "itemSkuId": "01a08d55-6671-77e2-a2b1-4cd0bdd2c830",
+        "menuSection": "Higiene e Cuidados Pessoais",
+        "promotionalUnitPrice": 4.79,
+        "unitPrice": 5.99
+      },
+      {
+        "itemEan": "7891022639001",
+        "itemId": "baea4a10-5cda-4fee-816c-ad7c55b670a8",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202607311639_0e5b3dpbbgz.png",
+        "itemName": "Detergente Líquido de Maçã Limpol 500ml",
+        "itemSkuId": "SKU-LTDD31849",
+        "menuSection": "Limpeza",
+        "promotionalUnitPrice": 2.06,
+        "unitPrice": 3.44
+      },
+      {
+        "itemEan": "7899970402814",
+        "itemId": "69147da8-ac48-4c42-b18d-ec1845390579",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202604111000_420q5x9zxl2.png",
+        "itemName": "Chocolate Ao Leite Hersheys Pacote 82g",
+        "itemSkuId": "SKU-CBPD40894",
+        "menuSection": "Doces e Sobremesas",
+        "promotionalUnitPrice": 3.44,
+        "unitPrice": 5.74
+      },
+      {
+        "itemEan": "7896098900253",
+        "itemId": "d5f57d04-b20e-4cde-9f49-675b35d7429c",
+        "itemImageUrl": "https://static.ifood-static.com.br/image/upload/t_medium/pratos/820af392-002c-47b1-bfae-d7ef31743c7f/202608041619_0bd7k2vm5yi.jpeg",
+        "itemName": "Detergente Líquido Clear Ypê 500ml",
+        "itemSkuId": "SKU-MKVN75871",
+        "menuSection": "Limpeza",
+        "promotionalUnitPrice": 2.26,
+        "unitPrice": 3.77
+      }
+    ],
+    "isOpen": false,
+    "merchantId": "782805bb-66e0-4d8d-8e86-5befa3b5d7f8",
+    "merchantLogoUrl": "https://static.ifood-static.com.br/image/upload/t_thumbnail/logosgde/782805bb-66e0-4d8d-8e86-5befa3b5d7f8/202603111724_A6N4.png",
+    "merchantName": "Carrefour Bairro - São Carlos 2",
+    "merchantType": "GROCERIES",
+    "minimumOrderAmount": 30,
+    "operatingHours": {
+      "today": [],
+      "weekly": {
+        "fri": [
+          {
+            "closeLocal": "17:50",
+            "openLocal": "08:00"
+          }
+        ],
+        "mon": [
+          {
+            "closeLocal": "17:50",
+            "openLocal": "08:00"
+          }
+        ],
+        "sat": [
+          {
+            "closeLocal": "17:50",
+            "openLocal": "08:00"
+          }
+        ],
+        "thu": [
+          {
+            "closeLocal": "17:50",
+            "openLocal": "08:00"
+          }
+        ],
+        "tue": [
+          {
+            "closeLocal": "17:50",
+            "openLocal": "08:00"
+          }
+        ],
+        "wed": [
+          {
+            "closeLocal": "17:50",
+            "openLocal": "08:00"
+          }
+        ]
+      }
+    },
+    "ratingCount": 584,
+    "reviewRating": 4.900000095367432,
+    "straightLineDistanceKm": 1.43
+  }
+}

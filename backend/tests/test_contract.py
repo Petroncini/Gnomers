@@ -58,6 +58,9 @@ def test_every_route_matches_its_response_model(client):
         assert ok(client.post(f"/plans/{plan['id']}/decisions/{card['id']}", json={"action": "accept"}))[0]
         assert ok(client.post(f"/plans/{plan['id']}/chat", json={"card_id": card["id"], "message": "por que esse mercado?"}))[0]
     assert ok(client.post(f"/plans/{plan['id']}/chat", json={"message": "quanto economizei?"}))[0]
+    again = client.post(f"/plans/{plan['id']}/replan")
+    assert ok(again)[0]
+    assert client.get(f"/plans/{again.json()['id']}").json()["status"] in ("ready", "failed")
     done = client.post(f"/plans/{plan['id']}/checkout", json={"accept_changes": True})
     assert ok(done)[0]
     order_id = done.json()["orders"][0]["id"]

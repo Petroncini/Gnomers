@@ -45,9 +45,13 @@ class Settings:
     fixtures_dir: Path = field(default_factory=lambda: Path(_get("GNOMERS_FIXTURES", str(BACKEND / "fixtures"))))
     database_url: str = field(default_factory=lambda: _get("GNOMERS_DB", f"sqlite:///{BACKEND / 'gnomers.db'}"))
     anthropic_api_key: str = field(default_factory=lambda: _get("ANTHROPIC_API_KEY"))
-    # tarefas em lote usam o modelo rápido; extração de regra e explicação usam o forte
-    llm_fast_model: str = field(default_factory=lambda: _get("GNOMERS_LLM_FAST", "claude-haiku-5-5"))
-    llm_strong_model: str = field(default_factory=lambda: _get("GNOMERS_LLM_STRONG", "claude-opus-5-5"))
+    openrouter_api_key: str = field(default_factory=lambda: _get("OPENROUTER_API_KEY"))
+    # "openrouter", "anthropic" ou vazio (escolhe pela chave presente, OpenRouter primeiro)
+    llm_provider: str = field(default_factory=lambda: _get("GNOMERS_LLM_PROVIDER"))
+    # tarefas em lote usam o modelo rápido; extração de regra e explicação usam o forte.
+    # Vazio = padrão do provedor (ver app/llm.py)
+    llm_fast_model: str = field(default_factory=lambda: _get("GNOMERS_LLM_FAST"))
+    llm_strong_model: str = field(default_factory=lambda: _get("GNOMERS_LLM_STRONG"))
     llm_enabled: bool = field(default_factory=lambda: _get("GNOMERS_LLM", "auto") != "off")
     mcp_concurrency: int = field(default_factory=lambda: int(_get("GNOMERS_MCP_CONCURRENCY", "6")))
     mcp_timeout_s: float = field(default_factory=lambda: float(_get("GNOMERS_MCP_TIMEOUT", "30")))
